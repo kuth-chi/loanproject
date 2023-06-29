@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="container-lg vh-100">
+        <div class="row g-6 mb-6 mt-2 p-3">
+            <div class="col-12">
+
+             </div>
+                <div class="d-flex justify-content-between">
+                    <div class="input-group w-25 my-3">
+                    <form class="d-flex " action="" method="GET">
+                          <input class="form-control border-end-0 border rounded-pill" name="name" type="text" placeholder="{% translate 'search customer' %}" >
+                          <button class="btn btn-outline-secondary bg-primary text-white border-start-0 border rounded-pill ms-n3" type="submit">
+                              <i class="ti-search"></i>
+                          </button>
+                    </form>
+                </div>
+                </div>
+               <div class="bg-light-subtle">
+                <table class="table  align-middle mb-0 bg-white table-hover rounded-3">
+                    <thead class="bg-light">
+                      <tr>
+                        <th class="fs-7">{% translate 'Customer' %}</th>
+                        <th class="fs-7">{% translate 'Loan progress' %}</th>
+                        <th class="fs-7">{% translate 'Total Interest' %}</th>
+                        <th class="fs-7">{% translate 'Total Principle' %}</th>
+                        <th class="fs-7">{% translate 'Total Balance' %}</th>
+                        <th class="fs-7">{% translate 'Action' %}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <td>{{ loansDetail.customer.name|title }}</td>
+                            <td>
+                                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="{{ countschedule }}">
+                                  <div class="progress-bar" style="width: {{ countPayback }}%"></div>
+                                </div>
+                            </td>
+                            <td>{{ total_interest_paid }}</td>
+                            <td>{{ total_principle_paid}}</td>
+                            <td>{{ total_balance}}</td>
+                            <td><a class="btn btn-sm btn-outline-success">Detail</a></td>
+                            </tr>
+                    </tbody>
+                  </table>
+                   <div class="d-flex justify-content-end mt-2 ">
+
+                     <div class="bottom-field mx-3">
+                        <ul class="pagination ">
+                          <li class="prev "><a href="#" id="prev" class="nav-link fs-4">&#139;</a></li>
+                            <!-- page number here -->
+                          <li class="next"><a href="#" id="next" class="nav-link fs-4">&#155;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                  </div>
+            </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

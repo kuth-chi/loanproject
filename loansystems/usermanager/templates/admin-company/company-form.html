@@ -1,0 +1,279 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} Manage Customer{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+    {% block javascript %}
+  <script>
+  var loadImage = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+{% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+{% endfor %}
+        <script>
+      $(document).ready(function() {
+    // Get the formset container and the add button
+    var formsetContainer = $('#formset-container');
+    var addFormsetButton = $('#add-formset');
+
+    // Add a new formset when the "Add" button is clicked
+    addFormsetButton.click(function() {
+        var formsetCount = formsetContainer.children().length;
+        var newFormset = formsetContainer.children().first().clone();
+        newFormset.find(':input').each(function() {
+            var name = $(this).attr('name').replace('-' + (formsetCount-1) + '-', '-' + formsetCount + '-');
+            var id = 'id_' + name;
+            $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
+        });
+        newFormset.find('.remove-formset').show();
+        formsetContainer.append(newFormset);
+        return false;
+    });
+
+    // Remove a formset when the "Remove" button is clicked
+    formsetContainer.on('click', '.remove-formset', function() {
+        var formsetCount = formsetContainer.children().length;
+        if (formsetCount > 1) {
+            $(this).closest('.formset-row').remove();
+            for (var i=0; i<formsetCount-1; i++) {
+                formsetContainer.children().eq(i).find(':input').each(function() {
+                    var name = $(this).attr('name').replace('-' + i + '-', '-' + (i+1) + '-');
+                    var id = 'id_' + name;
+                    $(this).attr({'name': name, 'id': id});
+                });
+            }
+        }
+        return false;
+    });
+});
+
+        </script>
+
+{% endblock %}
+<div class="container">
+            {% if companyDetail %}
+                <div class="text-center my-4">
+                <h4>Update Company</h4>
+            </div>
+                {% else %}
+
+                <div class="text-center my-4">
+                <h4>Create Company</h4>
+            </div>
+            {% endif %}
+
+    <div class="row justify-content-center">
+                <hr>
+        <div class="col-12 col-sm-12 col-md-11 bg-light-subtle rounded-2">
+            <div class="row my-4">
+                <div class="col-12 my-4">
+                    <div class="form-group">
+                        {% if companyDetail %}
+                        <form class="row" action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-sm-12 col-md-5 mt-2">
+                                <label class="w-100 h-100 d-flex flex-column justify-content-center text-center"
+                                    style="border: 2px dotted #333; border-radius: 10px">
+                                    <input type="file" id="imgInp"
+                                           onchange="loadImage(event)"
+                                           accept="image/*" name="logo"
+                                           class="d-none"
+{#                                            {% if updateCustomer %}#}
+{#                                                 value="{{ updateCustomer.profile_img }}"#}
+{#                                            {% endif %}#}
+                                    >
+                                    {% if updateCustomer %}
+                                        <img id="output" src="/media/{{ companyDetail.logo }}" alt="" class="rounded-2 object-fit-cover update_image">
+                                    {% else %}
+                                        <img id="output" src="/media/{{ companyDetail.logo }}" class=" update_image rounded-2 object-fit-cover" alt="">
+                                    {% endif %}
+                               </label>
+                            </div>
+                                <div class="col-sm-12 col-md-7 mt-2">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="name" placeholder="" value="{{ companyDetail.name }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Short Name</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="short_name" placeholder="" value="{{ companyDetail.short_name }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Local Name</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="local_name" placeholder="" value="{{ companyDetail.local_name }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Tel Number</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="number" name="tel_number" placeholder=""  value="{{ companyDetail.tel_number }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Email</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+
+                                            <input class="form-control" type="email" name="email" placeholder="" value="{{ companyDetail.email }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">VAT Number</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="vat_number" placeholder="" value="{{ companyDetail.vat_number }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Currency</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                            <select name="main_currency" class="form-control">
+                                                <option value="$" {% if companyDetail.main_currency == '$' %}
+                                                selected{% endif %} >$ (USD)</option>
+                                                <option value="៛" {% if companyDetail.main_currency == '៛' %}
+                                                selected {% endif %}>៛ (KHR)</option>
+                                            </select>
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-6 col-md-6 mb-3">
+                                        <input class="form-control" type="date" name="founded" placeholder="Founded" value="{{ companyDetail.founded|date:'Y-m-d' }}">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="d-flex">
+                                             <select name="mr">
+                                                <option {% if companyDetail.mr == True %} selected{% endif %}  value="True">Mr.</option>
+                                                <option  {% if companyDetail.mr == False %} selected{% endif %} value="False">Mrs.</option>
+                                            </select>
+                                        <input class="form-control" type="text" name="founder" placeholder="Founder" value="{{ companyDetail.founder }}">
+                                                </div>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-lg-12 mt-3  p-3 rounded-2">
+                                        <h5>Company Bank Account</h5>
+                                {% if bank_account %}
+                                    {% for bank in bank_account %}
+                                            <div class="form-control  mt-2">
+                                                <div class="row p-2">
+                                                    <div class="col-4 col-sm-6 col-md-3 mt-1 p-1 text-center">
+                                                      <p>{{ bank.bank_name }}</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-6 col-md-2 mt-1 p-1 text-center">
+                                                        <p>{{ bank.bank_account_name }}</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-6 col-md-2 mt-1 p-1 text-center">
+                                                        <p>{{ bank.bank_account_number }} </p>
+                                                    </div>
+                                                    <div class="col-6 col-sm-6 col-md-3 mt-1 p-1 text-center">
+                                                        <p>{{ bank.bank_account_currency}}
+                                                            {% if bank.bank_account_currency == '$' %}(USD){% elif bank.bank_account_currency == '៛' %} (KHR) {% else %} {% endif %}</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-12 col-md-2 mt-1 d-flex">
+                                                        <a class="btn btn-sm text-success p-1 m-1" href="{% url 'create_bank_account' companyDetail.id  %}"><i class="ti-plus"></i></a>
+                                                        <a class="btn btn-sm text-danger p-1 m-1" href="{% url 'update_bank_account' bank.id  %}"><i class="ti-pencil"></i></a>
+                                                        <a class="btn btn-sm text-danger p-1 m-1" href="{% url 'deleted_bank_account' bank.id  %}"><i class="ti-trash"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="form-control">
+                                        <a class="btn btn-success btn-sm" href="{% url 'create_bank_account' companyDetail.id  %}">Add bank account</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                                <div class="col-lg-12 mt-3  p-3 rounded-2">
+                                        <h5>Investment </h5>
+                                {% if investor %}
+                                    {% for items in investor %}
+                                            <div class="form-control  mt-2">
+                                                <div class="row p-2">
+                                                    <div class="col-4 col-sm-6 col-md-3 mt-1 p-1 text-center">
+                                                      <p>{{ items.name_investor }}</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-6 col-md-2 mt-1 p-1 text-center">
+                                                        <p>{{ items.position_investor }} </p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-6 col-md-2 mt-1 p-1 text-center">
+                                                        <p>{{ items.value_invest }}</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-12 col-md-2 mt-1 d-flex">
+                                                        <a class="btn btn-sm text-success p-1 m-1" href="{% url 'create_bank_account' companyDetail.id  %}"><i class="ti-plus"></i></a>
+                                                        <a class="btn btn-sm text-danger p-1 m-1" href="{% url 'update_bank_account' bank.id  %}"><i class="ti-pencil"></i></a>
+                                                        <a class="btn btn-sm text-danger p-1 m-1" href="{% url 'deleted_bank_account' bank.id  %}"><i class="ti-trash"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="form-control">
+                                        <a class="btn btn-success btn-sm" href="{% url 'investor' companyDetail.id  %}">New Inverstor</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                                 <div class="col-sm-12 col-md-12 mt-3">
+                                     <h5>Description</h5>
+                                     <textarea class="form-control" cols="10" rows="10"  name="description" placeholder="Description ... ">{{ companyDetail.description }}</textarea>
+                                </div>
+                                <div class="col-sm-12 col-md-12 mt-2">
+                                {% if address_company %}
+                                        <div class="text-end"><a href="{% url 'update_address_company' address_company.id %}" ><i class="ti-pencil"></i></a></div>
+                                        <h4> {{ address_company.name }} Address</h4>
+                                        {{ address_company.location }},
+                                        {{ address_company.name }}, {{ address_company.country }}, {{ address_company.province }},
+                                        {{ address_company.district }}, {{ address_company.commune }}, {{ address_company.village }}
+                                        {% else %}
+                                        <h4>Address</h4>
+                                        <a href="{% url 'add_company_address' companyDetail.id %}" class="btn btn-sm btn-success">Add company address</a>
+                                    {% endif %}
+                                </div>
+                            <div class="col-12 d-flex  justify-content-between mt-4">
+                                <a class="btn btn-dark" href="{% url 'dashboard' %}">Back</a>
+                              <button class="btn btn-success" type="submit">Save</button>
+                            </div>
+
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'base/footer.html' %}
+{% endblock %}

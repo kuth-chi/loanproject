@@ -1,0 +1,25 @@
+{% block javascript %}
+    {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <script>
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Great job!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                </script>
+            {% elif message.tags == 'error' %}
+                <script>
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Ops! Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                </script>
+            {% endif %}
+    {% endfor %}
+{% endblock %}

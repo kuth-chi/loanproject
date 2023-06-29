@@ -1,0 +1,251 @@
+
+{% load static %}
+{% load i18n %}
+{% if sidebar.is_sidebar == False %}
+
+<nav class="navbar navbar-dark bg-success shadow d-none-print d-lg-none ">
+  <div class="container-fluid">
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="profile btn-group">
+              {% if user.is_authenticated %}
+                  <div type="button"  data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
+                      aria-expanded="false" class="d-flex align-content-center">
+                      {% if logo %}
+                          <img src="/media/{{ logo.logo }}" alt="" width="44" height="44" alt="{{ user.username}}'s avatar " class="rounded-3" style="border: 2px solid #0a53be; object-fit: cover;">
+                      {% endif %}
+                      <div class="text-center">
+                        <span class="text-white align-self-center mx-2">{% translate 'Welcome' %}</span>
+                        <h6 class="text-white align-self-center mx-2"> {{ user.username|upper }} </h6>
+                      </div>
+                  </div>
+              {% endif %}
+          </div>
+        </div>
+
+
+        <style>
+            .bg-ez {
+                background-color: #4bb987;
+            }
+            .bg-ez1 {
+                 background-color: #262f2b;
+            }
+            .ez-nav {
+                padding: 5px;
+                background-color: #262f2b;
+            }
+        </style>
+    <div style="width: 300px" class="offcanvas bg-success offcanvas-start " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header bg-ez">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"> {% if company %}
+        <a class="navbar-brand text-dark" href="{% url 'dashboard' %}">
+        <img src="/media/{{ company.logo }}" alt="" class=" object-fit-cover rounded-circle" width="40px" height="40px"> {{ company.name }} </a>
+        {% else %}
+        <a class="navbar-brand text-dark" href="{% url 'dashboard' %}">{{ company.name }} {% translate 'Loan System' %} </a>
+        {% endif %}</h5>
+        <button type="button" class="btn-close text-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="bg-ez1">
+        <ul class="navbar-nav justify-content-start flex-grow-1">
+          <li class="nav-item ez-nav">
+            <a class="nav-link active" aria-current="page" href="/"><i class="ti-home mx-2"></i>Dashboard</a>
+          </li>
+          <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-money mx-2"></i> Loan
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'loan' %}"><i class="ti-minus mx-2"></i> {% translate 'Loan list' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'payback' %}"><i class="mx-2 ti-minus"></i>{% translate 'Payment' %}</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-user mx-2"></i> Customer
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'customer' %}"><i class="ti-list-ol mx-2"></i> Customer list</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'create_customer' %}"><i class="mx-2 ti-plus"></i> Add customer</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-user mx-2"></i> Address
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'loan' %}"><i class="ti-list-ol mx-2"></i> {% translate 'Address' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'country_list' %}"><i class="mx-2 ti-minus"></i>{% translate 'Country' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'province_list' %}"><i class="mx-2 ti-minus"></i>{% translate 'Provice' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'district_list' %}"><i class="mx-2 ti-minus"></i>{% translate 'District' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'commune_list' %}"><i class="mx-2 ti-minus"></i>{% translate 'Commune' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'village_list' %}"><i class="mx-2 ti-minus"></i>{% translate 'Village' %}</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-receipt mx-2"></i> Report
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'over_due_date' %}"><i class="ti-list-ol mx-2"></i> {% translate 'Overduedate' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="{% url 'recent_activities' %}"><i class="mx-2 ti-minus"></i>{% translate 'Recent Activities' %}</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-user mx-2"></i> Paw
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'paw' %}"><i class="ti-list-ol mx-2"></i> {% translate 'Paw list' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="#"><i class="mx-2 ti-plus"></i>{% translate 'Paw Pay' %}</a></li>
+            </ul>
+          </li>
+            <li class="nav-item dropdown ez-nav">
+            <a class="nav-link dropdown-toggle ez-nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti-user mx-2"></i> User
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark ez-nav">
+              <li><a class="dropdown-item ez-nav" href="{% url 'paw' %}"><i class="ti-list-ol mx-2"></i> {% translate 'Paw list' %}</a></li>
+              <li><a class="dropdown-item ez-nav" href="#"><i class="mx-2 ti-plus"></i>{% translate 'Paw Pay' %}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{#========================================= Nav Bar#}
+<nav class="navbar navbar-expand-lg  navbar-dark sticky-top bg-success shadow mb-2 d-none-print d-sm-none" >
+    <div class="container-fluid">
+      {% if company %}
+      <a class="navbar-brand" href="{% url 'dashboard' %}">
+        <img src="/media/{{ company.logo }}" alt="" class=" object-fit-cover rounded-circle" width="40px" height="40px"> {{ company.name }} </a>
+        {% else %}
+        <a class="navbar-brand" href="{% url 'dashboard' %}">{{ company.name }} {% translate 'Loan System' %} </a>
+        {% endif %}
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+        {% with url_name=request.resolver_match.url_name %}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if url_name == 'dashboard' %} active {% endif %}" aria-current="page" href="{% url 'dashboard' %}">{% translate 'Dashboard' %}</a>
+          </li>
+          
+          <li class="nav-item btn-group">
+            <a type="button" class="nav-link dropdown-toggle  {% if url_name == 'customer' %} active {% endif %}" data-bs-toggle="dropdown">
+              {% translate 'Customer' %}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item {% if url_name == 'customer' %} active {% endif %}" href="{% url 'customer' %}"><button class="btn btn-outline-success w-100"><i class="fa fa-drivers-license me-2"></i>{% translate 'Customer list' %}</button></a></li>
+              <li><a class="dropdown-item {% if url_name == 'create_customer' %} active {% endif %}" href="{% url 'create_customer' %}"><button class="btn btn-outline-success w-100"><i class="fa fa-plus me-2"></i> {% translate 'Customer' %}</button></a></li>
+            </ul>
+          </li>
+          <li class="nav-item ">
+              <a href="{% url 'payback' %}" class="nav-link {% if url_name == 'payment' %} active {% endif %}" > {% translate 'Payment' %} </a>
+          </li>
+          <li class="nav-item btn-group">
+            <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              {% translate 'Address' %}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'address' %}">{% translate 'Address' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'country_list' %}">{% translate 'Country' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'province_list' %}">{% translate 'Province' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'district_list' %}">{% translate 'District' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'commune_list' %}">{% translate 'Commune' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'village_list' %}">{% translate 'Village' %}</a></li>
+              {#   <li><hr class="dropdown-divider"></li>#}
+            </ul>
+          </li>
+          <li class="nav-item btn-group">
+                <a class="nav-link {% if url_name == 'collateral' %} active {% endif %}" href="{% url 'collateral_list' %}" >
+                  {% translate 'Collateral' %}
+                </a>
+          </li>
+              <li class="nav-item btn-group">
+                    <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                      {% translate 'Report' %}
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'over_due_date' %}">{% translate 'Overduedate' %}</a></li>
+                      <li><a class="dropdown-item" href="{% url 'recent_activities' %}">{% translate 'Recent Activities' %}</a></li>
+                    </ul>
+                  </li>
+              <li class="nav-item btn-group">
+                <a href="{% url 'paw' %}" class="nav-link {% if url_name == 'Paw' %} active {% endif %}">{% translate 'Paw' %}</a>
+              </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="ti-user mx-2"></i> User
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item " href="{% url 'employee_list' %}"><i class="ti-list-ol mx-2"></i> {% translate 'Employee list' %}</a></li>
+                      <li><a class="dropdown-item " href="{% url 'create_employee_detail' %}"><i class="mx-2 ti-plus"></i>{% translate 'Create Employee' %}</a></li>
+                    </ul>
+                  </li>
+              <li class="nav-item ">
+                <li><a class="{% if url_name == 'loan' %} active {% endif %}" href="{% url 'loan' %}"><button class="btn btn-outline-warning me-2" type="button">{% translate 'Loan' %}</button></a></li>
+              </li>
+        </ul>
+        {% endwith %}
+        <div class="profile btn-group">
+              {% if user.is_authenticated %}
+                  <div type="button"  data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
+                      aria-expanded="false" class="d-flex align-content-center">
+                      {% if logo %}
+                          <img src="/media/{{ logo.logo }}" alt="" width="44" height="44" alt="{{ user.username}}'s avatar " class="rounded-3" style="border: 2px solid #0a53be; object-fit: cover;">
+                      {% endif %}
+                      <div class="text-center">
+                        <span class="text-white align-self-center mx-2">{% translate 'Welcome' %}</span>
+                        <h6 class="text-white align-self-center mx-2"> {{ user.username|upper }} </h6>
+                      </div>
+                  </div>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+{% if user.is_authenticated %}
+<div class="offcanvas offcanvas-end bg-body-secondary" style="max-width: 300px" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">{% translate 'Setting' %}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action border-0"> <a class="nav-link mt-1" href=" {% url 'update_company' user.id %}"><i class="fa-solid fa-1 fa-building-user"></i> <span class="mx-1">{% translate 'Mange Company' %}</span></a></li>
+            <li class="list-group-item list-group-item-action border-0"><a class=" nav-link " data-bs-toggle="collapse" href="#collapseSides" role="button" aria-controls="collapseExample">
+            <i class="fa-solid fa-cog" ></i> <span class="mx-1">{%  translate 'Setting' %}</span></a></li>
+            <ul class="list-group collapse" id="collapseSides">
+                <li class="list-group-item list-group-item-action border-0 mx-2"><a class="nav-link" href="{% url 'setting' user.id %}"><span class="mx-1">{%  translate 'User' %}</span></a></li>
+                <li class="list-group-item list-group-item-action border-0 mx-2"><a class="nav-link" href="{% url 'layout' company.id %}"><span class="mx-1">{%  translate 'Layout' %}</span></a></li>
+            </ul>
+          <li class="list-group-item list-group-item-action border-0"><a class=" nav-link " data-bs-toggle="collapse" href="#collapseSide" role="button" aria-controls="collapseExample">
+            <i class="fa-solid fa-language" ></i> <span class="mx-1">{% translate 'Language' %}</span></a></li>
+            <ul class="list-group collapse" id="collapseSide">
+                {% get_current_language as LANGAUGE_CODE %}
+                {% get_available_languages as LANGAUGES %}
+                {% get_language_info_list for available_languages as langs  %}
+                {% for lang in langs  %}
+                <li class="list-group-item list-group-item-action border-0 mx-2"><a class="nav-link" href="/{{ lang.code }}/">{{ lang.name_local }}</a></li>
+                {% endfor %}
+            </ul>
+        <li class="list-group-item list-group-item-action border-0"><hr class="dropdown-divider"></li>
+        <li class="list-group-item list-group-item-action border-0"><a class="text-decoration-none text-danger" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> <span class="mx-1">{% translate 'Logout' %}</span></a></li>
+      </ul>
+      <hr>
+    </div>
+    
+  </div>
+</div>
+{% else %}
+{% endif %}
+
+{% endif %}

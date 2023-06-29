@@ -1,0 +1,161 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="container-lg">
+        <div class="col-12 p-2 bg-light-subtle shadow my-2">
+            <div class="d-flex justify-content-between text-success-emphasis">
+                <a href="{% url 'payback' %}" class="btn "><h4 class="kh-moul-light">{% translate "Payment list" %}</h4></a>
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'payback' %}"><i class="ti-home"></i></a> /
+                    {% trans 'Payment list' %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+        <form action="" autocomplete="off" id="search-form" method="post" class="position-relative">
+            {% csrf_token %}
+            <div class="d-flex position-relative">
+                  <input class="form-control border-end-0 border rounded-pill" type="text" name="search" id="search-input"  placeholder="{% translate 'Search paw' %}" >
+                  <button class="position-absolute right-0 btn btn-outline-success bg-success text-white border-start-0 border rounded-pill ms-n3">
+                      <i class="ti-search"></i>
+                  </button>
+            </div>
+            <div class=" not-visible shadow p-2 position-absolute border-top-0"  style=" z-index: 10; width: 100%" id="result-search"></div>
+        </form>
+    </div>
+        <div class="row g-6 mb-6 mt-2 p-3">
+               <div class="bg-light-subtle">
+                    <table class="table  align-middle mb-0 bg-white table-hover rounded-3">
+                    <thead class="bg-light">
+                      <tr>
+                        <th class="fs-7">{% translate 'Customer' %}</th>
+                        <th class="fs-7">{% translate 'Interest' %}</th>
+                        <th class="fs-7">{% translate 'Principle' %}</th>
+                        <th class="fs-7">{% translate 'Due date' %}</th>
+                        <th class="fs-7">{% translate 'Pay date' %}</th>
+                        <th class="fs-7">{% translate 'Balance' %}</th>
+                        <th class="fs-7">{% translate 'Full Paid' %}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% if payBack %}
+                        {% for payback in payBack %}
+                            <tr>
+                            <td>
+                                <a class="nav-link text-dark" href="{% url 'payback_detail' payback.id %}">
+                                    {{ payback.loan.customer.name_kh }} <strong>#{{ payback.loan.loan_number_id }}</strong>
+                                </a></td>
+                            <td>{{ payback.interest_paid }}{{company.main_currency}}</td>
+                            <td>{{ payback.principle_paid }}{{company.main_currency}}</td>
+                            <td>{{ payback.due_date }}</td>
+                            <td>{{ payback.pay_date }}</td>
+                            <td>{{ payback.balance }}{{company.main_currency}}</td>
+                            <td>{{ payback.full_paid }}{{company.main_currency}}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                <h4 class="text-secondary-emphasis">No Data .....</h4>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                    <div class="d-flex justify-content-between mt-2 ">
+                            <div class="">
+                                     {% if payBack %}
+                                     Page  {{ payBack.number  }} - row {{ payBack.end_index }}
+                                     {% endif %}
+                                 </div>
+                                 <div class="bottom-field mx-3">
+                                    <div class="d-flex justify-content-end mt-2 ">
+                                      {% if payBack.has_other_pages %}
+                                       <nav aria-label="Page navigation example">
+                                          <ul class="pagination">
+                                          {% if payBack.has_previous %}
+                                            <li class="page-item"><a class="page-link text-dark" href="?page={{ payBack.has_previous }}">{% translate 'Previous' %}</a></li>
+                                            {% else %}
+                                              <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                                            {% endif %}
+                                            {% for i in payBack.paginator.page_range %}
+                                              {% if payBack.number == i %}
+                                                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                                              {% else %}
+                                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                              {% endif %}
+                                            {% endfor %}
+                                          {% if payBack.has_next %}
+                                            <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ payBack.has_next }}">{% translate 'Next' %}</a></li>
+                                              {% else %}
+                                              <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                                          {% endif %}
+                                          </ul>
+                                           {% endif %}
+                                        </nav>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+    </div>
+    {% block javascript %}
+
+{#    ==================== search paw data =====================#}
+    <script>
+            const result_box = document.getElementById('result-search');
+            const search_form = document.getElementById('search-form')
+            const search_input = document.getElementById('search-input');
+
+            const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            search_input.addEventListener('keyup', e=> {
+                // Now when keyup shw resul box
+                if(result_box.classList.contains('not-visible')) {
+                    result_box.classList.remove('not-visible')
+                }
+                // let get the search result
+                sendSearchData(e.target.value)
+            })
+            const sendSearchData = (paymentList) => {
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "search-payment" %}',
+                    data: {
+                        'csrfmiddlewaretoken': csrf,
+                        'paymentList': paymentList,
+                    },
+                    success: (res) => {
+                        const data = res.data
+                        if (Array.isArray(data)){
+                            let searchResults = ''
+                            data.forEach(paymentList => {
+                                searchResults += `
+                                    <a href="/payback_detail/${paymentList.id}"
+                                    class='border-bottom-1 d-flex justify-content-start align-items-center text-decoration-none bg-light rounded-pill m-1 p-1'>
+                                     <p class="mx-2">${paymentList.customer_kh} (${paymentList.customer}) | ${paymentList.balance}</p> <span class="badge text-bg-light mx-2">${paymentList.loan_id}</span>
+                                     <span class="btn btn-sm btn-outline-dark rounded-pill"> detail</span>
+                                    </a>`
+                            });
+                            result_box.innerHTML = searchResults;
+                        } else {
+                            if(search_input.value.length > 0){
+                                result_box.innerHTML = `<b class="bg-light w-100 d-flex justify-content-center p-3 text-center">${data}</b>`
+                            } else {
+                                result_box.classList.add('not-visible')
+                            }
+                        }
+                    },
+                    error: (err) => {
+                        alert('this data has error!(-_-) please try again')
+                        console.log(err)
+                    }
+                })
+            }
+
+        </script>
+
+        {% endblock %}
+{% endblock %}

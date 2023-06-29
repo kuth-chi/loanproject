@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Moul&family=Noto+Serif+Khmer:wght@100;200;300;400;500;600&family=Poppins:wght@100;400&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('responsive.css');
+:root {
+--main-linear-gradient: linear-gradient(#37dde9, #1196d3);
+--border-outline: #46ebf7;
+ --over_due: rgba(255, 120,120, 0.35);
+ --paid: rgba(120,255,174,0.35);
+}
+@font-face {
+font-family: "Khmer Moul";
+src: url("/static/fonts/KhmerMoul.ttf")
+}
+@font-face {
+	font-family: "Khmer OS Moul";
+	src: url("/static/fonts/Khmer OS Moul.ttf")
+}
+
+@font-face {
+font-family: 'Battambang';
+src: url('/static/fonts/Battambang-Regular.ttf');
+}
+
+body {
+    /*font-family: 'Noto Serif Khmer', 'Poppins', serif;*/
+    font-family: 'Battambang', sans-serif;
+    height: 100vh;
+    overscroll-behavior: none;
+}
+.kh-moul-light {
+    font-family: 'Khmer Moul', sans-serif;
+}
+.bg-over {
+    background-color: var(--over_due);
+}
+.bg-paid {
+    background-color: var(--paid);
+}
+.scrollable-element {
+  scrollbar-width: thin;
+}
+.fn-moul {
+    font-family: 'Moul', 'Noto Serif Khmer', 'Poppins', sans-serif;
+}
+.main-head {
+    height: 150px;
+    background: #FFF;
+}
+.not-visible {
+    display: none;
+}
+
+.ab-rg-item {
+    position: absolute;
+    bottom: 10%;
+    right: 10px;
+}
+ .not-visible {
+                display: none;
+            }
+legend {
+    float: none!important;
+    width: auto;
+}
+
+.right-0 {
+    right: 0;
+}
+.right-10 {
+    right: 10%;
+}
+.left-0{
+    left: 0;
+}
+.left-10 {
+    left: 10%;
+}
+.myForm {
+    min-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+}
+/* Footer */
+
+/*section {*/
+/*    padding: 60px 0;*/
+/*}*/
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: var(--bs-success)!important;
+}
+#footer h5 {
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li {
+    padding: 3px 0;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size: 25px;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#footer ul.social li a,
+#footer ul.quick-links li a {
+    color: #ffffff;
+}
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
+}
+
+#footer ul.quick-links li {
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}
+/* LOGIN FORM  */
+/* Customize Container Class  */
+
+.container-100-100 {
+    height: 100vh;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.form-container {
+    /* background: linear-gradient(#E9374C,#D31128); */
+    background: var(--bs-success);
+    font-family: 'Battambang', sans-serif;
+    font-size: 0;
+    padding: 0 15px;
+    border: 1px solid #2091dc;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-container .form-icon {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    padding: 70px 0;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.form-container .form-icon svg {
+    font-size: 124px;
+    margin: 0 0 15px;
+    display: block;
+}
+
+.form-container .form-icon .signup a {
+    color: #fff;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+
+.form-container .form-icon .signup a:hover {
+    text-decoration: underline;
+}
+
+.form-container .form-horizontal {
+    background: rgba(255, 255, 255, 0.99);
+    width: 50%;
+    padding: 60px 30px;
+    margin: -20px 0;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.form-container .title {
+    color: #454545;
+    font-size: 23px;
+    font-family: 'Battambang', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    margin: 0 0 30px 0;
+}
+
+.form-horizontal .form-group {
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 0 0 15px;
+    border: 1px solid #b5b5b5;
+    border-radius: 20px;
+}
+
+.form-horizontal .input-icon {
+    color: #b5b5b5;
+    font-size: 15px;
+    text-align: center;
+    line-height: 38px;
+    height: 35px;
+    width: 40px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.form-horizontal .form-control {
+    color: #b5b5b5;
+    background-color: transparent;
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: calc(100% - 55px);
+    height: 33px;
+    padding: 2px 10px 0 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.form-horizontal .form-control:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.form-horizontal .form-control::placeholder {
+    color: #b5b5b5;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.form-horizontal .btn {
+    color: rgba(255, 255, 255, 0.8);
+    background: #E9374C;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin: 0 0 10px 0;
+    border: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-horizontal .btn:hover,
+.form-horizontal .btn:focus {
+    color: #fff;
+    background-color: #D31128;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-horizontal .forgot-pass {
+    font-size: 12px;
+    text-align: center;
+    display: block;
+}
+
+.form-horizontal .forgot-pass a {
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.form-horizontal .forgot-pass a:hover {
+    color: #777;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width:576px) {
+    .form-container {
+        padding-bottom: 15px;
+    }
+    .kh-moul-light {
+        font-family: 'Khmer OS Moul', sans-serif;
+    }
+    .bg-over {
+        background-color: var(--over_due);
+    }
+    .form-container .form-icon {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .form-container .form-horizontal {
+        width: 100%;
+        margin: 0;
+    }
+
+    .d-xsm-none {
+        display: none;
+    }
+    .xsm-width {
+        width: 100%;
+    }
+}
+
+hr {
+    border-style: inset;
+    border-width: 1px;
+}
+.edit-icon > .hover {
+    position: absolute;
+    right: 10%;
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.edit-icon:hover > .hover {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+.my-toast {
+    position: fixed;
+    bottom: 10%;
+    right: 50%;
+    transform: translate(50%,50%);
+    z-index: 11;
+    border-radius: 4px;
+}
+/*======================= Model Sweet Js ==============*/
+.swal-model {
+background: rgba(0,0,0,0.651);
+}
+.swal-text {
+text-align: center;
+}
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__hide-corners {
+background: none !important;
+}
+.swal-button {
+padding: 7px 19px;
+border-radius: 5px;
+background-color: var(--bs-success);
+font-size: 12px;
+border: 1px solid var(--bs-success);
+}
+.swal-button:focus {
+box-shadow: none;
+}
+.swal-button:not([disable]):hover {
+background: transparent;
+color: #111;
+border: 1px solid var(--bs-success);
+}
+p {
+margin: 0!important;
+padding: 0!important;
+}
+
+/* Make table no wrapping */
+.nowrap-100 {
+    white-space: nowrap; 
+}
+.print-only {
+  display: none!important;
+}

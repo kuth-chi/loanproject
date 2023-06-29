@@ -1,0 +1,236 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate 'Customer list' %}{% endblock %}
+{% block content %}
+    {% block style %}
+    <style>
+        .card-body .detail-customer {
+            position: absolute;
+            bottom: 0;
+            right: -80px;
+            width: 100px;
+            border-top-left-radius: 100px;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+        .card-body:hover > .detail-customer {
+            right: 0;
+            transition: all 0.3s;
+            opacity: 1;
+        }
+    </style>
+        {% endblock %}
+
+    {% block javascript %}
+
+{#        ======================= Message dailog ==================#}
+         {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+
+    {% endblock %}
+    {% include 'base/navbar.html' %}
+<div class="container">
+        
+          
+        <div class="col-12 p-2 bg-light-subtle drop-shadow-sm my-2 rounded-md bg-gray-200">
+            <div class="d-flex justify-content-between text-success-emphasis">
+                <div class="flex justify-start">
+                    <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "dashboard" %}`;"></button>
+                    <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm"></button>
+                    <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+                </div>
+                <div class="">
+                   <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none text-dark" href="{% url 'customer' %}"></a> 
+                    {% trans 'Customers' %}
+                </div>
+            </div>
+        </div>
+
+        {# ======================= Display search for all device ================#}
+            <div class="my-4 md:my-8  position-relative">
+                <div class="row  my-3 justify-content-between pe-2">
+                    <div class="col-span-10 relative max-w-screen-md mx-auto align-middle">
+                        <form action="" autocomplete="off" id="search-form" method="post" class="relative">
+                          {% csrf_token %}
+                          <div class="flex items-center">
+                            <input class="rounded-l-full rounded-r-full border border-gray-300 focus:outline-none focus:border-green-600 w-full" type="text" name="search" id="search-input" placeholder="{% translate 'Customers' %}">
+                            <button class="absolute right-1 bg-green-600 hover:bg-green-700 text-white w-10 h-10 py-2 px-2 rounded-full hover:transition-all duration-200 border-green-400/[0.5] border-2">
+                              <i class="ti-search"></i>
+                            </button>
+                          </div>
+                        </form>
+                        <div class="bg-slate-100/[0.8] not-visible shadow p-2 position-absolute border-top-0 w-[95%] rounded-lg " id="result-customer"></div>
+                      </div>                      
+                    <div class="col-2 text-end">
+                        <a href="{% url 'create_customer' %}" data-toggle="modal" title="Create new customer" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                    
+                <hr>
+            </div>
+
+    <div class="container mt-4">
+        <div class="grid grid-cols-1 gap-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6">
+            {% for i in customers %}
+            <div class=" border-1 border-gray-400 shadow-md rounded-lg hover:scale-[1.03] duration-200 space-y-4">
+                <a href="{% url 'customer-detail' i.id %}" title="">
+                    <img src="/media/{{ i.profile_img }}" alt="" class="w-full aspect-square rounded-t-lg object-cover m-0 p-0">
+                </a>
+                <div class="">
+                    <!-- head -->
+                    <a href="{% url 'customer-detail' i.id %}" title="{{ i.name_kh }} | {{ i.name | capfirst }}">
+                        <div class="my-2 text-center">
+                            <div class="font-semibold text-gray-600 h-4 text-lg cursor-pointer ">
+                                {% if current_language == "km" %}
+                                    {{ i.name_kh }}
+                                {% else %}
+                                    {{ i.name | capfirst }}
+                                {% endif %}
+                                <span>
+                                    {% if i.idcard %}
+                                    <i class="fa-regular fa-circle-check bg-blue-500  text-white mx-1 space-y-10 border-blue-600 border-2/[.8] rounded-full m-1"></i>
+                                    {% endif %}
+                                </span>
+                            </div>  
+                        </div>
+                    </a>
+                    <div class="m-2 w-full text-center">
+                        <div><span>{{ customer.total_loan_amount }}</span></div>
+                        <div class="font-light text-gray-500 overflow-hidden px-1">
+                            {% if i.email == '' or i.email == None %}
+                                
+                            {% else %}
+                            <a href="mailto:{{ i.email }}" title="send mail to {{ i.email }}">{{ i.email }}</a>
+                            {% endif %}
+                        </div>
+                        <div class="font-light text-gray-500">
+                            {% if i.phone is None %}    
+                            {% else %}
+                            <a href="tel:{{ i.phone }}" title="call {{ i.phone }}">{{ i.phone }}</a>
+                            {% endif %}</div>
+                        <div class="w-full flex justify-center space-x-6">
+                            {% if i.loan_counting >= 1 %}
+                            <div class="text-gray-400 border-gray-500/[0.5] ">
+                                <i class=" fas fa-landmark mr-2"></i><span>{{ i.loan_counting }}</span>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+                            {% if i.collateral_counting >= 1 %}
+                            <div class="text-gray-400 border-gray-500/[0.5] ">
+                                <i class=" fas fa-motorcycle mr-2"></i><span>{{ i.collateral_counting }}</span>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+                            {% if i.paw_counting >= 1 %}
+                            <div class="text-gray-400 border-gray-500/[0.5] ">
+                                <i class=" fas fa-hand-holding-usd mr-2"></i><span>{{ i.paw_counting }}</span>
+                            </div>                                        
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+                
+         
+            <div class="d-flex justify-content-end mt-2 ">
+                {% if customers.has_other_pages %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                    {% if customers.has_previous %}
+                    <li class="page-item"><a class="page-link text-dark" href="?page={{ customers.has_previous }}">{% translate 'Previous' %}</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link">
+                            {% translate 'Previous' %}</a></li>
+                    {% endif %}
+                    {% for i in customers.paginator.page_range %}
+                        {% if customers.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if customers.has_next %}
+                        <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ customers.has_next }}">{% translate 'Next' %}</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                    {% endif %}
+                    </ul>
+                    {% endif %}
+                </nav>
+            </div>
+    </div>
+    <div class="mt-6 w-full">
+        {% include 'base/footer.html' %}
+    </div>
+    <script>
+        const result_box = document.getElementById('result-customer');
+        const search_form = document.getElementById('search-form')
+        const search_input = document.getElementById('search-input');
+        
+        const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+        search_input.addEventListener('keyup', e=> {
+            // Now when keyup shw resul box
+            if(result_box.classList.contains('not-visible')) {
+                result_box.classList.remove('not-visible')
+            }
+            // let get the search result
+            sendSearchData(e.target.value)
+        })
+        const sendSearchData = (customerList) => {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "search_customer" %}',
+                data: {
+                        'csrfmiddlewaretoken': csrf,
+                        'customerList': customerList,
+                    },
+                    success: (res) => {
+                        const data = res.data
+                        if (Array.isArray(data)){
+                            let searchResults = ''
+                            data.forEach(customerList => {
+                                searchResults += `
+                                <a href="/customer-detail/${customerList.id}"
+                                class='w-100 bg-light-subtle shadow border-bottom-1 d-flex text-dark align-items-center text-decoration-none rounded-pill m-1 p-1'>
+                                     <img src="${customerList.profile_image}" width="30px" height="30px" class="object-fit-cover rounded-circle mx-3 border-1" alt="">
+                                     <p class="mx-2">${customerList.name_kh} (${customerList.name}) </p>
+                                     <p class="mx-2"><i class="ti-mobile"></i> ${customerList.phone}</p>
+                                    </a>`
+                                });
+                                result_box.innerHTML = searchResults;
+                            } else {
+                                if(search_input.value.length > 0){
+                                    result_box.innerHTML = `<b class="bg-light w-100 d-flex justify-content-center p-3 text-center">${data}</b>`
+                                } else {
+                                    result_box.classList.add('not-visible')
+                                }
+                            }
+                        },
+                        error: (err) => {
+                            alert('something went wrong')
+                            console.log(err)
+                        }
+                    })
+                }
+                
+            </script>
+            {% endblock %}
+            

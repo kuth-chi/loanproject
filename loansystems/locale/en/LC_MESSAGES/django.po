@@ -1,0 +1,3692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-20 21:11+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\loan\settings.py:151
+msgid "English"
+msgstr ""
+
+#: .\loan\settings.py:152
+msgid "Khmer"
+msgstr ""
+
+#: .\loan\urls.py:12
+msgid "admin/"
+msgstr ""
+
+#: .\usermanager\models.py:73
+msgid "Prime Minister"
+msgstr ""
+
+#: .\usermanager\models.py:74
+msgid "President"
+msgstr ""
+
+#: .\usermanager\models.py:94
+msgid "Countries"
+msgstr ""
+
+#: .\usermanager\models.py:223
+msgid "Customer Addresses"
+msgstr ""
+
+#: .\usermanager\models.py:244
+msgid "Customer Shipping Addresses"
+msgstr ""
+
+#: .\usermanager\models.py:266
+msgid "Company Addresses"
+msgstr ""
+
+#: .\usermanager\models.py:289 .\usermanager\models.py:714
+#: .\usermanager\templates\dashboard\index.html:619
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:97
+msgid "day"
+msgstr ""
+
+#: .\usermanager\models.py:290 .\usermanager\models.py:715
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:98
+msgid "week"
+msgstr ""
+
+#: .\usermanager\models.py:291 .\usermanager\models.py:716
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:99
+msgid "month"
+msgstr ""
+
+#: .\usermanager\models.py:292
+msgid "quarter"
+msgstr ""
+
+#: .\usermanager\models.py:293
+msgid "semester"
+msgstr ""
+
+#: .\usermanager\models.py:294 .\usermanager\models.py:717
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:237
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:100
+msgid "year"
+msgstr ""
+
+#: .\usermanager\models.py:297
+msgid "fixed flat"
+msgstr ""
+
+#: .\usermanager\models.py:298
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Equal Installments"
+msgstr ""
+
+#: .\usermanager\models.py:299
+msgid "fixed rate"
+msgstr ""
+
+#: .\usermanager\models.py:302
+msgid "on going"
+msgstr ""
+
+#: .\usermanager\models.py:303
+msgid "completed"
+msgstr ""
+
+#: .\usermanager\models.py:304
+msgid "lost"
+msgstr ""
+
+#: .\usermanager\models.py:576 .\usermanager\models.py:709
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:88
+msgid "active"
+msgstr ""
+
+#: .\usermanager\models.py:577 .\usermanager\models.py:710
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:89
+msgid "refunded"
+msgstr ""
+
+#: .\usermanager\models.py:578 .\usermanager\models.py:711
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:90
+msgid "expired"
+msgstr ""
+
+#: .\usermanager\models.py:579
+msgid "sold"
+msgstr ""
+
+#: .\usermanager\templates\accounts\login.html:5
+#: .\usermanager\templates\accounts\login.html:28
+msgid "Login"
+msgstr ""
+
+#: .\usermanager\templates\accounts\login.html:19
+msgid "User Login"
+msgstr ""
+
+#: .\usermanager\templates\accounts\login.html:22
+msgid "Enter email address"
+msgstr ""
+
+#: .\usermanager\templates\accounts\login.html:26
+msgid "Enter password"
+msgstr ""
+
+#: .\usermanager\templates\accounts\login.html:29
+msgid "Forgot Username/Password?"
+msgstr ""
+
+#: .\usermanager\templates\accounts\password_reset_form.html:3
+#: .\usermanager\templates\accounts\password_reset_form.html:6
+msgid "Forgot Your Password?"
+msgstr ""
+
+#: .\usermanager\templates\accounts\password_reset_form.html:7
+msgid ""
+"Enter your email address below, and well email instructions for setting a "
+"new one."
+msgstr ""
+
+#: .\usermanager\templates\admin-company\company_address.html:4
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:4
+msgid "Customer Address"
+msgstr ""
+
+#: .\usermanager\templates\admin-company\company_address.html:26
+#: .\usermanager\templates\base\navbar.html:77
+#: .\usermanager\templates\base\navbar.html:81
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:11
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:70
+#: .\usermanager\templates\dashboard\paw\paw_list.html:69
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:41
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:25
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:52
+#: .\usermanager\templates\dashboard\payment\payback_list.html:15
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:25
+msgid "Customer"
+msgstr ""
+
+#: .\usermanager\templates\admin-company\company_address.html:27
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:12
+#: .\usermanager\templates\dashboard\customer\customer_form.html:41
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:30
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:17
+msgid "Customer detail"
+msgstr ""
+
+#: .\usermanager\templates\admin-company\company_address.html:139
+#: .\usermanager\templates\admin-company\company_address.html:141
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:83
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:71
+#: .\usermanager\templates\dashboard\address\country\country_form.html:97
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:83
+#: .\usermanager\templates\dashboard\address\district\district_form.html:71
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:86
+#: .\usermanager\templates\dashboard\address\province\province_form.html:75
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:86
+#: .\usermanager\templates\dashboard\address\village\village_form.html:71
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:134
+#: .\usermanager\templates\dashboard\customer\customer_form.html:139
+#: .\usermanager\templates\dashboard\customer\customer_form.html:141
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:105
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:107
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:155
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:160
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:164
+#: .\usermanager\templates\dashboard\loan\full_paid.html:115
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:30
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:133
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:135
+#: .\usermanager\templates\dashboard\paw\refund_data.html:86
+#: .\usermanager\templates\dashboard\payment\payback_form.html:97
+msgid "Back"
+msgstr ""
+
+#: .\usermanager\templates\admin-company\company_address.html:143
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:75
+#: .\usermanager\templates\dashboard\address\country\country_form.html:101
+#: .\usermanager\templates\dashboard\address\district\district_form.html:75
+#: .\usermanager\templates\dashboard\address\province\province_form.html:79
+#: .\usermanager\templates\dashboard\address\village\village_form.html:75
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:138
+#: .\usermanager\templates\dashboard\customer\customer_form.html:143
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:109
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:174
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:301
+#: .\usermanager\templates\dashboard\loan\full_paid.html:119
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:358
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:473
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:101
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:140
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:137
+#: .\usermanager\templates\dashboard\payment\payback_form.html:101
+msgid "Save"
+msgstr ""
+
+#: .\usermanager\templates\base\base.html:6
+#: .\usermanager\templates\base\navbar.html:12
+#: .\usermanager\templates\base\navbar.html:61
+#: .\usermanager\templates\changelog.html:34
+#: .\usermanager\templates\firmware.html:34
+#: .\usermanager\templates\update_success.html:34
+msgid "Loan System"
+msgstr ""
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "© 2023 All right reserved."
+msgstr ""
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "v"
+msgstr ""
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "Ez Startup - Team"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:72
+#: .\usermanager\templates\dashboard\index.html:4
+#: .\usermanager\templates\dashboard\index.html:341
+msgid "Dashboard"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:80
+#: .\usermanager\templates\dashboard\customer\list_customer.html:4
+msgid "Customer list"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:86
+#: .\usermanager\templates\base\navbar.html:89
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:17
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:149
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:271
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:353
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:277
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:76
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:255
+msgid "Payment"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:94
+#: .\usermanager\templates\base\navbar.html:97
+#: .\usermanager\templates\dashboard\address\base_address.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:11
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:11
+#: .\usermanager\templates\dashboard\address\country\country_form.html:14
+#: .\usermanager\templates\dashboard\address\country\country_list.html:11
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:11
+#: .\usermanager\templates\dashboard\address\district\district_form.html:11
+#: .\usermanager\templates\dashboard\address\district\district_list.html:11
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:11
+#: .\usermanager\templates\dashboard\address\province\province_form.html:11
+#: .\usermanager\templates\dashboard\address\province\province_list.html:11
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:11
+#: .\usermanager\templates\dashboard\address\village\village_form.html:11
+#: .\usermanager\templates\dashboard\address\village\village_list.html:11
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:68
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:58
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:61
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:93
+msgid "Address"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:98
+msgid "Country"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:99
+msgid "Province"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:100
+#: .\usermanager\templates\dashboard\address\district\district_form.html:12
+msgid "District"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:101
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:58
+msgid "Commune"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:102
+msgid "Village"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:108
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:272
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:106
+msgid "Collateral"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:111
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:4
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:21
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:4
+msgid "Collateral List"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:116
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:9
+msgid "Report"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:119
+msgid "Overduedate"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:120
+#: .\usermanager\templates\dashboard\index.html:677
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:8
+msgid "Recent Activities"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:125
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:273
+msgid "Paw"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:128
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:137
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:270
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:36
+#: .\usermanager\templates\dashboard\loan\full_paid.html:25
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:11
+#: .\usermanager\templates\dashboard\payment\payback_form.html:24
+msgid "Loan"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:140
+msgid "Welcome"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:153
+#: .\usermanager\templates\base\navbar.html:161
+msgid "Setting"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:159
+msgid "Mange Company"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:163
+msgid "Language"
+msgstr ""
+
+#: .\usermanager\templates\base\navbar.html:173
+msgid "Logout"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\base_address.html:4
+msgid "Manage Address"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:4
+msgid "Manage Customer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:12
+msgid "commune list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:14
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:45
+msgid "commune detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:24
+msgid "Delete commune"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:29
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:30
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:8
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:29
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:34
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:47
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:93
+msgid "Are you sure want to delete"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:32
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:11
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:33
+#: .\usermanager\templates\dashboard\address\country\delete.html:11
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:11
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:32
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:11
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:32
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:11
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:32
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:119
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:37
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:91
+#: .\usermanager\templates\dashboard\customer\delete.html:11
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:50
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:300
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:92
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:357
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:472
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:100
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:139
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:164
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:96
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:118
+msgid "Cancel"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:33
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:34
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:33
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:33
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:33
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:22
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:38
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:92
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:51
+#: .\usermanager\templates\dashboard\index.html:720
+#: .\usermanager\templates\dashboard\index.html:759
+#: .\usermanager\templates\dashboard\index.html:770
+#: .\usermanager\templates\dashboard\index.html:782
+#: .\usermanager\templates\dashboard\index.html:793
+#: .\usermanager\templates\dashboard\index.html:804
+#: .\usermanager\templates\dashboard\index.html:816
+#: .\usermanager\templates\dashboard\index.html:827
+#: .\usermanager\templates\dashboard\index.html:838
+#: .\usermanager\templates\dashboard\index.html:849
+#: .\usermanager\templates\dashboard\index.html:860
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:97
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:119
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:58
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:59
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:58
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:58
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:61
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:42
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:193
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:38
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:244
+msgid "Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:61
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:46
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:63
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:61
+#: .\usermanager\templates\dashboard\address\district\district_form.html:46
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:61
+#: .\usermanager\templates\dashboard\address\province\province_form.html:46
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:64
+#: .\usermanager\templates\dashboard\address\village\village_form.html:46
+msgid "Name local"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:64
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:50
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:67
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:64
+#: .\usermanager\templates\dashboard\address\district\district_form.html:50
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:64
+#: .\usermanager\templates\dashboard\address\province\province_form.html:50
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:67
+#: .\usermanager\templates\dashboard\address\village\village_form.html:50
+msgid "Short name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:67
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:54
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:42
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:70
+#: .\usermanager\templates\dashboard\address\country\country_form.html:53
+#: .\usermanager\templates\dashboard\address\country\country_list.html:42
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:67
+#: .\usermanager\templates\dashboard\address\district\district_form.html:54
+#: .\usermanager\templates\dashboard\address\district\district_list.html:42
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:67
+#: .\usermanager\templates\dashboard\address\province\province_form.html:54
+#: .\usermanager\templates\dashboard\address\province\province_list.html:42
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:70
+#: .\usermanager\templates\dashboard\address\village\village_form.html:54
+#: .\usermanager\templates\dashboard\address\village\village_list.html:46
+msgid "Code"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:70
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:58
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:82
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:70
+#: .\usermanager\templates\dashboard\address\district\district_form.html:58
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:70
+#: .\usermanager\templates\dashboard\address\province\province_form.html:58
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:73
+#: .\usermanager\templates\dashboard\address\village\village_form.html:58
+msgid "Border with"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:73
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:62
+#: .\usermanager\templates\dashboard\address\country\country_form.html:73
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:73
+#: .\usermanager\templates\dashboard\address\district\district_form.html:62
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:73
+#: .\usermanager\templates\dashboard\address\province\province_form.html:62
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:76
+#: .\usermanager\templates\dashboard\address\village\village_form.html:62
+msgid "Border Length"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:76
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:66
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:43
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:76
+#: .\usermanager\templates\dashboard\address\district\district_form.html:66
+#: .\usermanager\templates\dashboard\address\district\district_list.html:43
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:79
+#: .\usermanager\templates\dashboard\address\province\province_form.html:70
+#: .\usermanager\templates\dashboard\address\province\province_list.html:43
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:79
+#: .\usermanager\templates\dashboard\address\village\village_form.html:66
+#: .\usermanager\templates\dashboard\address\village\village_list.html:47
+msgid "Hotline"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:4
+msgid "Create Commune_form"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:12
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:4
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:12
+msgid "Commune list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:14
+msgid " Update Commune"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:16
+msgid "Create commune"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:27
+msgid "Update Commune"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:29
+msgid "Create Commune"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:38
+#: .\usermanager\templates\dashboard\address\district\district_form.html:42
+#: .\usermanager\templates\dashboard\address\district\district_list.html:40
+msgid "District Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:42
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:40
+#: .\usermanager\templates\dashboard\address\village\village_form.html:38
+#: .\usermanager\templates\dashboard\address\village\village_list.html:44
+msgid "Commune Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:73
+#: .\usermanager\templates\dashboard\address\country\country_form.html:99
+#: .\usermanager\templates\dashboard\address\district\district_form.html:73
+#: .\usermanager\templates\dashboard\address\province\province_form.html:77
+#: .\usermanager\templates\dashboard\address\village\village_form.html:73
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:136
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:34
+#: .\usermanager\templates\dashboard\index.html:722
+#: .\usermanager\templates\dashboard\index.html:756
+#: .\usermanager\templates\dashboard\index.html:767
+#: .\usermanager\templates\dashboard\index.html:779
+#: .\usermanager\templates\dashboard\index.html:790
+#: .\usermanager\templates\dashboard\index.html:801
+#: .\usermanager\templates\dashboard\index.html:813
+#: .\usermanager\templates\dashboard\index.html:824
+#: .\usermanager\templates\dashboard\index.html:835
+#: .\usermanager\templates\dashboard\index.html:846
+#: .\usermanager\templates\dashboard\index.html:857
+msgid "Update"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:35
+#: .\usermanager\templates\dashboard\address\country\country_list.html:35
+#: .\usermanager\templates\dashboard\address\district\district_list.html:35
+#: .\usermanager\templates\dashboard\address\province\province_list.html:35
+#: .\usermanager\templates\dashboard\address\village\village_list.html:35
+msgid "Add"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:41
+#: .\usermanager\templates\dashboard\address\country\country_form.html:49
+#: .\usermanager\templates\dashboard\address\country\country_list.html:41
+#: .\usermanager\templates\dashboard\address\district\district_list.html:41
+#: .\usermanager\templates\dashboard\address\province\province_list.html:41
+#: .\usermanager\templates\dashboard\address\village\village_list.html:45
+msgid "Short Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:44
+#: .\usermanager\templates\dashboard\address\country\country_list.html:44
+#: .\usermanager\templates\dashboard\address\district\district_list.html:44
+#: .\usermanager\templates\dashboard\address\province\province_list.html:44
+#: .\usermanager\templates\dashboard\address\village\village_list.html:48
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:28
+msgid "Actions"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:60
+#: .\usermanager\templates\dashboard\address\country\country_list.html:60
+#: .\usermanager\templates\dashboard\address\district\district_list.html:60
+#: .\usermanager\templates\dashboard\address\province\province_list.html:60
+msgid "Details"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:8
+#: .\usermanager\templates\dashboard\address\country\delete.html:8
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:8
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:29
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:8
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:29
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:18
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:88
+#: .\usermanager\templates\dashboard\customer\delete.html:8
+msgid "Are you sure want to delete "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:12
+#: .\usermanager\templates\dashboard\address\country\delete.html:12
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:12
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:12
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:12
+#: .\usermanager\templates\dashboard\customer\delete.html:12
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:165
+msgid "Confirm"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:4
+msgid "Country Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:12
+#: .\usermanager\templates\dashboard\address\country\country_form.html:15
+#: .\usermanager\templates\dashboard\address\country\country_list.html:12
+msgid "Country list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:14
+msgid "Country detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:24
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:189
+#: .\usermanager\templates\dashboard\index.html:736
+msgid "Delete customer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:46
+msgid "DETAILS"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:73
+#: .\usermanager\templates\dashboard\address\country\country_form.html:57
+#: .\usermanager\templates\dashboard\address\country\country_list.html:43
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:45
+msgid "Currency"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:76
+msgid "Primary language"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:79
+msgid "Alt languages"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:85
+#: .\usermanager\templates\dashboard\address\country\country_form.html:77
+msgid "Landmark"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:88
+msgid "Leader name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:91
+msgid "Leader position"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:94
+msgid "Is before chris"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:5
+msgid "Country Form"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:17
+msgid "Update country"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:19
+msgid "Create country"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:30
+msgid "Update Country"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:32
+msgid "Create Country"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:41
+#: .\usermanager\templates\dashboard\address\province\province_form.html:38
+msgid "Country Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:45
+msgid "Local Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:61
+msgid "Primary Language"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:65
+msgid "Alt Languages"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:69
+msgid "Border With"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:81
+msgid "Leader Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:85
+msgid "Leader Position"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:89
+msgid "Born Year"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:94
+msgid "Is Before chris"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_list.html:4
+msgid "Country List"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\country\country_list.html:40
+#: .\usermanager\templates\dashboard\address\province\province_list.html:40
+msgid "County Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:4
+msgid "District Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:12
+#: .\usermanager\templates\dashboard\address\district\district_list.html:12
+msgid "District list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:14
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:45
+msgid "District detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:24
+msgid "Delete district"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:4
+msgid "Distric Form"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:14
+#: .\usermanager\templates\dashboard\address\district\district_form.html:27
+msgid "Update District"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:16
+#: .\usermanager\templates\dashboard\address\district\district_form.html:29
+msgid "Create District"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:38
+#: .\usermanager\templates\dashboard\address\province\province_form.html:42
+msgid "Province Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\district\district_list.html:4
+msgid "Distric list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:4
+msgid "Province Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:12
+#: .\usermanager\templates\dashboard\address\province\province_form.html:12
+#: .\usermanager\templates\dashboard\address\province\province_list.html:4
+#: .\usermanager\templates\dashboard\address\province\province_list.html:12
+msgid "Province list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:14
+msgid "Province detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:24
+msgid "Delete Province "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:45
+msgid " Province Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:76
+msgid "Leander"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:4
+msgid "Province Form"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:14
+msgid " Update province"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:16
+msgid " Create province"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:27
+msgid "Update province"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:29
+msgid "Create Province"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:66
+msgid "Leader"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:4
+msgid "Village Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:12
+#: .\usermanager\templates\dashboard\address\village\village_form.html:12
+#: .\usermanager\templates\dashboard\address\village\village_list.html:12
+#: .\usermanager\templates\dashboard\address\village\village_list.html:20
+msgid "Village list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:14
+msgid "Village detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:24
+msgid "Delete village"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:45
+msgid " Village Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:4
+msgid "Village Form"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:14
+#: .\usermanager\templates\dashboard\address\village\village_form.html:27
+msgid "Update Village"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:16
+msgid " Create Village"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:29
+msgid "Create Village"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:42
+#: .\usermanager\templates\dashboard\address\village\village_list.html:43
+msgid "Village Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:4
+msgid "Village List"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:21
+msgid "A village is a small settlement usually found"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:70
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:218
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:277
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:60
+msgid "Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:31
+msgid "Update Collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:33
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:30
+msgid "Create New Collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:51
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:293
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:216
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:86
+msgid "Status"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:66
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:70
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:74
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:50
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:46
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:49
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:217
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:109
+msgid "Description"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:81
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:84
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:387
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:428
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:54
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:57
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:245
+msgid "Price"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:89
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:51
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:386
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:427
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:62
+msgid "Condition"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:100
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:289
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:389
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:430
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:73
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:201
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:246
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:89
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:128
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:241
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:123
+#: .\usermanager\templates\dashboard\paw\refund_data.html:81
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:64
+msgid "Date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:108
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:81
+msgid "Expiration date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:115
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:88
+msgid "Attached Images"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:120
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:93
+msgid "Submit"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:4
+msgid "Collateral Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:12
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:83
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:42
+msgid "Delete customer "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:31
+msgid "Collateral Of"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:48
+msgid "Belonging of"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:49
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:82
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:83
+msgid "Type"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:52
+msgid "Worths"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:40
+#: .\usermanager\templates\dashboard\paw\paw_list.html:40
+msgid "Search collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:74
+msgid "Expired"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:14
+msgid " Update customer address"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:16
+msgid " Create customer address"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:29
+msgid "Delete customer address "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:4
+msgid "Customer Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:27
+msgid "Fullpaid"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:127
+msgid "Overview"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:128
+msgid "Personal"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:161
+#: .\usermanager\templates\dashboard\index.html:598
+msgid "Overdue"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:168
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:371
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:410
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:453
+msgid "No data"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:175
+msgid "This Year"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:188
+msgid "Update information"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:194
+msgid "Latin"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:195
+#: .\usermanager\templates\dashboard\customer\customer_form.html:112
+msgid "Phone"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:196
+#: .\usermanager\templates\dashboard\customer\customer_form.html:120
+msgid "Relationship status"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:198
+#: .\usermanager\templates\dashboard\customer\customer_form.html:124
+msgid "Married"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:200
+msgid "Single"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:207
+#: .\usermanager\templates\dashboard\customer\customer_form.html:116
+msgid "Email"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:99
+msgid "Gender"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:101
+msgid "Male"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:102
+msgid "Female"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:209
+#: .\usermanager\templates\dashboard\customer\customer_form.html:107
+msgid "Birthday"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:212
+#: .\usermanager\templates\dashboard\customer\customer_form.html:129
+msgid "Name spouse"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:222
+msgid "ADDRESS"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:230
+msgid "Street"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:232
+msgid "Location"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:238
+msgid "Add address"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:245
+msgid "IDENTIFY"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:252
+msgid "ID#"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:253
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:91
+msgid "Card type"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:256
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:247
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:242
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:127
+msgid "Expiration"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:260
+msgid "Verify information"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:260
+msgid "Verify now"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:280
+#: .\usermanager\templates\dashboard\loan\full_paid.html:28
+msgid "Create loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:287
+msgid "ID"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:288
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:45
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:68
+msgid "Amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:290
+msgid "Cycle"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:291
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:83
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:122
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:119
+#: .\usermanager\templates\dashboard\paw\paw_list.html:72
+#: .\usermanager\templates\dashboard\paw\refund_data.html:77
+msgid "Rate"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:292
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:202
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:150
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:266
+msgid "Paid"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:309
+#: .\usermanager\templates\dashboard\loan\loan_list.html:246
+msgid "unread messages"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:326
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:193
+msgid "Completed"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:328
+msgid "On going"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:339
+msgid "No loan data"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:349
+msgid "Payment ref"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:350
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:54
+msgid "Loan ID"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:351
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:140
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:184
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:240
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:48
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:123
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:204
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:287
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:385
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:522
+#: .\usermanager\templates\dashboard\loan\loan_list.html:31
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:109
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:43
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:60
+#: .\usermanager\templates\dashboard\payment\payback_list.html:16
+msgid "Interest"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:352
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:145
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:183
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:253
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:122
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:203
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:300
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:398
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:530
+#: .\usermanager\templates\dashboard\loan\loan_list.html:36
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:62
+#: .\usermanager\templates\dashboard\payment\payback_list.html:17
+msgid "Principle"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:354
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:279
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:202
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:326
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:424
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:66
+#: .\usermanager\templates\dashboard\payment\payback_list.html:18
+msgid "Due date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:384
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:425
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:393
+msgid "Image"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:385
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:426
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:214
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:78
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:79
+msgid "Title"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:388
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:429
+msgid "Staus"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:390
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:431
+msgid "Expired date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:419
+msgid "Add paw"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:57
+msgid "Update customer information"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:61
+msgid "Create new customer information"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:91
+msgid "Name khmer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:92
+msgid "Enter name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:95
+msgid "Name english"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:96
+msgid "Enter name english"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:103
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:96
+msgid "Other"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:135
+msgid "Add name spouse"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:34
+msgid "Id for"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:36
+msgid "Create Indentify Id for"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:85
+msgid "Number"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:86
+msgid "number"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:93
+msgid "Identity"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:94
+msgid "Passport"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:95
+msgid "Drivers license"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:100
+msgid "Expire date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\list_customer.html:153
+msgid "Customer List"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\list_customer.html:168
+msgid "search loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:26
+msgid "Update New Loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:28
+#: .\usermanager\templates\dashboard\payment\payback_form.html:35
+msgid "Create New Loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:40
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:41
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:81
+msgid "Loan amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:55
+#: .\usermanager\templates\dashboard\loan\full_paid.html:62
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+msgid "Payment method"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:66
+#: .\usermanager\templates\dashboard\loan\full_paid.html:72
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Loan term"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:80
+#: .\usermanager\templates\dashboard\loan\full_paid.html:85
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:82
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:27
+msgid "Interest rate"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:94
+#: .\usermanager\templates\dashboard\loan\full_paid.html:98
+msgid "Rate calculate method "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:104
+#: .\usermanager\templates\dashboard\loan\full_paid.html:105
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:43
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:87
+msgid "Loan date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:115
+msgid "Pay off"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:127
+msgid "Set first payment date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:170
+msgid "update"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:4
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:4
+msgid "Loan detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:37
+#: .\usermanager\templates\dashboard\loan\full_paid.html:26
+msgid "Loan list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:39
+msgid "Customers detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:47
+msgid "Edit"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:50
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:39
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:77
+msgid "Loan number"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:74
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:69
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:32
+msgid "Download"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:79
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:33
+msgid "Print"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:84
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:74
+msgid "Save PDF"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:111
+msgid "Create collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:150
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:266
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:313
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:411
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:538
+#: .\usermanager\templates\dashboard\loan\loan_list.html:41
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:111
+#: .\usermanager\templates\dashboard\payment\payback_list.html:20
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:26
+msgid "Balance"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:155
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:545
+#: .\usermanager\templates\dashboard\loan\loan_list.html:46
+msgid "Returned"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:180
+msgid "#."
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:181
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:120
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:106
+msgid "Payment date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:182
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:121
+msgid "Numer of day"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:185
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:124
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:110
+msgid "To be paid"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:186
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:125
+msgid "Outstanding"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:187
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:126
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:207
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:248
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:268
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:30
+msgid "Action"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:204
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:157
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:165
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:169
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:229
+msgid "Pay"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:230
+msgid "Loan payback"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:289
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:336
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:434
+#: .\usermanager\templates\dashboard\payment\payback_list.html:19
+msgid "Pay date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:10
+#: .\usermanager\templates\dashboard\index.html:11
+msgid "Jan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:12
+#: .\usermanager\templates\dashboard\index.html:13
+msgid "Feb"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:14
+#: .\usermanager\templates\dashboard\index.html:15
+msgid "Mar"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:16
+#: .\usermanager\templates\dashboard\index.html:17
+msgid "Apr"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:18
+#: .\usermanager\templates\dashboard\index.html:19
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:20
+#: .\usermanager\templates\dashboard\index.html:21
+msgid "Jun"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:22
+#: .\usermanager\templates\dashboard\index.html:23
+msgid "Jul"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:24
+#: .\usermanager\templates\dashboard\index.html:25
+msgid "Aug"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:26
+#: .\usermanager\templates\dashboard\index.html:27
+msgid "Sep"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:28
+#: .\usermanager\templates\dashboard\index.html:29
+msgid "Oct"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:30
+#: .\usermanager\templates\dashboard\index.html:31
+msgid "Nov"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:32
+#: .\usermanager\templates\dashboard\index.html:33
+msgid "Dec"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:46
+#: .\usermanager\templates\dashboard\index.html:94
+#: .\usermanager\templates\dashboard\index.html:142
+#: .\usermanager\templates\dashboard\index.html:190
+#: .\usermanager\templates\dashboard\index.html:238
+msgid "`Interest`"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:57
+#: .\usermanager\templates\dashboard\index.html:105
+#: .\usermanager\templates\dashboard\index.html:153
+#: .\usermanager\templates\dashboard\index.html:201
+#: .\usermanager\templates\dashboard\index.html:249
+msgid "`Principle`"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:68
+#: .\usermanager\templates\dashboard\index.html:116
+#: .\usermanager\templates\dashboard\index.html:164
+#: .\usermanager\templates\dashboard\index.html:212
+#: .\usermanager\templates\dashboard\index.html:260
+msgid "`Paid`"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:356
+msgid "Invest volume"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:359
+msgid "0"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:372
+#: .\usermanager\templates\dashboard\index.html:423
+#: .\usermanager\templates\dashboard\index.html:472
+msgid "last"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:375
+#: .\usermanager\templates\dashboard\index.html:380
+#: .\usermanager\templates\dashboard\index.html:391
+#: .\usermanager\templates\dashboard\index.html:411
+#: .\usermanager\templates\dashboard\index.html:426
+#: .\usermanager\templates\dashboard\index.html:431
+#: .\usermanager\templates\dashboard\index.html:441
+#: .\usermanager\templates\dashboard\index.html:460
+#: .\usermanager\templates\dashboard\index.html:474
+#: .\usermanager\templates\dashboard\index.html:478
+#: .\usermanager\templates\dashboard\index.html:488
+#: .\usermanager\templates\dashboard\index.html:631
+#: .\usermanager\templates\dashboard\index.html:665
+msgid " No Data"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:377
+#: .\usermanager\templates\dashboard\index.html:428
+#: .\usermanager\templates\dashboard\index.html:476
+msgid "current"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:409
+msgid "Principle return"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:458
+msgid "Earned"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:504
+msgid "Loanee"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:521
+#: .\usermanager\templates\dashboard\index.html:538
+#: .\usermanager\templates\dashboard\index.html:553
+#: .\usermanager\templates\dashboard\index.html:578
+msgid "This month"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:532
+msgid "Loan Transaction"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:547
+msgid "Paw Transaction"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:571
+msgid "Analytics"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:579
+msgid "Last month"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:580
+msgid "This year"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:581
+msgid "Last year"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:617
+msgid "days"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:635
+#: .\usermanager\templates\dashboard\index.html:671
+#: .\usermanager\templates\dashboard\index.html:877
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:257
+msgid "More"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:642
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:103
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:193
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:24
+msgid "Payback"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:718
+msgid "Create"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:724
+msgid "Admin do something"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:730
+msgid "New customer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:733
+msgid "New customer from"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:741
+msgid "New loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:744
+msgid "Update loan from"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:747
+msgid "Delete loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:753
+#: .\usermanager\templates\dashboard\index.html:764
+#: .\usermanager\templates\dashboard\index.html:776
+#: .\usermanager\templates\dashboard\index.html:787
+#: .\usermanager\templates\dashboard\index.html:798
+#: .\usermanager\templates\dashboard\index.html:810
+#: .\usermanager\templates\dashboard\index.html:821
+#: .\usermanager\templates\dashboard\index.html:832
+#: .\usermanager\templates\dashboard\index.html:843
+#: .\usermanager\templates\dashboard\index.html:854
+msgid "New"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:756
+#: .\usermanager\templates\dashboard\index.html:767
+msgid "from"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:862
+msgid "By"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\index.html:872
+msgid "No Data"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:15
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:14
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:14
+#: .\usermanager\templates\dashboard\payment\payback_form.html:14
+msgid "Add customer successfully !"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:17
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:16
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:16
+#: .\usermanager\templates\dashboard\payment\payback_form.html:16
+msgid "Cancel create customer ! "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:39
+msgid "FULL PAID "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:48
+msgid "Pay Amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:14
+msgid "Loan Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:30
+msgid "Customer Name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+msgid "Period"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:107
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:224
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:234
+msgid "Day"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:225
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:235
+msgid "Week"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:226
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:236
+msgid "Month"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Quarter"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Semester"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:227
+msgid "Year"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:36
+msgid "Customer ID"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+msgid "Loan type"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Fixed flat"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Fixed rate"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:51
+msgid "First pay date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:53
+msgid "N/A"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:62
+msgid "Add addresss"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:98
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:113
+msgid "Schedule"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:160
+msgid "Alerts"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:166
+msgid "Full paid"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:179
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:222
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+msgid "Total"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:205
+msgid "Payment Amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:206
+#: .\usermanager\templates\dashboard\payment\payback_list.html:21
+msgid "Full Paid"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:231
+msgid "No payback transaction yet."
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:238
+msgid "List of collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:239
+msgid "Add collateral"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:346
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:444
+msgid "Attechment file"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:375
+msgid "Completed loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:150
+#: .\usermanager\templates\dashboard\payment\payback_form.html:25
+msgid "Loan List"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:319
+#: .\usermanager\templates\dashboard\loan\loan_list.html:321
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:59
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:61
+msgid "Previous"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:331
+#: .\usermanager\templates\dashboard\loan\loan_list.html:333
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:71
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:73
+msgid "Next"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:4
+msgid "Preview Print"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:52
+msgid "Paw compnay name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:53
+msgid "Microfinance short PN"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:61
+msgid "BANK INFOMATION"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:72
+msgid "Schedule Payment"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:76
+msgid "Customer name"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:78
+msgid "Customer number"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:83
+msgid "Identity card number"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:86
+msgid "First pay loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Loan method"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:105
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:265
+msgid "#"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:108
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+msgid "Priciple"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:127
+msgid "Total amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:144
+msgid "Note"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:144
+msgid ""
+"In case late payment base on dude date loanee agree to pay additional amount "
+"by following the penalty <a href=\"/\" class=\"text-decoration-none\" "
+">policy</a>."
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:150
+msgid "Company Behavior "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:159
+msgid "Loanee Signature"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:4
+msgid "Paw Detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:95
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:134
+msgid "Attachement"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:115
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:256
+#: .\usermanager\templates\dashboard\paw\refund_data.html:41
+#: .\usermanager\templates\dashboard\paw\refund_data.html:89
+msgid "Refund"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:212
+msgid "Information"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:215
+msgid "Owner"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:221
+msgid "Conditions"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:223
+msgid "Payment as"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:240
+msgid "Value"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:267
+msgid "Paid Date"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:44
+msgid "Update Paw"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:48
+msgid "Create Paw"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:95
+msgid "Pay cycle"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:104
+#: .\usermanager\templates\dashboard\paw\refund_data.html:72
+msgid "Price offer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:116
+msgid "Percentage"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\paw_list.html:21
+msgid "Paw List"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:23
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:36
+msgid "PAYBACK DETAIL"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:52
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:74
+msgid "Total Amount"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:14
+msgid "search customer"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:26
+msgid "Loan progress"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:27
+msgid "Total Interest"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:28
+msgid "Total Principle"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:29
+msgid "Total Balance"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:25
+msgid "Payback list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:27
+msgid "Payback detail"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\payback_form.html:27
+msgid "Create Loan"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\payment\payback_list.html:9
+msgid "Payment list"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:88
+msgid "Delete Activities activities "
+msgstr ""
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:110
+msgid "Clean All Activities"
+msgstr ""
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:115
+msgid "Are you sure want to Clean all Data Activities"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:496
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:500
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1097
+msgid "Aborted!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1282
+#: .\venv\Lib\site-packages\click\decorators.py:495
+msgid "Show this message and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1313
+#: .\venv\Lib\site-packages\click\core.py:1339
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1357
+msgid "Options"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1383
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\core.py:1399
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1605
+msgid "Commands"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1637
+msgid "Missing command."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1715
+msgid "No such command {name!r}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2271
+msgid "Value must be an iterable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2291
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\core.py:2734
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2764
+msgid "(dynamic)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2777
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2790
+msgid "required"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:400
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:464
+msgid "Show the version and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:43
+#: .\venv\Lib\site-packages\click\exceptions.py:79
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:71
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:120
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:122
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:178
+msgid "Missing argument"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:180
+msgid "Missing option"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:182
+msgid "Missing parameter"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:184
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:191
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:211
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:223
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:261
+msgid "unknown error"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:268
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:231
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:413
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:474
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:316
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:322
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:160
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:176
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:178
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:189
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:245
+msgid "Error: invalid input"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:776
+msgid "Press any key to continue..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:265
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:297
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\types.py:387
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\types.py:409
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:465
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:606
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:630
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:811
+msgid "file"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:813
+msgid "directory"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:815
+msgid "path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:861
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:870
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:878
+#, python-brace-format
+msgid "{name} '{filename}' is a directory."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:887
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:896
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:905
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:972
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_form_helper.py:130
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_form_helper.py:140
+#: .\venv\Lib\site-packages\django\forms\fields.py:91
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout.py:392
+msgid "i18n text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout.py:394
+msgid "i18n legend"
+msgstr ""
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout_objects.py:143
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:50
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:54
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:104
+#: .\venv\Lib\site-packages\django\forms\fields.py:749
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:164
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:175
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:256
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:264
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:276
+#: .\venv\Lib\site-packages\django\core\validators.py:284
+#: .\venv\Lib\site-packages\django\core\validators.py:313
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:293
+#: .\venv\Lib\site-packages\django\core\validators.py:314
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:305
+#: .\venv\Lib\site-packages\django\core\validators.py:312
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:348
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:354
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:389
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:398
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:407
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:417
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:435
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:458
+#: .\venv\Lib\site-packages\django\forms\fields.py:347
+#: .\venv\Lib\site-packages\django\forms\fields.py:386
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:460
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:465
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:470
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:541
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:602
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1423
+#: .\venv\Lib\site-packages\django\forms\models.py:893
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:129
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:130
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1149
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1253
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1358
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1628
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1791
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1795
+msgid "Duration"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1847
+msgid "Email address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1872
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1950
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1952
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1992
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1994
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2090
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2107
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2115
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2146
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2239
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2240
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2242
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2293
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2308
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2323
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2339
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2375
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2450
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2454
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2458
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2566
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2590
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2655
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2657
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:232
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:28
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1212
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1319
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:184
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:298
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:467
+#: .\venv\Lib\site-packages\django\forms\fields.py:1238
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:490
+#: .\venv\Lib\site-packages\django\forms\fields.py:1239
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:517
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:551
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:618
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:619
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:620
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:622
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:627
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:691
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:854
+#: .\venv\Lib\site-packages\django\forms\fields.py:946
+#: .\venv\Lib\site-packages\django\forms\models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:948
+#: .\venv\Lib\site-packages\django\forms\fields.py:1067
+#: .\venv\Lib\site-packages\django\forms\models.py:1564
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1068
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1307
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1337
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:98
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:244
+#: .\venv\Lib\site-packages\django\forms\forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:907
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1429
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:439
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:440
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:441
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:770
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:771
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:772
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:861
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:891
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:908
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:910
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:912
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:914
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:916
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:918
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:78
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:254
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:273
+#: .\venv\Lib\site-packages\django\utils\timesince.py:131
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:207
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:222
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:231
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:240
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:249
+msgid "Connect, get help, or contribute"
+msgstr ""

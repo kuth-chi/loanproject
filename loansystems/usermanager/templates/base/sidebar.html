@@ -1,0 +1,168 @@
+{% load i18n %}
+<div class="sidebar left-0 close">
+    <div class="logo-details">
+        <i class='ti-menu bx-menu'></i>
+      <span class="logo_name">{{ company.name }}</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="{% url 'dashboard' %}">
+          <i class='ti-home' ></i>
+          <span class="link_name">{% translate 'Dashboard' %}</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="{% url 'dashboard' %}">{% translate 'Dashboard' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'customer' %}">
+            <i class='ti-id-badge' ></i>
+            <span class="link_name">{% translate 'Customers' %}</span>
+          </a>
+          <i class='bx ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name {% if url_name == 'customer' %} active {% endif %}" href="{% url 'customer' %}"> {% translate 'Customer' %}</a></li>
+          <li><a href="{% url 'create_customer' %}">{% translate 'Add Customer' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'loan' %}">
+            <i class='ti-money' ></i>
+            <span class="link_name">{% translate 'Loan' %}</span>
+          </a>
+          <i class='bx ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name {% if url_name == 'loan' %} active {% endif %}" href="{% url 'loan' %}"> {% translate 'Loan' %}</a></li>
+          <li><a href="{% url 'collateral_list' %}" class="{% if url_name == 'loan' %} active {% endif %}"> {% translate 'Collateral' %}</a></li>
+          <li><a href="{% url 'over_due_date' %}" class="{% if url_name == 'over_due_date' %} active {% endif %}"> {% translate 'Overduedate' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href="{% url 'paw' %}">
+          <i class='ti-car'></i>
+          <span class="link_name">{% translate 'Paw' %}</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="{% url 'paw' %}">{% translate 'Paw' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'address' %}">
+            <i class='ti-map-alt' ></i>
+            <span class="link_name">{% translate 'Address' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{% url 'address' %}">{% translate 'Address' %}</a></li>
+          <li><a href="{% url 'country_list' %}">{% translate 'Country' %}</a></li>
+          <li><a href="{% url 'province_list' %}">{% translate 'Province' %}</a></li>
+          <li><a href="{% url 'district_list' %}">{% translate 'District' %}</a></li>
+          <li><a href="{% url 'commune_list' %}">{% translate 'Commune' %}</a></li>
+          <li><a href="{% url 'village_list' %}">{% translate 'Village' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'employee_list' %}">
+            <i class='ti-bag' ></i>
+            <span class="link_name">{% translate 'Employee' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{% url 'employee_list' %}">{% translate 'Employee' %}</a></li>
+          <li><a href="{% url 'position' %}">{% translate 'Position' %}</a></li>
+          <li><a href="{% url 'department' %}">{% translate 'Department' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='ti-info-alt' ></i>
+            <span class="link_name">{% translate 'Report' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{% url 'over_due_date' %}">{% translate 'Overduedate' %}</a></li>
+          <li><a href="{% url 'recent_activities' %}">{% translate 'Recent Activities' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'employee_list' %}">
+            <i class='ti-user' ></i>
+            <span class="link_name">{% translate 'User' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{% url 'employee_list' %}">{% translate 'Employee' %}</a></li>
+          <li><a href="{% url 'position' %}">{% translate 'Position' %}</a></li>
+          <li><a href="{% url 'department' %}">{% translate 'Department' %}</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'employee_list' %}">
+            <i class='ti-settings' ></i>
+            <span class="link_name">{% translate 'Setting' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li> <a href="{% url 'update_company' company.id %}">{% translate 'Organization' %}</a></li>
+          <li><a href="{% url 'layout' company.id %}">{% translate 'Setting' %}</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="{% url 'employee_list' %}">
+            <i class="ti-world"></i>
+            <span class="link_name">{% translate 'Language' %}</span>
+          </a>
+          <i class='ti-angle-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+           {% get_current_language as LANGAUGE_CODE %}
+                {% get_available_languages as LANGAUGES %}
+                {% get_language_info_list for available_languages as langs  %}
+                {% for lang in langs  %}
+                <li><a href="/{{ lang.code }}/">{{ lang.name_local }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+
+      <li>
+    <div class="profile-details bx-menu">
+        {% if user.is_authenticated %}
+        <div class="profile-content ">
+          {% if logo %}
+            <img src="/media/{{ logo.logo }}" alt="{{ user.username}}'s avatar ">
+          {% endif %}
+        </div>
+        <div class="name-job">
+          <div class="profile_name">{{ user.username|upper}}</div>
+          <div class="job">Web Desginer</div>
+        </div>
+              <a href="{% url 'logout' %}">
+              <i class='ti-new-window' ></i>
+              </a>
+          {% endif %}
+    </div>
+  </li>
+</ul>
+  <div>
+    <ul class="sub-menu bottom-0">
+      <li> <a href="{% url 'update_company' company.id %}">{% translate 'Organization' %}</a></li>
+      <li><a href="{% url 'layout' company.id %}">{% translate 'Setting' %}</a></li>
+    </ul>
+  </div>
+</div>

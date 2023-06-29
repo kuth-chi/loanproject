@@ -1,0 +1,23 @@
+docker-compose run django django-admin startproject loan .
+docker exec -it postgres psql -U postgres
+
+docker-compose up / down
+
+Postgres
+=========
+
+docker exec -it postgres psql -U Postgres
+\c <database_name>
+\d 
+\d+ <table_name>
+\q
+
+===================
+DATABASES = {
+    'default': 'django.db.backends.postgresql',
+    'NAME': 'postgres',
+    'USER': 'postgres',
+    'PASSWD': 'postgres',
+    'HOST': 'pgdb',
+    'PORT': 5432,
+}

@@ -1,0 +1,918 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate "Dashboard" %}{% endblock %}
+
+{% block content %}
+    {% include 'base/navbar.html' %}
+
+    {% include 'base/sidebar.html' %}
+
+    {% block javascript %}
+
+
+    {% comment %} Chart JS {% endcomment %}
+    <script>
+        var jan = '{% translate 'Jan' %}';   
+        var January = '{% translate 'Jan' %}';  
+        var feb = '{% translate 'Feb' %}';  
+        var February = '{% translate 'Feb' %}';   
+        var mar = '{% translate 'Mar' %}';   
+        var March = '{% translate 'Mar' %}';   
+        var apr = '{% translate 'Apr' %}';   
+        var April = '{% translate 'Apr' %}';   
+        var may = '{% translate 'May' %}';   
+        var May = '{% translate 'May' %}';   
+        var jun = '{% translate 'Jun' %}';   
+        var June = '{% translate 'Jun' %}';   
+        var jul = '{% translate 'Jul' %}';   
+        var July = '{% translate 'Jul' %}';   
+        var aug = '{% translate 'Aug' %}';   
+        var August = '{% translate 'Aug' %}';   
+        var sep = '{% translate 'Sep' %}';   
+        var September = '{% translate 'Sep' %}';   
+        var oct = '{% translate 'Oct' %}';   
+        var October = '{% translate 'Oct' %}';   
+        var nov = '{% translate 'Nov' %}';   
+        var November = '{% translate 'Nov' %}';   
+        var dec = '{% translate 'Dec' %}';   
+        var December = '{% translate 'Dec' %}';   
+
+            var config = {
+                type: 'bar',
+                {% if choose_month == 'Month' %}
+                    data: {
+                    labels: [
+                        {% for months in month_name %}
+                        "{{months.name}}",
+                        {% endfor %}
+                    ]
+                    ,
+                    datasets: [{
+                        label: {% translate '`Interest`' %},
+                        data: [
+                            {% for this_month in total_current_month_interest %}
+                            {{this_month.total_current_day_interest}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255,99,132,1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Principle`' %},
+                        data: [
+                            {% for this_month in total_current_month_principle %}
+                            {{this_month.total_current_day_principle}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Paid`' %},
+                        data:[
+                            {% for this_month in total_current_month_paid %}
+                                {{this_month.total_current_day_paid}},
+                            {% endfor %}
+                        ],
+                        backgroundColor:
+
+                            'rgba(153, 102, 255, 0.2)',
+                        borderColor:
+
+                            'rgba(153, 102, 255, 1)',
+
+                        borderWidth: 1
+                    }
+                    ]
+                },
+                {% elif choose_month == 'Last Month' %}
+                    data: {
+                    labels: [
+                        {% for months in month_name %}
+                        "{{months.name}}",
+                        {% endfor %}
+                    ]
+                    ,
+                    datasets: [{
+                        label: {% translate '`Interest`' %},
+                        data: [
+                            {% for this_month in total_current_month_interest %}
+                            {{this_month.total_current_day_interest}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255,99,132,1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Principle`' %},
+                        data: [
+                            {% for this_month in total_current_month_principle %}
+                            {{this_month.total_current_day_principle}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Paid`' %},
+                        data:[
+                            {% for this_month in total_current_month_paid %}
+                                {{this_month.total_current_day_paid}},
+                            {% endfor %}
+                        ],
+                        backgroundColor:
+
+                            'rgba(153, 102, 255, 0.2)',
+                        borderColor:
+
+                            'rgba(153, 102, 255, 1)',
+
+                        borderWidth: 1
+                    }
+                    ]
+                },
+                {% elif choose_month == 'This Year' %}
+                    data: {
+                    labels: [
+                        {% for months in month_name %}
+                        "{{months.name}}",
+                        {% endfor %}
+                    ]
+                    ,
+                    datasets: [{
+                        label: {% translate '`Interest`' %},
+                        data: [
+                            {% for this_year in total_current_month_interest %}
+                            {{this_year.total_current_year_interest}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255,99,132,1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Principle`' %},
+                        data: [
+                            {% for this_year in total_current_month_principle %}
+                            {{this_year.total_current_year_principle}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Paid`' %},
+                        data:[
+                            {% for this_year in total_current_month_paid %}
+                                {{this_year.total_current_year_paid}},
+                            {% endfor %}
+                        ],
+                        backgroundColor:
+
+                            'rgba(153, 102, 255, 0.2)',
+                        borderColor:
+
+                            'rgba(153, 102, 255, 1)',
+
+                        borderWidth: 1
+                    }
+                    ]
+                },
+                    {% elif choose_month == 'Last Year' %}
+                    data: {
+                    labels: [
+                        {% for months in month_name %}
+                        "{{months.name}}",
+                        {% endfor %}
+                    ]
+                    ,
+                    datasets: [{
+                        label: {% translate '`Interest`' %},
+                        data: [
+                            {% for this_year in total_current_month_interest %}
+                            {{this_year.total_current_year_interest}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255,99,132,1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Principle`' %},
+                        data: [
+                            {% for this_year in total_current_month_principle %}
+                            {{this_year.total_current_year_principle}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Paid`' %},
+                        data:[
+                            {% for this_year in total_current_month_paid %}
+                                {{this_year.total_current_year_paid}},
+                            {% endfor %}
+                        ],
+                        backgroundColor:
+
+                            'rgba(153, 102, 255, 0.2)',
+                        borderColor:
+
+                            'rgba(153, 102, 255, 1)',
+
+                        borderWidth: 1
+                    }
+                    ]
+                },
+                {% else %}
+                    data: {
+                    labels: [
+                        {% for months in month_name %}
+                        "{{months.name}}",
+                        {% endfor %}
+                    ]
+                    ,
+                    datasets: [{
+                        label: {% translate '`Interest`' %},
+                        data: [
+                            {% for this_year in total_current_month_interest %}
+                            {{ this_year.total_current_year_interest }},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255,99,132,1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Principle`' %},
+                        data: [
+                            {% for this_year in total_current_month_principle %}
+                            {{this_year.total_current_year_principle}},
+                            {% endfor %}
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: {% translate '`Paid`' %},
+                        data:[
+                            {% for this_year in total_current_month_paid %}
+                                {{this_year.total_current_year_paid}},
+                            {% endfor %}
+                        ],
+                        backgroundColor:
+
+                            'rgba(153, 102, 255, 0.2)',
+                        borderColor:
+
+                            'rgba(153, 102, 255, 1)',
+
+                        borderWidth: 1
+                    }
+                    ]
+                },
+            {% endif %}
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            }
+            window.onload = function() {
+            var ctx = document.getElementById('dashChart').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+
+            var chart1 = document.getElementById('pie-chart').getContext('2d');
+            window.myBar = new Chart(chart1, configs);
+            };
+
+        $(function() {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange input').html(start.format('YYYY-MM-DD') + ',' + end.format('YYYY-MM-DD'));
+            }
+
+            $('input[name="timestamp"]').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                locale: {
+                    format: 'YYYY-MM-DD',
+                    separator: ','
+                },
+
+            }, cb);
+
+            cb(start, end);
+
+        });
+        function submitForm() {
+            document.getElementById('dash_chart_frm').submit();
+        }
+        document.getElementById("dashChart").addEventListener("change", function() {
+            var selectedOption = this.options[this.selectedIndex].value;
+            var element = document.getElementById(selectedOption);
+            var topOffset = element.offsetTop;
+            window.scrollTo(0, topOffset);
+        });
+    </script>
+
+    <!-- End chart -->
+    {% endblock %}
+    <div class="text-lg top-0 p-2 mb-10 md:p-4 md:mb-6 text-green-950 shadow shadow-b-lg container-[100%]">
+        <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+            <h4>{% translate "Dashboard" %}</h4>
+            <div class="">
+                <a class="text-decoration-none text-dark" href="{% url 'dashboard' %}"><i class="ti-home"></i></a> /
+                Dashboard
+            </div>
+        </div>
+    </div>
+    <div class="container-lg">
+        <div class="row g-4">
+                {# ==================== Invest Volume =================#}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-red-300/[.50] border-red-400 ">
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">
+                                        {% translate 'Invest volume' %}</span>
+                                    <span class="h3 font-bold mb-0">
+                                        {% if loan_amount.loan_amount__sum == null %}
+                                        {% translate '0' %}
+                                        {% else %}
+                                        <span class="text-dark-emphasis">{% load humanize %}{{ loan_amount.loan_amount__sum  |floatformat:2 |intcomma}}{{company.main_currency}}</span>
+                                    {% endif %}
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape  px-3">
+                                        <i class="fa-solid fa-chart-line bg-danger text-white text-lg rounded-circle p-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2 mb-0 text-sm">
+                                <span class="text-nowrap text-xs text-muted">{% translate 'last' %}</span>
+                                <span class="badge badge-pill bg-soft-success text-secondary me-2">
+                                    <i class="bi bi-arrow-up me-1"></i>
+                                    {% if total_last_month == 0 %}{% translate ' No Data' %} {% else %}{{ int_last_month}}{% endif %}
+                                </span>
+                                <span class="text-nowrap text-xs text-muted">{% translate 'current' %}</span>
+                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                    <i class="bi bi-arrow-up me-1"></i>
+                                    {% if total_last_month == 0 %}{% translate ' No Data' %} {% else %}{{ int_this_month}}{% endif %}
+                                </span>
+                                <span class=" badge badge-pill bg-soft-success text-secondary me-2">
+                                    <i class="fa-solid fa-equals"></i>
+                                </span>
+                                {% if total_invest > 0 %}
+                                <span class=" badge badge-pill bg-soft-success text-success-emphasis me-2">
+                                    <i class="fa-solid fa-caret-up"></i> {{ result_invest|floatformat:2 }}%
+                                </span>
+                                    {% elif total_invest == 0 %}
+                                    <span class=" badge badge-pill bg-soft-success text-dark me-2">
+                                {% translate ' No Data' %}
+                                    </span>
+                                    {% else %}
+                                <span class=" badge badge-pill bg-soft-success text-danger me-2">
+                                <i class="fa-solid fa-caret-down"></i> {{ result_invest|floatformat:2 }}%
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+                {# ========================= Principle ===============#}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-green-300/[.50] border-green-400">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">{% translate 'Principle return' %}</span>
+                                <span class="h3 font-bold mb-0"> {% if tol_principle == null %}
+                                   {% translate ' No Data' %}
+                                    {% else %}
+                                    {% load humanize %}{{ tol_principle |floatformat:2 |intcomma}}{{company.main_currency}}
+                                {% endif %} </span>
+                            </div>
+                            <div class="col-auto ">
+                                <div class="icon icon-shape  px-3">
+                                    <i class="ti-money bg-success text-white text-lg rounded-circle p-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2 mb-0 text-sm">
+                            <span class="text-nowrap text-xs text-muted">{% translate 'last' %}</span>
+                            <span class="badge badge-pill bg-soft-success text-secondary me-2">
+                                <i class="bi bi-arrow-up me-1"></i>
+                                {% if total_last_month_payback == 0 %}{% translate ' No Data' %} {% else %} {{ int_last_month_payback }} {% endif %}
+                            </span>
+                            <span class="text-nowrap text-xs text-muted">{% translate 'current' %}</span>
+                            <span class="badge badge-pill bg-soft-success text-success me-2">
+                                <i class="bi bi-arrow-up me-1"></i>
+                                {% if total_this_month_payback == 0 %} {% translate ' No Data' %} {% else %} {{ int_this_month_payback }} {% endif %}
+                            </span>
+                            <span class=" badge badge-pill bg-soft-success text-secondary me-2">
+                                <i class="fa-solid fa-equals"></i> 
+                            </span>
+                            {% if total_invest_return > 0 %}
+                            <span class=" badge badge-pill bg-soft-success text-success-emphasis me-2">
+                                <i class="fa-solid fa-caret-up"></i> {{ result_invest_return|floatformat:2 }}%
+                            </span>
+                            {% elif total_invest_return == 0 %}
+                                <span class=" badge badge-pill bg-soft-success text-dark me-2">{% translate ' No Data' %} </span>
+                            {% else %}
+                            <span class=" badge badge-pill bg-soft-success text-danger me-2">
+                            <i class="fa-solid fa-caret-down"></i> {{ result_invest_return|floatformat:2 }}%
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                {# ===================   Earned ===================== #}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-sky-300/[.50] border-sky-400">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">{% translate 'Earned' %}</span>
+                                <span class="h3 font-bold mb-0">{% if tol_interest == null %}
+                                   {% translate ' No Data' %}
+                                    {% else %}
+                                    {% load humanize %}{{ tol_interest|floatformat:2 |intcomma}}{{company.main_currency}}
+                                {% endif %} </span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="  px-3">
+                                    <i class="fa-solid fa-piggy-bank bg-info text-white text-lg rounded-circle p-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2 mb-0 text-sm">
+                            <span class="text-nowrap text-xs text-muted">{% translate 'last' %}</span>
+                            <span class="badge badge-pill bg-soft-success text-secondary me-2">
+                                <i class="bi bi-arrow-up me-1"></i>{% if earning_last == 0  %}{% translate ' No Data' %} {% else %} {{ int_last_earn }} {% endif %}
+                            </span>
+                            <span class="text-nowrap text-xs text-muted">{% translate 'current' %}</span>
+                            <span class="badge badge-pill bg-soft-success text-success me-2">
+                                <i class="bi bi-arrow-up me-1"></i> {% if earning_this == 0  %}{% translate ' No Data' %} {% else %} {{ int_this_earn }} {% endif %}
+                            </span>
+                            <span class=" badge badge-pill bg-soft-success text-secondary me-2">
+                                <i class="fa-solid fa-equals"></i>
+                            </span>
+                         {% if total_earn > 0 %}
+                            <span class=" badge badge-pill bg-soft-success text-success-emphasis me-2">
+                                <i class="fa-solid fa-caret-up"></i> {{ result_total_earn|floatformat:2 }}%
+                            </span>
+                              {% elif total_earn == 0 %}
+                                <span class=" badge badge-pill bg-soft-success text-dark me-2">{% translate ' No Data' %} </span>
+                            {% else %}
+                            <span class=" badge badge-pill bg-soft-success text-danger me-2">
+                            <i class="fa-solid fa-caret-down"></i> {{ result_total_earn|floatformat:2 }}%
+                            </span>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loanees -->
+            <div class="col-sm-6 col-lg-6">
+                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-violet-300/[.50] border-violet-400">
+                    <div class="card-body">
+                            <a class="row text-decoration-none text-dark" href="{% url 'customer' %}">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">{% translate 'Loanee' %}</span>
+                                    {% if customer %}
+                                    <span class="h3 font-bold mb-0">{{ customer }}</span>
+                                    {% else %}
+                                         <span class="h3 font-bold mb-0">0</span>
+                                    {% endif %}
+                                </div>
+                                <div class="col-auto">
+                                    <div class="  px-3">
+                                        <i class="ti-user bg-violet-500 text-white text-lg rounded-circle p-2"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        <div class="mt-2 mb-0 text-sm">
+                            <span class="badge badge-pill bg-soft-danger text-success me-2">
+                                <i class="bi bi-arrow-down me-1"></i>+{{ count_customers_this_month }}
+                            </span>
+                            <span class="text-nowrap text-xs text-muted">{% translate 'This month' %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="card p-3">
+                            <div class="row position-relative">
+                                <!-- Loan Transaction-->
+                                <div class="col-md-6 col-lg-6">
+                                    <a href="{% url 'loan' %}" class="nav-link">                   
+                                        <div class="rounded-3">
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">{% translate 'Loan Transaction' %}</span>
+                                            <span class="h3 font-bold mb-0">{{ count_loan }}</span>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                                    <i class="bi bi-arrow-up me-1"></i>+{{ count_loan_this_month }}
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">{% translate 'This month' %}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                    {% comment %} <hr class="d-sm-none mt-1"> {% endcomment %}
+                                <!-- Paw Transaction -->
+                                <div class="col-md-6 col-lg-6">
+                                    <a href="{% url 'paw' %}" class="nav-link"> 
+                                        <div class="rounded-3 m-e-3">
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">{% translate 'Paw Transaction' %}</span>
+                                            <span class="h3 font-bold mb-0">{{ count_paw_total }}</span>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                                    <i class="bi bi-arrow-up me-1"></i>+{{ count_paw_this_month }}
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">{% translate 'This month' %}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="position-absolute m-3 top-0 end-0">
+                            <div class="icon icon-shape">
+                                <i class="ti-user bg-warning text-white text-lg rounded-circle p-2"></i>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Chart Analytics -->
+            <div class="col-sm-12 col-md-12 mt-4">
+                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md p-3">
+                    <div class="row justify-content-between">
+                            <div class="col-6 h5 text-gray-500 font-bold">{% translate 'Analytics' %}
+                            </div>
+                                <div class="col-6 ">
+                                    <div class="row justify-content-end">
+                                        <div style="width: 160px;">
+                                            <form  method="POST" id="dash_chart_frm">
+                                                {% csrf_token %}
+                                                <select class="form-select" name="monthly" onchange="submitForm()" id="my-select">
+                                                    <option value="Month" {% if choose_month == 'Month' %} selected {% endif %}>{% translate 'This month' %}</option>
+                                                    <option value="Last Month" {% if choose_month == 'Last Month' %} selected {% endif %} >{% translate 'Last month' %}</option>
+                                                    <option value="This Year" {% if choose_month == 'This Year' %} selected {% endif %} >{% translate 'This year' %}</option>
+                                                    <option value="Last Year" {% if choose_month == 'Last Year' %} selected {% endif %} >{% translate 'Last year' %}</option>
+                                                </select>
+                                                {#  <button class="btn btn-outline-secondary" id="submit" type="submit" name="sumit">Submit</button>#}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Display Chart -->
+                        <div style="height: 400px; min-width: 100%; max-width: 600px">
+                            <canvas id="dashChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            <!-- Overdue Card -->
+            <div class="col-sm-12 col-lg-4 col-md-6 mt-3">
+                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md">
+                     <div class="header h5 text-gray-500 font-medium">{% translate 'Overdue' %}</div>
+                        <ul class="list-group list-group-flush " style="height: 320px; overflow-y: scroll;">
+                            {% if over_due_date_schedule %}
+                                {% for overday in over_due_date_schedule %}
+                                <li class="list-group-item {% if overday.display %}  d-none {% else %} {% endif %} align-content-center p-1 hover" >
+                                    <a class="d-flex align-content-center justify-content-between text-decoration-none" href="{% url 'loan_detail' overday.loan %}">
+                                        <div class="d-flex justify-content-between align-items-center w-100">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <img src="/media/{{ overday.customerImage }}" alt="{{ overday.customer.name }}" class="object-cover h-10 w-10 border-3 border-red-900/[0.7] round rounded-full" >
+                                                </div>
+                                                <div class="d-flex flex-column mx-2 space-y-1">
+                                                    <span class="text-red-900 font-medium">
+                                                        {% if current_language == "km" %} 
+                                                            {{ overday.customer.name_kh }} 
+                                                        {% else %}
+                                                            {{ overday.customer.name }}
+                                                        {% endif %}
+                                                    </span>
+                                                    <sub class="text-gray-500 font-light">  {{ overday.due_date }}</sub>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="mx-2 d-flex flex-column justify-content-end font-medium text-red-900">
+                                                    <span class=" text-uppercase ">
+                                                        {% if overday.until > 1 %}
+                                                            {{ overday.until }} {% translate 'days' %}
+                                                        {% else %}
+                                                            {{ overday.until }} {% translate 'day' %}
+                                                        {% endif %}
+                                                    </span>
+                                                    <sub class="text-gray-500 font-light"> {% load humanize %}{{ overday.balance|floatformat:2 | intcomma }}{{company.main_currency}}</sub>
+                                                </p>
+                                            </div>
+                                            
+                                        </div>  
+                                    </a>
+                                </li>
+                                {% endfor %}
+                                {% else %}
+                                    <li class="list-group-item text-center">{% translate ' No Data' %}</li>
+                                {% endif %}
+                        </ul>
+                        <a href="{% url 'over_due_date' %}">
+                            <button class='w-100 btn btn-outline-danger text-center m-1'> {% translate 'More' %}</button>
+                        </a>
+                    </div>
+                </div>
+            <!-- Payback card -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md ">
+                    <div class="header h5 text-gray-500 font-medium">{% translate 'Payback' %}</div>
+                        <ul class="list-group list-group-flush " style="height: 320px; overflow-y: scroll;">
+                                {% if paybackList %}
+                                    {% for payback in paybackList %}
+                                    <li class="list-group-item hover p-0">
+                                        <a class="d-flex align-content-center justify-content-between m-1 text-decoration-none" href="{% url 'payback_detail' payback.id %}">
+                                            <div class="d-flex p-1">
+                                                <img src="/media/{{ payback.customer.profile_img }}" alt="" class="object-cover h-10 w-10 border-2 round rounded-full" >
+                                                    <p class="mx-3 d-flex flex-column text-dark">
+                                                        {% if current_language == "km" %}
+                                                            {{ payback.customer.name_kh }}
+                                                            
+                                                        {% else %}
+                                                            {{ payback.customer.name }}
+                                                        {% endif %}                                                     
+                                                                                                                   
+                                                        <sub class="font-light text-gray-600">{{ payback.pay_date }}</sub>
+                                                    </p>
+                                            </div>
+                                            <p class="d-flex flex-column align-content-center justify-content-center m-0">
+                                                <span class="text-danger">
+                                                    {% load humanize %}{{ payback.balance|floatformat:2 | intcomma }}{{company.main_currency}}
+                                                </span>
+                                            </p>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                
+                                    {% else %}
+                                    <li class="list-group-item text-center">{% translate ' No Data' %}</li>
+                                {% endif %}
+
+                        </ul>
+                        
+                        <a href="{% url 'payback' %}">
+                            <button class='w-100 btn btn-outline-success text-center m-1'> {% translate 'More' %}</button>
+                        </a>
+                    </div>
+                </div>
+            <!-- Recent activities -->
+            <div class="col-sm-12 col-md-12 col-lg-4 mt-3">
+                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md ">
+                <div class="header h5 text-gray-500 font-medium">{% translate 'Recent Activities' %}</div>
+                <div class="list-group list-group-flush" style="height: 320px; overflow-y: scroll;">
+                {% if activities %}
+                              <style>
+                                ul.timeline {
+                                    list-style-type: none;
+                                    position: relative;
+                                }
+                                ul.timeline:before{
+                                    content: ' ';
+                                    background: #0dcaf0;
+                                    display: inline-block;
+                                    position: absolute;
+                                    left: 11px;
+                                    width: 2px;
+                                    height: 100%;
+                                    z-index: 4;
+                                }
+                                ul.timeline > li {
+
+                                    padding-left: 35px;
+                                }
+                                ul.timeline > li:before {
+                                        content: ' ';
+                                        background: white;
+                                        display: inline-block;
+                                        position: absolute;
+                                        border-radius: 50%;
+                                        border: 3px solid var(--bs-success);
+                                        left: 2px;
+                                        width: 20px;
+                                        height: 20px;
+                                        z-index: 10;
+                                    }
+
+                            </style>
+                            <ul class="timeline">
+                                {% for i in activities %}
+                                    <li>
+                                        <a class="text-decoration-none" href="" target="_blank">
+                                            {% if i.action == 'create new'%}
+                                               <span class="text-success">{% translate 'Create' %}</span>
+                                            {% elif  i.action == 'delete'%}
+                                                <span class="text-danger">{% translate 'Delete' %}</span>
+                                            {% elif  i.action == 'update'%}
+                                                <span class="text-warning">{% translate 'Update' %}</span>
+                                            {% else %}
+                                               <span>{% translate 'Admin do something' %}</span>
+                                            {% endif %}
+                                        </a>
+                                        <p class="m-0">
+                                            {#  ========= Customer ===============#}
+                                            {% if i.table == 'customer' and i.action == 'create new' %}
+                                            {% translate 'New customer' %}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'customer-detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'customer' and i.action == 'update' %}
+                                            {% translate 'New customer from' %}   {{ i.update_on|upper }} to
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'customer-detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'customer' and i.action == 'delete' %}
+                                            {% translate 'Delete customer' %}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                                {#       ================= Loan ===============#}
+                                            {% elif i.table == 'loan' and i.action == 'create new' %}
+                                            {% translate 'New loan' %}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'customer-detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'loan' and i.action == 'update' %}
+                                            {% translate 'Update loan from' %}   {{ i.update_on|upper }} to
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'customer-detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'loan' and i.action == 'delete' %}
+                                            {% translate 'Delete loan' %}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                                {# ============= Country ==================  #}
+
+                                            {% elif i.table == 'country' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'country_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'country' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }} {% translate 'from' %}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'country_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'country' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {#  =========== Province ==================#}
+                                            {% elif i.table == 'province' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'province_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'province' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }} {% translate 'from' %}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'province_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'province' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {#   ==================== Distric ====================#}
+
+                                             {% elif i.table == 'district' and i.action == 'create new' %}
+                                             {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'district_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'district' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'district_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'district' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {#   =============================== Commune ==========================#}
+                                                {% elif i.table == 'commune' and i.action == 'create new' %}
+                                                {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'commune_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'commune' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }} 
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'commune_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'commune' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+                                            {#  ========================== Village ====================================#}
+
+                                             {% elif i.table == 'village' and i.action == 'create new' %}
+                                             {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'village' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'village' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {#   =================== create_customer_address =================#}
+
+                                            {% elif i.table == 'customer address' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'customer address' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'customer address' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+                                            {#   =================== loan =================#}
+
+                                            {% elif i.table == 'loan' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'loan' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'loan' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {# =============== payback =================#}
+                                            {% elif i.table == 'payback' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'payback' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'payback' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {# =============== ID CARD =================#}
+                                            {% elif i.table == 'ID CARD' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'ID CARD' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'village_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'ID CARD' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+
+                                            {#   ================= Collaterail ===========================#}
+                                            {% elif i.table == 'collateral' and i.action == 'create new' %}
+                                            {% translate 'New' %}  {{ i.table }}
+                                                <a class="text-decoration-none  text-primary" href="{% url 'collateral_detail' i.table_id %}">{{ i.object|upper }}</a>
+                                            {% elif i.table == 'collateral' and i.action == 'update' %}
+                                            {% translate 'Update' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-primary" href="{% url 'collateral_detail' i.table_id %}"> {{ i.object|upper }}</a>
+                                            {% elif i.table == 'collateral' and i.action == 'delete' %}
+                                            {% translate 'Delete' %} {{ i.table }}
+                                                 <a class="text-decoration-none  text-danger" href="#"> {{ i.object|upper }}</a>
+                                            {% endif %} {% translate 'By' %} {{ i.user|title }} </p>
+
+
+                                        <sub class="text-light-emphasis">{{ i.timestamp }} </sub>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            
+                {% else %}
+                    <div class="text-center">
+                        <h6>{% translate 'No Data' %}</h6>
+                    </div>
+                {% endif %}
+                </div>
+                <a href="{% url 'recent_activities' %}">
+                    <button class='w-100 btn btn-outline-warning text-center m-1'> {% translate 'More' %}</button>
+                </a>
+                </div>
+            </div>
+        <div>
+</div>
+</div>
+    </div>
+
+
+<div>
+{% include 'base/footer.html' %}
+</div>
+{% endblock %}
+

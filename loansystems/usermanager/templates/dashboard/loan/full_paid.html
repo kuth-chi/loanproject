@@ -1,0 +1,130 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+    #box {
+        display: none;
+    }
+</style>
+    {% include 'base/navbar.html' %}
+    <!--Message from backend -->
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="toast-body bg-success position-fixed text-light my-toast p-3" id="toast" style="z-index: 11;">
+                {% translate 'Add customer successfully !' %} </div>
+        {% else %}
+            <div class="toast-body bg-danger text-light my-toast p-3" id="toast">{% translate 'Cancel create customer ! ' %}</div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="col-md-12 bg-light p-2 mb-4">
+        <div class="container-lg pt-title ">
+             <p class="fs-7">
+                 {% with url_name=request.resolver_match.url_name %}
+                     <a href="{% url 'loan' %}" class="text-decoration-none  text-dark">{% translate 'Loan' %}</a> <i class="fa-solid fa-chevron-right"></i>
+                     <a href="{% url 'loan' %}" class="text-decoration-none text-dark"> {% translate 'Loan list' %}</a>
+                     <i class="fa-solid fa-chevron-right"></i>
+                     <a href="{% url 'loan-create' %}" class="text-decoration-none {% if url_name == 'loan-create' %} text-success {% endif %}">{% translate 'Create loan' %}</a>
+                 {% endwith %}
+             </p>
+         </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 ">
+            <div class="col-md-8 bg-light-subtle">
+                <div class="card card-body">
+                    <div class="text-center">
+                        <h4>{% translate 'FULL PAID ' %}</h4>
+                    </div>
+                       <div class="mt-2 d-flex justify-content-center  p-2">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-12 mt-3" >
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label class="form-label">{% translate 'Pay Amount' %}</label>
+                                                </div>
+                                                <div class="col-sm-12 col-md-9">
+                                                   <div class="input-group mb-3">
+                                                     <input type="text" class="form-control">
+                                                      <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label for="">{% translate 'Payment method' %}</label>
+                                                </div>
+                                                <div class="col-sm-12 col-md-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label class="form-label" for="">{% translate 'Loan term' %}</label>
+                                                </div>
+                                                <div class="col-sm-12 col-md-9">
+                                                    <div class="input-group mb-3">
+                                                        <input type="number" class="form-control" name="number_of_cycle" required>
+                                                        <span class="input-group-text" id="My" ></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label class="form-label">{% translate 'Interest rate' %}</label>
+                                                </div>
+                                                <div class="col-sm-12 col-md-9">
+                                                <div class="input-group mb-3">
+                                                    <input type="number" class="form-control"  name="interest_rate_per_cycle"  placeholder="(%)" >
+                                                  <span class="input-group-text" id="basic-addon1">(%)</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label for="" class="form-label">{% translate 'Rate calculate method ' %}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-3" >
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <label class="form-label">{% translate 'Loan date' %}</label>
+                                                </div>
+                                                <div class="col-sm-12 col-md-9">
+                                                    <input class="form-control" type="date" name="loan_date" value="{{ form.data|date }}" placeholder="YYYY-MM-DD" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" my-5 d-flex justify-content-between">
+                                        <div class="pt-options ">
+                                            <a href="{% url 'loan_detail' loan.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Back' %} </a>
+                                        </div>
+                                        <div class="d-flex">
+                                            <a href="#" class="text-white">
+                                            <button type="submit" class="btn btn-primary form-control float-sm-end px-5">{% translate 'Save' %}</button>
+                                        </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

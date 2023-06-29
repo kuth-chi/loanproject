@@ -1,0 +1,102 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate 'Country List' %}{% endblock %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="col-md-12 bg-light p-2 mb-4">
+    <div class="container-lg pt-title ">
+     <p class="fs-7">
+         {% with url_name=request.resolver_match.url_name %}
+             <a href="{% url 'address' %}" class="text-decoration-none  text-dark">{% translate 'Address' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'country_list' %}" class="text-decoration-none  {% if url_name == 'country_list' %} text-success {% endif %}">{% translate 'Country list' %}</a>
+           {% endwith %}
+     </p>
+     </div>
+</div>
+    <div class="container-lg vh-100">
+        <div class="row">
+            <div class="trany">
+              <div class="row">
+              <div class="rounded-3">
+                <table class="table align-middle mb-0 bg-white  rounded-3 table-hover">
+                <div class="d-flex justify-content-between">
+                    <div class="input-group w-25 my-3">
+                        <form action="" method="GET">
+                              <input class="form-control border-end-0 border rounded-pill" name="name" type="text" placeholder="search customer" id="example-search-input">
+                              <span class="input-group-append mx-lg-1">
+                                  <button class="btn btn-outline-secondary bg-primary text-white border-start-0 border rounded-pill ms-n3" type="submit">
+                                      <i class="ti-search"></i>
+                                  </button>
+                              </span>
+                        </form>
+                    </div>
+                    <div class="pt-options ">
+                        <a href="{% url 'create_country' %}" data-toggle="modal" class="btn  btn-success"><i class="fas fa-plus"></i>{% translate 'Add' %}</a>
+                    </div>
+                </div>
+                    <thead class="bg-light">
+                      <tr>
+                        <th>{% translate 'County Name' %}</th>
+                        <th>{% translate 'Short Name' %}</th>
+                        <th>{% translate 'Code' %} </th>
+                        <th>{% translate 'Currency' %}</th>
+                        <th>{% translate 'Actions' %}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      {% for i in countrylist %}
+                       <tr >
+                            <td>
+                                {{ i.name }}
+                            </td>
+                            <td>{{ i.short_name }}</td>
+                            <td>
+                               {{ i.code }}
+                            </td>
+                            <td>{{ i.currency }}</td>
+                            <td>
+                                <a class="btn  btn-sm btn-outline-success"  href=" {% url 'country_detail' i.id %}">{% translate 'Details' %}</a>
+                            </td>
+                       </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+{#                  <div class="d-flex justify-content-between mt-2 ">#}
+{#                      <div class="d-flex align-content-center justify-content-center">#}
+{#                          <div class="mt-2"><p>Show in row {{ customers.number }} of {{ customers.paginator.num_pages }}</p></div>#}
+{#                      </div>#}
+{#                      {% if customers.has_other_pages %}#}
+{#                       <nav aria-label="Page navigation example">#}
+{#                          <ul class="pagination">#}
+{#                          {% if customers.has_previous %}#}
+{#                            <li class="page-item"><a class="page-link text-dark" href="?page={{ customers.has_previous }}">Previous</a></li>#}
+{#                            {% else %}#}
+{#                              <li class="page-item disabled"><a class="page-link">Previous</a></li>#}
+{#                            {% endif %}#}
+{#                            {% for i in customers.paginator.page_range %}#}
+{#                              {% if customers.number == i %}#}
+{#                                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>#}
+{#                              {% else %}#}
+{#                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>#}
+{#                              {% endif %}#}
+{#                            {% endfor %}#}
+{#                          {% if customers.has_next %}#}
+{#                            <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ customers.has_next }}">Next</a></li>#}
+{#                              {% else %}#}
+{#                              <li class="page-item disabled"><a class="page-link">Next</a></li>#}
+{#                          {% endif %}#}
+{#                          </ul>#}
+{#                           {% endif %}#}
+{#                    </nav>#}
+{#                </div>#}
+              </div>
+
+
+              </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

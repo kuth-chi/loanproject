@@ -1,0 +1,481 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate 'Customer Detail' %}{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+{% block javascript %}
+  <script>
+    var ss = {
+      type: 'bar',
+      data: {
+        labels: [ {% for month in this_year_payback %}
+              "{{ month.name }}",
+            {% endfor %}
+        ],
+        datasets: [{
+          label: '{% translate "Payment"%}',
+          borderColor: '#36A2EB',
+          backgroundColor: 'rgba(120,255,174,0.35)',
+          data: [{% for pay in this_year_payback %}
+              "{{ pay.payback }}",
+              {% endfor %}
+          ],
+          borderWidth: 1
+        },
+        {
+          label: '{% translate "Fullpaid" %}',
+          borderColor: '#ebac36',
+          backgroundColor: 'rgba(255,128,0,0.5)',
+          data: [{% for pay in this_year_payback %}
+              "{{ pay.paybackFullPaid }}",
+              {% endfor %}
+          ],
+          borderWidth: 1
+        },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    }
+    window.onload = function() {
+        var ctx = document.getElementById('customerChart').getContext('2d');
+        window.myPie = new Chart(ctx, ss);
+    }
+  </script>
+
+  {% for message in messages %}
+      {% if message.tags == 'success' %}
+          <script>
+              var m = "{{ message }}";
+              swal("Perfect !", m, "success" )
+          </script>
+      {% elif message.tags == 'error' %}
+          <script>
+              var m = "{{ message }}";
+              swal("Error !", m, "error" )
+          </script>
+      {% endif %}
+  {% endfor %}
+{% endblock %}
+    <!-- Button trigger modal -->
+    
+    <div class="container py-6">
+        <div class="col-12 p-2 bg-light-subtle drop-shadow-sm rounded-md bg-gray-200">
+          <div class="d-flex justify-content-between text-success-emphasis">
+              <div class="flex justify-start">
+                  <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "dashboard" %}`;" title="Home"></button>
+                  <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer' %}`" title="Customer list"></button>
+                  <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+              </div>
+              <div class="">
+                 <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none text-dark" href="{% url 'customer' %}"></a> 
+                  {% trans 'Customers' %}
+              </div>
+          </div>
+        </div>
+    </div>
+
+  <!-- Modal Delete -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete customer ' %}{{ customerDetail.name }} | {{ customerDetail.name_kh }}</h1>
+        </div>
+          <form action="{% url 'delete_customer' item.id %}" method="POST">
+              {%  csrf_token %}
+            <div class="modal-body">
+              <p>{% translate 'Are you sure want to delete ' %}" {{ customerDetail.name }} | {{ customerDetail.name_kh }}?</p>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-warning" data-bs-dismiss="modal" href="{% url 'customer' %}">{% translate 'Cancel' %}</a>
+              <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <h2 class="text-center text-xl font-semibold py-4 md:py-6">
+          {% if current_language == "km" %}
+            {{ customerDetail.name_kh }} 
+          {% else %}
+            {{ customerDetail.name|upper }}
+          {% endif %}
+        </h2>
+        <div class="col-sm-6 col-md-4">
+          <div class="gallery">
+            <a href="/media/{{ customerDetail.profile_img }}" data-lightbox="gallery-images">
+              <img  src="/media/{{ customerDetail.profile_img }}"  alt="Image Alt" width="90% " height="400px" class="object-fit-cover rounded-2" >
+            </a>
+          </div>
+        </div>
+        <!-- Add more images here -->
+      
+     {% block scripts %} 
+      <script>
+        $(document).ready(function(){
+          // Initialize Lightbox2
+          lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+          });
+        });
+      </script>
+      {% endblock %}
+        <div class="col-sm-6 col-md-8">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link text-dark active" id="nav-overview-tab" data-bs-toggle="tab" data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">{% translate 'Overview' %}</button>
+            <button class="nav-link text-dark" id="nav-detail-tab" data-bs-toggle="tab" data-bs-target="#nav-detail" type="button" role="tab" aria-controls="nav-detail" aria-selected="false">{% translate 'Personal' %}</button>
+          </div>
+        </nav>
+          {#==================================== Overview ================#}
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab" tabindex="0">
+            <div class="row mt-3">
+              <div class="col-sm-12 col-md-4 mt-3">
+                <div class="card card-body bg-info-subtle">
+                  <div class="card-head">{% translate 'Loan' %}</div>
+                  <div class="">
+                    {% if total_loan %}
+                      <h3>{% load humanize %}{{ total_loan|intcomma }}{{company.main_currency}}</h3>
+                    {% else %}
+                      <h3>0.00{{company.main_currency}}</h3>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4 mt-3">
+                <div class="card card-body  bg-paid">
+                  <div class="card-head">{% translate 'Payment' %}</div>
+                    <div class="">
+                      {% if total_payback %}
+                        <h3>{% load humanize %}{{ total_payback|intcomma }}{{company.main_currency}}</h3>
+                      {% else %}
+                        <h3>0.00{{company.main_currency}}</h3>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              <div class="col-sm-12 col-md-4 mt-3">
+                <div class="card card-body bg-over">
+                  <div class="card-head">{% translate 'Overdue' %}</div>
+                    <div class="">
+                      {% if total_over_due_all %}
+                          <h3>{% load humanize %}{{ total_over_due_all|intcomma }}{{company.main_currency}}</h3>
+                          {% elif total_over_due_all == 0%}
+                          <h3>0.00{{company.main_currency}}</h3>
+                      {% else %}
+                          <h3 class="">{% translate 'No data' %}</h3>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12 mt-3">
+                  <div class="card card-body ">
+                    <div class="card-head text-uppercase">{% translate 'This Year' %}</div>
+                        <div style="height: 280px; width: 100%;">
+                          <canvas id="customerChart"></canvas>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+{# ==================================== detail ===========================================#}
+              <div class="tab-pane fade" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab" tabindex="0">
+
+                <div class="row mt-3">
+                  <div class="col-12 text-end justify-content-end">
+                    <a class="btn btn-outline-success edit" href="{% url 'update_customer' customerDetail.id %}" title="{% translate 'Update information' %}"><i class="ti-pencil"></i></a>
+                    <a class="btn btn-outline-danger edit" data-bs-toggle="modal" data-bs-target="#exampleModal" href="{% url 'delete_customer' customerDetail.id %}" title="{% translate 'Delete customer' %}"><i class="ti-trash"></i></a>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <div>
+                      <p>{% translate 'Name' %}: <strong>{{ customerDetail.name_kh }}</strong></p>
+                      <p>{% translate 'Latin' %}: <strong>{{ customerDetail.name}}</strong></p>
+                      <p>{% translate 'Phone'%} :<strong> (+855) {{ customerDetail.phone}}</strong></p>
+                      <p>{% translate 'Relationship status' %}:<strong>
+                          {% if customerDetail.relationship_status %}
+                            {% translate 'Married' %}
+                          {% else %}
+                            {% translate 'Single' %}
+                          {% endif %}
+                      </strong></p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                  <div>
+                      <p>{% translate 'Email' %} : <strong>{{ customerDetail.email}}</strong></p>
+                      <p>{% translate 'Gender' %} : <strong>{% if customerDetail.gender %}{% translate 'Male' %} {% else %}{% translate 'Female' %} {% endif %}</strong></p>
+                      <p>{% translate 'Birthday' %}: <strong>{{ customerDetail.birthdate }}</strong></p>
+                      {% if customerDetail.relationship_status %}
+                          {% if customerDetail.name_spouse %}
+                              <p>{% translate 'Name spouse' %}: <a class="text-decoration-none text-success" href="{% url 'customer-detail' customerDetail.name_spouse.id %}">{{ customerDetail.name_spouse.name}}</a></p>
+                          {% else %}
+                          {% endif %}
+                          {% else %}
+                      {% endif %}
+                  </div>
+                  </div>
+                  <div class="col-sm-12 col-md-12 ">
+                    <hr>
+                    <div class="edit-icon position-relative">
+                      <h6 class="fw-bold">{% translate 'ADDRESS' %}</h6>
+                      {% if customerAddress %}
+                          {% for i in customerAddress %}
+                          <div class="d-flex flex-column w-100">
+                            <div class="row">
+                              <a class="position-absolute  text-decoration-none text-end text-success hover d-flex justify-content-end align-items-start btn-outline-success" href="{% url 'update_customer_address' i.id %}"><i class="ti-pencil"></i></a>
+                            </div>
+                            <p class="d-flex flex-column">
+                              <span>{% translate 'Street' %}: <strong>{{ i.street }}</strong></span>
+                              <span>{{ i.name }}: <strong> {{ i.village }}, {{ i.commune }}, {{ i.district }}, {{ i.province }}, {{ i.country }} </strong></span>
+                              <span>{% translate 'Location' %}: <strong>{{ i.location }}</strong></span>
+                            </p>
+                          </div>
+                        </div>
+                          {% endfor %}
+                      {% else %}
+                          <a class="btn btn-sm btn-success" href="{% url 'create_customer_address' customerDetail.id %}" title="{% translate 'Add address' %}">{% translate 'Add address' %}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+{#=============================== id Card ========================#}
+                  <hr class="mt-3">
+                  <div class="col-sm-12 col-md-12 position-relative">
+                    <h6 class="fw-bold">{% translate 'IDENTIFY' %}</h6>
+                    {% if idCard %}
+                            <a href="{% url 'id_card_detail' idCard.id %}" class="btn btn-sm btn-outline-success rounded-circle position-absolute top-0 right-10" title="{% translate 'View identity card'%}"><i class="ti-info"></i></a>
+
+                        <div class="row">
+                          <div class="col-6">
+                              <p>{% translate 'ID#' %}: <strong> {{ idCard.card_number }}</strong></p>
+                              <p>{% translate 'Card type' %}: <strong> {{ idCard.card_type }}</strong></p>
+                          </div>
+                          <div class="col-6">
+                              <p>{% translate 'Expiration' %}: <strong> {{ idCard.card_deadline }}</strong></p>
+                          </div>
+                        </div>
+                    {% else %}
+                        <a class="btn btn btn-sm btn-success" href="{% url 'create_id_card' customerDetail.id %}" title="{% translate 'Verify information' %}">{% translate 'Verify now' %}</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link text-dark active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-dollar-sign text-secondary"></i><span class="m-2">{% translate 'Loan' %}</span></button>
+              <button class="nav-link text-dark" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-wallet text-secondary"></i><span class="m-2">{% translate 'Payment' %}</span></button>
+              <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-home-user text-secondary"></i><span class="m-2">{% translate 'Collateral' %}</span></button>
+              <button class="nav-link text-dark" id="nav-paw-tab" data-bs-toggle="tab" data-bs-target="#paw-contact" type="button" role="tab" aria-controls="paw-contact" aria-selected="false"><i class="fa fa-car text-secondary"></i><span class="m-2">{% translate 'Paw' %}</span></button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+                {#==================== loan list filter by customer ==============================#}
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+              <div class="text-end mt-2">
+                    <a class="btn btn-success" href="{% url 'create_loan_customer' customerDetail.id %}" title="{% translate 'Create loan' %}"><i class="fa fa-plus"></i></a>
+              </div>
+              {% if loanList %}
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="text-uppercase">
+                          <tr class="text-success-emphasis">
+                              <th>{% translate 'ID' %}</th>
+                              <th>{% translate 'Amount' %}</th>
+                              <th>{% translate 'Date' %}</th>
+                              <th>{% translate 'Cycle' %}</th>
+                              <th>{% translate 'Rate' %}</th>
+                              <th>{% translate 'Paid' %}#</th>
+                              <th>{% translate 'Status' %}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in detail_loan %}
+                          <tr class="text-success-emphasis" >
+                              <td style="white-space: nowrap; width: 100%;">
+                                <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}">
+                                  {% if i.loan_status == 'completed' %}
+
+                                      <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}"> {{ i.loan_number_id }} </a>
+                                      {% else %}
+                                        {% if i.count_over_due == 0  %} {{ i.loan_number_id }} {% else %}
+                                      <button type="button" class="btn btn-sm bg-over position-relative">
+                                          {{ i.loan_number_id }}
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                              {{ i.count_over_due }}
+                                              <span class="visually-hidden">{% translate 'unread messages' %}</span>
+                                            </span>
+                                      </button>
+                                      {% endif %}
+                                  {% endif %}
+                                </a>
+                              </td>
+                              <td style="white-space: nowrap; width: 100%;"> 
+                                <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}"><strong>{{ i.loan_amount }}{{company.main_currency}}</strong></a></td>
+                              <td style="white-space: nowrap; width: 100%;">
+                                  <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}">{{ i.loan_date }}</a>
+                              </td>
+                              <td class="nowrap w-fluid"> <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}"> {{ i.number_of_cycle }} {{ i.loan_cycle_type }}</a></td>
+                              <td style="white-space: nowrap; width: 100%;"> <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}"> {{ i.interest_rate_per_cycle }} %</a></td>
+                              <td style="white-space: nowrap; width: 100%;"> <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}"> {{ i.have_paid }} </a></td>
+                              <td style="white-space: nowrap; width: 100%;"> <a class="text-dark nav-link" href="{% url 'loan_detail' i.id %}">
+                                  {% if i.loan_status == 'completed' %}
+                                      <span class="badge text-bg-success">{% translate 'Completed' %}</span>
+                                  {% elif i.loan_status == 'on going' %}
+                                      <span class="badge text-bg-info">{% translate 'On going' %}</span>
+                                  {% endif %}
+
+                              </a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              {% else %}
+                <div class="col-12 text-center p-3">
+                  <h4 class="kh-moul-light">{% translate 'No loan data' %}</h4>
+                </div>
+              {% endif %}
+            </div>
+                {#===================== Payback tilter by customer loan =============================#}
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="text-uppercase">
+                    <tr class="text-success-emphasis">
+                      <th class="nowrap-100 text-success-emphasis">{% translate 'Payment ref' %}#</th>
+                      <th class="nowrap-100">{% translate 'Loan ID' %}</th>
+                      <th class="nowrap-100">{% translate 'Interest' %}</th>
+                      <th class="nowrap-100">{% translate 'Principle' %}</th>
+                      <th class="nowrap-100">{% translate 'Payment' %}</th>
+                      <th class="nowrap-100">{% translate 'Due date' %}</th>  
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% if paymentList %}
+                      {% for i in paymentList %}
+                        <tr class="text-success-emphasis">
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'payback_detail' i.id %}">{{ i.id }}</a></td>
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'loan_detail' i.loan.id %}">  {{ i.loan.loan_number_id }}</a></td>
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'payback_detail' i.id %}">{{ i.interest_paid }}{{company.main_currency}}</a></td>
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'payback_detail' i.id %}">  {{ i.principle_paid }}{{company.main_currency}}</a></td>
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'payback_detail' i.id %}">  {{ i.balance }}{{company.main_currency}}</a></td>
+                            <td class="nowrap-100"><a class="text-dark nav-link" href="{% url 'payback_detail' i.id %}">  {{ i.due_date }} </a></td>
+                        </tr>
+                      {% endfor %}
+                        {% else %}
+                        <tr class="text-success-emphasis">
+                            <td class="text-center" colspan="7"> <h4 class="kh-moul-light">{% translate 'No data' %}</h4></td>
+                        </tr>
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+              {#======================  Collateral ====================================#}
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr class="text-uppercase text-success-emphasis">
+                        <th class="nowrap-100">{% translate 'Image' %} </th>
+                        <th class="nowrap-100">{% translate 'Title' %} </th>
+                        <th class="nowrap-100">{% translate 'Condition' %}</th>
+                        <th class="nowrap-100">{% translate 'Price' %}</th>
+                        <th class="nowrap-100">{% translate 'Staus' %}</th>
+                        <th class="nowrap-100">{% translate 'Date' %}</th>
+                        <th class="nowrap-100">{% translate 'Expired date' %}</th>  
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if collateralList %}
+                        {% for i in collateralList %}
+                          <tr>
+                            <td>
+                                    <img src="/media/{{ i.image }}" alt="" width="40px rounded-2">
+                            </td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}"> {{ i.title }}</a></td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}"> {{ i.condition }} </a></td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}"> {{ i.price }}{{company.main_currency}}</a></td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}">{{ i.status|title }}</a></td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}"> {{ i.date }}</a></td>
+                            <td class="nowrap-100"> <a class="btn btn-sm btn-outline-success" href="{% url 'collateral_detail' i.id %}"> {{ i.expired_date }}</a></td>
+                          </tr>
+                        {% endfor %}
+                        {% else %}
+                          <tr>
+                            <td colspan="7" class="text-center"><h4 class="kh-moul-light">{% translate 'No data' %}</h4></td>
+                          </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="paw-contact" role="tabpanel" aria-labelledby="paw-contact" tabindex="0">
+            <div class="w-100 text-end mt-3">
+                <a href="{% url 'paw_create' customerDetail.id %}" class="text-end btn btn-success" title="{% translate 'Add paw' %}"><i class=" fa fa-plus"></i></a>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                    <tr class="text-success-emphasis text-uppercase">
+                        <th class="nowrap-100">{% translate 'Image' %} </th>
+                        <th class="nowrap-100">{% translate 'Title' %} </th>
+                        <th class="nowrap-100">{% translate 'Condition' %}</th>
+                        <th class="nowrap-100">{% translate 'Price' %}</th>
+                        <th class="nowrap-100">{% translate 'Staus' %}</th>
+                        <th class="nowrap-100">{% translate 'Date' %}</th>
+                        <th class="nowrap-100">{% translate 'Expired date' %}</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                {% if pawList %}
+                  {% for i in pawList %}
+                    <tr>
+                        <td><a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}">
+                                <img src="/media/{{ i.paw_image }}" alt="" width="40px" height="auto"> </a>
+                        </td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.paw_name }}</a></td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.paw_pay_method }}</a></td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.paw_value }}{{company.main_currency}}</a></td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.paw_status|title }} </a></td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.date_paw }} </a></td>
+                        <td class="nowrap-100"> <a class="text-decoration-none link-dark" href="{% url 'paw_detail' i.id %}"> {{ i.date_expired_paw }} </a></td>
+                        
+                      
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                    <tr>
+                    <td colspan="7" class="text-center"><h4 class="kh-moul-light">{% translate 'No data' %}</h4></td>
+                    </tr>
+                {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class"bg-success mb-0">
+  {%  include 'base/footer.html' %}
+  {% endblock %}
+</div>

@@ -1,0 +1,134 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+
+  {% for item in positions  %}
+        <div class="modal fade" id="s{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete Position ' %}  </h1>
+              </div>
+                <form action="{% url 'position_delete' item.id %}" method="POST">
+                        {%  csrf_token %}
+                  <div class="modal-body">
+                    <p>{% translate 'Are you sure want to delete' %} {{ item.ps_name|upper }} position ? </p>
+                  </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+
+
+    <div class="container-lg">
+            <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+                 {% if positionUpdate %}
+                     <h4>{% translate "Update Position" %}</h4>
+                {% else %}
+                <h4>{% translate "Position" %}</h4>
+                {% endif %}
+                <div class="">
+                    {% if positionUpdate %}
+                        <a class="text-decoration-none text-dark" href="{% url 'position' %}"><i class="ti-home"></i></a> /
+                    {% translate 'Position Update' %}
+                    {% else %}
+                    <a class="text-decoration-none text-dark" href="{% url 'dashboard' %}"><i class="ti-home"></i></a> /
+                    Position
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-12 col-sm-5 col-md-5 border-end">
+            <form class="my-2" action="" method="post">
+                {% csrf_token %}
+                <div class="p-3">
+                    <div class="mt-2">
+                        <label for="" class="form-label">Position name:</label>
+                        <input type="text" name="ps_name" class="form-control"
+                                {% if positionUpdate %} value="{{ positionUpdate.ps_name }}" {% endif %}>
+                    </div>
+                    <div class="mt-2">
+                        <label for="" class="form-label">Position description:</label>
+                        <textarea name="ps_desc" class="form-control" rows="10">{% if positionUpdate %}{{ positionUpdate.ps_desc }} {% else %}{% endif %}</textarea>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                     {% if positionUpdate %}
+                    <a href="{% url 'position' %}"  class="btn btn-sm btn-danger"> Cancel </a>
+                   <button class="btn btn-sm btn-success" type="submit">Update Position</button>
+                    {% else %}
+                   <button class="btn btn-sm btn-success" type="submit"> Add New Position</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-7 col-md-7">
+            <div>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>#No</th>
+                            <th>Position Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in positions %}
+                        <tr>
+                            <td></td>
+                            <td>{{ item.ps_name }}</td>
+                            <td>{{ item.ps_desc }}</td>
+                            <td>
+                                <div class="d-flex">
+                                    <a href="{% url 'position_update' item.id %}" class="btn btn-sm btn-outline-dark"><i class="ti-pencil "></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark mx-2"
+                                       data-bs-toggle="modal" data-bs-target="#s{{item.id }}">
+                                        <i class="ti-trash text-danger"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end mt-2 ">
+                          {% if positions.has_other_pages %}
+                           <nav aria-label="Page navigation example">
+                              <ul class="pagination">
+                              {% if positions.has_previous %}
+                                <li class="page-item"><a class="page-link text-dark" href="?page={{ positions.has_previous }}">{% translate 'Previous' %}</a></li>
+                                {% else %}
+                                  <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                                {% endif %}
+                                {% for i in positions.paginator.page_range %}
+                                  {% if positions.number == i %}
+                                    <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                                  {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              {% if positions.has_next %}
+                                <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ positions.has_next }}">{% translate 'Next' %}</a></li>
+                                  {% else %}
+                                  <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                              {% endif %}
+                              </ul>
+                               {% endif %}
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

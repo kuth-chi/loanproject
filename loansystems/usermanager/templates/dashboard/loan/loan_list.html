@@ -1,0 +1,376 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<script>
+  var ctx = document.getElementById('loanDetailChart').getContext('2d');
+  const loan_url = '/loan-json/{{ loanList.id }}/';
+
+async function getLoan() {
+  const response = await fetch(loan_url);
+  const data = await response.json();
+  const interestArray = data.map(item => item.interest);
+  const cycle_number = data.map(item => item.number);
+  const principle = data.map(item => item.principle);
+  const balance = data.map(item => item.balance);
+  let totalPaid = data.map(item => item.monthly_amount);
+  const accSums = totalPaid.reduce((acc, cur) => {
+    if (acc.length > 0) {
+      cur += acc[acc.length - 1];
+    }
+    acc.push(cur);
+    return acc;
+  }, []);
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: cycle_number,
+      datasets: [{
+        label: '{% translate 'Interest' %}',
+        data: interestArray,
+        borderWidth: 1
+      },
+      {
+        label: '{% translate 'Principle' %}',
+        data: principle,
+        borderWidth: 1
+      },
+      {
+        label: '{% translate 'Balance' %}',
+        data: balance,
+        borderWidth: 1
+      },
+      {
+        label: '{% translate 'Returned' %}',
+        data: accSums,
+        borderWidth: 1
+      }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      bezierCurve: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+getLoan();
+    </script>
+    <script>
+            function scroll() {
+                const element = document.getElementById("myElement");
+                element.scrollIntoView();
+            }
+
+            {#========= Show and Hide FULL PAID ==========#}
+
+    async function valueChanged() {
+        if($('.checkPaid').is(":checked"))
+            $(".answer").show();
+        else
+            $(".answer").hide();
+            }
+     </script>
+{% block style %}
+        <style>
+.search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.input-search{
+  height: 30px;
+  width: 30px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 30px;
+  transition: all .5s ease-in-out;
+  background-color: var(--bs-success);
+  padding-right: 20px;
+  color:#fff;
+
+}
+.input-search::placeholder{
+  color: rgba(136, 136, 136, 0.5);
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 30px;
+  height: 30px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: var(--bs-success);
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  color: var(--bs-success);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  color: var(--bs-success);
+}
+ </style>
+    {% endblock %}
+
+    {% include 'base/navbar.html' %}
+    <div class="container-lg position-relative min-vh-100">
+        <div class="row  mt-2 ">
+
+        <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between">
+                <h4 class="text-uppercase">{% translate "Loan List" %}</h4>
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'loan' %}"><i class="ti-home"></i></a> /
+                    loan list
+                </div>
+            </div>
+        </div>
+            <div class="position-relative">
+                <div class="row  my-3 justify-content-between pe-2">
+                    <div class=" col-10 position-relative" style="max-width: 450px;">
+                        <form action="" autocomplete="off" id="search-form" method="post" class="position-relative">
+                            {% csrf_token %}
+                            <div class="d-flex position-relative">
+                                  <input class="form-control border-end-0 border rounded-pill" type="text" name="search" id="search-input"  placeholder="{% translate 'Search ...' %}" >
+                                  <button class="position-absolute right-0 btn btn-outline-success bg-success text-white border-start-0 border rounded-pill ms-n3">
+                                      <i class="ti-search"></i>
+                                  </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                    <div class="bg-light not-visible shadow p-2 position-absolute border-top-0 w-100"  style=" z-index: 10; width: 100%" id="result-loan"></div>
+                <hr>
+            </div>
+{#        ======================= Table responsive ================#}
+           
+               <div class="bg-light-subtle">
+                  <div class="table-responsive">
+                    <table class="table  align-middle mb-0 bg-white table-hover rounded-3" id="loanTable">
+                      
+                      <thead>
+                        <tr class="text-uppercase">
+                          <th scope="col">Customer</th>
+                          <th scope="col">Overdue</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Payment</th>
+                          <th scope="col">Rate</th>
+                          <th scope="col">Period</th>
+                        </tr>
+                      </thead>
+                      <tbody id="loanTableBody">
+                      {% if countPayback %}
+                        {% for loan in countPayback  %}
+                              <tr class="box-scale bg-white" id="chk-th">
+                                  <td style="white-space: nowrap; width: 100%;">
+                                    <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
+                                        <div class="d-flex align-items-center">
+                                            <img
+                                                src="/media/{{ loan.customer }}"
+                                                alt=""
+                                                style="width: 45px; height: 45px"
+                                                class="rounded-circle m-1"
+                                                />
+                                            <div class="m-sm-2 m-1">
+                                              <p class="fw-bold mb-1 fs-7">{{ loan.name_kh }} ({{ loan.name }})</p>
+                                              <span class="fs-7 text-secondary">{% load humanize %}{{ loan.loan_amount|intcomma }}{{company.main_currency}}</span>
+                                              <span class="fs-7 text-secondary">{{ loan.due_date }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                  </td>
+                                  <td style="white-space: nowrap; width: 100%;">
+                                      {% if loan.status == 'completed' %}
+
+                                    {% else %}
+                                      <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
+                                          {% if loan.count_Overdue_date == 0 %}
+                                          {% else %}
+                                              <button type="button" class="btn btn-success position-relative">
+                                                  {% load humanize %}{{ loan.total_over_due|intcomma }}{{company.main_currency}}
+                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                    {{ loan.count_Overdue_date }}
+                                                      <span class="visually-hidden">{% translate 'unread messages' %}</span>
+                                                    </span>
+                                                  </button>
+                                          {% endif %}
+                                      </a>
+                                    {% endif %}
+                                  </td>
+                                <td style="white-space: nowrap; width: 100%;">
+                                  <div class="btn w-100 {% if loan.status == 'on going' %} btn-warning {% elif loan.status == 'lost' %} btn-danger {% elif loan.status == 'completed' %} btn-success  {% else %}  btn-warning  {% endif %}">
+                                          {{ loan.status|lower }}
+                                  </div>
+                                </td>
+                                <td style="white-space: nowrap; width: 100%;">
+                                    <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
+                                      <div>
+                                            <p class="mb-1 fs-7 d-flex flex-column align-items-center">
+                                                <strong class="text-success-emphasis">{% load humanize %}{{ loan.total_payback| intcomma}}{{company.main_currency}}</strong>
+                                              <sub class="text-danger-emphasis">{% load humanize %}{{ loan.total_remaining|intcomma }}{{company.main_currency}}</sub>
+                                            </p>
+                                      </div>
+                                    </a>
+                                </td>
+                                <td style="white-space: nowrap; width: 100%;">
+                                    <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none flex-column">
+                                      <div>
+                                        <p class="mb-1 fs-7 d-flex flex-column align-items-center">
+                                            <strong class="text-success-emphasis">{{ loan.interest_rate_per_cycle }}<i class="fa fa-percent"></i></strong>
+                                          <sub class="fs-7 text-secondary font-weight-bold text-uppercase">{{ loan.loan_cycle_type }}</sub>
+                                        </p>
+                                      </div>
+                                    </a>
+                                </td>
+                                <td style="white-space: nowrap; width: 100%;">
+                                    <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
+                                      
+                                      <div>
+                                        <p class="mb-1 fs-7 d-flex flex-column align-items-center">
+                                            <strong class="text-success-emphasis">{{ loan.number_of_cycle }}</strong>
+                                          <sub class="fs-7 text-secondary font-weight-bold text-uppercase">{{ loan.loan_cycle_type }}</sub>
+                                        </p>
+                                      </div>
+                                    </a>
+                                </td>
+                              </tr>
+                        {% endfor %}
+                      </tbody>
+                        {% else %}
+                            <tr>
+                            <td colspan="5" class="text-center">{% translate 'No Data' %}</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                  </div>
+                </div>
+
+            <span class="text-danger" id="no_data"></span>
+            <div class="d-flex justify-content-end mt-2 ">
+                  {% if loanData.has_other_pages %}
+                   <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                      {% if loanData.has_previous %}
+                        <li class="page-item"><a class="page-link text-dark" href="?page={{ loanData.has_previous }}">{% translate 'Previous' %}</a></li>
+                        {% else %}
+                          <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                        {% endif %}
+                        {% for i in loanData.paginator.page_range %}
+                          {% if loanData.number == i %}
+                            <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                          {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      {% if loanData.has_next %}
+                        <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ loanData.has_next }}">{% translate 'Next' %}</a></li>
+                          {% else %}
+                          <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                      {% endif %}
+                      </ul>
+                       {% endif %}
+                </nav>
+            </div>
+            </div>
+    </div>
+{#    ================================================= search loan data ==============================#}
+    <script>
+            const result_box = document.getElementById('result-loan');
+            const search_form = document.getElementById('search-form')
+            const search_input = document.getElementById('search-input');
+
+            const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            search_input.addEventListener('keyup', e=> {
+                // Now when keyup shw resul box
+                if(result_box.classList.contains('not-visible')) {
+                    result_box.classList.remove('not-visible')
+                }
+                // let get the search result
+                sendSearchData(e.target.value)
+            })
+            const sendSearchData = (loanList) => {
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "search_loan" %}',
+                    data: {
+                        'csrfmiddlewaretoken': csrf,
+                        'loanList': loanList,
+                    },
+                    success: (res) => {
+                        const data = res.data
+                        if (Array.isArray(data)){
+                            let searchResults = ''
+                            data.forEach(loanList => {
+                                searchResults += `
+                                    <a href="/loan_detail/${loanList.id}"
+                                    class='w-100 bg-light-subtle shadow border-bottom-1 d-flex text-dark align-items-center text-decoration-none rounded-pill m-1 p-2'>
+                                     <img src="${loanList.profile_image}" width="30px" height="30px" class="object-fit-cover rounded-circle mx-3 border-1" alt="">
+                                     <p class="mx-2">${loanList.name_kh} (${loanList.name}) </p>
+                                     <p class="mx-2">${loanList.loan_amount}</p>
+                                     <p class="mx-2">${loanList.loan_status}</p>
+                                    </a>`
+                            });
+                            result_box.innerHTML = searchResults;
+                        } else {
+                            if(search_input.value.length > 0){
+                                result_box.innerHTML = `<b class="bg-light w-100 d-flex justify-content-center p-3 text-center">${data}</b>`
+                            } else {
+                                result_box.classList.add('not-visible')
+                            }
+                        }
+                    },
+                    error: (err) => {
+                        alert('this data has error!(-_-) please try again')
+                        console.log(err)
+                    }
+                })
+            }
+
+    </script>
+{% block javascript %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{#    ============================= search loan ===========================#}
+{% endblock %}

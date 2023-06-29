@@ -1,0 +1,4045 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-20 21:11+0700\n"
+"PO-Revision-Date: 2023-04-21 08:20+0700\n"
+"Last-Translator:   <admin@admin.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\loan\settings.py:151
+msgid "English"
+msgstr "ភាសាអង្គគ្លេស់"
+
+#: .\loan\settings.py:152
+msgid "Khmer"
+msgstr "ភាសាខ្មែរ"
+
+#: .\loan\urls.py:12
+msgid "admin/"
+msgstr "admin/"
+
+#: .\usermanager\models.py:73
+msgid "Prime Minister"
+msgstr "នាយករដ្ឋមន្ត្រី"
+
+#: .\usermanager\models.py:74
+msgid "President"
+msgstr "ប្រធានាធបតី"
+
+#: .\usermanager\models.py:94
+msgid "Countries"
+msgstr "ប្រទេស"
+
+#: .\usermanager\models.py:223
+msgid "Customer Addresses"
+msgstr "អាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\models.py:244
+msgid "Customer Shipping Addresses"
+msgstr "អាសយដ្ឋានដឹកជូនអតិថិជន"
+
+#: .\usermanager\models.py:266
+msgid "Company Addresses"
+msgstr "អាសយដ្ឋានក្រុមហ៊ុន"
+
+#: .\usermanager\models.py:289 .\usermanager\models.py:714
+#: .\usermanager\templates\dashboard\index.html:619
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:97
+msgid "day"
+msgstr "ថ្ងៃ"
+
+#: .\usermanager\models.py:290 .\usermanager\models.py:715
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:98
+msgid "week"
+msgstr "សប្តាហ៍"
+
+#: .\usermanager\models.py:291 .\usermanager\models.py:716
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:99
+msgid "month"
+msgstr "ខែ"
+
+#: .\usermanager\models.py:292
+msgid "quarter"
+msgstr "ត្រីមាស"
+
+#: .\usermanager\models.py:293
+msgid "semester"
+msgstr "ឆមាស"
+
+#: .\usermanager\models.py:294 .\usermanager\models.py:717
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:237
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:100
+msgid "year"
+msgstr "ឆ្នាំ"
+
+#: .\usermanager\models.py:297
+msgid "fixed flat"
+msgstr "ថេរដើមថយការ"
+
+#: .\usermanager\models.py:298
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Equal Installments"
+msgstr "សរុបថេរ"
+
+#: .\usermanager\models.py:299
+msgid "fixed rate"
+msgstr "ការថេរ"
+
+#: .\usermanager\models.py:302
+msgid "on going"
+msgstr "កំពុងបន្ត"
+
+#: .\usermanager\models.py:303
+msgid "completed"
+msgstr "បានបញ្ចប់"
+
+#: .\usermanager\models.py:304
+msgid "lost"
+msgstr "ខូច"
+
+#: .\usermanager\models.py:576 .\usermanager\models.py:709
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:88
+msgid "active"
+msgstr "សកម្ម"
+
+#: .\usermanager\models.py:577 .\usermanager\models.py:710
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:89
+msgid "refunded"
+msgstr "សងវិញ"
+
+#: .\usermanager\models.py:578 .\usermanager\models.py:711
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:90
+msgid "expired"
+msgstr "ផុតកំណត់"
+
+#: .\usermanager\models.py:579
+msgid "sold"
+msgstr "បានលក់"
+
+#: .\usermanager\templates\accounts\login.html:5
+#: .\usermanager\templates\accounts\login.html:28
+msgid "Login"
+msgstr "ចូល"
+
+#: .\usermanager\templates\accounts\login.html:19
+msgid "User Login"
+msgstr "ចូលទៅកាន់គណនី"
+
+#: .\usermanager\templates\accounts\login.html:22
+msgid "Enter email address"
+msgstr "បញ្ចូល​អីម៉ែល"
+
+#: .\usermanager\templates\accounts\login.html:26
+msgid "Enter password"
+msgstr "បញ្ចូលពាក្យសម្ងាត់"
+
+#: .\usermanager\templates\accounts\login.html:29
+msgid "Forgot Username/Password?"
+msgstr "បានភ្លេច ឈ្មោះ ឬ ពាក្យសម្ងាត់​?"
+
+#: .\usermanager\templates\accounts\password_reset_form.html:3
+#: .\usermanager\templates\accounts\password_reset_form.html:6
+msgid "Forgot Your Password?"
+msgstr "បានភ្លេច ឈ្មោះ ឬ ពាក្យសម្ងាត់​?"
+
+#: .\usermanager\templates\accounts\password_reset_form.html:7
+msgid ""
+"Enter your email address below, and well email instructions for setting a "
+"new one."
+msgstr ""
+"បញ្ចូលអ៊ីមែលខាងក្រោមនេះ​ ហើយការនែរនាំតាមអ៊ីមែលដើម្បីកំណត់ថ្មីមួយផ្សេងទៀត"
+
+#: .\usermanager\templates\admin-company\company_address.html:4
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:4
+msgid "Customer Address"
+msgstr "អាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\templates\admin-company\company_address.html:26
+#: .\usermanager\templates\base\navbar.html:77
+#: .\usermanager\templates\base\navbar.html:81
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:11
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:70
+#: .\usermanager\templates\dashboard\paw\paw_list.html:69
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:41
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:25
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:52
+#: .\usermanager\templates\dashboard\payment\payback_list.html:15
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:25
+msgid "Customer"
+msgstr "អតិថិជន"
+
+#: .\usermanager\templates\admin-company\company_address.html:27
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:12
+#: .\usermanager\templates\dashboard\customer\customer_form.html:41
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:30
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:17
+msgid "Customer detail"
+msgstr "លម្អិតអំពីអតិថិជន"
+
+#: .\usermanager\templates\admin-company\company_address.html:139
+#: .\usermanager\templates\admin-company\company_address.html:141
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:83
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:71
+#: .\usermanager\templates\dashboard\address\country\country_form.html:97
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:83
+#: .\usermanager\templates\dashboard\address\district\district_form.html:71
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:86
+#: .\usermanager\templates\dashboard\address\province\province_form.html:75
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:86
+#: .\usermanager\templates\dashboard\address\village\village_form.html:71
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:134
+#: .\usermanager\templates\dashboard\customer\customer_form.html:139
+#: .\usermanager\templates\dashboard\customer\customer_form.html:141
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:105
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:107
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:155
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:160
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:164
+#: .\usermanager\templates\dashboard\loan\full_paid.html:115
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:30
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:133
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:135
+#: .\usermanager\templates\dashboard\paw\refund_data.html:86
+#: .\usermanager\templates\dashboard\payment\payback_form.html:97
+msgid "Back"
+msgstr "ត្រលប់ក្រោយ"
+
+#: .\usermanager\templates\admin-company\company_address.html:143
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:75
+#: .\usermanager\templates\dashboard\address\country\country_form.html:101
+#: .\usermanager\templates\dashboard\address\district\district_form.html:75
+#: .\usermanager\templates\dashboard\address\province\province_form.html:79
+#: .\usermanager\templates\dashboard\address\village\village_form.html:75
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:138
+#: .\usermanager\templates\dashboard\customer\customer_form.html:143
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:109
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:174
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:301
+#: .\usermanager\templates\dashboard\loan\full_paid.html:119
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:358
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:473
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:101
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:140
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:137
+#: .\usermanager\templates\dashboard\payment\payback_form.html:101
+msgid "Save"
+msgstr "រក្សាទុក"
+
+#: .\usermanager\templates\base\base.html:6
+#: .\usermanager\templates\base\navbar.html:12
+#: .\usermanager\templates\base\navbar.html:61
+#: .\usermanager\templates\changelog.html:34
+#: .\usermanager\templates\firmware.html:34
+#: .\usermanager\templates\update_success.html:34
+msgid "Loan System"
+msgstr "ប្រព័ន្ធគ្រប់គ្រងកម្ចី"
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "© 2023 All right reserved."
+msgstr "រក្សាសិទ្ធិដោយ"
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "v"
+msgstr "វី"
+
+#: .\usermanager\templates\base\footer.html:18
+msgid "Ez Startup - Team"
+msgstr "ក្រុម Ez Startup "
+
+#: .\usermanager\templates\base\navbar.html:72
+#: .\usermanager\templates\dashboard\index.html:4
+#: .\usermanager\templates\dashboard\index.html:341
+msgid "Dashboard"
+msgstr "ផ្ទាំងគ្រប់គ្រង"
+
+#: .\usermanager\templates\base\navbar.html:80
+#: .\usermanager\templates\dashboard\customer\list_customer.html:4
+msgid "Customer list"
+msgstr "បញ្ជីរឈ្មោះអតិថិជន"
+
+#: .\usermanager\templates\base\navbar.html:86
+#: .\usermanager\templates\base\navbar.html:89
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:17
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:149
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:271
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:353
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:277
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:76
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:255
+msgid "Payment"
+msgstr "ការទូទាត់"
+
+#: .\usermanager\templates\base\navbar.html:94
+#: .\usermanager\templates\base\navbar.html:97
+#: .\usermanager\templates\dashboard\address\base_address.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:11
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:11
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:11
+#: .\usermanager\templates\dashboard\address\country\country_form.html:14
+#: .\usermanager\templates\dashboard\address\country\country_list.html:11
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:11
+#: .\usermanager\templates\dashboard\address\district\district_form.html:11
+#: .\usermanager\templates\dashboard\address\district\district_list.html:11
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:11
+#: .\usermanager\templates\dashboard\address\province\province_form.html:11
+#: .\usermanager\templates\dashboard\address\province\province_list.html:11
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:11
+#: .\usermanager\templates\dashboard\address\village\village_form.html:11
+#: .\usermanager\templates\dashboard\address\village\village_list.html:11
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:68
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:58
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:61
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:93
+msgid "Address"
+msgstr "អាសយដ្ឋា​ន"
+
+#: .\usermanager\templates\base\navbar.html:98
+msgid "Country"
+msgstr "ប្រទេស"
+
+#: .\usermanager\templates\base\navbar.html:99
+msgid "Province"
+msgstr "ខេត្ត"
+
+#: .\usermanager\templates\base\navbar.html:100
+#: .\usermanager\templates\dashboard\address\district\district_form.html:12
+msgid "District"
+msgstr "ស្រុក ឬ​ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\base\navbar.html:101
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:58
+msgid "Commune"
+msgstr "ឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\base\navbar.html:102
+msgid "Village"
+msgstr "ភូមិ"
+
+#: .\usermanager\templates\base\navbar.html:108
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:272
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:106
+msgid "Collateral"
+msgstr "ទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\base\navbar.html:111
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:4
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:21
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:4
+msgid "Collateral List"
+msgstr "បញ្ជីរវត្ថុបញ្ចាំ"
+
+#: .\usermanager\templates\base\navbar.html:116
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:9
+msgid "Report"
+msgstr "របាយការណ៍"
+
+#: .\usermanager\templates\base\navbar.html:119
+msgid "Overduedate"
+msgstr "កាលបរិច្ឆេទបំណុល"
+
+#: .\usermanager\templates\base\navbar.html:120
+#: .\usermanager\templates\dashboard\index.html:677
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:8
+msgid "Recent Activities"
+msgstr "សកម្មភាពថ្មីៗ"
+
+#: .\usermanager\templates\base\navbar.html:125
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:273
+msgid "Paw"
+msgstr "វត្ថុបញ្ជាំ"
+
+#: .\usermanager\templates\base\navbar.html:128
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:137
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:270
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:36
+#: .\usermanager\templates\dashboard\loan\full_paid.html:25
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:11
+#: .\usermanager\templates\dashboard\payment\payback_form.html:24
+msgid "Loan"
+msgstr "កម្ចី"
+
+#: .\usermanager\templates\base\navbar.html:140
+msgid "Welcome"
+msgstr "ស្វាគមន៍"
+
+#: .\usermanager\templates\base\navbar.html:153
+#: .\usermanager\templates\base\navbar.html:161
+msgid "Setting"
+msgstr "ការកំណត់"
+
+#: .\usermanager\templates\base\navbar.html:159
+msgid "Mange Company"
+msgstr "គ្រប់គ្រងក្រុមហ៊ុន"
+
+#: .\usermanager\templates\base\navbar.html:163
+msgid "Language"
+msgstr "ភាសា"
+
+#: .\usermanager\templates\base\navbar.html:173
+msgid "Logout"
+msgstr "ចាកចេញ"
+
+#: .\usermanager\templates\dashboard\address\base_address.html:4
+msgid "Manage Address"
+msgstr "គ្រប់គ្រងអាសយដ្ឋាន"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:4
+msgid "Manage Customer"
+msgstr "គ្រប់គ្រងអតិថិជន"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:12
+msgid "commune list"
+msgstr "បញ្ជីឈ្មោះឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:14
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:45
+msgid "commune detail"
+msgstr "លម្អិតអំពីឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:24
+msgid "Delete commune"
+msgstr "លុបឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:29
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:30
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:8
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:29
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:34
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:47
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:93
+msgid "Are you sure want to delete"
+msgstr "តើអ្នកពិតជាចង់លុបមែនឬទេ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:32
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:11
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:33
+#: .\usermanager\templates\dashboard\address\country\delete.html:11
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:11
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:32
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:11
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:32
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:11
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:32
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:119
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:37
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:91
+#: .\usermanager\templates\dashboard\customer\delete.html:11
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:50
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:300
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:92
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:357
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:472
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:100
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:139
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:164
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:96
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:118
+msgid "Cancel"
+msgstr "បោះបង់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:33
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:34
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:33
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:33
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:33
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:22
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:38
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:92
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:51
+#: .\usermanager\templates\dashboard\index.html:720
+#: .\usermanager\templates\dashboard\index.html:759
+#: .\usermanager\templates\dashboard\index.html:770
+#: .\usermanager\templates\dashboard\index.html:782
+#: .\usermanager\templates\dashboard\index.html:793
+#: .\usermanager\templates\dashboard\index.html:804
+#: .\usermanager\templates\dashboard\index.html:816
+#: .\usermanager\templates\dashboard\index.html:827
+#: .\usermanager\templates\dashboard\index.html:838
+#: .\usermanager\templates\dashboard\index.html:849
+#: .\usermanager\templates\dashboard\index.html:860
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:97
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:119
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "លុប"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:58
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:59
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:58
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:58
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:61
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:42
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:193
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:38
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:244
+msgid "Name"
+msgstr "ឈ្មោះ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:61
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:46
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:63
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:61
+#: .\usermanager\templates\dashboard\address\district\district_form.html:46
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:61
+#: .\usermanager\templates\dashboard\address\province\province_form.html:46
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:64
+#: .\usermanager\templates\dashboard\address\village\village_form.html:46
+msgid "Name local"
+msgstr "ឈ្មោះជាភាសាជាតិ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:64
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:50
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:67
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:64
+#: .\usermanager\templates\dashboard\address\district\district_form.html:50
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:64
+#: .\usermanager\templates\dashboard\address\province\province_form.html:50
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:67
+#: .\usermanager\templates\dashboard\address\village\village_form.html:50
+msgid "Short name"
+msgstr "ឈ្មោះកាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:67
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:54
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:42
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:70
+#: .\usermanager\templates\dashboard\address\country\country_form.html:53
+#: .\usermanager\templates\dashboard\address\country\country_list.html:42
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:67
+#: .\usermanager\templates\dashboard\address\district\district_form.html:54
+#: .\usermanager\templates\dashboard\address\district\district_list.html:42
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:67
+#: .\usermanager\templates\dashboard\address\province\province_form.html:54
+#: .\usermanager\templates\dashboard\address\province\province_list.html:42
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:70
+#: .\usermanager\templates\dashboard\address\village\village_form.html:54
+#: .\usermanager\templates\dashboard\address\village\village_list.html:46
+msgid "Code"
+msgstr "កូដ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:70
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:58
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:82
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:70
+#: .\usermanager\templates\dashboard\address\district\district_form.html:58
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:70
+#: .\usermanager\templates\dashboard\address\province\province_form.html:58
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:73
+#: .\usermanager\templates\dashboard\address\village\village_form.html:58
+msgid "Border with"
+msgstr "មានព្រំប្រទល់ជាប់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:73
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:62
+#: .\usermanager\templates\dashboard\address\country\country_form.html:73
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:73
+#: .\usermanager\templates\dashboard\address\district\district_form.html:62
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:73
+#: .\usermanager\templates\dashboard\address\province\province_form.html:62
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:76
+#: .\usermanager\templates\dashboard\address\village\village_form.html:62
+msgid "Border Length"
+msgstr "ប្រវែងព្រំប្រទល់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_detail.html:76
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:66
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:43
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:76
+#: .\usermanager\templates\dashboard\address\district\district_form.html:66
+#: .\usermanager\templates\dashboard\address\district\district_list.html:43
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:79
+#: .\usermanager\templates\dashboard\address\province\province_form.html:70
+#: .\usermanager\templates\dashboard\address\province\province_list.html:43
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:79
+#: .\usermanager\templates\dashboard\address\village\village_form.html:66
+#: .\usermanager\templates\dashboard\address\village\village_list.html:47
+msgid "Hotline"
+msgstr "ខ្សែទូរស័ព្ទទាន់ហេតុការណ៍"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:4
+msgid "Create Commune_form"
+msgstr "បង្កើតទម្រប់បំពេញទិន្ន័យឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:12
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:4
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:12
+msgid "Commune list"
+msgstr "បញ្ជីរឈ្មោះឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:14
+msgid " Update Commune"
+msgstr "ធ្វើបច្ចុប្បន្នភាពឃុំ ឬ​ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:16
+msgid "Create commune"
+msgstr "បង្កើតឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:27
+msgid "Update Commune"
+msgstr "ធ្វើបច្ចុប្បន្នភាពឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:29
+msgid "Create Commune"
+msgstr "បង្កើតឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:38
+#: .\usermanager\templates\dashboard\address\district\district_form.html:42
+#: .\usermanager\templates\dashboard\address\district\district_list.html:40
+msgid "District Name"
+msgstr "ឈ្មោះស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:42
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:40
+#: .\usermanager\templates\dashboard\address\village\village_form.html:38
+#: .\usermanager\templates\dashboard\address\village\village_list.html:44
+msgid "Commune Name"
+msgstr "ឈ្មោះឃុំ ឬ សង្កាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_form.html:73
+#: .\usermanager\templates\dashboard\address\country\country_form.html:99
+#: .\usermanager\templates\dashboard\address\district\district_form.html:73
+#: .\usermanager\templates\dashboard\address\province\province_form.html:77
+#: .\usermanager\templates\dashboard\address\village\village_form.html:73
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:136
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:34
+#: .\usermanager\templates\dashboard\index.html:722
+#: .\usermanager\templates\dashboard\index.html:756
+#: .\usermanager\templates\dashboard\index.html:767
+#: .\usermanager\templates\dashboard\index.html:779
+#: .\usermanager\templates\dashboard\index.html:790
+#: .\usermanager\templates\dashboard\index.html:801
+#: .\usermanager\templates\dashboard\index.html:813
+#: .\usermanager\templates\dashboard\index.html:824
+#: .\usermanager\templates\dashboard\index.html:835
+#: .\usermanager\templates\dashboard\index.html:846
+#: .\usermanager\templates\dashboard\index.html:857
+msgid "Update"
+msgstr "ធ្វើបច្ចុប្បន្នភាព"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:35
+#: .\usermanager\templates\dashboard\address\country\country_list.html:35
+#: .\usermanager\templates\dashboard\address\district\district_list.html:35
+#: .\usermanager\templates\dashboard\address\province\province_list.html:35
+#: .\usermanager\templates\dashboard\address\village\village_list.html:35
+msgid "Add"
+msgstr "បន្ថែម"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:41
+#: .\usermanager\templates\dashboard\address\country\country_form.html:49
+#: .\usermanager\templates\dashboard\address\country\country_list.html:41
+#: .\usermanager\templates\dashboard\address\district\district_list.html:41
+#: .\usermanager\templates\dashboard\address\province\province_list.html:41
+#: .\usermanager\templates\dashboard\address\village\village_list.html:45
+msgid "Short Name"
+msgstr "ឈ្មោះកាត់"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:44
+#: .\usermanager\templates\dashboard\address\country\country_list.html:44
+#: .\usermanager\templates\dashboard\address\district\district_list.html:44
+#: .\usermanager\templates\dashboard\address\province\province_list.html:44
+#: .\usermanager\templates\dashboard\address\village\village_list.html:48
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:28
+msgid "Actions"
+msgstr "វិធានការ"
+
+#: .\usermanager\templates\dashboard\address\commune\commune_list.html:60
+#: .\usermanager\templates\dashboard\address\country\country_list.html:60
+#: .\usermanager\templates\dashboard\address\district\district_list.html:60
+#: .\usermanager\templates\dashboard\address\province\province_list.html:60
+msgid "Details"
+msgstr "លម្អិត"
+
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:8
+#: .\usermanager\templates\dashboard\address\country\delete.html:8
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:8
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:29
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:8
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:29
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:18
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:88
+#: .\usermanager\templates\dashboard\customer\delete.html:8
+msgid "Are you sure want to delete "
+msgstr "តើអ្នកពិតជាចង់លុបមែន ឬទេ"
+
+#: .\usermanager\templates\dashboard\address\commune\delete_commune.html:12
+#: .\usermanager\templates\dashboard\address\country\delete.html:12
+#: .\usermanager\templates\dashboard\address\district\delete_district.html:12
+#: .\usermanager\templates\dashboard\address\province\delete_province.html:12
+#: .\usermanager\templates\dashboard\address\village\delete_village.html:12
+#: .\usermanager\templates\dashboard\customer\delete.html:12
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:165
+msgid "Confirm"
+msgstr "បញ្ចាក់"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:4
+msgid "Country Detail"
+msgstr "លម្អិតអំពីប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:12
+#: .\usermanager\templates\dashboard\address\country\country_form.html:15
+#: .\usermanager\templates\dashboard\address\country\country_list.html:12
+msgid "Country list"
+msgstr "បញ្ជីរឈ្មោះប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:14
+msgid "Country detail"
+msgstr "លម្អិតអំពីប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:24
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:189
+#: .\usermanager\templates\dashboard\index.html:736
+msgid "Delete customer"
+msgstr "លុបអតិថិជន"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:46
+msgid "DETAILS"
+msgstr "ពត៌មានលម្អិត"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:73
+#: .\usermanager\templates\dashboard\address\country\country_form.html:57
+#: .\usermanager\templates\dashboard\address\country\country_list.html:43
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:45
+msgid "Currency"
+msgstr "រូបិយប័ណ្ណ"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:76
+msgid "Primary language"
+msgstr "ភាសាចម្លង"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:79
+msgid "Alt languages"
+msgstr "ភាសាដទៃ"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:85
+#: .\usermanager\templates\dashboard\address\country\country_form.html:77
+msgid "Landmark"
+msgstr "ផ្ទៃដី"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:88
+msgid "Leader name"
+msgstr "ឈ្មោះអ្នកដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:91
+msgid "Leader position"
+msgstr "តំណែងអ្នកដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\country\country_detail.html:94
+msgid "Is before chris"
+msgstr "មុនគ្រឹស្តសករាជ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:5
+msgid "Country Form"
+msgstr "ទម្រង់បំពេញទិន្ន័យប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:17
+msgid "Update country"
+msgstr "ធ្វើបច្ចុប្បន្នភាពទិន្នន័យប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:19
+msgid "Create country"
+msgstr "បង្កើតទិន្នន័យប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:30
+msgid "Update Country"
+msgstr "ធ្វើបច្ចុប្បន្នភាពទិន្នន័យប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:32
+msgid "Create Country"
+msgstr "បង្កើតទិន្នន័យប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:41
+#: .\usermanager\templates\dashboard\address\province\province_form.html:38
+msgid "Country Name"
+msgstr "ឈ្មោះប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:45
+msgid "Local Name"
+msgstr "ឈ្មោះប្រទេសជាភាសាជាតិ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:61
+msgid "Primary Language"
+msgstr "ភាសាចម្បង"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:65
+msgid "Alt Languages"
+msgstr "ភាសាដទៃ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:69
+msgid "Border With"
+msgstr "ជាប់ព្រំប្រទល់"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:81
+msgid "Leader Name"
+msgstr "ឈ្មោះថ្នាក់ដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:85
+msgid "Leader Position"
+msgstr "តំណែងថ្នាក់ដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:89
+msgid "Born Year"
+msgstr "កើតនៅឆ្នាំ"
+
+#: .\usermanager\templates\dashboard\address\country\country_form.html:94
+msgid "Is Before chris"
+msgstr "មុនគ្រឹសករាជ"
+
+#: .\usermanager\templates\dashboard\address\country\country_list.html:4
+msgid "Country List"
+msgstr "បញ្ជីរឈ្មោះប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\country\country_list.html:40
+#: .\usermanager\templates\dashboard\address\province\province_list.html:40
+msgid "County Name"
+msgstr "ឈ្មោះប្រទេស"
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:4
+msgid "District Detail"
+msgstr "ពត៌មានលម្អិអំពីស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:12
+#: .\usermanager\templates\dashboard\address\district\district_list.html:12
+msgid "District list"
+msgstr "បញ្ជឹរឈ្មោះស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:14
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:45
+msgid "District detail"
+msgstr "លម្អិអំពីស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_detail.html:24
+msgid "Delete district"
+msgstr "លុបស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:4
+msgid "Distric Form"
+msgstr "ទម្រង់បំពេញទិន្នន័យស្រុក​ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:14
+#: .\usermanager\templates\dashboard\address\district\district_form.html:27
+msgid "Update District"
+msgstr "ធ្វើបច្ចុប្បន្នភាពស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:16
+#: .\usermanager\templates\dashboard\address\district\district_form.html:29
+msgid "Create District"
+msgstr "បង្កើតទិន្នន័យស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\district\district_form.html:38
+#: .\usermanager\templates\dashboard\address\province\province_form.html:42
+msgid "Province Name"
+msgstr "ឈ្មោះខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\district\district_list.html:4
+msgid "Distric list"
+msgstr "បញ្ជីឈ្មោះស្រុក ឬ ខ័ណ្ឌ"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:4
+msgid "Province Detail"
+msgstr "លម្អិតអំពីខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:12
+#: .\usermanager\templates\dashboard\address\province\province_form.html:12
+#: .\usermanager\templates\dashboard\address\province\province_list.html:4
+#: .\usermanager\templates\dashboard\address\province\province_list.html:12
+msgid "Province list"
+msgstr "បញ្ជីឈ្មោះខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:14
+msgid "Province detail"
+msgstr "លម្អិតអំពីខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:24
+msgid "Delete Province "
+msgstr "បង្កើតទិន្នន័យខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:45
+msgid " Province Detail"
+msgstr "លម្អិតអំពីខេ្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_detail.html:76
+msgid "Leander"
+msgstr "អ្នកដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:4
+msgid "Province Form"
+msgstr "ទម្រង់បំពេញទិន្ន័យខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:14
+msgid " Update province"
+msgstr "ធ្វើបច្ចុប្បន្នភាពខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:16
+msgid " Create province"
+msgstr "បង្កើតខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:27
+msgid "Update province"
+msgstr "ធ្វើបច្ចុប្បន្នភាពខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:29
+msgid "Create Province"
+msgstr "បង្កើតទិន្នន័យខេត្ត"
+
+#: .\usermanager\templates\dashboard\address\province\province_form.html:66
+msgid "Leader"
+msgstr "អ្នកដឹកនាំ"
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:4
+msgid "Village Detail"
+msgstr "លម្អិតអំពីភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:12
+#: .\usermanager\templates\dashboard\address\village\village_form.html:12
+#: .\usermanager\templates\dashboard\address\village\village_list.html:12
+#: .\usermanager\templates\dashboard\address\village\village_list.html:20
+msgid "Village list"
+msgstr "បញ្ជីរឈ្មោះរូប"
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:14
+msgid "Village detail"
+msgstr "លម្អិតអំពីភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:24
+msgid "Delete village"
+msgstr "លុបទិន្នន័យភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_detail.html:45
+msgid " Village Detail"
+msgstr "លម្អិតអំពីភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:4
+msgid "Village Form"
+msgstr "ទម្រង់បំពេញទិន្នន័យភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:14
+#: .\usermanager\templates\dashboard\address\village\village_form.html:27
+msgid "Update Village"
+msgstr "ធ្វើបច្ចុប្បន្នភាពអំពីភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:16
+msgid " Create Village"
+msgstr "បង្កើតភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:29
+msgid "Create Village"
+msgstr "បង្កើតភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_form.html:42
+#: .\usermanager\templates\dashboard\address\village\village_list.html:43
+msgid "Village Name"
+msgstr "ឈ្មោះភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:4
+msgid "Village List"
+msgstr "បញ្ជីរឈ្មោះភូមិ"
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:21
+msgid "A village is a small settlement usually found"
+msgstr "ភូមិគឺជាការតាំងទីលំនៅតូចមួយដូចដែលយើងបានឃើញ"
+
+#: .\usermanager\templates\dashboard\address\village\village_list.html:70
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:218
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:277
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:60
+msgid "Detail"
+msgstr "លម្អិត"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:31
+msgid "Update Collateral"
+msgstr "បង្កើតពត៌មានទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:33
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:30
+msgid "Create New Collateral"
+msgstr "បង្កើតពត៌មានទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:51
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:293
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:216
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:86
+msgid "Status"
+msgstr "ស្ថានភាព"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:66
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:70
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:74
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:50
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:46
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:49
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:217
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:109
+msgid "Description"
+msgstr "ពណ៌នា"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:81
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:84
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:387
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:428
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:54
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:57
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:245
+msgid "Price"
+msgstr "តម្លៃ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:89
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:51
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:386
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:427
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:62
+msgid "Condition"
+msgstr "លក្ខខណ្ឌ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:100
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:289
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:389
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:430
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:73
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:201
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:246
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:89
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:128
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:241
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:123
+#: .\usermanager\templates\dashboard\paw\refund_data.html:81
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:64
+msgid "Date"
+msgstr "កាលបរិច្ឆេទ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:108
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:81
+msgid "Expiration date"
+msgstr "កាលបរិច្ឆេទនៃកាលផុតកំណត់"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:115
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:88
+msgid "Attached Images"
+msgstr "រូបភាពដែលបានភ្ជាប់ជាមួយ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_create.html:120
+#: .\usermanager\templates\dashboard\loan\collateral\create_collateral_loan.html:93
+msgid "Submit"
+msgstr "បញ្ជូន"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:4
+msgid "Collateral Detail"
+msgstr "ពត៌មានអំពីទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:12
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:83
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_detail.html:42
+msgid "Delete customer "
+msgstr "លុបអតិថិជន"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:31
+msgid "Collateral Of"
+msgstr "បញ្ចូលឈ្មោះ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:48
+msgid "Belonging of"
+msgstr "ជាកម្មសិទ្ធ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:49
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:82
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:83
+msgid "Type"
+msgstr "ប្រភេទ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_detail.html:52
+msgid "Worths"
+msgstr "មានតម្លៃ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:40
+#: .\usermanager\templates\dashboard\paw\paw_list.html:40
+msgid "Search collateral"
+msgstr "ស្វែងរកវត្ថុបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\collateral\collateral_list.html:74
+msgid "Expired"
+msgstr "ផុតកំណត់"
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:14
+msgid " Update customer address"
+msgstr "ធ្វើបច្ចុប្បន្នភាពអាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:16
+msgid " Create customer address"
+msgstr "បង្កើតអាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\cus_address\customer_address_form.html:29
+msgid "Delete customer address "
+msgstr "លុបអាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:4
+msgid "Customer Detail"
+msgstr "អំពីអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:27
+msgid "Fullpaid"
+msgstr "បានទូទាត់រួច"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:127
+msgid "Overview"
+msgstr "ទិដ្ឋភាពទូទៅ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:128
+msgid "Personal"
+msgstr "ផ្ទាល់ខ្លួន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:161
+#: .\usermanager\templates\dashboard\index.html:598
+msgid "Overdue"
+msgstr "ដល់កំណត់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:168
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:371
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:410
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:453
+msgid "No data"
+msgstr "គ្មានទិន្នន័យកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:175
+msgid "This Year"
+msgstr "ឆ្នាំនេះ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:188
+msgid "Update information"
+msgstr "កែរប្រែព័ត៌មាន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:194
+msgid "Latin"
+msgstr "ឈ្មោះអក្សរឡាតាំង"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:195
+#: .\usermanager\templates\dashboard\customer\customer_form.html:112
+msgid "Phone"
+msgstr "ទូរស័ព្ទ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:196
+#: .\usermanager\templates\dashboard\customer\customer_form.html:120
+msgid "Relationship status"
+msgstr "ស្ថានភាពសម្ព័នភាព"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:198
+#: .\usermanager\templates\dashboard\customer\customer_form.html:124
+msgid "Married"
+msgstr "រៀបការហើយ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:200
+msgid "Single"
+msgstr "នៅលីវ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:207
+#: .\usermanager\templates\dashboard\customer\customer_form.html:116
+msgid "Email"
+msgstr "អ៊ីម៉ែល"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:99
+msgid "Gender"
+msgstr "ភេទ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:101
+msgid "Male"
+msgstr "ប្រុស"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:208
+#: .\usermanager\templates\dashboard\customer\customer_form.html:102
+msgid "Female"
+msgstr "ស្រី"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:209
+#: .\usermanager\templates\dashboard\customer\customer_form.html:107
+msgid "Birthday"
+msgstr "ថ្ងៃកំណើត"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:212
+#: .\usermanager\templates\dashboard\customer\customer_form.html:129
+msgid "Name spouse"
+msgstr "ឈ្មោះប្តី ឬ ប្រពន្ធ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:222
+msgid "ADDRESS"
+msgstr "អាសយដ្ឋាន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:230
+msgid "Street"
+msgstr "ផ្លូវ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:232
+msgid "Location"
+msgstr " ទីតាំង"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:238
+msgid "Add address"
+msgstr "បន្ថែមអាសយដ្ឋាន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:245
+msgid "IDENTIFY"
+msgstr "សំគាល់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:252
+msgid "ID#"
+msgstr "ID"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:253
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:91
+msgid "Card type"
+msgstr "ប្រភេទកាត"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:256
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:247
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:242
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:127
+msgid "Expiration"
+msgstr "កាលបរិច្ឆេទនៃកាលផុតកំណត់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:260
+msgid "Verify information"
+msgstr "បញ្ជាក់ព័ត៌មាន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:260
+msgid "Verify now"
+msgstr "ផ្ទៀងផ្ទាត់​ឥឡូវ​នេះ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:280
+#: .\usermanager\templates\dashboard\loan\full_paid.html:28
+msgid "Create loan"
+msgstr "បង្កើតកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:287
+msgid "ID"
+msgstr "ID"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:288
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:45
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:68
+msgid "Amount"
+msgstr "ទឹកប្រាក់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:290
+msgid "Cycle"
+msgstr "ជុំ"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:291
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:83
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:122
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:119
+#: .\usermanager\templates\dashboard\paw\paw_list.html:72
+#: .\usermanager\templates\dashboard\paw\refund_data.html:77
+msgid "Rate"
+msgstr "អត្រា"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:292
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:202
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:150
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:266
+msgid "Paid"
+msgstr "បានទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:309
+#: .\usermanager\templates\dashboard\loan\loan_list.html:246
+msgid "unread messages"
+msgstr "សារមិនទាន់អាន"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:326
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:193
+msgid "Completed"
+msgstr "បានបញ្ចប់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:328
+msgid "On going"
+msgstr "កំពុងបន្ត"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:339
+msgid "No loan data"
+msgstr "គ្មានទិន្នន័យយកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:349
+msgid "Payment ref"
+msgstr "យោងការទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:350
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:54
+msgid "Loan ID"
+msgstr "លេខសម្គាល់កម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:351
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:140
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:184
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:240
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:48
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:123
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:204
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:287
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:385
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:522
+#: .\usermanager\templates\dashboard\loan\loan_list.html:31
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:109
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:43
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:60
+#: .\usermanager\templates\dashboard\payment\payback_list.html:16
+msgid "Interest"
+msgstr "ការប្រាក់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:352
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:145
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:183
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:253
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:122
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:203
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:300
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:398
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:530
+#: .\usermanager\templates\dashboard\loan\loan_list.html:36
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:62
+#: .\usermanager\templates\dashboard\payment\payback_list.html:17
+msgid "Principle"
+msgstr "ប្រាក់ដើម"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:354
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:279
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:202
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:326
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:424
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:66
+#: .\usermanager\templates\dashboard\payment\payback_list.html:18
+msgid "Due date"
+msgstr "កាលបរិច្ឆេទបំណុល"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:384
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:425
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:393
+msgid "Image"
+msgstr "រូបភាព"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:385
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:426
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:214
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:78
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:79
+msgid "Title"
+msgstr "ចំណងជើង"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:388
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:429
+msgid "Staus"
+msgstr "ស្ថានភាព"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:390
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:431
+msgid "Expired date"
+msgstr "កាលបរិច្ឆេទនៃការទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\customer_detail.html:419
+msgid "Add paw"
+msgstr "បន្ថែមបញ្ជាំ"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:57
+msgid "Update customer information"
+msgstr "ធ្វើបច្ចុប្បន្នភាពអាសយដ្ឋានអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:61
+msgid "Create new customer information"
+msgstr "បង្កើតពត៌មានអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:91
+msgid "Name khmer"
+msgstr "ឈ្មោះជាភាសាខ្មែរ"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:92
+msgid "Enter name"
+msgstr "បញ្ចូលឈ្មោះ"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:95
+msgid "Name english"
+msgstr "ឈ្មោះជាភាសាអង្គគ្លេស់"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:96
+msgid "Enter name english"
+msgstr "បញ្ចូលឈ្មោះជាភាសាអង្គគ្លេស់"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:103
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:96
+msgid "Other"
+msgstr "ផ្សេង"
+
+#: .\usermanager\templates\dashboard\customer\customer_form.html:135
+msgid "Add name spouse"
+msgstr "បន្ថែមឈ្មោះប្តី ឬ ប្រពន្ធ"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:34
+msgid "Id for"
+msgstr "អត្តសញ្ញាណសម្រាប់"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:36
+msgid "Create Indentify Id for"
+msgstr "បង្កើតលេខសម្គាល់អត្តសញ្ញាណសម្រាប់"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:85
+msgid "Number"
+msgstr "លេខ"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:86
+msgid "number"
+msgstr "លេខ"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:93
+msgid "Identity"
+msgstr "អត្តសញ្ញាណ"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:94
+msgid "Passport"
+msgstr "លិខិតឆ្លងដែន"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:95
+msgid "Drivers license"
+msgstr "ប័ណ្ណបើកបរ"
+
+#: .\usermanager\templates\dashboard\customer\id_card\id_card_form.html:100
+msgid "Expire date"
+msgstr "ផុតកាលបរិច្ឆេទ"
+
+#: .\usermanager\templates\dashboard\customer\list_customer.html:153
+msgid "Customer List"
+msgstr "បញ្ជីរឈ្មោះអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\list_customer.html:168
+msgid "search loan"
+msgstr "ស្វែងរកកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:26
+msgid "Update New Loan"
+msgstr "បង្កើតកម្ចីថ្មី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:28
+#: .\usermanager\templates\dashboard\payment\payback_form.html:35
+msgid "Create New Loan"
+msgstr "បង្កើតកម្ចីថ្មី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:40
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:41
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:81
+msgid "Loan amount"
+msgstr "ទឹកប្រាក់កម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:55
+#: .\usermanager\templates\dashboard\loan\full_paid.html:62
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+msgid "Payment method"
+msgstr "វិធីទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:66
+#: .\usermanager\templates\dashboard\loan\full_paid.html:72
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Loan term"
+msgstr "រយះពេលកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:80
+#: .\usermanager\templates\dashboard\loan\full_paid.html:85
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:82
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:27
+msgid "Interest rate"
+msgstr "ការប្រាក់"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:94
+#: .\usermanager\templates\dashboard\loan\full_paid.html:98
+msgid "Rate calculate method "
+msgstr "វិធីគណនាអត្រាការប្រាក់"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:104
+#: .\usermanager\templates\dashboard\loan\full_paid.html:105
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:43
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:87
+msgid "Loan date"
+msgstr "កាលបរិច្ឆេទកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:115
+msgid "Pay off"
+msgstr "បង់ផ្តាច់"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:127
+msgid "Set first payment date"
+msgstr "កំណត់កាលបរិច្ឆេទទូទាត់ដំបូង"
+
+#: .\usermanager\templates\dashboard\customer\loan\create_customer_loan_form.html:170
+msgid "update"
+msgstr "ធ្វើបច្ចុប្បន្នភាព"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:4
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:4
+msgid "Loan detail"
+msgstr "អំពីកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:37
+#: .\usermanager\templates\dashboard\loan\full_paid.html:26
+msgid "Loan list"
+msgstr "បញ្ចីរកម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:39
+msgid "Customers detail"
+msgstr "លម្អិតអំពីអតិថិជន"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:47
+msgid "Edit"
+msgstr "កែប្រែ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:50
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:39
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:77
+msgid "Loan number"
+msgstr "លេខសម្គាល់កម្ចី"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:74
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:69
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:32
+msgid "Download"
+msgstr "ទាញយក"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:79
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:33
+msgid "Print"
+msgstr "បោះពុម្ព"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:84
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:74
+msgid "Save PDF"
+msgstr "រក្សាទុកជា​ឯកសារ PDF"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:111
+msgid "Create collateral"
+msgstr "បង្កើតពត៌មានទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:150
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:266
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:313
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:411
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:538
+#: .\usermanager\templates\dashboard\loan\loan_list.html:41
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:111
+#: .\usermanager\templates\dashboard\payment\payback_list.html:20
+#: .\usermanager\templates\dashboard\report\Report_Over_dute.html:26
+msgid "Balance"
+msgstr "សមតុល្យ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:155
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:545
+#: .\usermanager\templates\dashboard\loan\loan_list.html:46
+msgid "Returned"
+msgstr "សងវិញ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:180
+msgid "#."
+msgstr "#"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:181
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:120
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:106
+msgid "Payment date"
+msgstr "ថ្ងៃបង់ប្រាក់"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:182
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:121
+msgid "Numer of day"
+msgstr "ចំនួនថ្ងៃ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:185
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:124
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:110
+msgid "To be paid"
+msgstr "ត្រូវទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:186
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:125
+msgid "Outstanding"
+msgstr "បំណុល"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:187
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:126
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:207
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:248
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:268
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:30
+msgid "Action"
+msgstr "វិធានការ"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:204
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:157
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:165
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:169
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:229
+msgid "Pay"
+msgstr "ទូទាត់"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:230
+msgid "Loan payback"
+msgstr "ទូទាត់សង"
+
+#: .\usermanager\templates\dashboard\customer\loan\loan_detail.html:289
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:336
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:434
+#: .\usermanager\templates\dashboard\payment\payback_list.html:19
+msgid "Pay date"
+msgstr "ថ្ងៃបង់ប្រាក់"
+
+#: .\usermanager\templates\dashboard\index.html:10
+#: .\usermanager\templates\dashboard\index.html:11
+msgid "Jan"
+msgstr "មករា"
+
+#: .\usermanager\templates\dashboard\index.html:12
+#: .\usermanager\templates\dashboard\index.html:13
+msgid "Feb"
+msgstr "កុម្ភៈ"
+
+#: .\usermanager\templates\dashboard\index.html:14
+#: .\usermanager\templates\dashboard\index.html:15
+msgid "Mar"
+msgstr "មីនា"
+
+#: .\usermanager\templates\dashboard\index.html:16
+#: .\usermanager\templates\dashboard\index.html:17
+msgid "Apr"
+msgstr "​មេសា"
+
+#: .\usermanager\templates\dashboard\index.html:18
+#: .\usermanager\templates\dashboard\index.html:19
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr "​ឧសភា"
+
+#: .\usermanager\templates\dashboard\index.html:20
+#: .\usermanager\templates\dashboard\index.html:21
+msgid "Jun"
+msgstr "មិថុនា"
+
+#: .\usermanager\templates\dashboard\index.html:22
+#: .\usermanager\templates\dashboard\index.html:23
+msgid "Jul"
+msgstr "កក្កដា"
+
+#: .\usermanager\templates\dashboard\index.html:24
+#: .\usermanager\templates\dashboard\index.html:25
+msgid "Aug"
+msgstr "សីហា"
+
+#: .\usermanager\templates\dashboard\index.html:26
+#: .\usermanager\templates\dashboard\index.html:27
+msgid "Sep"
+msgstr "កញ្ញា"
+
+#: .\usermanager\templates\dashboard\index.html:28
+#: .\usermanager\templates\dashboard\index.html:29
+msgid "Oct"
+msgstr "តុលា"
+
+#: .\usermanager\templates\dashboard\index.html:30
+#: .\usermanager\templates\dashboard\index.html:31
+msgid "Nov"
+msgstr "វិច្ឆិកា"
+
+#: .\usermanager\templates\dashboard\index.html:32
+#: .\usermanager\templates\dashboard\index.html:33
+msgid "Dec"
+msgstr "ធ្នូ"
+
+#: .\usermanager\templates\dashboard\index.html:46
+#: .\usermanager\templates\dashboard\index.html:94
+#: .\usermanager\templates\dashboard\index.html:142
+#: .\usermanager\templates\dashboard\index.html:190
+#: .\usermanager\templates\dashboard\index.html:238
+msgid "`Interest`"
+msgstr "`ការប្រាក់`"
+
+#: .\usermanager\templates\dashboard\index.html:57
+#: .\usermanager\templates\dashboard\index.html:105
+#: .\usermanager\templates\dashboard\index.html:153
+#: .\usermanager\templates\dashboard\index.html:201
+#: .\usermanager\templates\dashboard\index.html:249
+msgid "`Principle`"
+msgstr "`ប្រាក់ដើម`"
+
+#: .\usermanager\templates\dashboard\index.html:68
+#: .\usermanager\templates\dashboard\index.html:116
+#: .\usermanager\templates\dashboard\index.html:164
+#: .\usermanager\templates\dashboard\index.html:212
+#: .\usermanager\templates\dashboard\index.html:260
+msgid "`Paid`"
+msgstr "`បានទូទាត់`"
+
+#: .\usermanager\templates\dashboard\index.html:356
+msgid "Invest volume"
+msgstr "ទំហំវិនិយោគ"
+
+#: .\usermanager\templates\dashboard\index.html:359
+msgid "0"
+msgstr "០"
+
+#: .\usermanager\templates\dashboard\index.html:372
+#: .\usermanager\templates\dashboard\index.html:423
+#: .\usermanager\templates\dashboard\index.html:472
+msgid "last"
+msgstr "ចុងក្រោយ"
+
+#: .\usermanager\templates\dashboard\index.html:375
+#: .\usermanager\templates\dashboard\index.html:380
+#: .\usermanager\templates\dashboard\index.html:391
+#: .\usermanager\templates\dashboard\index.html:411
+#: .\usermanager\templates\dashboard\index.html:426
+#: .\usermanager\templates\dashboard\index.html:431
+#: .\usermanager\templates\dashboard\index.html:441
+#: .\usermanager\templates\dashboard\index.html:460
+#: .\usermanager\templates\dashboard\index.html:474
+#: .\usermanager\templates\dashboard\index.html:478
+#: .\usermanager\templates\dashboard\index.html:488
+#: .\usermanager\templates\dashboard\index.html:631
+#: .\usermanager\templates\dashboard\index.html:665
+msgid " No Data"
+msgstr "ពុំមានទិន្នន័យ"
+
+#: .\usermanager\templates\dashboard\index.html:377
+#: .\usermanager\templates\dashboard\index.html:428
+#: .\usermanager\templates\dashboard\index.html:476
+msgid "current"
+msgstr "បច្ចុប្បន្ន"
+
+#: .\usermanager\templates\dashboard\index.html:409
+msgid "Principle return"
+msgstr "ប្រាក់ដើមមកវិញ"
+
+#: .\usermanager\templates\dashboard\index.html:458
+msgid "Earned"
+msgstr "ចំណូល"
+
+#: .\usermanager\templates\dashboard\index.html:504
+msgid "Loanee"
+msgstr "កូនបំណុល"
+
+#: .\usermanager\templates\dashboard\index.html:521
+#: .\usermanager\templates\dashboard\index.html:538
+#: .\usermanager\templates\dashboard\index.html:553
+#: .\usermanager\templates\dashboard\index.html:578
+msgid "This month"
+msgstr "ខែនេះ"
+
+#: .\usermanager\templates\dashboard\index.html:532
+msgid "Loan Transaction"
+msgstr "ប្រតិបត្តការណ៍សង"
+
+#: .\usermanager\templates\dashboard\index.html:547
+msgid "Paw Transaction"
+msgstr "ប្រតិបត្តការណ៍សង"
+
+#: .\usermanager\templates\dashboard\index.html:571
+msgid "Analytics"
+msgstr "ការវិភាគទិន្នន័យ"
+
+#: .\usermanager\templates\dashboard\index.html:579
+msgid "Last month"
+msgstr "ខែមុន"
+
+#: .\usermanager\templates\dashboard\index.html:580
+msgid "This year"
+msgstr "ឆ្នាំ"
+
+#: .\usermanager\templates\dashboard\index.html:581
+msgid "Last year"
+msgstr "ឆ្នាំមុន"
+
+#: .\usermanager\templates\dashboard\index.html:617
+msgid "days"
+msgstr "ថ្ងៃ"
+
+#: .\usermanager\templates\dashboard\index.html:635
+#: .\usermanager\templates\dashboard\index.html:671
+#: .\usermanager\templates\dashboard\index.html:877
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:257
+msgid "More"
+msgstr "ច្រើនទៀត"
+
+#: .\usermanager\templates\dashboard\index.html:642
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:103
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:193
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:24
+msgid "Payback"
+msgstr "ទូទាត់សង"
+
+#: .\usermanager\templates\dashboard\index.html:718
+msgid "Create"
+msgstr "បង្កើតបញ្ជាំថ្មី"
+
+#: .\usermanager\templates\dashboard\index.html:724
+msgid "Admin do something"
+msgstr "អ្នកគ្រប់គ្រងធ្វើរឿងខ្លះ"
+
+#: .\usermanager\templates\dashboard\index.html:730
+msgid "New customer"
+msgstr "អតិថិជនថ្មី"
+
+#: .\usermanager\templates\dashboard\index.html:733
+msgid "New customer from"
+msgstr "អតិថិជនថ្មី"
+
+#: .\usermanager\templates\dashboard\index.html:741
+msgid "New loan"
+msgstr "បន្ថែមកម្ចីថ្មី"
+
+#: .\usermanager\templates\dashboard\index.html:744
+msgid "Update loan from"
+msgstr "កែរប្រែកម្ចីពី"
+
+#: .\usermanager\templates\dashboard\index.html:747
+msgid "Delete loan"
+msgstr "លុបកម្ចី"
+
+#: .\usermanager\templates\dashboard\index.html:753
+#: .\usermanager\templates\dashboard\index.html:764
+#: .\usermanager\templates\dashboard\index.html:776
+#: .\usermanager\templates\dashboard\index.html:787
+#: .\usermanager\templates\dashboard\index.html:798
+#: .\usermanager\templates\dashboard\index.html:810
+#: .\usermanager\templates\dashboard\index.html:821
+#: .\usermanager\templates\dashboard\index.html:832
+#: .\usermanager\templates\dashboard\index.html:843
+#: .\usermanager\templates\dashboard\index.html:854
+msgid "New"
+msgstr "ថ្មី"
+
+#: .\usermanager\templates\dashboard\index.html:756
+#: .\usermanager\templates\dashboard\index.html:767
+msgid "from"
+msgstr "ពី"
+
+#: .\usermanager\templates\dashboard\index.html:862
+msgid "By"
+msgstr "ដោយ"
+
+#: .\usermanager\templates\dashboard\index.html:872
+msgid "No Data"
+msgstr "ពុំមានទិន្នន័យ"
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:15
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:14
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:14
+#: .\usermanager\templates\dashboard\payment\payback_form.html:14
+msgid "Add customer successfully !"
+msgstr "បន្ថែមអតិថិជនដោយជោគជ័យ"
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:17
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:16
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:16
+#: .\usermanager\templates\dashboard\payment\payback_form.html:16
+msgid "Cancel create customer ! "
+msgstr "បោះបង់ការបង្កើតអតិថិជន"
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:39
+msgid "FULL PAID "
+msgstr "ទូទាត់ពេញ"
+
+#: .\usermanager\templates\dashboard\loan\full_paid.html:48
+msgid "Pay Amount"
+msgstr "ទឹកប្រាក់ទូទាត់"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:14
+msgid "Loan Detail"
+msgstr "អំពីកម្ចី"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:30
+msgid "Customer Name"
+msgstr "ឈ្មោះអតិថិជន"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+msgid "Period"
+msgstr "អំឡុងពេល"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:107
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:224
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:234
+msgid "Day"
+msgstr "ថ្ងៃ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:225
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:235
+msgid "Week"
+msgstr "សប្តាហ៍"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:226
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:236
+msgid "Month"
+msgstr "ខែ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Quarter"
+msgstr "ត្រីមាស"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+msgid "Semester"
+msgstr "ឆមាស"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:33
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:46
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:88
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:227
+msgid "Year"
+msgstr "ឆ្នាំ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:36
+msgid "Customer ID"
+msgstr "លេខសម្គាល់អតិថិជន"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+msgid "Loan type"
+msgstr "ប្រភេទកម្ចី"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Fixed flat"
+msgstr "បង់ដើមថេរ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:44
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Fixed rate"
+msgstr "អត្រាថេរ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:51
+msgid "First pay date"
+msgstr "ថ្ងៃទូទាត់ដំបូង"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:53
+msgid "N/A"
+msgstr "ពុំមាន"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:62
+msgid "Add addresss"
+msgstr "បន្ថែមអាសយដ្ឋាន"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:98
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:113
+msgid "Schedule"
+msgstr "កាលវិភាគ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:160
+msgid "Alerts"
+msgstr "ការជូនដំណឹង"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:166
+msgid "Full paid"
+msgstr "បានទូទាត់រួច"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:179
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:222
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+msgid "Total"
+msgstr "សរុប"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:205
+msgid "Payment Amount"
+msgstr "ទឹកប្រាក់ទូទាត់"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:206
+#: .\usermanager\templates\dashboard\payment\payback_list.html:21
+msgid "Full Paid"
+msgstr "បានទូទាត់រួច"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:231
+msgid "No payback transaction yet."
+msgstr "ពុំមានប្រតិបត្តការណ៍សង"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:238
+msgid "List of collateral"
+msgstr "បញ្ចីទ្រព្យបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:239
+msgid "Add collateral"
+msgstr "បន្ថែមព្រទ្យ"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:346
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:444
+msgid "Attechment file"
+msgstr "ឯកសារភ្ជាប់"
+
+#: .\usermanager\templates\dashboard\loan\loan_detail.html:375
+msgid "Completed loan"
+msgstr "បានបញ្ចប់"
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:150
+#: .\usermanager\templates\dashboard\payment\payback_form.html:25
+msgid "Loan List"
+msgstr "បញ្ចីរកម្ចី"
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:319
+#: .\usermanager\templates\dashboard\loan\loan_list.html:321
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:59
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:61
+msgid "Previous"
+msgstr "ថយក្រោយ"
+
+#: .\usermanager\templates\dashboard\loan\loan_list.html:331
+#: .\usermanager\templates\dashboard\loan\loan_list.html:333
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:71
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:73
+msgid "Next"
+msgstr "បន្ទាប់"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:4
+msgid "Preview Print"
+msgstr "មើលបោះពុម្ព"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:52
+msgid "Paw compnay name"
+msgstr "ឈ្មោះក្រុមហ៊ុនបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:53
+msgid "Microfinance short PN"
+msgstr "មីក្រូហិរញ្ញវត្ថុ"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:61
+msgid "BANK INFOMATION"
+msgstr "ព័ត៌មានធនាគារ"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:72
+msgid "Schedule Payment"
+msgstr "តាងរាងបង់ប្រាក់"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:76
+msgid "Customer name"
+msgstr "ឈ្មោះអតិថិជន"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:78
+msgid "Customer number"
+msgstr "លេខសម្គាល់អតិថិជន"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:83
+msgid "Identity card number"
+msgstr "លេខអត្តសញ្ញាណប័ណ្ណ"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:86
+msgid "First pay loan"
+msgstr "ថ្ងៃទូទាត់ដំបូង"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:89
+msgid "Loan method"
+msgstr "ប្រភេទកម្ចី"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:105
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:265
+msgid "#"
+msgstr "#"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:108
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:135
+msgid "Priciple"
+msgstr "ប្រាក់ដើម"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:127
+msgid "Total amount"
+msgstr "សរុបទឹកប្រាក់"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:144
+msgid "Note"
+msgstr "ចំណាំ"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:144
+msgid ""
+"In case late payment base on dude date loanee agree to pay additional amount"
+" by following the penalty <a href=\"/\" class=\"text-decoration-none\" "
+">policy</a>."
+msgstr ""
+"ក្នុង​ករណី​ដែល​មូលដ្ឋាន​នៃ​ការ​ទូទាត់​យឺត​តាម​កាល​បរិច្ឆេទ​កំណត់ "
+"អ្នក​ខ្ចី​យល់ព្រម​បង់​ប្រាក់​បន្ថែម​ដោយ​អនុវត្ត​តាម​ការ​ពិន័យ <a href=\"/\" "
+"class=\"text-decoration-none\" >policy</a>។"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:150
+msgid "Company Behavior "
+msgstr "តំណាងក្រុមហ៊ុន"
+
+#: .\usermanager\templates\dashboard\loan\report\preview_and_create_load_schedule.html:159
+msgid "Loanee Signature"
+msgstr "កូនបំណុល"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:4
+msgid "Paw Detail"
+msgstr "ពត៌មានបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:95
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:134
+msgid "Attachement"
+msgstr "រូបភាពដែលបានភ្ជាប់ជាមួយ"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:115
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:256
+#: .\usermanager\templates\dashboard\paw\refund_data.html:41
+#: .\usermanager\templates\dashboard\paw\refund_data.html:89
+msgid "Refund"
+msgstr "សងវិញ"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:212
+msgid "Information"
+msgstr "ព័ត៌មាន"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:215
+msgid "Owner"
+msgstr "ច្ចាស់"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:221
+msgid "Conditions"
+msgstr "លក្ខខណ្ឌ"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:223
+msgid "Payment as"
+msgstr "ការទូទាត់ជា"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:240
+msgid "Value"
+msgstr "តម្លៃ"
+
+#: .\usermanager\templates\dashboard\paw\paw_detail.html:267
+msgid "Paid Date"
+msgstr "ថ្ងៃបង់ប្រាក់"
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:44
+msgid "Update Paw"
+msgstr "ធ្វើបច្ចុប្បន្នភាព"
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:48
+msgid "Create Paw"
+msgstr "បង្កើតបញ្ជាំថ្មី"
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:95
+msgid "Pay cycle"
+msgstr "វដ្តបង់ប្រាក់"
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:104
+#: .\usermanager\templates\dashboard\paw\refund_data.html:72
+msgid "Price offer"
+msgstr "តម្លៃ"
+
+#: .\usermanager\templates\dashboard\paw\paw_form_create_update.html:116
+msgid "Percentage"
+msgstr "ភាគរយ"
+
+#: .\usermanager\templates\dashboard\paw\paw_list.html:21
+msgid "Paw List"
+msgstr "បញ្ចីរបញ្ចាំ"
+
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:23
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:36
+msgid "PAYBACK DETAIL"
+msgstr "ព័ត៌មានលម្អិតអំពីការសងប្រាក់"
+
+#: .\usermanager\templates\dashboard\paw\pay_paw_detail.html:52
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:74
+msgid "Total Amount"
+msgstr "សរុបទឹកប្រាក់"
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:14
+msgid "search customer"
+msgstr "ស្វែងរកអតិថិជន"
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:26
+msgid "Loan progress"
+msgstr "ដំណើរការកម្ចី"
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:27
+msgid "Total Interest"
+msgstr "ការប្រាក់សរុប"
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:28
+msgid "Total Principle"
+msgstr "ប្រាក់ដើមសរុប"
+
+#: .\usermanager\templates\dashboard\payment\filter_loan_payback.html:29
+msgid "Total Balance"
+msgstr "សមតុល្យ"
+
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:25
+msgid "Payback list"
+msgstr "បញ្ចីរទូទាត់សង"
+
+#: .\usermanager\templates\dashboard\payment\payback_detail.html:27
+msgid "Payback detail"
+msgstr "អំពីការសង"
+
+#: .\usermanager\templates\dashboard\payment\payback_form.html:27
+msgid "Create Loan"
+msgstr "បង្កើតកម្ចី"
+
+#: .\usermanager\templates\dashboard\payment\payback_list.html:9
+msgid "Payment list"
+msgstr "បញ្ជីរការទូទាត់"
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:88
+msgid "Delete Activities activities "
+msgstr "លុបសកម្មភាពថ្មីៗ"
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:110
+msgid "Clean All Activities"
+msgstr "សម្អាតសកម្មភាពថ្មីៗ"
+
+#: .\usermanager\templates\dashboard\recent_activities\recent_activities.html:115
+msgid "Are you sure want to Clean all Data Activities"
+msgstr "តើអ្នកពិតជាចង់លុបមែនឬទេ"
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:496
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr "{editor}៖ ការកែសម្រួលបានបរាជ័យ"
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:500
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr "{editor}៖ ការកែសម្រួលបានបរាជ័យ៖ {e}"
+
+#: .\venv\Lib\site-packages\click\core.py:1097
+msgid "Aborted!"
+msgstr "រំលូតចោល"
+
+#: .\venv\Lib\site-packages\click\core.py:1282
+#: .\venv\Lib\site-packages\click\decorators.py:495
+msgid "Show this message and exit."
+msgstr "បង្ហាញសារនេះហើយចេញ។"
+
+#: .\venv\Lib\site-packages\click\core.py:1313
+#: .\venv\Lib\site-packages\click\core.py:1339
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr "(បានបដិសេធ) {text}"
+
+#: .\venv\Lib\site-packages\click\core.py:1357
+msgid "Options"
+msgstr "ជម្រើស"
+
+#: .\venv\Lib\site-packages\click\core.py:1383
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] "ទទួលបានអាគុយម៉ង់បន្ថែមដែលមិនរំពឹងទុក ({args}"
+
+#: .\venv\Lib\site-packages\click\core.py:1399
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr "ប្រមានពីការផ្អាក: បញ្ជា  {name!r} ត្រូវបានផ្អាក"
+
+#: .\venv\Lib\site-packages\click\core.py:1605
+msgid "Commands"
+msgstr "ពាក្យបញ្ជា"
+
+#: .\venv\Lib\site-packages\click\core.py:1637
+msgid "Missing command."
+msgstr "ខ្វះបញ្ជា"
+
+#: .\venv\Lib\site-packages\click\core.py:1715
+msgid "No such command {name!r}."
+msgstr "ពុំមានពាក្យបញ្ជា  {name!r}"
+
+#: .\venv\Lib\site-packages\click\core.py:2271
+msgid "Value must be an iterable."
+msgstr "តម្លៃត្រូវតែអាចយល់បាន"
+
+#: .\venv\Lib\site-packages\click\core.py:2291
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] "យកតម្លៃ {nargs} ប៉ុន្តែ 1 ត្រូវបានផ្តល់ឱ្យ។"
+
+#: .\venv\Lib\site-packages\click\core.py:2734
+#, python-brace-format
+msgid "env var: {var}"
+msgstr "env var៖ {var}"
+
+#: .\venv\Lib\site-packages\click\core.py:2764
+msgid "(dynamic)"
+msgstr "(ថាមវន្ត)"
+
+#: .\venv\Lib\site-packages\click\core.py:2777
+#, python-brace-format
+msgid "default: {default}"
+msgstr "លំនាំដើម៖ {default}"
+
+#: .\venv\Lib\site-packages\click\core.py:2790
+msgid "required"
+msgstr "តម្រូវការ"
+
+#: .\venv\Lib\site-packages\click\decorators.py:400
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr "%(prog)s, កំណែ %(កំណែ)s"
+
+#: .\venv\Lib\site-packages\click\decorators.py:464
+msgid "Show the version and exit."
+msgstr "បង្ហាញកំណែហើយចេញ។"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:43
+#: .\venv\Lib\site-packages\click\exceptions.py:79
+#, python-brace-format
+msgid "Error: {message}"
+msgstr "កំហុស៖ {mesage}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:71
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr "សាកល្បង '{command} {option}' សម្រាប់ជំនួយ។"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:120
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr "តម្លៃ​មិន​ត្រឹមត្រូវ៖ {mesage}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:122
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr "តម្លៃមិនត្រឹមត្រូវសម្រាប់ {param_hint}៖ {message}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:178
+msgid "Missing argument"
+msgstr "បាត់អាគុយម៉ង់"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:180
+msgid "Missing option"
+msgstr "បាត់ជម្រើស"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:182
+msgid "Missing parameter"
+msgstr "បាត់ប៉ារ៉ាម៉ែត្រ"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:184
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr "បាត់ {param_type}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:191
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr "បាត់ប៉ារ៉ាម៉ែត្រ៖ {param_name}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:211
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr "មិនមានជម្រើសបែបនេះទេ៖ {name}"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:223
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] "តើអ្នកមានន័យថា {possibility}?"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:261
+msgid "unknown error"
+msgstr "កំហុសមិនស្គាល់"
+
+#: .\venv\Lib\site-packages\click\exceptions.py:268
+msgid "Could not open file {filename!r}: {message}"
+msgstr "មិនអាចបើកឯកសារ {filename!r}៖ {message}"
+
+#: .\venv\Lib\site-packages\click\parser.py:231
+msgid "Argument {name!r} takes {nargs} values."
+msgstr "អាគុយម៉ង់ {name!r} យកតម្លៃ {nargs} ។"
+
+#: .\venv\Lib\site-packages\click\parser.py:413
+msgid "Option {name!r} does not take a value."
+msgstr "ជម្រើស {name!r} មិនយកតម្លៃទេ។"
+
+#: .\venv\Lib\site-packages\click\parser.py:474
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] "ជម្រើស {name!r} ទាមទារ​អាគុយម៉ង់"
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:316
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr "ការបំពេញសែលមិនត្រូវបានគាំទ្រសម្រាប់កំណែ Bash ចាស់ជាង 4.4 ទេ។"
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:322
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr "មិនអាចរកឃើញកំណែ Bash ទេ ការបំពេញសែលមិនត្រូវបានគាំទ្រទេ។"
+
+#: .\venv\Lib\site-packages\click\termui.py:160
+msgid "Repeat for confirmation"
+msgstr "បញ្ជាក់សារឡើងវិញ"
+
+#: .\venv\Lib\site-packages\click\termui.py:176
+msgid "Error: The value you entered was invalid."
+msgstr "កំហុស៖ តម្លៃដែលអ្នកបានបញ្ចូលមិនត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\click\termui.py:178
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr "កំហុស៖ {e.message}"
+
+#: .\venv\Lib\site-packages\click\termui.py:189
+msgid "Error: The two entered values do not match."
+msgstr "កំហុស៖ តម្លៃដែលបានបញ្ចូលទាំងពីរមិនត្រូវគ្នាទេ។"
+
+#: .\venv\Lib\site-packages\click\termui.py:245
+msgid "Error: invalid input"
+msgstr "កំហុស៖ ការបញ្ចូលមិនត្រឹមត្រូវ"
+
+#: .\venv\Lib\site-packages\click\termui.py:776
+msgid "Press any key to continue..."
+msgstr "ចុចគ្រាប់ចុចណាមួយដើម្បីបន្ត..."
+
+#: .\venv\Lib\site-packages\click\types.py:265
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr "ជ្រើស​ពី:"
+
+#: .\venv\Lib\site-packages\click\types.py:297
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] "{value!r} មិនមែនជា {choice}"
+
+#: .\venv\Lib\site-packages\click\types.py:387
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] "{value!r} មិនត្រូវគ្នានឹងទម្រង់ {format}"
+
+#: .\venv\Lib\site-packages\click\types.py:409
+msgid "{value!r} is not a valid {number_type}."
+msgstr "{value!r} មិនមែនជា {number_type} ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\click\types.py:465
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr "{value} មិន​ស្ថិត​នៅ​ក្នុង​ជួរ {range} ទេ"
+
+#: .\venv\Lib\site-packages\click\types.py:606
+msgid "{value!r} is not a valid boolean."
+msgstr "{value!r} មិនមែនជាប៊ូលីនត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\click\types.py:630
+msgid "{value!r} is not a valid UUID."
+msgstr "{value!r} មិនមែនជា UUID ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\click\types.py:811
+msgid "file"
+msgstr "ឯកសារ"
+
+#: .\venv\Lib\site-packages\click\types.py:813
+msgid "directory"
+msgstr "ថត"
+
+#: .\venv\Lib\site-packages\click\types.py:815
+msgid "path"
+msgstr "ផ្លូវ"
+
+#: .\venv\Lib\site-packages\click\types.py:861
+msgid "{name} {filename!r} does not exist."
+msgstr "{name} {filename!r} មិនមានទេ។"
+
+#: .\venv\Lib\site-packages\click\types.py:870
+msgid "{name} {filename!r} is a file."
+msgstr "{name} {filename!r} គឺជាឯកសារ។"
+
+#: .\venv\Lib\site-packages\click\types.py:878
+#, python-brace-format
+msgid "{name} '{filename}' is a directory."
+msgstr "{name} '{filename}' គឺជាថតមួយ។"
+
+#: .\venv\Lib\site-packages\click\types.py:887
+msgid "{name} {filename!r} is not readable."
+msgstr "{name} {filename!r} មិនអាចអានបានទេ។"
+
+#: .\venv\Lib\site-packages\click\types.py:896
+msgid "{name} {filename!r} is not writable."
+msgstr "{name} {filename!r} មិនអាចសរសេរបានទេ។"
+
+#: .\venv\Lib\site-packages\click\types.py:905
+msgid "{name} {filename!r} is not executable."
+msgstr "{name} {filename!r} មិនអាចប្រតិបត្តិបានទេ។"
+
+#: .\venv\Lib\site-packages\click\types.py:972
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+"តម្លៃ {len_type} ត្រូវបានទាមទារ ប៉ុន្តែ {len_value} ត្រូវបានផ្តល់ឱ្យ។"
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_form_helper.py:130
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_form_helper.py:140
+#: .\venv\Lib\site-packages\django\forms\fields.py:91
+msgid "This field is required."
+msgstr "ចន្លោះ​នេះ​ត្រូវតែ​បំពេញ។"
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout.py:392
+msgid "i18n text"
+msgstr "អត្ថបទ i18n"
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout.py:394
+msgid "i18n legend"
+msgstr "រឿងព្រេងនិទាន i18n"
+
+#: .\venv\Lib\site-packages\crispy_forms\tests\test_layout_objects.py:143
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "បញ្ចូលតម្លៃត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
+msgid "Messages"
+msgstr "សារ"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "ផែនទីគេហទំព័រ"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "ឯកសារឋិតិវន្ត"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "ការរួមបញ្ចូល"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:50
+msgid "That page number is not an integer"
+msgstr "លេខទំព័រនោះមិនមែនជាចំនួនគត់ទេ។"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page number is less than 1"
+msgstr "លេខទំព័រនោះតិចជាង 1"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:54
+msgid "That page contains no results"
+msgstr "ទំព័រនោះមិនមានលទ្ធផលទេ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:104
+#: .\venv\Lib\site-packages\django\forms\fields.py:749
+msgid "Enter a valid URL."
+msgstr "បញ្ចូល URL ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:164
+msgid "Enter a valid integer."
+msgstr "បញ្ចូលចំនួនគត់ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:175
+msgid "Enter a valid email address."
+msgstr "បញ្ចូលអាសយដ្ឋានអ៊ីមែលត្រឹមត្រូវ។"
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:256
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr "បញ្ចូល \"slug\" ត្រឹមត្រូវដែលមានអក្សរ លេខ សញ្ញាគូស ឬសញ្ញាសម្គាល់។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:264
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
+msgstr "បញ្ចូល \"slug\" ត្រឹមត្រូវដែលមានអក្សរយូនីកូដ លេខ គូសក្រោម ឬសហសញ្ញា។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:276
+#: .\venv\Lib\site-packages\django\core\validators.py:284
+#: .\venv\Lib\site-packages\django\core\validators.py:313
+msgid "Enter a valid IPv4 address."
+msgstr "បញ្ចូលអាសយដ្ឋាន IPv4 ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:293
+#: .\venv\Lib\site-packages\django\core\validators.py:314
+msgid "Enter a valid IPv6 address."
+msgstr "បញ្ចូលអាសយដ្ឋាន IPv6 ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:305
+#: .\venv\Lib\site-packages\django\core\validators.py:312
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "បញ្ចូលអាសយដ្ឋាន IPv4 ឬ IPv6 ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:348
+msgid "Enter only digits separated by commas."
+msgstr "បញ្ចូលតែលេខដែលបំបែកដោយសញ្ញាក្បៀស។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:354
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "ត្រូវប្រាកដថាតម្លៃនេះគឺ %(limit_value)s (វាគឺ %(show_value)s)។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:389
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "ត្រូវប្រាកដថាតម្លៃនេះតិចជាង ឬស្មើនឹង %(limit_value)s។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:398
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "ត្រូវប្រាកដថាតម្លៃនេះធំជាង ឬស្មើនឹង %(limit_value)s"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:407
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "ត្រូវប្រាកដថាតម្លៃនេះតិចជាង ឬស្មើនឹង %(limit_value)s។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:417
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"ត្រូវប្រាកដថាតម្លៃនេះមានយ៉ាងហោចណាស់ %(limit_value)d តួអក្សរ (វាមាន "
+"%(show_value)d)។"
+msgstr[1] ""
+"ត្រូវប្រាកដថាតម្លៃនេះមានយ៉ាងហោចណាស់ %(limit_value)d តួអក្សរ (វាមាន "
+"%(show_value)d)។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:435
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"ត្រូវប្រាកដថាតម្លៃនេះមានតួអក្សរ %(limit_value)d ច្រើនបំផុត (វាមាន "
+"%(show_value)d)។"
+msgstr[1] ""
+"ត្រូវប្រាកដថាតម្លៃនេះមានតួអក្សរ %(limit_value)d ច្រើនបំផុត (វាមាន "
+"%(show_value)d)។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:458
+#: .\venv\Lib\site-packages\django\forms\fields.py:347
+#: .\venv\Lib\site-packages\django\forms\fields.py:386
+msgid "Enter a number."
+msgstr "បញ្ចូលលេខ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:460
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] "ត្រូវប្រាកដថាមានខ្ទង់សរុបមិនលើសពី %(អតិបរមា)"
+msgstr[1] "ត្រូវប្រាកដថាមានលេខសរុបមិនលើសពី %(អតិបរមា)s ទេ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:465
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] "ត្រូវប្រាកដថាមិនមានខ្ទង់ទសភាគលើសពី %(អតិបរមា)"
+msgstr[1] "ត្រូវប្រាកដថាមិនមានខ្ទង់ទសភាគលើសពី %(អតិបរមា)។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:470
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] "ត្រូវប្រាកដថាមានខ្ទង់ %(អតិបរមា)s មុនខ្ទង់ទសភាគ។"
+msgstr[1] "សូម​ប្រាកដ​ថា​មាន​ខ្ទង់​មិន​លើស​ពី %(អតិបរមា) មុន​ខ្ទង់ទសភាគ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:541
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"ផ្នែកបន្ថែមឯកសារ “%(extension)s” មិនត្រូវបានអនុញ្ញាតទេ។ "
+"ផ្នែកបន្ថែមដែលបានអនុញ្ញាតគឺ៖ %(allowed_extensions)s ។"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:602
+msgid "Null characters are not allowed."
+msgstr "តួអក្សរទទេមិនត្រូវបានអនុញ្ញាតទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1423
+#: .\venv\Lib\site-packages\django\forms\models.py:893
+msgid "and"
+msgstr "និង"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "%(model_name)s ជាមួយ %(field_labels)s នេះមានរួចហើយ។"
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr "Constraint “%(name)s” is violated."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr "តម្លៃ %(value)r មិនមែនជាជម្រើសត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:129
+msgid "This field cannot be null."
+msgstr "វាលនេះមិនអាចចាត់ទុកជាមោឃៈទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:130
+msgid "This field cannot be blank."
+msgstr "វាលនេះមិនអាចទទេបានទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "%(model_name)s ជាមួយ %(field_label)s នេះមានរួចហើយ។"
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+"%(field_label)s ត្រូវតែមានតែមួយគត់សម្រាប់ %(date_field_label)s "
+"%(lookup_type)s ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr "វាលនៃប្រភេទ៖ %(field_type)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែពិត ឬមិនពិត។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែពិត មិនពិត ឬគ្មាន"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr "ប៊ូលីន (ពិត ឬមិនពិត)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr "ខ្សែអក្សរ (រហូតដល់ %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1149
+msgid "String (unlimited)"
+msgstr "String (unlimited)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1253
+msgid "Comma-separated integers"
+msgstr "ចំនួនគត់ដែលបំបែកដោយសញ្ញាក្បៀស"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់កាលបរិច្ឆេទមិនត្រឹមត្រូវ។ វាត្រូវតែជាទម្រង់ YYYY-"
+"MM-DD ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1358
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់ត្រឹមត្រូវ (YYYY-MM-DD) "
+"ប៉ុន្តែវាជាកាលបរិច្ឆេទមិនត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+msgid "Date (without time)"
+msgstr "កាលបរិច្ឆេទ (ដោយគ្មានពេលវេលា)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់មិនត្រឹមត្រូវ។ វាត្រូវតែជាទម្រង់ YYYY-MM-DD "
+"HH:MM[:ss[.uuuuu]][TZ]។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់ត្រឹមត្រូវ (YYYY-MM-DD HH:MM[:ss[.uuuuu]][TZ]) "
+"ប៉ុន្តែវាជាកាលបរិច្ឆេទ/ពេលវេលាមិនត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+msgid "Date (with time)"
+msgstr "កាលបរិច្ឆេទ (ជាមួយពេលវេលា)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែជាលេខទសភាគ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1628
+msgid "Decimal number"
+msgstr "លេខទសភាគ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1791
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់មិនត្រឹមត្រូវ។ វាត្រូវតែជាទម្រង់ [DD] "
+"[[HH:]MM:]ss[.uuuuu]។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1795
+msgid "Duration"
+msgstr "រយៈពេល"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1847
+msgid "Email address"
+msgstr "អាស័យ​ដ្ឋាន​អ៊ី​ម៉េ​ល"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1872
+msgid "File path"
+msgstr "ផ្លូវឯកសារ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1950
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែជាលេខ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1952
+msgid "Floating point number"
+msgstr "លេខ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1992
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែជាចំនួនគត់។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1994
+msgid "Integer"
+msgstr "ចំនួនគត់"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2090
+msgid "Big (8 byte) integer"
+msgstr "ចំនួនគត់ធំ (8 បៃ)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2107
+msgid "Small integer"
+msgstr "ចំនួនគត់តូច"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2115
+msgid "IPv4 address"
+msgstr "អាសយដ្ឋាន IPv4"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2146
+msgid "IP address"
+msgstr "អាសយដ្ឋាន IP"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2239
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2240
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "តម្លៃ “%(value)s” ត្រូវតែជា None, True ឬ False។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2242
+msgid "Boolean (Either True, False or None)"
+msgstr "ប៊ូលីន (ពិត មិនពិត ឬគ្មាន)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2293
+msgid "Positive big integer"
+msgstr "ចំនួនគត់វិជ្ជមាន"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2308
+msgid "Positive integer"
+msgstr "ចំនួនគត់វិជ្ជមាន"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2323
+msgid "Positive small integer"
+msgstr "ចំនួនគត់តូចវិជ្ជមាន"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2339
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (រហូតដល់ %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2375
+msgid "Text"
+msgstr "អត្ថបទ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2450
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់មិនត្រឹមត្រូវ។ វាត្រូវតែជាទម្រង់ "
+"HH:MM[:ss[.uuuuu]] ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2454
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"តម្លៃ “%(value)s” មានទម្រង់ត្រឹមត្រូវ (HH:MM[:ss[.uuuuu]]) "
+"ប៉ុន្តែវាជាពេលវេលាមិនត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2458
+msgid "Time"
+msgstr "ពេលវេលា"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2566
+msgid "URL"
+msgstr "URL"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2590
+msgid "Raw binary data"
+msgstr "ទិន្នន័យគោលពីរឆៅ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2655
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr "“%(value)s” មិនមែនជា UUID ត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2657
+msgid "Universally unique identifier"
+msgstr "ឧបករណ៍កំណត់អត្តសញ្ញាណតែមួយគត់ជាសកល"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:232
+msgid "File"
+msgstr "ឯកសារ"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "A JSON object"
+msgstr "វត្ថុ JSON"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:28
+msgid "Value must be valid JSON."
+msgstr "តម្លៃត្រូវតែជា JSON ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr "%(model)s instance with %(field)s %(value)r មិនមានទេ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr "Foreign Key (ប្រភេទកំណត់ដោយផ្នែកដែលពាក់ព័ន្ធ)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1212
+msgid "One-to-one relationship"
+msgstr "ទំនាក់ទំនងមួយទៅមួយ។"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr "ទំនាក់ទំនង %(ពី)s-%(ទៅ)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr "ទំនាក់ទំនង %(ពី)s-%(ទៅ)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1319
+msgid "Many-to-many relationship"
+msgstr "ទំនាក់ទំនងច្រើនទៅច្រើន។"
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the
+#. label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:184
+msgid ":?.!"
+msgstr ":?.!"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:298
+msgid "Enter a whole number."
+msgstr "បញ្ចូលលេខទាំងមូល។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:467
+#: .\venv\Lib\site-packages\django\forms\fields.py:1238
+msgid "Enter a valid date."
+msgstr "បញ្ចូលកាលបរិច្ឆេទត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:490
+#: .\venv\Lib\site-packages\django\forms\fields.py:1239
+msgid "Enter a valid time."
+msgstr "បញ្ចូលពេលវេលាត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:517
+msgid "Enter a valid date/time."
+msgstr "បញ្ចូលកាលបរិច្ឆេទ/ពេលវេលាត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:551
+msgid "Enter a valid duration."
+msgstr "បញ្ចូលរយៈពេលត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "ចំនួនថ្ងៃត្រូវតែនៅចន្លោះ {min_days} និង {max_days}។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:618
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "មិនមានឯកសារត្រូវបានដាក់ស្នើទេ។ ពិនិត្យប្រភេទការអ៊ិនកូដនៅលើចន្លោះ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:619
+msgid "No file was submitted."
+msgstr "មិនមានឯកសារត្រូវបានដាក់ស្នើទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:620
+msgid "The submitted file is empty."
+msgstr "ឯកសារដែលបានដាក់គឺទទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:622
+#, python-format
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+"ត្រូវប្រាកដថាឈ្មោះឯកសារនេះមានតួអក្សរ %(អតិបរមា)d ច្រើនបំផុត (វាមាន "
+"%(ប្រវែង)d)"
+msgstr[1] ""
+"ត្រូវប្រាកដថាឈ្មោះឯកសារនេះមានតួអក្សរ %(អតិបរមា)d ច្រើនបំផុត (វាមាន "
+"%(ប្រវែង)d)"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:627
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr "សូមដាក់ឯកសារ ឬពិនិត្យប្រអប់ធីកច្បាស់លាស់ មិនមែនទាំងពីរទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:691
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+"បង្ហោះរូបភាពត្រឹមត្រូវ។ ឯកសារដែលអ្នកបានបង្ហោះមិនមែនជារូបភាព "
+"ឬរូបភាពដែលខូចនោះទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:854
+#: .\venv\Lib\site-packages\django\forms\fields.py:946
+#: .\venv\Lib\site-packages\django\forms\models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+"ជ្រើសរើសជម្រើសត្រឹមត្រូវ។ %(value)s "
+"មិនមែនជាជម្រើសមួយក្នុងចំណោមជម្រើសដែលមានទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:948
+#: .\venv\Lib\site-packages\django\forms\fields.py:1067
+#: .\venv\Lib\site-packages\django\forms\models.py:1564
+msgid "Enter a list of values."
+msgstr "បញ្ចូលបញ្ជីតម្លៃ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1068
+msgid "Enter a complete value."
+msgstr "បញ្ចូលតម្លៃពេញលេញ"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1307
+msgid "Enter a valid UUID."
+msgstr "បញ្ចូល UUID ត្រឹមត្រូវ។"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1337
+msgid "Enter a valid JSON."
+msgstr "បញ្ចូល JSON ត្រឹមត្រូវ។"
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:98
+msgid ":"
+msgstr ":"
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:244
+#: .\venv\Lib\site-packages\django\forms\forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(វាលដែលលាក់ %(name)s) %(error)s"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+"ទិន្នន័យ ManagementForm បាត់ ឬត្រូវបានរំខាន។ បាត់វាល៖ %(field_names)s. "
+"អ្នកប្រហែលជាត្រូវដាក់របាយការណ៍អំពីបញ្ហា ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន។"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] "សូមដាក់ទម្រង់ %d ច្រើនបំផុត។"
+msgstr[1] "សូមដាក់ទម្រង់ភាគច្រើន %d"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] "សូមដាក់ទម្រង់យ៉ាងតិច %d ។"
+msgstr[1] "សូមដាក់ទម្រង់យ៉ាងតិច %d"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr "បញ្ជាទិញ"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "សូមកែតម្រូវទិន្នន័យស្ទួនសម្រាប់ %(field)s ។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr "សូមកែតម្រូវទិន្នន័យស្ទួនសម្រាប់ %(field)s ដែលត្រូវតែមានតែមួយគត់។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+"សូមកែតម្រូវទិន្នន័យស្ទួនសម្រាប់ %(field_name)s ដែលត្រូវតែមានតែមួយគត់សម្រាប់ "
+"%(lookup)s ក្នុង %(date_field)s ។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:907
+msgid "Please correct the duplicate values below."
+msgstr "សូមកែតម្រូវតម្លៃស្ទួនខាងក្រោម។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr "តម្លៃក្នុងជួរមិនត្រូវគ្នានឹងឧទាហរណ៍មេទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1429
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
+msgstr "ជ្រើសរើសជម្រើសត្រឹមត្រូវ។ ជម្រើសនោះមិនមែនជាជម្រើសដែលមានទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr "“%(pk)s” មិនមែនជាតម្លៃត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+"%(datetime)s មិនអាចបកស្រាយនៅក្នុងតំបន់ពេលវេលា %(current_timezone)s បានទេ។ "
+"វាអាចមានភាពមិនច្បាស់លាស់ ឬវាប្រហែលជាមិនមាន។"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:439
+msgid "Clear"
+msgstr "ច្បាស់"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:440
+msgid "Currently"
+msgstr "ឥលូវនេះ"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:441
+msgid "Change"
+msgstr "ប្តូរ"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:770
+msgid "Unknown"
+msgstr "មិនស្គាល់"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:771
+msgid "Yes"
+msgstr "បាទ"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:772
+msgid "No"
+msgstr "ទេ"
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:861
+msgid "yes,no,maybe"
+msgstr "មែន ទេ​ ប្រហែល"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:891
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:908
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(ទំហំ)d បៃ"
+msgstr[1] "%(ទំហំ)d បៃ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:910
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:912
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:914
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:916
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:918
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr "ល្ងាច"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr "ព្រឹក"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr "ពេលល្ងាច"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr "ពេលព្រឹក"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr "កណ្តាលអាទ្រៀត"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr "រសៀល"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr "ថ្ងៃច័ន្ទ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr "ថ្ងៃអង្គារ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr "ថ្ងៃពុធ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr "ថ្ងៃព្រហស្បតិ៍"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr "ថ្ងៃសុក្រ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr "ថ្ងៃសៅរ៍"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr "ថ្ងៃអាទិត្យ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr "ច័ន្ទ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr "អង្គារ៍"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr "ពុធ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr "ព្រហស្បតិ៍"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr "សុក្រ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr "សៅរ៍"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr "អាទិត្យ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr "ខែមករា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr "កុម្ភៈ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr "មីនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr "​មេសា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr "មិថុនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr "កក្កដា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr "សីហា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr "កញ្ញា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr "តុលា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr "\\វិច្ឆិកា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr "ធ្នូ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr "កមរា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr "កុម្ភៈ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr "មីនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr "មេសា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr "ឧសភា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr "មិថុនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr "កក្តា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr "សីហា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr "កញ្ញា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr "តុលា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr "វិច្ឆិកា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr "ធ្នូ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr "មករា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr "កុម្ភៈ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "មីនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "​មេសា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "ឧសភា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "មិថុនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "កក្តដា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "សីហា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "កញ្ញា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "តុលា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr "វិច្ឆិកា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "ធ្នូ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr "ខែមករា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr "កុម្ភៈ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr "មីនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr "មេសា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr "ឧសភា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr "មិថុនា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr "កក្តដា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr "សីហា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr "កញ្ញា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr "តុលា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr "វិច្ឆិកា"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr "ធ្នូ"
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr "នេះមិនមែនជាអាសយដ្ឋាន IPv6 ត្រឹមត្រូវទេ។"
+
+#: .\venv\Lib\site-packages\django\utils\text.py:78
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr "%(truncated_text)s…"
+
+#: .\venv\Lib\site-packages\django\utils\text.py:254
+msgid "or"
+msgstr "ឬ"
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:273
+#: .\venv\Lib\site-packages\django\utils\timesince.py:131
+msgid ", "
+msgstr "' "
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] "ឆ្នាំ"
+msgstr[1] "ឆ្នាំ"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] "ខែ"
+msgstr[1] "ខែ"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] "សប្តាហ៍"
+msgstr[1] "សប្តាហ៍"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] "ថ្ងៃ"
+msgstr[1] "ថ្ងៃ"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] "ម៉ោង"
+msgstr[1] "ម៉ោង"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] "នាទី"
+msgstr[1] "នាទី"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr "ហាម"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr "ការផ្ទៀងផ្ទាត់ CSRF បានបរាជ័យ។ សំណើត្រូវបានលុបចោល។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"អ្នកកំពុងឃើញសារនេះ ដោយសារគេហទំព័រ HTTPS នេះទាមទារ \"បឋមកថាយោង\" "
+"ដើម្បីផ្ញើដោយកម្មវិធីរុករកតាមអ៊ីនធឺណិតរបស់អ្នក ប៉ុន្តែគ្មានការផ្ញើទេ។ "
+"បឋមកថានេះត្រូវបានទាមទារសម្រាប់ហេតុផលសុវត្ថិភាព "
+"ដើម្បីធានាថាកម្មវិធីរុករករបស់អ្នកមិនត្រូវបានប្លន់ដោយភាគីទីបី។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+"ប្រសិនបើអ្នកបានកំណត់រចនាសម្ព័ន្ធកម្មវិធីរុករករបស់អ្នកដើម្បីបិទបឋមកថា "
+"\"អ្នកយោង\" សូមបើកពួកវាឡើងវិញ យ៉ាងហោចណាស់សម្រាប់គេហទំព័រនេះ "
+"ឬសម្រាប់ការតភ្ជាប់ HTTPS ឬសម្រាប់សំណើ \"ប្រភពដើមដូចគ្នា\" ។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+"ប្រសិនបើអ្នកកំពុងប្រើស្លាក <meta name=\"referrer\" content=\"no-referrer\"> "
+"ឬរួមបញ្ចូលបឋមកថា “Referrer-Policy: no-referrer” សូមលុបពួកវាចេញ។ ការការពារ "
+"CSRF ទាមទារបឋមកថា \"អ្នកយោង\" ដើម្បីធ្វើការត្រួតពិនិត្យយ៉ាងតឹងរ៉ឹង។ "
+"ប្រសិនបើអ្នកព្រួយបារម្ភអំពីឯកជនភាព សូមប្រើជម្រើសផ្សេងទៀតដូចជា <a "
+"rel=\"noreferrer\" …> សម្រាប់តំណភ្ជាប់ទៅកាន់គេហទំព័រភាគីទីបី។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"អ្នកកំពុងឃើញសារនេះ ដោយសារគេហទំព័រនេះទាមទារខូគី CSRF នៅពេលដាក់ស្នើទម្រង់។ "
+"ខូគីនេះត្រូវបានទាមទារសម្រាប់ហេតុផលសុវត្ថិភាព "
+"ដើម្បីធានាថាកម្មវិធីរុករករបស់អ្នកមិនត្រូវបានប្លន់ដោយភាគីទីបី។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+"ប្រសិនបើអ្នកបានកំណត់រចនាសម្ព័ន្ធកម្មវិធីរុករករបស់អ្នកដើម្បីបិទខូឃី "
+"សូមបើកពួកវាឡើងវិញ យ៉ាងហោចណាស់សម្រាប់គេហទំព័រនេះ ឬសម្រាប់សំណើ "
+"\"ប្រភពដើមដូចគ្នា\"។"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr "ព័ត៌មានបន្ថែមមានជាមួយ DEBUG=True។"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr "មិនបានបញ្ជាក់ឆ្នាំទេ។"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr "កាល​បរិច្ឆេទ​នៅ​ក្រៅ​ជួរ"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr "មិនបានបញ្ជាក់ខែទេ។"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr "គ្មានថ្ងៃជាក់លាក់"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr "គ្មានខែជាក់លាក់"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr "មិនមាន %(verbose_name_plural)s ទេ។"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+"Future %(verbose_name_plural)s មិនអាចប្រើបានទេ ដោយសារ "
+"%(class_name)s.allow_future មិនពិត។"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+"ខ្សែអក្សរកាលបរិច្ឆេទមិនត្រឹមត្រូវ “%(datestr)s” ដែលផ្តល់ទម្រង់ “%(format)s”"
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "រកមិនឃើញ %(verbose_name) ដែលត្រូវគ្នានឹងសំណួរនោះទេ។"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "ទំព័រមិនមែនជា \"ចុងក្រោយ\" ហើយក៏មិនអាចបំប្លែងទៅជា int បានទេ។"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr "ទំព័រមិនត្រឹមត្រូវ (%(page_number)s): %(message)s"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr "បញ្ជីទទេ និង “%(class_name)s.allow_empty” គឺមិនពិត។"
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr "លិបិក្រមថតមិនត្រូវបានអនុញ្ញាតនៅទីនេះទេ។"
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "\"%(path)s\" មិនមានទេ។"
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr "សន្ទស្សន៍ %(ថត)s"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+msgid "The install worked successfully! Congratulations!"
+msgstr "ការដំឡើងដំណើរការដោយជោគជ័យ! អបអរសាទរ!"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:207
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+"មើល <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">កំណត់ចំណាំការចេញផ្សាយ</a> សម្រាប់ Django "
+"%(កំណែ) ស"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:222
+#, python-format
+msgid ""
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
+msgstr ""
+"អ្នកកំពុងឃើញទំព័រនេះ ដោយសារ <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True </a> "
+"គឺនៅក្នុងឯកសារការកំណត់របស់អ្នក ហើយអ្នកមិនបានកំណត់រចនាសម្ព័ន្ធ URL ណាមួយទេ។"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Django Documentation"
+msgstr "ឯកសារ Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:231
+msgid "Topics, references, &amp; how-to’s"
+msgstr "ប្រធានបទ ឯកសារយោង &amp; របៀបធ្វើ"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Tutorial: A Polling App"
+msgstr "ការបង្រៀន៖ កម្មវិធីបោះឆ្នោត"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:240
+msgid "Get started with Django"
+msgstr "ចាប់ផ្តើមជាមួយ Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Django Community"
+msgstr "សហគមន៍ Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:249
+msgid "Connect, get help, or contribute"
+msgstr "ភ្ជាប់ ទទួលជំនួយ ឬរួមចំណែក"
+
+#~ msgid "Customer edit"
+#~ msgstr "កែរប្រែអតិថិជន"
+
+#~ msgid "Loan create"
+#~ msgstr "បង្កើតកម្ចី"
+
+#~ msgid "Customers list"
+#~ msgstr "បញ្ជីរឈ្មោះអតិថិជន"
+
+#~ msgid "Chart"
+#~ msgstr "គំនូសតាង"
+
+#~ msgid "Add loan"
+#~ msgstr "បន្ថែមកម្ចី"
+
+#~ msgid "Payback transactions"
+#~ msgstr "ប្រតិបត្តការណ៍សង"
+
+#~ msgid "Driver\\"
+#~ msgstr "អ្នកបើកបរ"
+
+#~ msgid " Customer list"
+#~ msgstr "បញ្ជីរឈ្មោះអតិថិជន"
+
+#~ msgid " Add"
+#~ msgstr "បន្ថែម"
+
+#~ msgid "DETAIL"
+#~ msgstr "ពត៌មានលម្អិត"
+
+#~ msgid "Payment cycle"
+#~ msgstr "វដ្តនៃការទូទាត់"
+
+#, python-format
+#~ msgid "%%"
+#~ msgstr "%%"
+
+#~ msgid "National Transaction Corporation"
+#~ msgstr "សាជីវកម្មប្រតិបត្តការជាតិ"
+
+#~ msgid ""
+#~ "is a Registered MSP/ISO of Ezzhop, Inc. Georgia [a wholly owned subsidiary "
+#~ "of U.S. Bancorp, Minneapolis, MN]"
+#~ msgstr ""
+#~ "ត្រូវបានចុះបញ្ជីរ MSP/ISO នៃ Ezzhop, Inc. ហ្គូរា "
+#~ "[កម្មសិទ្ធទាំងស្រុងរបស់បុត្រសម្ព័ន្ធនៃ U.S. Bancorp, Minneapolis, MN]"
+
+#~ msgid "EzZtart Up"
+#~ msgstr "EzZtart Up"
+
+#~ msgid "Address Manger"
+#~ msgstr "គ្រប់គ្រងអាសយដ្ឋាន"
+
+#~ msgid "Number of loan(s)"
+#~ msgstr "ចំនួនកម្ចី"
+
+#~ msgid "No data.."
+#~ msgstr "គ្មានទិន្ន័យកម្ចី"
+
+#~ msgid "Manage collateral"
+#~ msgstr "គ្រប់គ្រងទ្រព្យបញ្ចាំ"
+
+#~ msgid "Microfinance short"
+#~ msgstr "មីក្រូហិរញ្ញវត្ថុ"
+
+#~ msgid "Contract number"
+#~ msgstr "លេខសម្គាល់កុងត្រា"
+
+#~ msgid "Account number"
+#~ msgstr "លេខសម្គាល់គណនី"
+
+#~ msgid "Loan amount "
+#~ msgstr "កម្ចីសរុប"
+
+#~ msgid "Interest Rate"
+#~ msgstr "អត្រាការប្រាក់"
+
+#~ msgid "Loan Term"
+#~ msgstr "រយះពេលកម្ចី"
+
+#~ msgid "Loan Full Paid"
+#~ msgstr "ទូទាត់កម្ចីពេញ"
+
+#, fuzzy
+#~ msgid "Paw Name"
+#~ msgstr "ឈ្មោះប្រទេសជាភាសាជាតិ"
+
+#, fuzzy
+#~ msgid "paw_status"
+#~ msgstr "ស្ថានភាព"
+
+#, fuzzy
+#~ msgid "description"
+#~ msgstr "ពិពណ៌នា"
+
+#, fuzzy
+#~ msgid "Paw name"
+#~ msgstr "ឈ្មោះក្រុមហ៊ុនបញ្ចាំ"
+
+#, fuzzy
+#~ msgid "Paw type"
+#~ msgstr "ប្រភេទកាត"
+
+#, fuzzy
+#~ msgid "Paw pay method"
+#~ msgstr "វិធីទូទាត់"
+
+#, fuzzy
+#~ msgid "Paw price"
+#~ msgstr "តម្លៃ"
+
+#, fuzzy
+#~ msgid "Date paw"
+#~ msgstr "កាលបរិច្ឆេទ"
+
+#, fuzzy
+#~ msgid "Add Collateral"
+#~ msgstr "បង្កើតពត៌មានទ្រព្យបញ្ចាំ"
+
+#, fuzzy
+#~ msgid "collateral list"
+#~ msgstr "បញ្ចូលឈ្មោះ"
+
+#, fuzzy
+#~ msgid "Add customer successfully ! "
+#~ msgstr "បន្ថែមអតិថិជនដោយជោគជ័យ"
+
+#~ msgid "Create customer "
+#~ msgstr "បង្កើតអតិថិជន"
+
+#~ msgid "Click here to upload photo"
+#~ msgstr "ចុចដើម្បីបញ្ចូលរូបភាព"
+
+#~ msgid "Create new loan"
+#~ msgstr "បង្កើតកម្ចីថ្មី"
+
+#~ msgid "Interest rate cycle"
+#~ msgstr "អត្រាការប្រាក់ក្នុងមួយវដ្ត"
+
+#~ msgid " Loan date"
+#~ msgstr "កាលបរិច្ឆេទកម្ចី"
+
+#~ msgid "Is set first payment date"
+#~ msgstr "កំណត់កាលបរិច្ឆេទទូទាត់ដំបូង"
+
+#~ msgid "Enter price"
+#~ msgstr "បញ្ចូលតម្លៃ"
+
+#, fuzzy
+#~ msgid "collateral date"
+#~ msgstr "បញ្ចូលឈ្មោះ"
+
+#, fuzzy
+#~ msgid "Enter description"
+#~ msgstr "ពិពណ៌នា"
+
+#~ msgid "Photo"
+#~ msgstr "រូបភាព"
+
+#~ msgid "Skip"
+#~ msgstr "រំលង"
+
+#~ msgid "collateral Detail"
+#~ msgstr "ពត៌មានអំពីទ្រព្យបញ្ចាំ"
+
+#~ msgid " Loan details"
+#~ msgstr "លម្អិតអំពីកម្ចី"
+
+#~ msgid "No Image"
+#~ msgstr "គ្មានទិន្នន័យរូបភាព"
+
+#~ msgid "Collateral date"
+#~ msgstr "បញ្ចូលឈ្មោះ"
+
+#~ msgid "Name Khmer"
+#~ msgstr "ឈ្មោះជាភាសាខ្មែរ"
+
+#~ msgid "Name English"
+#~ msgstr "ឈ្មោះជាភាសាអង្គគ្លេស់"
+
+#~ msgid "select customer"
+#~ msgstr "រើសអតិថិជន"
+
+#~ msgid " Add loan"
+#~ msgstr "បន្ថែមកម្ចី"
+
+#~ msgid "Login sucessfully"
+#~ msgstr "ចូលបានជោគជ័យ​ !"
+
+#~ msgid "Incurrect username or password"
+#~ msgstr " ឈ្មោះ ឬ ពាក្យសម្ងាត់​មិនត្រឹមត្រូវ"
+
+#~ msgid "Create Customer"
+#~ msgstr "បង្កើត"
+
+#, fuzzy
+#~ msgid "Manage Company"
+#~ msgstr "គ្រប់គ្រងអតិថិជន"
+
+#, fuzzy
+#~ msgid "Collateral description"
+#~ msgstr "ពិពណ៌នាអំពីទ្រព្យបញ្ចាំ"
+
+#~ msgid "Name english "
+#~ msgstr "ឈ្មោះជាភាសាអង្គគ្លេស់"
+
+#, fuzzy
+#~ msgid "Loan volume"
+#~ msgstr "ទំហំកម្ចី"
+
+#~ msgid "Interest amount"
+#~ msgstr "ចំនួនការប្រាក់"
+
+#~ msgid "Contact"
+#~ msgstr "ទំនាក់នង"
+
+#~ msgid "dashboard"
+#~ msgstr "ផ្ទាំងគ្រប់គ្រង"
+
+#~ msgid "Since last month"
+#~ msgstr "ខែមុន"
+
+#~ msgid "Invest return"
+#~ msgstr "ទឹកប្រាក់ពីការវិនិយោគ"
+
+#~ msgid "IS Set First Payment Date"
+#~ msgstr "កំណត់កាលបរិច្ឆេទទូទាត់ដំបូង"
+
+#~ msgid "Customer name "
+#~ msgstr "ឈ្មោះអតិថិជន"
+
+#~ msgid "WING"
+#~ msgstr "វីង"
+
+#~ msgid "Receive"
+#~ msgstr "ទទួល"
+
+#~ msgid "ABA bank"
+#~ msgstr "ធនាគា អេប៊ីអេ"
+
+#, fuzzy
+#~ msgid "Distric"
+#~ msgstr "ស្រុក ឬ​ ខ័ណ្ឌ"
+
+#~ msgid "Loan lending"
+#~ msgstr "កំពុងផ្តល់កម្ចី"
+
+#~ msgid "Customers Detail"
+#~ msgstr "អំពីអតិថិជន"
+
+#~ msgid "Add Customer Successfully !"
+#~ msgstr "បន្ថែមអតិថិជនដោយជោគជ័យ​​ !"
+
+#~ msgid "Customers List"
+#~ msgstr "បញ្ជីរឈ្មោះអតិថិជន"
+
+#~ msgid "Add Address"
+#~ msgstr "បន្ថែមអាសយដ្ឋាន"
+
+#~ msgid "Name In Khmer"
+#~ msgstr "ឈ្មោះជាភាសាខ្មែរ"
+
+#~ msgid "Name In English"
+#~ msgstr "ឈ្មោះជាភាសាអង្គគ្លេស់"
+
+#~ msgid "Create Customer "
+#~ msgstr "បង្កើតអតិថិជន"
+
+#~ msgid "Show in row "
+#~ msgstr "បង្ហាញជាជួរដេក"
+
+#~ msgid "priciple"
+#~ msgstr "ប្រាក់ដើម"
+
+#~ msgid "Enter Name"
+#~ msgstr "បញ្ចូលឈ្មោះ"
+
+#~ msgid "Interest Rate Cycle"
+#~ msgstr "អត្រាការប្រាក់ក្នុងមួយវដ្ត"
+
+#~ msgid "Cutomer Detail"
+#~ msgstr "អំពីអតិថិជន"

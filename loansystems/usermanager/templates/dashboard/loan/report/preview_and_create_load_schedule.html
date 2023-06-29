@@ -1,0 +1,171 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate 'Preview Print' %} {% endblock %}
+{% block content %}
+
+<script>
+        $(document).ready(function($)
+        {
+            $(document).on('click', '.btn_print', function(event)
+            {
+            event.preventDefault();
+            var element = document.getElementById('prinst');
+
+            {#html2pdf().from(element).save();#}
+        var opt = {
+            margin: 1,
+            filename: 'pageContent.pdf',
+            image: {type: 'jpeg', quality: 0.98},
+            html2cavas: { scale: 1},
+            jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait'}
+        };
+        {#html2pdf().set(opt).from(element).save()#}
+        html2pdf().set(opt).from(element).save();
+    });
+});
+    </script>
+    <div class="container bg-dark p-2 d-none-print">
+        <div class="d-flex justify-content-between my-3 d-none-print">
+            <a class="btn btn-sm  btn-sm bg-light-subtle" href="{% url 'loan_detail' loanList.id %}"> <i class="ti-angle-left"></i> <span class="mx-1">{%  translate 'Back'%}</span></a>
+            <div>
+                <button class="btn btn-sm bg-light-subtle btn_print" type="button"><i class="ti-download"></i> {% translate 'Download' %}</button>
+                <button class="btn btn-sm bg-light-subtle" id="print"  onclick="window.print()"><i class="ti-printer"></i> <span class="mx-1">{% translate 'Print' %}</span></button>
+           </div>
+        </div>
+    </div>
+        <div class="container " id="prinst">
+        <div class="p-width p-3">
+            <div class="d-flex justify-content-between">
+                <div class="head-left">
+                    <div class="d-flex">
+                    {% if company_info %}
+                        <img src="/media/{{ company_info.logo }}" alt="" width="100px" class="rounded-circle border-1">
+                        {% else %}
+                        <img src="{% static 'img/logo.jpg' %}" alt="" width="100px" class="rounded-circle border-1">
+                    {% endif %}
+                        <div class="d-flex flex-column mx-4">
+                            {% if company_info %}
+                                {{ company_info.name }}
+                                <span> {{ company_info.local_name }}</span>
+                                {% else %}
+                            <p>{% translate 'Paw compnay name' %}</p>
+                            <span> {% translate 'Microfinance short PN' %}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="head-right">
+                  <div class="d-flex flex-column">
+                       <h5 class="text-center"> {% translate 'BANK INFOMATION' %}</h5>
+                      {% if bankAccount %}
+                          {% for accountBank in  bankAccount %}
+                              <p>{{ accountBank.bank_name|upper }} ({{ accountBank.bank_account_currency }}) : {{ accountBank.bank_account_number }} ({{ accountBank.bank_account_name|upper }})</p>
+
+                          {% endfor %}
+                      {% endif %}
+                  </div>
+                </div>
+            </div>
+            <div class="text-center my-4">
+                <h3>{% translate 'Schedule Payment' %}</h3>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="">
+                 <p>{% translate 'Customer name' %}: <strong>{{ loanList.customer.name_kh }}</strong></p>
+                 <p>{% translate 'Loan number' %}:  <strong>{{ loanList.loan_number_id }}</strong></p>
+                 <p>{% translate 'Customer number' %}: <strong>102{{ customerId.id }}XTS</strong></p>
+                </div>
+                <div class="">
+                    <p>{% translate 'Loan amount' %}: <strong>{{ loanList.loan_amount }}$</strong></p>
+                    <p>{% translate 'Interest rate' %}: <strong>{{ loanList.interest_rate_per_cycle }}%</strong></p>
+                    <p>{% translate 'Identity card number' %}: <strong>{{ loanList.customer.name_kh }}</strong></p>
+                </div>
+                <div class="">
+                    <p>{% translate 'First pay loan' %}: <strong>{{ loanList.first_payment_date }}</strong></p>
+                    <p>{% translate 'Loan date' %}: <strong>{{ loanList.loan_date }}</strong></p>
+                    <p>{% translate 'Loan term' %}: <strong>{{ loanList.number_of_cycle }} {% if loanList.loan_cycle_type == 'day' %} {% translate 'Day' %} {% elif loanList.loan_cycle_type == 'week' %} {% translate 'Week' %}{% elif loanList.loan_cycle_type == 'month' %} {% translate 'Month' %}{% elif loanList.loan_cycle_type == 'quarter' %} {% translate 'Quarter' %}{% elif loanList.loan_cycle_type == 'semester' %} {% translate 'Semester' %}{% else %}{% translate 'Year' %}{% endif %}</strong> </strong></p>
+                    <p>{% translate 'Loan method' %}: <strong> {% if loanList.rate_calculate_method == 'Equal Installments' %} {% translate 'Equal Installments' %}{% elif loanList.rate_calculate_method == 'fixed flat' %} {% translate 'Fixed flat' %}{% else %}{% translate 'Fixed rate' %}{% endif %}</strong></p>
+
+                </div>
+            </div>
+            <p>{% translate 'Address' %}: <strong>
+                {% if customerAddress %}
+                    {{ customerAddress.village.name_local }}, {{ customerAddress.commune.name_local }}, {{ customerAddress.district.name_local }},
+                    {{ customerAddress.country.name_local }}
+                {% else %}
+                {% endif %}
+            </strong></p>
+        </div>
+            <div class="col-sm-12 col-md-12">
+               <div class="table-responsive">
+                   <table class="table table-hover">
+                       <thead class="text-uppercase">
+                           <th class="text-center">{% translate '#' %} </th>
+                           <th>{% translate 'Payment date' %} </th>
+                           <th class="text-center">{% translate 'Day' %}</th>
+                           <th class="text-center">{% translate 'Priciple' %}</th>
+                           <th class="text-center">{% translate 'Interest'%}</th>
+                           <th class="text-center">{% translate 'To be paid' %}</th>
+                           <th class="text-center">{% translate 'Balance' %}</th>
+                       </thead>
+                       <tbody>
+                               {% for payment in schedule %}
+                           <div>
+                               <td class="text-center" >{{ payment.number }}</td>
+                               <td >{{ payment.due_date|date:'l, d-M-Y' }}</td>
+                               <td class="text-center">{{ payment.number_date}}</td>
+                               <td class="text-center">{% load humanize %}{{ payment.principle |floatformat:2 |intcomma}}</td>
+                               <td class="text-center">{% load humanize %} {{ payment.interest |floatformat:2 |intcomma}}</td>
+                               <td class="fw-bolder text-center">{% load humanize %}{{ payment.monthly_amount |floatformat:2 |intcomma}}</td>
+                               <td class="fw-bold text-center">{% load humanize %}{{ payment.balance |floatformat:2 |intcomma}}</td>
+                            </div>
+                           </tr>
+                       {% endfor %}
+                       <tr class="border-bottom-0">
+                           <td colspan="2" class="text-center">{% translate 'Total amount' %}</td>
+                           <td class="text-center fw-bolder">{% load humanize %} {{ total_day }}</td>
+                           <td class="text-center fw-bolder">{% load humanize %} {{ total_principle|floatformat:2 |intcomma }}</td>
+                           <td class="text-center fw-bolder">{% load humanize %} {{ total_interest|floatformat:2 |intcomma }}</td>
+                           <td class="text-center fw-bolder" class="fw-bold text-center">{% load humanize %} {{ total_in_loan|floatformat:2 |intcomma }}</td>
+                       </tr>
+                       <tr style="border: 1px solid black">
+                           <td colspan="2" class="text-center">
+                               <p class="fw-bold">{% translate 'Total' %} = ( {% translate 'Priciple' %} + {% translate 'Interest' %}) = </p>
+                           </td>
+                           <td colspan="2"></td>
+                           <td> <span class="fw-bold">{% load humanize %} {{ total_in_loan|floatformat:2 |intcomma }}</span></td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+            <div class="mt-2 p-1">
+                <p><strong>{% translate 'Note' %} :</strong> {% translate 'In case late payment base on dude date loanee agree to pay additional amount by following the penalty <a href="/" class="text-decoration-none" >policy</a>.' %}</p>
+{#                <p><strong>បញ្ជាក់:</strong> ក្នុងករណីដៃគូរ មានការយឺតយ៉ាវ មិនបានបង់ប្រាក់តាមកាលវិភាគនេះទេ ដៃគូភាគីសុខចិត្តបង់នូវប្រាក់ពិន័យបន្ថែមទៀត ដោយប្រាក់#}
+{#                ពិន័យត្រូវបានគណនា 0.5% ក្នុងមួយថ្ងៃលើប្រាក់ដើមយឺតយ៉ាវដែលមិនបានសងកន្លងមក គិតតាមចំនួនថ្ងៃ ដែលបានយឺតយ៉ាវជាក់ស្តែង (រាប់បញ្ចូលទាំងថ្ងៃឈប់សម្រាក ថ្ងៃបុណ្យជាតិ ថ្ងៃសៅរ៍-អាទិត្យ។</p>#}
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+                <div class="">
+                    <p>{% translate 'Company Behavior ' %}</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
+                    <p> <strong>{{ company_info.founder }}</strong></p>
+                </div>
+                <div class="">
+                    <p>{% translate 'Loanee Signature' %}</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
+                    <p> <strong>{{ customerId.name_kh }}</strong></p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+{#    <div class="modal fade" id="deletedPayback" tabindex="-1" aria-labelledby="refund" aria-hidden="true">#}
+{#      <div class="modal-dialog">#}
+{#        <div class="modal-content">#}
+{#          <div class="modal-header">#}
+{#            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete payback' %}</h1>#}
+{#          </div>#}
+{#            <div class="modal-body">#}
+{#                <form action="{% url 'delete_paw_borrow' paw_pay.id%}" method="POST" enctype="multipart/form-data">#}
+{#                    {%  csrf_token %}#}
+{#                    <h6>Your need to delete all pay borrow paw from ({{ paw_pay.paw.paw_name }}) first. </h6>#}
+{#                    <h6>Befor Update data paw ({{ paw_pay.paw.paw_name }})</h6>#}
+{#                    <b>Borrow Pay list to delete</b>#}
+{#                    {% for item in pay_borrow %}#}
+{#                        <ol>#}
+{#                         <li style="list-style-type: square;">{{ item.pay_rate  }} {{ item.pay_principle }} {{ item.date_payback }} = {{ item.total_pay }}</li>#}
+{#                        </ol>#}
+{#                    {% endfor %}#}
+{#                  <div class="modal-footer">#}
+{#                      <a class="btn btn-warning" data-bs-dismiss="modal" href="">{% translate 'Cancel' %}</a>#}
+{#                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Save' %}</button>#}
+{#                  </div>#}
+{#            </form>#}
+{#            </div>#}
+{#        </div>#}
+{#      </div>#}
+{#</div>#}
+
+   <div class="container-lg card card-body">
+
+       <div class="d-flex justify-content-between my-3 d-none-print">
+           <a href="#" class="btn btn-sm d-none-print"><i class="ti-arrow-left"></i> Back</a>
+           <div class="dropdown d-none-print">
+                <button class="btn btn-sm" data-bs-toggle="dropdown"><i class="ti-menu"></i></button>
+                <ul class="dropdown-menu">
+{#                    {% if pay_borrow %}#}
+{#                        <li><a href="{% url 'delete_paw_borrow' paw_pay.id %}"  data-bs-toggle="modal" data-bs-target="#deletedPayback" class="dropdown-item"><i class="ti-trash text-danger"></i>Delete all payback to Update</a></li>#}
+{#                    {% else %}#}
+{#                    <li><a href="{% url 'update_paw_borrow' paw_pay.id %}" class="dropdown-item"><i class="ti-pencil text-success"></i> Update</a></li>#}
+{#                    {% endif %}#}
+                    <li><a  class="dropdown-item" onclick="window.print()"><i class="ti-printer text-success"></i>Print</a></li>
+                </ul>
+            </div>
+       </div>
+   <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <img src="/media/{{ company.logo }}" alt="{{ company.local_name }}" width="100px" height="100px" class="object-fit-cover rounded-circle">
+                <div class="d-flex flex-column">
+                    <p>{{ company.name }}</p>
+                    <p>{{ company.local_name }}</p>
+                </div>
+            </div>
+                <div class="d-flex flex-column">
+                    <p style="text-transform: uppercase;">bank Account</p>
+                        {% for i in bank_account %}
+                    <p class="d-flex fw2-m">
+                         {{ i.bank_name}}
+                        {{ i.bank_account_name }}
+                        {{ i.bank_account_number }}
+                        {{ i.bank_account_currency }}
+                    </p>
+                    {% endfor %}
+                </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <div>
+                <p>Customer Name: <a class="text-decoration-none text-dark" href="{% url 'customer-detail' paw.customer.id %}">{{ paw.customer.name }} ( {{ paw.customer.name_kh }})</a> </p>
+                <p>Customer Phone: {{ paw.customer.phone }}</p>
+                <p>ID Card: {{ paw.customer.name }}</p>
+                <p>Customer Address: {{ paw.customer.name }}</p>
+            </div>
+             <div>
+                 <p>Paw Value: {{ paw.paw_value}} {{ company.main_currency }}</p>
+                <p>Rate: {{ paw.rate}} {% if paw.is_percentage %} % {% else %} {{ company.main_currency }}{% endif %}</p>
+                <p>Borrow Principle cycle: {{ paw.paw_type }}</p>
+                <p>Paw type : {{ paw.paw_pay_method|title }}</p>
+            </div>
+            <div>
+                <p>Paw Name: {{ paw.paw_name|upper}}</p>
+                <p>Paw ID: {{ paw.customer.phone }}</p>
+                <p>Status: {{ paw.paw_status|title }}</p>
+                <p>Paw Method: {{ paw.paw_pay_method|title }}</p>
+            </div>
+        </div>
+
+    <!-- Modal Create PawPay -->
+<div class="modal fade" id="PawPaymentModal" tabindex="-1" aria-labelledby="refund" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'PAYBACK BORROW' %}</h1>
+          </div>
+            <div class="modal-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {%  csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">{% translate 'Rate' %}</label>
+                            <input type="number" name="pay_rate" class="form-control" value="{{rate}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-12">
+                            <label for="">{% translate 'Date' %}</label>
+                            <input type="date" name="date_payback" class="form-control" value="{{ today|date:'Y-m-d' }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-12">
+                            <label for="">{% translate 'Attachement' %}</label>
+                            <input type="file" name="attached_file" class="form-control" value="">
+                         </div>
+                    </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-warning" data-bs-dismiss="modal" href="">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Save' %}</button>
+                  </div>
+            </form>
+            </div>
+        </div>
+      </div>
+</div>
+{#       ==================================== PAYBACK BORROW=====================#}
+       <div class="text-center my-4">
+       <h1 class="text-center my-4"> PAYBACK BORROW </h1>
+       <div class="d-none-print">
+       <button type="button" class="btn btn-success text-center my-4" data-bs-toggle="modal" data-bs-target="#PawPaymentModal"> {% translate 'Payment' %}</button>
+       <a class="btn btn-danger" href="{% url 'refund_paw' paw.id %}" >{% translate 'Refund' %}</a>
+       </div>
+       <table class="table table-hover blank-table">
+
+                <thead class="text-success-emphasis text-uppercase">
+                       <th>{% translate '#' %}</th>
+                       {% if paw_pay.is_percentage  %}
+                       <th >{% translate 'Rate' %} (%)</th>
+                           {% endif %}
+                       <th >{% translate 'INTEREST' %} ({{ company.main_currency }})</th>
+                       <th >{% translate 'Pay back' %} ({{ company.main_currency }})</th>
+                       <th >{% translate 'Paid Date' %} </th>
+                       <th >{% translate 'Action' %}</th>
+                </thead>
+                <tbody>
+                       {% for borrow in paw_pay %}
+                        <tr class="{% if borrow.have_paid_status %} bg-paid {% endif %}">
+                            <td>{{ borrow.number }}</td>
+                            <td>{% load humanize %}{{ borrow.pay_rate|intcomma }} {{ company.main_currency }}</td>
+                            {% if borrow.is_percentage %} <td>{{ paw.pay }} %</td> {% endif %}
+                            <td> {% load humanize %} {{ borrow.pay_principle|intcomma}}   {{ company.main_currency }} </td>
+                            <td> {% load humanize %}{{ borrow.remaining|intcomma }}  {{ company.main_currency }}</td>
+                            <td>{{ borrow.date }}</td>
+                        <td>
+                            {% if borrow.have_paid_status %}
+                                <a href="" class="btn btn-sm btn-dark">Paid</a>
+                            {% else %}
+                                <a href="" class="btn btn-sm btn-outline-dark"  data-bs-toggle="modal" data-bs-target="#{{ borrow.number }}">Pay</a>
+                            {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                        <tr class="bg-secondary fw-bold text-white">
+                            <td colspan="2">Total:</td>
+                            <td></td>
+                            {% if paw_pay.is_percentage %}  <td>{{ sum_pay_back}}</td> {% endif %}
+                            <td>{{ pay_count }} {{ paw_pay.paw_borrow_method }}</td>
+                            <td colspan="2"></td>
+                        </tr>
+                </tbody>
+                </table>
+       </div>
+       </div>
+
+  <h1 class="print-only">Visible on PDF</h1>
+    {% include 'base/footer.html' %}
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="container-lg">
+    <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between">
+                <h4>{% translate "Recent Activities" %}</h4>
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'dashboard' %}"><i class="ti-home"></i></a> /
+                    Recent Activities
+                </div>
+            </div>
+        </div>
+
+  <div class="my-2 d-flex justify-content-between ">
+      <a href="#" class="text-decoration-none text-dark">List activities storing catch in database clear data to make fast.</a>
+      <button  class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAll"><i class="ti-trash mx-2"></i>Clean Activities</button>
+  </div>
+  <table class="table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Activity</th>
+                <th>Object </th>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if activities %}
+                {% for activity in activities %}
+                    <tr>
+                        <td>{{ activity.user|upper }}</td>
+                        <td>{{ activity.action }}</td>
+                        <td>{{ activity.object }}</td>
+                        <td>{{ activity.timestamp }}</td>
+                        <td>
+                            <a class="btn btn-outline-danger edit" data-bs-toggle="modal" data-bs-target="#s{{activity.id }}">
+                                <i class="ti-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <h4 class="text-secondary-emphasis">No Data .....</h4>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end mt-2 ">
+                  {% if activities.has_other_pages %}
+                   <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                      {% if activities.has_previous %}
+                        <li class="page-item"><a class="page-link text-dark" href="?page={{ activities.has_previous }}">{% translate 'Previous' %}</a></li>
+                        {% else %}
+                          <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                        {% endif %}
+                        {% for i in activities.paginator.page_range %}
+                          {% if activities.number == i %}
+                            <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                          {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      {% if activities.has_next %}
+                        <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ activities.has_next }}">{% translate 'Next' %}</a></li>
+                          {% else %}
+                          <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                      {% endif %}
+                      </ul>
+                       {% endif %}
+                </nav>
+            </div>
+    </div>
+
+</div>
+         <!-- Modal Delete -->
+    {% for activity in activities  %}
+        <div class="modal fade" id="s{{ activity.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete Activities activities ' %} {{ activity.user|upper }} ?</h1>
+              </div>
+                <form action="{% url 'delete_activities' activity.id %}" method="POST">
+                        {%  csrf_token %}
+                  <div class="modal-body">
+                    <p>{% translate 'Are you sure want to delete' %} {{ activity.user|upper }} activities ? </p>
+                  </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+<!-- End Modal -->
+        <!-- Modal Delete  All Activities -->
+        <div class="modal fade" id="deleteAll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Clean All Activities' %}?</h1>
+              </div>
+                <form action="{% url 'delete_all_activities' %}" method="POST">
+                        {%  csrf_token %}
+                  <div class="modal-body">
+                    <p>{% translate 'Are you sure want to Clean all Data Activities' %}? </p>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                      <a class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+<!-- End Modal -->
+{% endblock %}

@@ -1,0 +1,43 @@
+v1.2.0-alpha
+<ul>
+    <li> Add link to view customer from paw item </li>
+    <li> Add sum up loan payment with paw payment </li>
+    <li> Add view Id card detail and printable </li>
+    <li> Add main currency to company filed model and data form </li>
+    <li> Add detail page id card identify </li>
+    <li> And many more ... </li>
+</ul>
+
+v1.1.1 19/4/2023
+<ul>
+    <li> Improve over due list </li>
+    <li> Add function on paw item. </li>
+    <li> Fixed paw payment calculation </li>
+    <li> Fixed user update setting not work </li>
+    <li> Fixed Paw payment detail check percentage </li>
+    <li> Add function set currency on system </li>
+    <li> Add function to view image on customer detail and paw </li>
+    <li> Improve paw item page </li>
+    <li> Improve table schedule, payment, and Collateral easier to view on mobile device </li>
+    <li> Fixed search on mobile device, now able to search unicode characters on loan list and customers list </li>
+    <li> Add function to avoid duplicate payment record with same schedule </li>
+    <li> Upgrade bootstrap5 </li>
+    <li> Modified interface for paw item </li>
+    <li> If item paw has been refunded hide payment & refunded button </li>
+    <li> And many more ... </li>
+</ul>
+
+v1.2.0 15/4/2023
+<ul>
+    <li> Optimized information on Dashboard  </li>
+    <li> Fixed create new loan form </li>
+    <li> Fixed search item on loan list page </li>
+    <li> Fixed link from payment detail to loan detail </li>
+    <li> Fixed click link on customer detail to loan payment detail and click from payment list on customer detail to loan detail </li>
+    <li> Fixed table on mobile view as scrollable class </li>
+    <li> Modified style Loan, Payback, Collateral, Paw list on customer detail to be much more better in mobile device viewing </li>
+    <li> Reforming makeup loan item on loan list to be more clean </li>
+    <li> Remove progress bar from loan item on loan list </li>
+    <li> Re-translate to deep code </li>
+    <li> Add check update function </li>
+</ul>

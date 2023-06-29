@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Village Detail' %}{% endblock %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="col-md-12 bg-light p-2 mb-4">
+    <div class="container pt-title ">
+     <p class="fs-7">
+         {% with url_name=request.resolver_match.url_name %}
+             <a href="{% url 'address' %}" class="text-decoration-none  text-dark">{% translate 'Address' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'village_list' %}" class="text-decoration-none text-dark {% if url_name == 'village_list' %} text-success {% endif %}">{% translate 'Village list' %}</a>
+              <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'village_list'%}" class="text-decoration-none  {% if url_name == 'village_detail' %} text-success {% endif %}">{% translate 'Village detail' %}</a>
+           {% endwith %}
+     </p>
+     </div>
+</div>
+    <!-- Modal Delete -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete village' %}  {{ villageDetail.name }}</h1>
+          </div>
+            <form action="{% url 'delete_village' villageDetail.id %}" method="POST">
+                    {%  csrf_token %}
+              <div class="modal-body">
+                <p>{% translate 'Are you sure want to delete ' %}"{{ villageDetail.name }}?</p>
+              </div>
+              <div class="modal-footer">
+                  <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+<!-- End Modal -->
+
+    <div class="container vh-100">
+        <div class="row justify-content-center">
+            <div class="col-10 bg-light-subtle py-4">
+                <div class="text-center">
+                    <h4> {{ villageDetail.name|upper }}{% translate ' Village Detail' %}</h4>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-12 col-md-4">
+                        <img src="{% static 'img/logo.jpg' %}" alt="" class="w-100">
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                    <div class="text-end">
+                       <a class="btn btn-outline-success edit" href="{% url 'village_update' villageDetail.id %}"><i class="ti-pencil"></i></a>
+                        <a class="btn btn-outline-danger edit" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="ti-trash"></i></a>
+                    </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <p>{% translate 'Commune' %}: <strong>{{ villageDetail.commune_id }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Name' %}: <strong>{{ villageDetail.name }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Name local' %}: <strong>{{ villageDetail.name_local }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Short name' %}: <strong>{{ villageDetail.short_name }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Code' %}: <strong>{{ villageDetail.code }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Border with'%}: <strong>{{ villageDetail.border_with }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Border Length' %}: <strong>{{ villageDetail.border_length }}</strong></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Hotline' %}: <strong>{{ villageDetail.hotline }}</strong></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-dark" onclick="history.back()">{% translate 'Back' %}</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

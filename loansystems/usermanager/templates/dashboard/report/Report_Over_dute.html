@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="container-lg position-relative min-vh-100">
+        <div class="row  mt-2 ">
+            <div class="col-12">
+                 <h4 class=""> <i class="ti-list-ol"></i> <span class="mx-2">{% translate 'Report' %}</span></h4>
+             </div>
+{#        ========================== display xsm ==================#}
+
+{#        ======================= dispaly md lg ================#}
+
+        <div class="col-4">
+        </div>
+        <div class="col-8">
+            <div class="bg-light-subtle">
+                            <table class="table  align-middle mb-0 bg-white table-hover rounded-3 d-xsm-none">
+                                <thead class="bg-light">
+                                  <tr>
+                                    <th class="fs-7">{% translate 'Customer' %}</th>
+                                    <th class="fs-7">{% translate 'Balance' %}</th>
+                                    <th class="fs-7">{% translate 'Interest rate' %}</th>
+                                    <th class="fs-7">{% translate 'Actions' %}</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+            {#                    {% if loanSearch %}#}
+                                {% if loan %}
+                                 {% for loan in over_due_date_schedule %}
+                                      <tr class="box-scale bg-white {% if loan.display %} d-none {% endif %}" >
+                                     <a href="{% url 'loan_detail' loan.loan %}">
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img
+                                                    src="/media/{{ loan.customerImage }}"
+                                                    alt=""
+                                                    style="width: 45px; height: 45px"
+                                                    class="rounded-circle"
+                                                    />
+            {#                                    <div class="ms-3">#}
+            {#                                      <p class="fw-bold mb-1 fs-7">{{ loan.customer.name_kh }} | {{ loan.customer.name }}</p>#}
+            {#                                      <span class="fs-7 text-secondary">{{ loan.loan_date }}</span>#}
+            {#                                    </div>#}
+                                              </div>
+                                        </td>
+                                        <td>
+                                        <div class="">
+                                              <p class="fw-bold mb-1 fs-7"><i class="ti-money text-white mx-1 bg-success p-1 rounded-circle"></i>{{ loan.balance }}</p>
+                                        </div>
+                                        </td>
+                                        <td>
+                                            <span class="fs-7"> {{ loan.due_date }}<i class=""></i></span>
+                                        </td>
+                                        <td>
+                                          <a class="btn btn-outline-success btn-sm rounded-pill" href="{% url 'loan_detail' loan.loan %}">{% translate 'Detail' %}</a>
+                                           <!-- <a class="btn btn-secondary btn-sm rounded-pill" href="#">Pay</a> -->
+                                        </td>
+                                     </a>
+                                      </tr>
+                                {% endfor %}
+            {#                    {% else %}#}
+            {#                        <tr>#}
+            {#                        <td colspan="5" class="text-center">{% translate 'No Data' %}</td>#}
+            {#                        </tr>#}
+            {#                    {% endif %}#}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="4" class="align-middle text-center"> No Data </td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                              </table>
+                              </div>
+        </div>
+
+            </div>
+    {#        ========================= display sm ===========================#}
+        <div class="d-sm-none d-md-none d-lg-none">
+            {% if over_due_date_schedule %}
+                {% for loan in loanList %}
+                         <a href="{% url 'loan_detail' loan.id %}" class="d-flex align-content-center text-decoration-none text-dark hover p-2">
+                                   <p><img
+                                        src="/media/{{ loan.customer.profile_img }}"
+                                        alt=""
+                                        style="width: 55px; height: 55px"
+                                        class="rounded-circle"
+                                        /></p>
+                                <p class="d-flex flex-column fw-bold mb-1 fs-7 mx-2">
+                                    <span>{{ loan.customer.name_kh }}</span>
+                                    <span>{{ loan.customer.name }}</span>
+                                    <span class="fw-light ">#{{ loan.loan_number_id }}</span>
+                                </p>
+                                <div class="d-flex flex-column">
+                                    <div class=""><span>{{ loan.number_of_cycle }} {{ loan.loan_cycle_type }}</span></div>
+                                    <progress value="10"> </progress>
+                                    <span>{{ loan.loan_amount }} {{ loan.interest_rate_per_cycle }}<i class="">%</i></span>
+                                </div>
+                               <!-- <a class="btn btn-secondary btn-sm rounded-pill" href="#">Pay</a> -->
+
+                         </a>
+                    {% endfor %}
+            {% else %}
+                No Data
+            {% endif %}
+
+        </div>
+        <div class="d-sm-none d-md-none d-lg-none ab-rg-item">
+            <a href="{% url 'loan-create' %}" data-toggle="modal" class="btn btn-success rounded-circle"><i class="fas fa-plus p-2"></i></a>
+        </div>
+    </div>
+{% endblock %}

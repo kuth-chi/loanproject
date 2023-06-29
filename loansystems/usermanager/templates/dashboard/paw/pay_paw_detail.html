@@ -1,0 +1,86 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+    #box {
+        display: none;
+    }
+</style>
+    {% include 'base/navbar.html' %}
+    <!--Message from backend -->
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="toast-body bg-success text-light my-toast p-3" id="toast">{% translate 'Add customer successfully !'%} </div>
+        {% else %}
+            <div class="toast-body bg-danger text-light my-toast p-3" id="toast">{% translate 'Cancel create customer ! ' %}</div>
+        {% endif %}
+    {% endfor %}
+
+
+    <div class="container-lg  vh-100">
+        <div class="text-center">
+            <h4>{% translate 'PAYBACK DETAIL'  %} <a class="text-decoration-none" href="{% url 'paw_detail' pawDetail.id %}">{{ pawDetail.paw_name }} ({{ pawDetail.paw_name }})</a> </h4>
+
+        </div>
+        <hr>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-12 bg-light-subtle">
+                <div class="card position-relative edit-icon">
+                    <div class="card-body ">
+                        <div class="row">
+                                {% if pwapay.attached_file %}
+                                <div class="col-md-6">
+                                    <img src="/media/{{ pwapay.attached_file }}" style="width: 100%;" alt="" class="object-fit-cover">
+                                </div>
+                                {% else %}
+                                {% endif %}
+                                <div class="col-12 col-md-6">
+                                <div class=" {% if pawDetail.attached_file %} col-md-6 {% else %} col-md-12 {% endif %}">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-md-6 mt-2">{% translate 'Customer' %}:</div>
+                                        <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ pawDetail.customer.name|upper }} ({{ pawDetail.customer.name_kh }})</div>
+                                        <div class="col-6 col-sm-6 col-md-6">{% translate 'Interest' %}:</div>
+                                        <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ pwapay.date_pay }}</div>
+                                        <div class="col-6 col-sm-6 col-md-6">{% translate 'Amount' %}:</div>
+                                        <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ pwapay.pay_value }}{{company.main_currency}}</div>
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                    <div class="card-footer text-center my-4">
+                        <h3 >{% translate 'Total Amount' %}: <span class="fw-bold text-danger-emphasis">{{ pwapay.pay_value }}{{company.main_currency}}</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+        function loanTypeDay() {
+            var x = document.getElementById('Day').value;
+            document.getElementById("My").innerHTML=x;
+        }
+        function loanTypeWeek() {
+            var w = document.getElementById('Week').value;
+            document.getElementById("My").innerHTML=w;
+        }
+        function loanTypeMonth() {
+            var m = document.getElementById('Month').value;
+            document.getElementById("My").innerHTML=m;
+        }
+        function loanType3Month() {
+            var wm = document.getElementById('Quarterly').value;
+            document.getElementById("My").innerHTML=wm;
+        }
+        function loanTypeSemester() {
+            var sm = document.getElementById('semester').value;
+            document.getElementById("My").innerHTML=sm;
+        }
+        function loanTypeYear() {
+            var y = document.getElementById('year').value;
+            document.getElementById("My").innerHTML=y;
+        }
+    </script>
+    {% include 'base/footer.html' %}
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+ {% for item in departments  %}
+        <div class="modal fade" id="s{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete Department ' %}  </h1>
+              </div>
+                <form action="{% url 'department_delete' item.id %}" method="POST">
+                        {%  csrf_token %}
+                  <div class="modal-body">
+                    <p>{% translate 'Are you sure want to delete' %} {{ item.dep_name|upper }} department ? </p>
+                  </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+
+    <div class="container-lg">
+            <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+                 {% if departmentUpdate %}
+                     <h4>{% translate "Update Department" %}</h4>
+                {% else %}
+                <h4>{% translate "Department" %}</h4>
+                {% endif %}
+                <div class="">
+                    {% if departmentUpdate %}
+                        <a class="text-decoration-none text-dark" href="{% url 'department' %}"><i class="ti-home"></i></a> /
+                    {% translate 'Department Update' %}
+                    {% else %}
+                    <a class="text-decoration-none text-dark" href="{% url 'dashboard' %}"><i class="ti-home"></i></a> /
+                    Department
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-12 col-sm-5 col-md-5 border-end">
+            <form class="my-2" action="" method="post">
+                {% csrf_token %}
+                <div class="p-3">
+                    <div class="mt-2">
+                        <label for="" class="form-label">Department name:</label>
+                        <input type="text" name="dep_name" class="form-control"
+                                {% if departmentUpdate %} value="{{ departmentUpdate.dep_name }}" {% endif %}>
+                    </div>
+                    <div class="mt-2">
+                        <label for="dep_desc" class="form-label">Department description:</label>
+                        <textarea type="text" id="dep_desc"
+                                  name="dep_desc" class="form-control"
+                                  rows="10">{% if departmentUpdate %}{{ departmentUpdate.dep_desc }}{% endif %}</textarea>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                     {% if departmentUpdate %}
+                    <a href="{% url 'department' %}"  class="btn btn-sm btn-danger"> Cancel </a>
+                    <button  class="btn btn-sm btn-success" type="submit">Update Departments</button>
+                    {% else %}
+                    <button name="" class="btn btn-sm btn-success" type="submit"> Add New Departments</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-7 col-md-7">
+            <div class="d-flex justify-content-between my-2">
+                <div>
+                    <p style="text-transform: uppercase"> {% translate 'Department list' %}</p>
+                </div>
+                <div class="input-group w-50">
+                    <input type="text" class="form-control" placeholder="search">
+                    <span class="input-group-text"><i class="ti-search"></i></span>
+                </div>
+            </div>
+            <div>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>#No</th>
+                            <th>Department Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in departments %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.dep_name }}</td>
+                            <td>{{ item.dep_desc }}</td>
+                            <td>
+                                <div class="d-flex">
+                                    <a href="{% url 'department_update' item.id %}" class="btn btn-sm btn-outline-dark"><i class="ti-pencil "></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark mx-2"
+                                       data-bs-toggle="modal" data-bs-target="#s{{item.id }}">
+                                        <i class="ti-trash text-danger"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end mt-2 ">
+                      {% if departments.has_other_pages %}
+                       <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                          {% if departments.has_previous %}
+                            <li class="page-item"><a class="page-link text-dark" href="?page={{ departments.has_previous }}">{% translate 'Previous' %}</a></li>
+                            {% else %}
+                              <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                            {% endif %}
+                            {% for i in departments.paginator.page_range %}
+                              {% if departments.number == i %}
+                                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                          {% if departments.has_next %}
+                            <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ departments.has_next }}">{% translate 'Next' %}</a></li>
+                              {% else %}
+                              <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                          {% endif %}
+                          </ul>
+                           {% endif %}
+                    </nav>
+                </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

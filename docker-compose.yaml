@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+    loansystem:
+      volumes:
+        - static:/static
+      env_file:
+        - .env
+      build:
+        context: .
+      ports:
+        - "8000:8000"
+      depends_on:
+        - postgres
+
+    nginx:
+      build: ./nginx 
+      volumes:
+        - static:/static
+      ports:
+        - "80:80"
+      depends_on:
+        - loansystem
+
+    postgres:
+        image: postgres:10.5
+        restart: always
+        environment:
+          - POSTGRES_DB=loandb
+          - POSTGRES_USER=admin
+          - POSTGRES_PASSWORD=root
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - '5438:5432'
+        volumes: 
+          - ./postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+          - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+volumes:
+  static: 
+  

@@ -1,0 +1,335 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Loan detail' %}{% endblock %}
+{% block content %}
+  {% include 'base/navbar.html' %}
+  {% block javascript %}
+    <script>
+      $(document).ready(function($)
+          {
+              $(document).on('click', '.btn_print', function(event)
+              {
+              event.preventDefault();
+              var element = document.getElementById('prinst');
+
+              {#html2pdf().from(element).save();#}
+          var opt = {
+              margin: 1,
+              filename: 'pageContent.pdf',
+              image: {type: 'jpeg', quality: 0.98},
+              html2cavas: { scale: 2},
+              jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait'}
+          };
+          html2pdf().set(opt).from(element).save()
+          {#html2pdf().set(opt).from(element).save();#}
+        });
+      });
+    </script>
+  {% endblock %}
+    <div class="container-lg">
+      <div class="col-md-12 bg-light p-2 mb-4">
+            <div class="container-lg pt-title ">
+              <p class="fs-7">
+            
+              {% with url_name=request.resolver_match.url_name %}
+                  <a href="{% url 'loan' %}" class="text-decoration-none  text-dark">{% translate 'Loan' %}</a> <i class="fa-solid fa-chevron-right"></i>
+                  <a href="{% url 'loan' %}" class="text-decoration-none text-dark"> {% translate 'Loan list' %}</a>
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <a href="{% url 'loan' %}" class="text-decoration-none {% if url_name == 'loan_detail' %} text-success {% endif %}">{% translate 'Customers detail' %}</a>
+              {% endwith %}
+              </p>
+            </div>
+      </div>
+      <hr>
+      <div class="row mt-2" >
+        <div class="col-sm-12 col-md-12">
+            <a href="{% url 'loan_update' loanList.id %}">{% translate 'Edit' %}</a>
+        </div>
+          <div class="col-sm-6 col-md-4">
+              {% translate 'Loan number' %}: <strong>{{ loanList.id }}7384JHS</strong>
+          </div>
+          <div class="col-sm-6 col-md-4"><p>កម្ចីជា: <strong> {{ loanList.loan_cycle_type }}</strong></p></div>
+          <div class="col-sm-6 col-md-4"><p>ឈ្មោះអតិថិជន :  <strong>{{ loanList.customer.name_kh }}</strong> </p></div>
+          <div class="col-sm-6 col-md-4"> <p>រូបិយ័ណ្ណ :  <strong>ដុល្លារសហរដ្ឋអាមេរិក(USD)</strong> </p></div>
+          <div class="col-sm-6 col-md-4"><p>កាលបរិច្ឆេទនៃការខ្ចី :  <strong>{{ loanList.loan_date }}</strong> </p></div>
+          <div class="col-sm-6 col-md-4">
+              {% if loanList.is_set_first_payment_date == True %}
+                  <p> ថ្ងៃបង់ដំបូង :  <strong>{{ loanList.first_payment_date |date:"d-M-Y"}}</strong> </p>
+                              {% else %}
+                  <p>   </p>
+                      {% endif %}
+          </div>
+          <div class="col-sm-6 col-md-4"><p>ប្រភេទបង់:  <strong>{{ loanList.rate_calculate_method }}</strong> </p></div>
+          <div class="col-sm-6 col-md-4"><p>ទឹកប្រាក់កម្ចី :  <strong>{% load humanize %} {{ loanList.loan_amount |intcomma }}$</strong> </p></div>
+          <div class="col-sm-6 col-md-4"><p>រយះពេល :  <strong>{{ loanList.number_of_cycle }} {{ loanList.loan_cycle_type }}</strong> </p></div>
+          <div class="col-sm-6 col-md-4"><p>ការប្រាក់ :  <strong>{{ loanList.interest_rate_per_cycle }}%</strong> </p></div>
+          <div class="col-sm-6 col-md-4"><p>វិធីបង់ប្រាក់ប្រចាំ <strong>{{ loanList.loan_cycle_type }}</strong> </p> </div>
+          <div class="col-sm-6 col-md-12"><p>{% translate 'Address' %}: <strong>{{ loanList.customer.address }} {{ loanList.customer.village }} {{ loanList.customer.commune }}{{ loanList.customer.province }}</strong> </p></div>
+
+          <div class="col-sm-12 col-md-12 ">
+                    <div class="text-end">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa-solid fa-download"></i> <span>{% translate 'Download' %}</span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                              <li class="dropdown-item">
+                                  <div >
+                                    <a href="#"  target="_blank"><button class="btn btn-outline-primary w-100 justify-content-start btn_print"><i class="fa-solid fa-print"></i> {% translate 'Print' %}</button></a>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="dropdown-item">
+                                  <a href="{% url 'view-print' loanList.id %}" ><button class="btn btn-outline-primary w-100 justify-content-start"><i class="fa-regular fa-file-pdf"></i><span>{% translate 'Save PDF' %}</span></button></a>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="dropdown-item">
+                                      {#  <a href="{% url 'view-pdf-text'  %}" target="_blank"><button class="btn btn-outline-primary w-100 justify-content-start"><i class="fa-regular fa-file-pdf"></i><span>Test</span></button></a>#}
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                    </div>
+          </div>
+      </div>
+      <hr>
+      <!-- CHART JS -->
+      <div style="height: 280px;">
+        <canvas id="loanDetailChart"></canvas>
+      </div>
+      <hr>
+        <div class="col-12 col-sm-12 col-md-12 my-2">
+            {% if collateralID %}
+                <div class="d-flex justify-content-between">
+                  <p>{% trans 'Collateral number' %}: <strong>{{ collateralID.id }} </strong></p>
+                  <p>{% trans 'Collateral Deadline' %}: <strong> {{ collateralID.invalidity_date }} </strong></p>
+                  <p>{% trans 'Contact Collateral' %}: <strong> 93733SUS </strong></p>
+                </div>
+              {% else %}
+                <a class="btn btn-sm btn-success" href="{% url 'create_collateral' loanList.id %}" title="{% translate 'Create collateral' %}">Add collateral</a>
+            {% endif %}
+        </div>
+      {% block javascript %}
+        <script>
+            var ctx = document.getElementById('loanDetailChart').getContext('2d');
+            const loanUrl = '/loan-json/{{ loanList.id }}/';
+
+          async function getLoan() {
+            const response = await fetch(loanUrl);
+            const data = await response.json();
+            const interestArray = data.map(item => item.interest);
+            const cycle_number = data.map(item => item.number);
+            const principle = data.map(item => item.principle);
+            const balance = data.map(item => item.balance);
+            let totalPaid = data.map(item => item.monthly_amount);
+            const accSums = totalPaid.reduce((acc, cur) => {
+              if (acc.length > 0) {
+                cur += acc[acc.length - 1];
+              }
+              acc.push(cur);
+              return acc;
+            }, []);
+
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: cycle_number,
+                datasets: [{
+                  label: '{% translate 'Interest' %}',
+                  data: interestArray,
+                  borderWidth: 1
+                },
+                {
+                  label: '{% translate 'Principle' %}',
+                  data: principle,
+                  borderWidth: 1
+                },
+                {
+                  label: '{% translate 'Balance' %}',
+                  data: balance,
+                  borderWidth: 1
+                },
+                {
+                  label: '{% translate 'Returned' %}',
+                  data: accSums,
+                  borderWidth: 1
+                }
+                ]
+              },
+              options: {
+                maintainAspectRatio: false,
+                bezierCurve: false,
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          }
+        getLoan();
+        </script>
+      {% endblock %}
+      <hr>
+      <div class="col-sm-12 col-md-12">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="text-uppercase text-success-emphasis">
+                    <th class="nowrap-100">{% translate '#.' %}</th>
+                    <th class="nowrap-100">{% translate 'Payment date' %}</th>
+                    <th class="nowrap-100">{% translate 'Numer of day' %}</th>
+                    <th class="nowrap-100">{% translate 'Principle' %}</th>
+                    <th class="nowrap-100">{% translate 'Interest' %}</th>
+                    <th class="nowrap-100">{% translate 'To be paid' %}</th>
+                    <th class="nowrap-100">{% translate 'Outstanding' %}</th>
+                    <th class="nowrap-100">{% translate 'Action' %}</th>
+                </thead>
+                <tbody>
+                    {% for payment in schedule %}
+                            {{ payment.over_due }}
+                          <tr class="{% if payment.over_due == True %} bg-danger {% else %} {% endif %}">
+                            <td class="nowrap">{{ payment.number }}</td>
+                            <td class="nowrap">{{ payment.due_date|date:'l, d-M-Y' }}</td>
+                            <td class="nowrap-100">{{ payment.number_date}}</td>
+                            <td class="nowrap-100">{% load humanize %}{{ payment.principle |floatformat:2 |intcomma}}</td>
+                            <td class="nowrap-100">{% load humanize %} {{ payment.interest |floatformat:2 |intcomma}}</td>
+                            <td class="text-danger fw-bolder nowrap-100">{% load humanize %}{{ payment.monthly_amount|intcomma}}</td>
+                            <td class="text-primary fw-bold nowrap-100">{% load humanize %}{{ payment.balance |intcomma}}</td>
+                            <td class="nowrap-100">
+                            {% if payment.due_date == payment.payment_due_date%}
+                                <a href="{% url 'filter_payback_by_loan_id' loanList.id %}" class="btn btn-success" >{% translate 'Paid' %}</a>
+                            {% else %}
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#s{{ payment.number }}">{% translate 'Pay' %}</button>
+                            {% endif %}
+                              <!-- OLD
+                              <a href="" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ payment.button}}</a>
+                              -->
+                              <!-- Test Button Pay Back-->
+                              {#                       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#{{ payment.number }}">Pay back</button>#}
+
+                              {#                             ================= Modal button ==================#}
+                              {#                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#{{ payment.number }}">Pay back</button>#}
+
+                              <!-- END -->
+                            </td>
+                          </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </div>
+  
+      {% for payment in schedule  %}
+        <div class="modal fade" id="s{{ payment.number }}" tabindex="-1" aria-labelledby="s{{ payment.number }}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h1 class="modal-title fs-5" id="s{{ payment.number }}">{% translate 'Loan payback' %}</h1>
+              </div>
+              <form action="{% url 'create_payback' loanList.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-md-12 mt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-3">
+                            <label class="form-label">{% translate 'Interest' %}</label>
+                          </div>
+                          <div class="col-sm-12 col-md-9 ">
+                            <div class="input-group mb-3 align-self-center">
+                              <input class="form-control" type="text" id="interest_paid" readonly name="interest_paid" value="{% load humanize %}{{ payment.interest |floatformat:2 |intcomma}}">
+                              <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-3">
+                            <label for="">{% translate 'Principle' %}</label>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                            <div class="input-group mb-3">
+                              <input readonly class="form-control" id="principle_paid" type="text" name="principle_paid" value="{{ payment.principle }}">
+                              <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-3">
+                            <label class="form-label" for="">{% translate 'Balance' %}</label>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                            <div class="input-group mb-3">
+                              <input readonly class="form-control" id="balance" type="text" name="balance"  value="{{ payment.monthly_amount }}">
+                              <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-3">
+                            <label class="form-label">{% translate 'Due date' %}</label>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                          <input type="date" class="form-control" name="due_date"  value="{{ payment.due_date|date:'Y-m-d'}}" readonly>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-3">
+                            <label class="form-label">{% translate 'Pay date' %}</label>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                            <input type="date" class="form-control" name="pay_date" value="{{ today|date:'Y-m-d'}}"  required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-warning" data-bs-dismiss="modal" href="#">{% translate 'Cancel' %}</a>
+                  <button class="btn btn-success" id="my-button" type="submit" name="Save">{% translate 'Save' %}</button>
+              </div>
+              
+              {% block javascript %}
+              <script>
+                window.onload = function() {
+                  // Add event listener to element with ID "my-button"
+                  var button = document.getElementById("my-button");
+                  button.addEventListener("click", function() {
+                    this.disabled = true;
+                  });
+                };
+                
+                </script>
+              {% endblock %}
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% block javascript %}
+        <script>
+        // CODE HERE
+        </script>
+      {% endblock %}
+      {% block javascript %}
+        <script>
+          const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+          const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
+      {% endblock %}
+    </div>
+  {%  include 'base/footer.html' %}
+{% endblock %}

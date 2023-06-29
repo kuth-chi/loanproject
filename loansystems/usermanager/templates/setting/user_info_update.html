@@ -1,0 +1,111 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} Manage Customer{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+    {% block javascript %}
+  <script>
+  var loadImage = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+</script>
+{% endblock %}
+<div class="container">
+
+    <div class="row justify-content-center">
+                <hr>
+        <div class="col-12 col-sm-12 col-md-8 bg-light-subtle rounded-2">
+            <div class="row my-4">
+                <div class="col-12 my-4">
+                    <div class="form-group">
+                        <form class="row" action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-sm-12 col-md-5 mt-2">
+                                <label class="w-100 h-100 d-flex flex-column justify-content-center text-center"
+                                    style="border: 2px dotted #333; border-radius: 100%">
+                                    <input type="file" id="imgInp"
+                                           onchange="loadImage(event)"
+                                           accept="image/*" name="logo"
+                                           class="d-none"
+{#                                            {% if updateCustomer %}#}
+{#                                                 value="{{ updateCustomer.profile_img }}"#}
+{#                                            {% endif %}#}
+                                    >
+                                    {% if owner_logo %}
+                                        <img id="output" src="/media/{{ owner_logo.logo }}" alt="" class="rounded-2 object-fit-cover update_image" width="200px" height="200px">
+                                    {% else %}
+                                        <img id="output" src="/media/{{ owner_logo.logo }}" class=" update_image rounded-2 object-fit-cover" alt="">
+                                    {% endif %}
+                               </label>
+                            </div>
+                                <div class="col-sm-12 col-md-7 mt-2">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="name" placeholder="" value="{{ companyDetail.name }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Local Name</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="local_name" placeholder="" value="{{ companyDetail.local_name }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Tel Number</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="number" name="tel_number" placeholder=""  value="{{ companyDetail.tel_number }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">Email</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="email" name="email" placeholder="" value="{{ companyDetail.email }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                        <label class="form-label"  style="white-space: nowrap">VAT Number</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input class="form-control" type="text" name="vat_number" placeholder="" value="{{ companyDetail.vat_number }}">
+                                        </div>
+                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-6 col-md-6 mb-3">
+                                        <input class="form-control" type="date" name="founded" placeholder="Founded" value="{{ companyDetail.founded|date:'Y-m-d' }}">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                        <input class="form-control" type="text" name="founder" placeholder="Founder" value="{{ companyDetail.founder }}">
+                                        </div>
+                                     </div>
+                                </div>
+                                 <div class="col-sm-12 col-md-12 mt-2">
+                                     <textarea class="form-control" cols="10" rows="10"  name="description" placeholder="Description ... ">{{ companyDetail.description }}</textarea>
+                                </div>
+                            <div class="col-12 d-flex  justify-content-between mt-4">
+                                <a class="btn btn-dark" href="{% url 'dashboard' %}">Back</a>
+                              <button class="btn btn-success" type="submit">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% endblock %}

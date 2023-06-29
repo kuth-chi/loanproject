@@ -1,0 +1,639 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+ {% block title %}  {% translate 'Loan detail' %} {% endblock %}
+ {% block description %}  {% translate 'Loan detail easy to manage your loan' %} {% endblock %}
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<div class="container-lg min-w-full">
+<div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'loan' %}" class="text-decoration-none text-dark d-flex align-items-center">
+                <i class="ti-arrow-left mx-2"></i>
+                <p>{% translate "Loan" %}</p>
+                </a>
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'loan' %}"><i class="ti-home"></i></a> /
+                    {% translate 'Loan Detail' %}
+                </div>
+            </div>
+        </div>
+   <hr>
+    <div class="row mt-2" >
+    <div class="col-sm-12 col-md-12 ">
+        <div class="text-end">
+            {% if paybackFilter %}
+                {% else %}
+            <a class="text-decoration-none text-end" href="{% url 'loan_update' loanList.id %}"><i class="ti-pencil"></i></a>
+            {% endif %}
+        </div>
+    </div>
+        <div class="col-sm-6 col-md-4 mt-1">
+            <a class="nav-link text-dark text-decoration-none" href="{% url 'customer-detail' customerId.id %}">
+                <p>{% translate 'Customer Name' %}: <strong> {{ customerId.name|upper }} ({{ customerId.name_kh }})</strong></p>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Period' %}:  <strong>{{ loanList.number_of_cycle }} {% if loanList.loan_cycle_type == 'day' %} {% translate 'Day' %} {% elif loanList.loan_cycle_type == 'week' %} {% translate 'Week' %}{% elif loanList.loan_cycle_type == 'month' %} {% translate 'Month' %}{% elif loanList.loan_cycle_type == 'quarter' %} {% translate 'Quarter' %}{% elif loanList.loan_cycle_type == 'semester' %} {% translate 'Semester' %}{% else %}{% translate 'Year' %}{% endif %}</strong> </p></div>
+        <div class="col-sm-6 col-md-4 mt-1">
+            <a class="nav-link text-dark text-decoration-none" href="{% url 'customer-detail' customerId.id %}">
+                <p>{% translate 'Customer ID' %}: <strong> {{ customerId.id }}DSE2</strong></p>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-4 mt-1">{% translate 'Loan number' %}: <strong>{{ loanList.loan_number_id }}</strong></div>
+
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Loan amount' %} :  <strong>{% load humanize %} {{ loanList.loan_amount |intcomma }}{{company.main_currency}}</strong> </p></div>
+
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Loan date' %}:  <strong>{{ loanList.loan_date }}</strong> </p></div>
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Loan type' %}:  <strong> {% if loanList.rate_calculate_method == 'Equal Installments' %} {% translate 'Equal Installments' %}{% elif loanList.rate_calculate_method == 'fixed flat' %} {% translate 'Fixed flat' %}{% else %}{% translate 'Fixed rate' %}{% endif %}</strong></p></div>
+        <div class="col-sm-6 col-md-4 mt-1"> <p>{% translate 'Currency' %}:  <strong>{{company.main_currency}}</strong> </p></div>
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Payment method' %}:  <strong>{% if loanList.loan_cycle_type == 'day' %} {% translate 'Day' %} {% elif loanList.loan_cycle_type == 'week' %} {% translate 'Week' %}{% elif loanList.loan_cycle_type == 'month' %} {% translate 'Month' %}{% elif loanList.loan_cycle_type == 'quarter' %} {% translate 'Quarter' %}{% elif loanList.loan_cycle_type == 'semester' %} {% translate 'Semester' %}{% else %}{% translate 'Year' %}{% endif %}</strong> </p></div>
+
+        <div class="col-sm-6 col-md-4 mt-1"><p>{% translate 'Interest' %}:  <strong>{{ loanList.interest_rate_per_cycle }}%</strong> </p></div>
+        <div class="col-sm-6 col-md-4 mt-1">
+            {% if loanList.is_set_first_payment_date == True %}
+                <p> {% translate 'First pay date' %}:  <strong>{{ loanList.first_payment_date |date:"d-M-Y"}}</strong> </p>
+                            {% else %}
+                <p>{% translate 'N/A' %}</p>
+                    {% endif %}
+        </div>
+
+        <div class="col-sm-6 col-md-12"><p>{% if customerAddress %}
+                <p>{% translate 'Address' %}: <strong> {{ customerAddress.country }}, {{ customerAddress.province }}, {{ customerAddress.district }}
+                {{ customerAddress.commune }}, {{ customerAddress.village }} </strong></p>
+            {% else %}
+                <p>{% translate 'Address' %}:</p>
+                <a href="{% url 'create_customer_address' customerId.id %}" type="button" class="btn btn-outline-success btn-sm">{% translate 'Add addresss' %}</a>
+            {% endif %}
+            </div>
+        <div class="col-sm-12 col-md-12 ">
+                <div class="text-end">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-download"></i> <span>{% translate 'Download' %}</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <div class="dropdown-item">
+                                <a href="{% url 'view-print' loanList.id %}" ><button class="btn btn-outline-primary w-100 justify-content-start"><i class="fa-regular fa-file-pdf"></i><span>{% translate 'Save PDF' %}</span></button></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <!-- CHART JS -->
+    <div style="height: 280px;" class="card card-body">
+      <canvas id="loanDetailChart"></canvas>
+    </div>
+        <style>
+        .nav-link.active {
+            background-color: var(--bs-success)!important;
+        }
+</style>
+
+        <div class="col-12 mt-4">
+            <ul class="nav nav-pills justify-content-center  mb-3 p-2" id="pills-tab" role="tablist" style="background-color: #eaeaea; border-bottom: 1px solid #cecdcd">
+                {% if  loanList.loan_status == 'completed'%}
+                {% else %}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-pill" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{% translate 'Schedule' %}</button>
+                </li>
+            {% endif %}
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link {% if  loanList.loan_status == 'completed'%} active {% else %} {% endif %} rounded-pill" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{% translate 'Payback' %}</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">{% translate 'Collateral' %}</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+{#            ================================================== Tap schedule ================================================#}
+              <div class="tab-pane fade  {% if  loanList.loan_status == 'completed'%}  {% else %} active show {% endif %}" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                    <div class="col-12 text-center my-4">
+                        <h3>{% translate 'Schedule' %}</h3>
+                    </div>
+                   <div class="col-sm-12 col-md-12 mt-3">
+                       <div class="table-responsive">
+                           <table class="table table-hover">
+                               <thead class="text-uppercase text-success-emphasis">
+                                   <th class="nowrap-100">#</th>
+                                   <th class="nowrap-100">{% translate 'Payment date' %}</th>
+                                   <th class="nowrap-100">{% translate 'Numer of day' %}</th>
+                                   <th class="nowrap-100">{% translate 'Principle' %}</th>
+                                   <th class="nowrap-100">{% translate 'Interest' %}</th>
+                                   <th class="nowrap-100">{% translate 'To be paid' %}</th>
+                                   <th class="nowrap-100">{% translate 'Outstanding' %}</th>
+                                   <th class="nowrap-100">{% translate 'Action' %}</th>
+                               </thead>
+                               <tbody>
+                                       {% for payment in migrateSchedule %}
+                                           <style>
+                                            .over_due {
+                                                background: rgba(255, 120, 120, 0.35);
+                                            }
+                                            .paid {
+                                                background: rgba(120, 255, 174, 0.35);
+                                            }
+                                           </style>
+                                           <tr class="{% if payment.over_status %} over_due {% elif payment.havePaid %} paid {% else %} {% endif %}">
+                                               <td class="nowrap-100">{{ payment.number }}</td>
+                                               <td class="nowrap-100">{{ payment.due_date|date:'l, d-M-Y' }}</td>
+                                               <td class="nowrap-100">{{ payment.number_date}}</td>
+                                               <td class="nowrap-100">{% load humanize %}{{ payment.principle  |intcomma}}{{company.main_currency}}</td>
+                                               <td class="nowrap-100">{% load humanize %} {{ payment.interest  |intcomma}}{{company.main_currency}}</td>
+                                               <td class="text-danger fw-bolder nowrap-100">{% load humanize %}{{ payment.monthly_amount|intcomma}}{{company.main_currency}}</td>
+                                                <td class="text-primary fw-bold nowrap-100">{% load humanize %}{{ payment.balance |intcomma}}{{company.main_currency}}</td>
+                                               <td class="nowrap-100">
+                                               {% if first_row %}
+                                               {% else %}
+                                                   {% if payment.havePaid %}
+                                                       <a href="{% url 'payback_detail' payment.payback_id %}" class="btn btn-success w-100" >{% translate 'Paid' %}</a>
+                                                    {% elif payment.first_row %}
+                                                   {% else %}
+
+                                                        {% if payment.full_pay_button %}
+                                                        <div class="dropdown">
+                                                          <button class="btn btn-outline-dark w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            {% translate 'Pay' %}
+                                                            {% if payment.over_status %}
+                                                              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                                                <span class="visually-hidden">{% translate 'Alerts' %}</span>
+                                                              </span>
+                                                            {% endif %}
+                                                            </button>
+                                                              <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#s{{ payment.number }}">{% translate 'Pay' %}</a></li>
+                                                                <li><a class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#fullPaid{{ payment.number }}">{% translate 'Full paid' %}</a></li>
+                                                              </ul>
+                                                              {% else %}
+                                                                    <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#s{{ payment.number }}">{% translate 'Pay' %}</a>
+                                                                {% endif %}
+                                                        </div>
+                                                   {% endif %}
+                                               {% endif %}
+                                               </td>
+                                            </tr>
+                                           </tr>
+                                       {% endfor %}
+                                <tr class="bg-secondary-subtle">
+                                    <td colspan="2" class="text-center nowrap-100">{% translate 'Total' %}</td>
+                                    <td colspan="" class="nowrap-100"><strong>{{ total_number_date }}</strong></td>
+                                    <td colspan="" class="nowrap-100"><strong>{{ total_principle }}{{company.main_currency}}</strong></td>
+                                    <td colspan="" class="nowrap-100"><strong>{{ total_interest }}{{company.main_currency}}</strong></td>
+                                    <td colspan="3" class="text-center nowrap-100"><strong>{{ total_monthly_amount }}{{company.main_currency}}</strong></td>
+                                </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+              </div>
+{#            =================================================Tap payback ======================================#}
+              <div class="tab-pane fade {% if  loanList.loan_status == 'completed'%}   active show {% else %} {% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+              <div class="col-12 text-center my-4">
+                        <h3>{% if  loanList.loan_status == 'completed'%} {% translate 'Completed' %} {% else %} {% translate 'Payback' %} {% endif %}</h3>
+                    </div>
+                  <div class="col-sm-12 col-md-12">
+                       {% if paybackFilter %}
+                       <hr>
+                       <div class="table-responsive">
+                           <table class="table table-hover">
+                               <thead class="text-uppercase text-success-emphasis">
+                                   <th class="nowrap-100">{% translate 'Date' %}</th>
+                                   <th class="nowrap-100">{% translate 'Due date' %}</th>
+                                   <th class="nowrap-100">{% translate 'Principle' %}</th>
+                                   <th class="nowrap-100">{% translate 'Interest' %}</th>
+                                   <th class="nowrap-100">{% translate 'Payment Amount' %}</th>
+                                   <th class="nowrap-100">{% translate 'Full Paid' %}</th>
+                                   <th class="nowrap-100">{% translate 'Action' %}</th>
+                               </thead>
+                               <tbody>
+                                {% for payback in paybackFilter  %}
+                                <tr>
+                                    <td class="nowrap-100">{{ payback.pay_date }}</td>
+                                    <td class="nowrap-100">{{ payback.due_date }}</td>
+                                    <td class="nowrap-100">{% load humanize %}{{ payback.principle_paid|intcomma }}{{company.main_currency}}</td>
+                                    <td class="nowrap-100">{% load humanize %}{{ payback.interest_paid|intcomma }}{{company.main_currency}}</td>
+                                    <td class="nowrap-100">{% load humanize %}{{ payback.balance|intcomma }}{{company.main_currency}}</td>
+                                    <td class="nowrap-100">{% if payback.full_paid == 0 %} 0 {% else %} {% load humanize %}{{company.main_currency}} <p class="btn btn-sm">  {{ payback.full_paid|intcomma }}{{company.main_currency}}</p> {% endif %}</td>
+                                    <td class="nowrap-100"><a href="{% url 'payback_detail' payback.id %}" class="btn btn-sm btn-outline-dark"> {% translate 'Detail' %}</a></td>
+                                </tr>
+                                {% endfor %}
+                                <tr class="bg-secondary-subtle fw-bold">
+                                    <td class="text-center nowrap-100" colspan="2">{% translate 'Total' %}</td>
+                                    <td class="nowrap-100">{{ total_pay_principle }}{{company.main_currency}}</td>
+                                    <td class="nowrap-100">{{ total_pay_interest }}{{company.main_currency}}</td>
+                                    <td colspan="2" class="nowrap-100">{{ total_pay_balance }}{{company.main_currency}}</td>
+                                </tr>
+                                </tbody>
+                           </table>
+                       </div>
+                        {% else %}
+                        <h4 class="text-center bg-secondary-subtle my-5"> {% translate 'No payback transaction yet.' %}</h4>
+                       {% endif %}
+                  </div>
+            </div>
+{#            =================================================== Tap Collateral =======================================#}
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                  <div class="col-12 col-sm-12 col-md-12">
+                    <h3 class="text-center my-2">{% translate 'List of collateral' %}</h3>
+                      <a class="text-end btn btn-sm btn-success" href="{% url 'create_collateral_loan' loanList.id %}">{% translate 'Add collateral' %}</a>
+                        {% if collateralID %}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="text-success-emphasis text-uppercase">
+                                        <th class="nowrap-100">{% translate 'Name' %}</th>
+                                        <th class="nowrap-100">{% translate 'Price' %}</th>
+                                        <th class="nowrap-100">{% translate 'Date' %}</th>
+                                        <th class="nowrap-100">{% translate 'Expiration' %}</th>
+                                        <th class="nowrap-100">{% translate 'Action' %}</th>
+                                    </thead>
+                                    <tbody>
+                                    {% for collateral in collateralID %}
+                                        <tr>
+                                        <td class="nowrap-100"><img src="/media/{{ collateral.image }}" class="object-fit-cover" alt="" width="50px" height="50px"> {{ collateral.title }}</td>
+                                        <td class="nowrap-100"> {{ collateral.price }}</td>
+                                        <td class="nowrap-100"> {{ collateral.dates }}</td>
+                                        <td class="nowrap-100"> {{ collateral.expired_date }}</td>
+                                        <td class="nowrap-100"> <a class="btn btn-sm btn-outline-dark" href="{% url 'collateral_detail' collateral.id %}"> {% translate 'More' %} ..</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    <hr>
+
+{#    ======================== Payback =======================#}
+    {% for payment in migrateSchedule  %}
+        <div class="modal fade" id="s{{ payment.number }}" tabindex="-1" aria-labelledby="s{{ payment.number }}" aria-hidden="true" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h1 class="modal-title fs-5" id="s{{ payment.number }}">{% translate 'Payment' %}</h1>
+                    </div>
+                    <form action="{% url 'create_payback' loanList.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <div class="modal-body">
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Interest' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                    <input class="form-control" type="text" id="interest_paid" readonly name="interest_paid" value="{{ payment.interest}}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label for="">{% translate 'Principle' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                  <input readonly class="form-control" id="principle_paid" type="text" name="principle_paid" value="{{ payment.principle }}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label" for="">{% translate 'Balance' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                    <input readonly class="form-control" id="balance" type="text" name="balance"  value="{{ payment.monthly_amount }}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Due date' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="date" class="form-control" name="due_date"  value="{{ payment.due_date|date:'Y-m-d'}}" readonly>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Pay date' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="date" class="form-control" name="pay_date" value="{{ today|date:'Y-m-d'}}"  required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Attechment file' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="file" class="form-control" name="attached_file" >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer  justify-content-between">
+                        <a class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                        <button class="btn btn-success" type="submit" id="disableSavePayment" onclick="scroll()">{% translate 'Save' %}</button>
+                      </div>
+
+                    </form>
+                    
+                  </div>
+                </div>
+
+        </div>
+    {% endfor %}
+
+{#========================== Pay with Full Piad ====================#}
+    {% for payment in migrateSchedule  %}
+        <div class="modal fade" id="fullPaid{{ payment.number }}" tabindex="-1" aria-labelledby="fullPaid{{ payment.number }}" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h1 class="modal-title fs-5" id="fullPaid{{ payment.number }}">{% translate 'Completed loan' %}</h1>
+                    </div>
+                    <form action="{% url 'create_full_payback' loanList.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <div class="modal-body">
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Interest' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                    <input class="form-control" type="text" id="interest_paid" readonly name="interest_paid" value="{{ payment.interest}}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label for="">{% translate 'Principle' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                  <input readonly class="form-control" id="principle_paid" type="text" name="principle_paid" value="{{ payment.principle }}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label" for="">{% translate 'Balance' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                  <div class="input-group mb-3">
+                                    <input readonly class="form-control" id="balance" type="text" name="balance"  value="{{ payment.monthly_amount }}">
+                                    <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Due date' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="date" class="form-control" name="due_date"  value="{{ payment.due_date|date:'Y-m-d'}}" readonly>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Pay date' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="date" class="form-control" name="pay_date" value="{{ today|date:'Y-m-d'}}"  required>
+                                </div>
+                              </div>
+                            </div>
+                          <div class="col-md-12 mt-3">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                  <label class="form-label">{% translate 'Attechment file' %}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-9">
+                                <input type="file" class="form-control" name="attached_file" >
+                                </div>
+                              </div>
+                            </div>
+                            {% if payment.full_pay_button %}
+                          <div class="bg-success-subtle  p-2 mt-3 rounded-2">
+                               <div class="col-md-12 mt-3 bg-success-subtle answer">
+                                  <div class="row">
+                                    <div class="col-sm-12 col-md-12" >
+                                        <label for="">Full Paid</label>
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" id="we" type="text" name="full_paid"  value="{{ payment.balance }}" >
+                                        <span  class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                    </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                          {% else %}
+                          {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer  justify-content-between">
+                        <a class="btn btn-outline-dark" data-bs-dismiss="modal" href="#">{% translate 'Cancel' %}</a>
+                        <button class="btn btn-success" type="submit" id="disableFullPaid" name="Save" onclick="scroll()">{% translate 'Save' %}</button>
+                      </div>
+
+                    </form>
+
+                  </div>
+                </div>
+
+        </div>
+    {% endfor %}
+{% block javascript %}
+
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+
+    <!-- Chart JS -->
+    <script>
+      var ctx = document.getElementById('loanDetailChart').getContext('2d');
+      const loan_url = '/loan-json/{{ loanList.id }}/';
+    
+      async function getLoan() {
+        const response = await fetch(loan_url);
+        const data = await response.json();
+        let totalPaid = data.map(item => item.monthly_amount);
+        const accSums = totalPaid.reduce((acc, cur) => {
+          if (acc.length > 0) {
+            cur += acc[acc.length - 1];
+          }
+          acc.push(cur);
+          return acc;
+        }, []);
+    
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: [
+              {% for data in migrateSchedule %}
+                "{{ data.number }}",
+              {% endfor %}
+            ],
+            datasets: [
+              {
+                label: '{% translate 'Interest' %}',
+                data: [
+                  {% for data in migrateSchedule %}
+                    "{{ data.interest }}",
+                  {% endfor %}
+                ],
+                borderWidth: 1
+              },
+              {
+                label: '{% translate 'Principle' %}',
+                data: [
+                  {% for data in migrateSchedule %}
+                    "{{ data.principle }}",
+                  {% endfor %}
+                ],
+                borderWidth: 1
+              },
+              {
+                label: '{% translate 'Balance' %}',
+                data: [
+                  {% for data in migrateSchedule %}
+                    "{{ data.balance }}",
+                  {% endfor %}
+                ],
+                borderWidth: 1
+              },
+              {
+                label: '{% translate 'Returned' %}',
+                data: [
+                  {% for data in migrateSchedule %}
+                    "{{ data.returned }}",
+                  {% endfor %}
+                ],
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {
+            maintainAspectRatio: false,
+            bezierCurve: false,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      }
+    
+      getLoan();
+      
+      window.onload = function() {
+        var ctx = document.getElementById('loanDetailChart').getContext('2d');
+      }
+    </script>
+    
+    <script>
+            function scroll() {
+                const element = document.getElementById("myElement");
+                element.scrollIntoView();
+            }
+
+        <!-- Show and Hide FULL PAID  -->
+
+          async function valueChanged() {
+              if($('.checkPaid').is(":checked"))
+                  $(".answer").show();
+              else
+                  $(".answer").hide();
+                  }
+     </script>
+    
+     {% endblock %}
+</div>
+     <script>
+        $(document).ready(function($)
+          {
+              $(document).on('click', '.btn_print', function(event)
+              {
+              event.preventDefault();
+              var element = document.getElementById('prinst');
+
+              {#html2pdf().from(element).save();#}
+          var opt = {
+              margin: 1,
+              filename: 'pageContent.pdf',
+              image: {type: 'jpeg', quality: 0.98},
+              html2cavas: { scale: 2},
+              jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait'}
+          };
+          html2pdf().set(opt).from(element).save()
+          {#html2pdf().set(opt).from(element).save();#}
+          });
+        });
+    </script>
+                  <!--Disable button script-->
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      document.getElementById("disableSavePayment").addEventListener("click", function() {
+                        document.getElementById("disableSavePayment").setAttribute("disabled", "true");
+                      });
+                  
+                      document.getElementById("disableFullPaid").addEventListener("click", function() {
+                        document.getElementById("disableFullPaid").setAttribute("disabled", "true");
+                      });
+                    });
+                  </script>
+                  
+{% endblock %}
+

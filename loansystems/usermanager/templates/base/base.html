@@ -1,0 +1,85 @@
+
+{% load static %}
+{% load i18n %}
+{% load pwa %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %} {% translate "Loan System" %}{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% progressive_web_app_meta %}
+      <link rel="manifest" href="../manifest.json">
+     <link href="{% static 'vendor/lightbox2/css/lightbox.min.css' %}" rel="stylesheet">
+     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+     <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+     <link href="{% static 'vendor/themify-icons/themify-icons.css' %}" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="{% static 'favicons/favicon.ico' %}">
+     <link rel="stylesheet" href="{% static 'css/cropper.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/print.css' %}" media="print">
+    <!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+    <!-- One file includes all the Font Awesome Free icons and utilities -->
+    <script type="module" src="{% static 'js/daterangepicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/html2pdf/html2pdf.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery/jquery-3.6.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/lightbox2/js/lightbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/chart.js/chart2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment-with-locales.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+   <script type="text/javascript" src="{% static 'vendor/sweet alert/sweetalert.min.js' %}"></script>
+  
+    <!-- Tailwinds -->
+    {% tailwind_css %}
+    {% block style %}
+    
+    {% endblock style %}
+  </head>
+  <body class="w-screen min-h-screen">
+    <main>
+  {% include 'setting/message.html' %}
+  {% if sidebar.is_sidebar == True %}
+    {% include 'base/sidebar.html' %}
+    {% include 'base/navbar.html' %}
+    <section class="home-section">
+        <div class="">
+        {% endif %}
+           {% block content %}
+          {% endblock %}
+   {% if sidebar.is_sidebar == True %}
+        </div>
+      </section>
+  {% endif %}
+
+    <script>
+            let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+      let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+      arrowParent.classList.toggle("showMenu");
+        });
+      }
+
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      sidebarBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+      });
+
+    </script>
+  </main>
+    <script type="module" src="{% static 'vendor/chart.js/chart.js' %}"></script>
+    
+  </body>
+</html>

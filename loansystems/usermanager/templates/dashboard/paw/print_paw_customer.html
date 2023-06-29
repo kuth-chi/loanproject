@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block title %} {{ pawDetail.paw_name }} - Print Preview {% endblock %}
+{% block content %}
+    <div class="container-lg ">
+    <div class="row d-none-print">
+        <div class="col-12 bg-secondary p-2">
+            <div class="d-flex justify-content-between">
+                <a  href="{% url 'paw_detail' pawDetail.id %}" class="btn btn-dark"> <i class="ti-arrow-left mx-2"></i>Back</a>
+                <button class="btn btn-success" onclick="window.print()"> <i class="ti-printer mx-2"></i>Print</button>
+            </div>
+        </div>
+    </div>
+        <div class="my-4">
+            <div class="d-flex justify-content-between p-2">
+                <div class="compnay">
+                    <div class="d-flex">
+                       <img src="/media/{{ company.logo }}" width="100px" height="100px" class="object-fit-cover rounded-circle">
+                        <div class="d-flex flex-column">
+                            <p class="">{{ company.name }}</p>
+                            <p class="">{{ company.short_name }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="fn-moul">ព្រះរាជាណាចក្រ</p>
+                    <p class="fn-moul">ជាតិ សាននា ព្រះមហាក្សត្រ</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center my-4">
+                <h5 class="fn-moul"><u>កិច្ចសន្យាបញ្ជាំ</u></h5>
+            </div>
+            <div class="">
+                <p style="text-space: 2px"> រវាង នាងខ្ញុំ ខ្ញុំបាទឈ្មោះ <strong class="mx-1"> {{ company.founder }} </strong>អាយុ    ឆ្នាំ កាន់អត្តសញ្ញាណប័ណ្ណសញ្ញាត្តិខ្មែលេខ
+                    <strong class="mx-1">{{ company.vat_number }}</strong>
+                ចុះថ្ងៃទី.............ខែ..............ឆ្នាំ........................... មានទីលំនៅផ្ទះលេខ......................... ផ្លូវលេខ...............
+                ក្រុមទី ................... ភូមិ .................. ឃុំ/សង្កាត់........................ ស្រុក / ខណ្ខ ...................... ខេត្ត / ក្រុង ..........
+                    ហៅកាត់ថា <strong> ភាគី "ក" ម្ចាស់ប្រាក់ </strong>។
+                </p>
+                <p class="my-3">
+                នាងខ្ញុំ ខ្ញុំបាទឈ្មោះ {{ pawDetail.customer.name_kh }} អាយុ   ឆ្នាំ កាន់អត្តសញ្ញាណប័ណ្ណសញ្ញាត្តិខ្មែលេខ {{ company.vat_number }}
+                ចុះថ្ងៃទី.............ខែ..............ឆ្នាំ........................... មានទីលំនៅផ្ទះលេខ......................... ផ្លូវលេខ...............
+                ក្រុមទី ................... ភូមិ .................. ឃុំ/សង្កាត់........................ ស្រុក / ខណ្ខ ...................... ខេត្ត / ក្រុង ..........
+                ហៅកាត់ថា <strong>ភាគី "ខ" ជាអ្នកខ្ចីប្រាក់ </strong> ។
+                </p>
+            </div>
+        </div>
+</div>
+{% endblock %}

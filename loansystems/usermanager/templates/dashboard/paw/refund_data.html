@@ -1,0 +1,100 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% block javascript %}
+  <script>
+  var loadImage = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+</script>
+        {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+{% endfor %}
+{% endblock %}
+
+    <style>
+    #box {
+        display: none;
+    }
+    </style>
+    {% include 'base/navbar.html' %}
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-10 my-4">
+                        <div class="text-center">
+                            <h3>{% translate 'Refund' %}</h3>
+                        </div>
+                    <form id="form1" action="" method="POST"  runat="server" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row  justify-content-center">
+                        <div class="col-5">
+                            <div class="row mt-4 card card-body">
+                               <div class="col-sm-12 col-md-12 col-lg-12 ">
+                                   <label class="d-flex flex-column justify-content-center text-center"
+                                        style="border: 2px dotted #333; border-radius: 10px; width: 100%; height: auto;">
+                                        <input type="file" id="imgInp"
+                                               onchange="loadImage(event)"
+                                               accept="image/*" name="paw_image"
+                                               class="d-none"
+                                                {% if updatePaw %}
+                                                     value="{{ updatePaw.profile_img }}"
+                                                {% endif %}
+                                        >
+                                        {% if updatePaw %}
+                                            <img id="output" src="/media/{{ updatePaw.paw_image }}" alt="" class="rounded-2 update_image object-fit-cover"
+                                                 width="100%" style="max-height: 200px; height:200px; ">
+                                        {% else %}
+                                            <img id="output" src="/static/img/upload_photo.jpg" class=" update_image rounded-2 object-fit-cover"
+                                                 width="100%" height="200px"
+                                                 alt="">
+                                        {% endif %}
+                                   </label>
+                               </div>
+                               <div class="col-sm-12 col-md-12 col-lg-12 mt-12">
+                                   <div class="row">
+                                       <div class="col-sm-12 col-md-12 mt-2">
+                                        <label class="form-label" >{% translate 'Price offer' %}</label>
+                                        <input type="number"  name="paw_value" class="form-control" required
+                                                {% if updatePaw %} value="{{ updatePaw.paw_value}}" {% endif %}>
+                                       </div>
+                                        <div class="col-sm-12 col-md-12 mt-2">
+                                            <label class="form-label">{% translate 'Rate' %}</label>
+                                            <input class="form-control" type="number" name="rate"  {% if updatePaw %} value="{{ updatePaw.rate }}" {% endif %}>
+                                       </div>
+                                        <div class="col-sm-12 col-md-12 mt-2">
+                                            <label class="form-label">{% translate 'Date' %}</label>
+                                            <input type="date" class="form-control" name="date_paw" {% if updatePaw %} value="{{ updatePaw.date_paw|date:'Y-m-d'}}" {% else %}  value="{{ today|date:'Y-m-d' }}" {% endif %} >
+                                       </div>
+                                       <div class="col-12 w-100 d-flex justify-content-between mt-4">
+                                           {% if  updatePaw %}
+                                            <a href="{% url 'paw_detail' updatePaw.id %}" class="btn btn-outline-secondary ">{% translate 'Back' %}</a>
+                                           {% else %}
+                                           {% endif %}
+                                           <button type="submit" class="btn btn-danger">{% translate 'Refund' %}</button>
+                                       </div>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

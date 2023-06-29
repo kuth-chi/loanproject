@@ -1,0 +1,205 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Customer Address' %}{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-12 bg-light-subtle rounded-2">
+            <div class="text-center my-4">
+                <h3>Create Employees</h3>
+            <hr>
+            </div>
+         <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row my-4">
+                <div class="col-4 col-sm-12 col-md-4 my-3">
+                        <div class="form-control w-100">
+                            <style>
+                                .profilepic {
+                                  position: relative;
+                                  width: 100px;
+                                  height: 100px;
+                                  border: 2px solid var(--bs-success);
+                                  border-radius: 50%;
+                                  overflow: hidden;
+                                  background-color: #111;
+                                }
+                                .profilepic:hover .profilepic__content {
+                                  opacity: 1;
+                                }
+
+                                .profilepic:hover .profilepic__image {
+                                  opacity: .5;
+                                }
+
+                                .profilepic__image {
+                                  object-fit: cover;
+                                  opacity: 1;
+                                  transition: opacity .2s ease-in-out;
+                                }
+
+                                .profilepic__content {
+                                  position: absolute;
+                                  top: 0;
+                                  right: 0;
+                                  bottom: 0;
+                                  left: 0;
+                                  display: flex;
+                                  flex-direction: column;
+                                  justify-content: center;
+                                  align-items: center;
+                                  color: white;
+                                  opacity: 0;
+                                  transition: opacity .2s ease-in-out;
+                                }
+
+                                .profilepic__icon {
+                                  color: white;
+                                  padding-bottom: 8px;
+                                }
+                                .fas {
+                                  font-size: 20px;
+                                }
+                                .profilepic__text {
+                                  text-transform: uppercase;
+                                  font-size: 12px;
+                                  width: 50%;
+                                  text-align: center;
+                                }
+                            </style>
+                            <h4 class="text-center">New employee</h4>
+                            <div class="w-100 d-flex justify-content-center">
+                                <label for="images" class="profilepic">
+                                    <img src="{% static '/img/profile_image_defautl.png' %}" width="100px" height="100px" class="profilepic__image object-fit-cover rounded-circle" alt="">
+                                    <div class="profilepic__content">
+                                    <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
+                                  </div>
+                                </label>
+                                <input type="file" id="images" accept="image/*" class="d-none">
+                            </div>
+{#                            <div class="text-center">#}
+{#                                <span class="text-uppercase fw-bold mt-2">SAN NARETH</span>#}
+{#                            </div>#}
+                             <p class="my-3 text-center">LOGIN EMPLOYEE</p>
+                            <div class="col-12">
+                                <label for="login">Username</label>
+                                <input type="text" name="username" placeholder="Username" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label for="login">Password</label>
+                                <input type="password" name="password" placeholder="Password" class="form-control">
+                            </div>
+                            <div class="col-12 d-flex  justify-content-between mt-4">
+                                <a class="btn btn-dark" onclick="history.back()">{% translate 'Back' %}</a>
+                                <button class="btn btn-success" type="submit">{% translate 'Save'%}</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-8 col-sm-12 col-md-8 border-end">
+                    <div class="row">
+                                <div class="col-12 col-md-6 mt-2">
+                                    <label for="">First name</label>
+                                    <input type="text" class="form-control" name="fist_name" placeholder="first name" >
+                                </div>
+                                 <div class="col-12 col-md-6 mt-2">
+                                    <label for="">Last name</label>
+                                    <input type="text" class="form-control" name="last_name" placeholder="last name" >
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">Date of Birth</label>
+                                     <input type="date" class="form-control" name="birth_date" placeholder="date" >
+                                </div>
+                                <div class="col-12 col-md-6 mt-3">
+                                    <label for="">Gender</label>
+                                     <select class="form-select" name="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                     <label for="">Position</label>
+                                    <div class="d-flex">
+                                     <select class="form-select" name="position">
+                                        <option value="male">-- select --</option>
+                                        {% for itme in position %}
+                                             <option>{{ itme.ps_name }}</option>
+                                         {% endfor %}
+                                      </select>
+                                        <a class="btn bottom-0 "><i class="ti-plus text-success"></i></a>
+                                      </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label for="">Department</label>
+                                     <div class="d-flex">
+                                     <select class="form-select" name="department">
+                                        <option value="male">-- select --</option>
+                                         {% for itme in department %}
+                                             <option>{{ itme.dep_name }}</option>
+                                         {% endfor %}
+                                      </select>
+                                        <a class="btn bottom-0"><i class="ti-plus text-success"></i></a>
+                                      </div>
+                                 </div>
+                             <div class="col-12 col-md-12 mt-2">
+                                <label class="form-label">Address</label>
+                                <input class="form-control"  type="text" name="location"  placeholder="Location ...">
+                             </div>
+                            <div class="col-12 col-md-4 mt-2">
+                                <label for="">Country</label>
+                                <select class="form-select" name="department">
+                                    <option value="male">-- select --</option>
+                                    {% for item in country %}
+                                    <option value="male">{{ item.name_local }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4 mt-2">
+                                <label for="">State/Province</label>
+                                <select class="form-select" name="department">
+                                    <option value="male">-- select --</option>
+                                    {% for item in province %}
+                                        <option value="male">{{ item.name_local }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4 mt-2">
+                                <label for="">District</label>
+                                <select class="form-select" name="department">
+                                    <option value="male">-- select --</option>
+                                    {% for item in district %}
+                                        <option value="male">{{ item.name_local }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 mt-2">
+                                <label for="">Commune</label>
+                                <select class="form-select" name="department">
+                                    <option value="male">-- select --</option>
+                                    {% for item in commune %}
+                                        <option value="male">{{ item.name_local }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 mt-2">
+                                <label for="">Village</label>
+                                <select class="form-select" name="department">
+                                    <option value="male">-- select --</option>
+                                    {% for item in village %}
+                                        <option value="male">{{ item.name_local }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+         </form>
+        </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% endblock %}

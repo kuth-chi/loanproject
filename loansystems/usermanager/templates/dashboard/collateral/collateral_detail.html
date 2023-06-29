@@ -1,0 +1,297 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% translate 'Collateral Detail' %} {% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+    <!-- Modal Delete -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete customer ' %}{{ customerDetail.name }} | {{ customerDetail.name_kh }}</h1>
+          </div>
+
+            <form action="{% url 'delete_collateral' collateralDetail.id %}" method="POST">
+                    {%  csrf_token %}
+                  <div class="modal-body">
+                    <p>{% translate 'Are you sure want to delete ' %}"?</p>
+                  </div>
+                  <div class="modal-footer">
+{#                      <a class="btn btn-warning" data-bs-dismiss="modal" href="{% url 'collateral_detail' item.id %}">{% translate 'Cancel' %}</a>#}
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+                  </div>
+            </form>
+        </div>
+      </div>
+</div>
+<!-- End Modal -->
+
+    <div class="container-lg d-none-print">
+        <h1 class="text-center my-5">{% translate 'Collateral Of' %} {{ collateralDetail.cus_name.name|title}} ({{ collateralDetail.cus_name.name_kh|title}})</h1>
+        <div class="card card-body my-5">
+        <div class="text-end">
+            <a href="{% url 'update_collateral' collateralDetail.id %}" class="btn btn-outline-dark"><i class="ti-pencil"></i></a>
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-dark"><i class="ti-trash"></i></a>
+        </div>
+        <div class="card-title text-center">
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 text-center">
+                <div class="image">
+                {% for img in image %}
+                    <img src="/media/{{ img.image }}" alt="" width="200px">
+                {% endfor %}</div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="detail">
+                    <p class="fw-bold">{% translate 'Belonging of' %} : {{ collateralDetail.cus_name.name|title}} ({{ collateralDetail.cus_name.name_kh|title}})</p>
+                    <p class="fw-bold">{% translate 'Type' %}: {{ collateralDetail.title}}</p>
+                    <p class="fw-bold">{% translate 'Description' %}: {{ collateralDetail.description}}</p>
+                    <p class="fw-bold">{% translate 'Condition' %}: {{ collateralDetail.condition}}</p>
+                    <p class="fw-bold">{% translate 'Worths' %}: <span class="text-danger">{{ collateralDetail.price}}{{company.main_currency}}</span></p>
+                 </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 bg-light-subtle">
+                <div class="text-end">
+                <a href="" class="btn btn-outline-dark d-none-print" title="Print" onclick="window.print()"><i class="ti-printer"></i> Print</a>
+            </div>
+                <div class="row justify-content-center">
+
+                    <div class="col-sm-10 col-md-10">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-column text-center">
+                                <p><img src="/media/{{ companyDetail.logo }}" alt="" width="65px" height="65px" ></p>
+                                <p class="kh-moul-light">{{ companyDetail.local_name }}</p>
+                                <p>{{ companyDetail.name }}</p>
+                                
+                            </div>
+                            <div class="d-flex flex-column text-center">
+                                <p class="kh-moul-light">ព្រះរាជាណាចក្រកម្ពុជា</p>
+                                <p>ជាតិ សាសនា ព្រះមហាក្រត្ស</p>
+                                <p>-----------</p>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="text-center kh-moul-light"> <u>កិច្ចសន្យាខ្ចីប្រាក់</u></h3>
+                        <br>
+                        កិច្ចសន្យាខ្ចីប្រាក់នេះ ធ្វើឡើងនៅ.................... ថ្ងៃទី <b class="mx-2">{{ today.day}}</b>ខែ<b class="mx-2">{{ today.month}}</b>ឆ្នាំ<b class="mx-2"> {{ today.year}}</b>
+                        <br>
+
+                        <br>
+                        <h5 class="text-center"> <u>ដោយរវាង</u></h5>
+                         នាងខ្ញុំខ្ញុំបាទឈ្មោះ     <b class="mx-2">{{ companyDetail.founder}}</b>
+                        ថ្ងៃខែឆ្នាំកំណើត  <strong>{{ companyDetail.founded}}</strong> 
+                         អត្តសញ្ញាណប័ណ្ណ សញ្ជាតិខ្មែរ /លិខិតឆ្លងដែនលេខ.<strong>{{ companyDetail.vat_number}}</strong>.
+
+                        មានទីលំនៅបច្ចុប្បន្នផ្ទះលេខ {% if companyAddress %} <b class="mx-2"> {{ companyAddress.house_number }}</b>{% else %}......................  {% endif %}
+
+                        ផ្លូវលេខ {% if companyAddress %} <b class="mx-2"> {{ companyAddress.street }}</b>{% else %}......................  {% endif %}
+
+                        ភូមិ {% if companyAddress %} <b class="mx-2"> {{ companyAddress.village.name_local }}</b>{% else %}......................  {% endif %}
+
+                        ឃុំ/សង្កាត់ {% if companyAddress %} <b class="mx-2"> {{ companyAddress.commune.name_local }}</b>{% else %}......................  {% endif %}
+
+                        ក្រុង/ស្រុក/ខណ្ឌ {% if companyAddress %} <b class="mx-2">{{ companyAddress.district.name_local }}</b>{% else %} ......................  {% endif %}
+
+                        រាជធានី/ខេត្ត{% if companyAddress %} <b class="mx-2"> {{ companyAddress.province.name_local }}</b>{% else %}......................   {% endif %}
+                        តទៅនេះហៅថា <b>«ភាគគី ក ឬ ម្ចាស់បំណុល»  </b>។
+                    <br>
+                    <br>
+                        <t>{% if collateralDetail.cus_name.gender == 'Female'  %} នាងខ្ញុំ {% else %} ខ្ញុំបាទ {% endif %}ឈ្មោះ     <b class="mx-2">{{ collateralDetail.cus_name.name_kh }}</b>
+                        ថ្ងៃខែឆ្នាំកំណើត  <b class="mx-2">{{ collateralDetail.cus_name.birthdate }}</b>
+                         {% if customerIdCard.card_type == 'Identify' %} អត្តសញ្ញាណប័ណ្ណ សញ្ជាតិខ្មែរ {% elif customerIdCard.card_type == 'Passport' %}
+
+                             លិខិតឆ្លងដែន {% else %} អត្តសញ្ញាណប័ណ្ណ/ លិខិតឆ្លងដែន{% endif %}លេខ {% if customerIdCard %} <b class="mx-2">{{ customerIdCard.card_number }}</b> {% else %} ...................... {% endif %}
+
+                        មានទីលំនៅបច្ចុប្បន្នផ្ទះលេខ {% if customerAddress %} <b class="mx-2"> {{ customerAddress.house_number }}</b>{% else %}......................  {% endif %}
+
+                        ផ្លូវលេខ {% if customerAddress %} <b class="mx-2"> {{ customerAddress.street }}</b>{% else %}......................  {% endif %}
+
+                        ភូមិ {% if customerAddress %} <b class="mx-2"> {{ customerAddress.village.name_local }}</b>{% else %}......................  {% endif %}
+
+                        ឃុំ/សង្កាត់ {% if customerAddress %} <b class="mx-2"> {{ customerAddress.commune.name_local }}</b>{% else %}......................  {% endif %}
+
+                        ក្រុង/ស្រុក/ខណ្ឌ {% if customerAddress %} <b class="mx-2">{{ customerAddress.district.name_local }}</b>{% else %} ......................  {% endif %}
+
+                        រាជធានី/ខេត្ត{% if customerAddress %} <b class="mx-2"> {{ customerAddress.province.name_local }}</b>{% else %}......................   {% endif %}
+                        តទៅនេះហៅថា <b>«ភាគគី ខ ឬ កូនបំណុល»  </b>។
+
+                        <br>
+                        <p> “ភាគីក” និង “ភាគីខ” រួមគ្នាចាប់ពីពេលនេះតទៅហៅថា <b>ភាគីទាំងពីរ ឬ គូភាគី </b>។</p>
+                        <p><b>“ភាគីក” និង “ភាគីខ” បានព្រមព្រៀងគ្នាដោយឆន្ទៈ និងសេរីតាមប្រការដូចខាងក្រោម ៖</b></p>
+                        <br>
+                            <p><b class="mx-2">ប្រការ-១ ៖</b> <b>“ភាគីក“</b> យល់ព្រមឱ្យ <b>“ភាគីខ“</b> ខ្ចីប្រាក់ចំនួន {% load humanize %}{{ collateralDetail.loan.loan_amount|intcomma }} {% if companyDetail.main_currency == '$' %} ដុល្លារសហរដ្ឋអាមេរិក {% else %} រៀល {% endif %}  (.........................)
+                        ហើយ <b>“ភាគី ខ “</b> យល់ព្រមចំនួន <b class="mx-2"> {% load humanize %}{{ collateralDetail.loan.loan_amount|intcomma }} </b>{% if companyDetail.main_currency == '$' %} ដុល្លារសហរដ្ឋអាមេរិក {% else %} រៀល {% endif %} (.........................)
+                            នៅពេលចុះកិច្ចសន្យាខ្ចីប្រាក់នេះ ។
+                        </p>
+                            <p><b class="mx-2">ប្រការ-២ ៖  </b>  <b>“ភាគីខ”</b>  យល់ព្រមបង់ការប្រាក់ឱ្យ <b>“ភាគីក”</b> ហើយ <b>“ភាគីក”</b> យល់ព្រមទទួលការប្រាក់ពី <b>“ភាគីខ”</b>ក្នុង
+អត្រាព្រមព្រៀង <b> {{ collateralDetail.loan.interest_rate_per_cycle }} </b> ភាគរយក្នុង ១ <b class="mx-2">
+                                {% if  collateralDetail.loan.loan_cycle_type == 'day' %}
+                                    ថ្ងៃ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'week' %}
+                                    សប្តាហ៍
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'month' %}
+                                    ខែ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'year' %}
+                                    ឆ្នាំ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'quarter' %}
+                                    ត្រីមាស
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'semester' %}
+                                    ឆមាស
+                                    {% endif %}
+                                </b>ស្មើនឹង {% if sum_interest %}<b> {% load humanize %}{{ sum_interest | intcomma}}{{company.main_currency}} </b>  {% else %}.................................... {% endif %}{% if companyDetail.main_currency == '$' %} ដុល្លារសហរដ្ឋអាមេរិក {% else %} រៀល {% endif %}  (...........................)
+                                 នៃចំនួនប្រាក់ដែលបានខ្ចី។  រយៈពេលនៃការខ្ចីប្រាក់ចំនួន {{ collateralDetail.loan.number_of_cycle }} {% if  collateralDetail.loan.loan_cycle_type == 'day' %}
+                                    ថ្ងៃ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'week' %}
+                                    សប្តាហ៍
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'month' %}
+                                    ខែ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'year' %}
+                                    ឆ្នាំ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'quarter' %}
+                                    ត្រីមាស
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'semester' %}
+                                    ឆមាស
+                                    {% endif %}
+                            គិតចាប់ពីថ្ងៃទី {{ collateralDetail.loan.loan_date }} ។
+{#                            រហូតដល់ .....................#}
+
+</p>
+<p>ប្រការ-៣៖  ដើម្បីធានាដល់ការអនុវត្តសិទ្ធិលើបំណុល “ភាគីខ” យល់ព្រមដាក់  ទ្រព្យសម្បិត្ត {{ collateralDetail.title }} បញ្ចាំ
+</p>
+                        <p>ប្រការ៤ ៖ “ភាគីខ“ យល់ព្រមបង់ការប្រាក់ឱ្យ “ភាគីក” នៅរៀងរាល់ ថ្ងៃទី.................................
+                            នៃដើមខែនីមួយៗ រហូតដល់កាលបរិច្ឆេទនៃការសងប្រាក់ដែលបានខ្ចីគ្រប់ចំនួន។ ក្នុងអំឡុងពេលអនុវត្តកិច្ចសន្យានេះ "ភាគីខ" អាចសងនូវចំនួនប្រាក់ដែលបានខ្ចីទាំងអស់
+                            ឬមួយផ្នែកនៅពេលណាក៏បាន ប្រសិនបើមានការយល់ព្រម ពី “ភាគីក” ឬ.....។ ក្នុងករណីដែល “ភាគីខ“
+                            មិនបានបង់ការប្រាក់រយៈពេល {% if  collateralDetail.loan.loan_cycle_type == 'day' %}
+                                    ថ្ងៃ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'week' %}
+                                    សប្តាហ៍
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'month' %}
+                                    ខែ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'year' %}
+                                    ឆ្នាំ
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'quarter' %}
+                                    ត្រីមាស
+                                {% elif  collateralDetail.loan.loan_cycle_type == 'semester' %}
+                                    ឆមាស
+                                    {% endif %}ជាប់ៗគ្នាទៅឱ្យ “ភាគីក” “ភាគីខ» ព្រមព្រៀងដោយឥតលក្ខខណ្ឌឱ្យ”ភាគីក” (លក់ឬរឹបអូសទ្រព្យសម្បត្តិ ឬ ការព្រមព្រៀងផ្សេងពីនេះ) ។</p>
+                        <p><p>ប្រការ .... ៖ .............................................................................................................................</p>
+                        <p><p>ប្រការ .... ៖ .............................................................................................................................</p>
+                            <p>ប្រការ..... ៖  កិច្ចសន្យានេះធ្វើឡើងជាភាសាខ្មែរចំនួន... ..ច្បាប់ ដោយរក្សាទុកនៅភាគីនៃកិច្ចសន្យាចំនួន.... ច្បាប់ និងរក្សាទុកនៅរដ្ឋបាលឃុំ សង្កាត់.............................ចំនួន០១ច្បាប់។</p>
+                        <p>ប្រការ.....៖ កិច្ចសន្យានេះធ្វើឡើងដោយឆន្ទៈ សេរី និងគ្មានការបង្ខិតបង្ខំរវាង«”ភាគីក” និង “ភាគីខ”» ហើយភាគីនៃ កិច្ចសន្យាបានអានគ្រប់ប្រការទាំងអស់នៃកិច្ចសន្យាខ្ចីប្រាក់នេះ ហើយកិច្ចសន្យានេះមានសុពលភាព នៅពេលដែលភាគីនៃកិច្ចសន្យាចុះហត្ថលេខា ឬផ្តិតស្នាមមេដៃស្ដាំទុកជាភស្តុតាង។
+</p>
+
+                        <br>
+                        <div class="d-flex justify-content-between gap-5">
+                            <div class="w-50 text-center">
+                                <strong>ភាគី ក ឬ ម្ចាស់បំណុល</strong>
+                                <div class="d-flex justify-content-between w-100">
+                                     <p class="d-flex flex-column">
+                                         <span>ហត្ថលេខា/ស្នាមមេដៃ</span>
+
+                                     <br>
+                                     <br>
+                                     <br>
+                                     <br>
+                                         <span>............................</span>
+
+                                     </p>
+                                     <p class="d-flex flex-column">
+                                         <span>ហត្ថលេខា/ស្នាមមេដៃ</span>
+
+                                     <br>
+                                     <br>
+                                     <br>
+                                     <br>
+                                         <span>............................</span>
+
+                                     </p>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="w-50 text-center">
+                                <strong>ភាគី ខ ឬ កូនបំណុល</strong>
+                                 <div class="d-flex justify-content-between w-100">
+                                     <p class="d-flex flex-column">
+                                         <span>ហត្ថលេខា/ស្នាមមេដៃ</span>
+                                     <br>
+                                     <br>
+                                     <br>
+                                     <br>
+                                         <span>............................</span>
+
+                                     </p>
+                                     <p class="d-flex flex-column">
+                                         <span>ហត្ថលេខា/ស្នាមមេដៃ</span>
+
+                                     <br>
+                                     <br>
+                                     <br>
+                                     <br>
+                                         <span>............................</span>
+
+                                     </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                                 <div class="w-100 text-center">
+                                     <strong>សាក្សី</strong>
+                                      <p class="d-flex flex-column">
+                                         <span>ហត្ថលេខា/ស្នាមមេដៃ</span>
+
+                                     <br>
+                                     <br>
+                                     <br>
+                                     <br>
+                                         <span>............................</span>
+                                     </p>
+                                 </div>
+{#                        <div class="d-flex justify-content-between">#}
+{#                            <div class="d-flex flex-column">#}
+{#                                <span>ហត្ថលេខា/ស្នាមមេដៃ</span>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <p class="d-flex justify-content-between my-4">#}
+{#                                    <span>ប្តី</span>#}
+{#                                    <span>ប្រពន្ធ</span>#}
+{#                                </p>#}
+{#                            </div>#}
+{#                            <p class="d-flex flex-column">#}
+{#                                <span>សាក្សីទី១</span>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                            </p>#}
+{#                            <p class="d-flex flex-column">#}
+{#                                <span>សាក្សីទី២</span>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                            </p>#}
+{#                            <div class="d-flex flex-column">#}
+{#                                <span>ស្នាមមេដៃម្ចាស់កម្ចី</span>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                <p class="d-flex justify-content-between my-4">#}
+{#                                    <span>ប្តី</span>#}
+{#                                    <span>ប្រពន្ធ</span>#}
+{#                                </p>#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'base/footer.html' %}
+{% endblock %}

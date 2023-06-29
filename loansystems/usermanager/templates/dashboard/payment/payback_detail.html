@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+    #box {
+        display: none;
+    }
+</style>
+    {% include 'base/navbar.html' %}
+    <!--Message from backend -->
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="toast-body bg-success text-light my-toast p-3" id="toast">{% translate 'Add customer successfully !'%} </div>
+        {% else %}
+            <div class="toast-body bg-danger text-light my-toast p-3" id="toast">{% translate 'Cancel create customer ! ' %}</div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="col-md-12">
+            <div class="container-lg pt-title">
+                <div class="col-12 p-3 bg-light-subtle shadow my-4">
+                    <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+                        <a href="{% url 'payback'%}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Payback" %}</a>
+                        <div class="">
+                            <a class="text-decoration-none text-dark" href="{% url 'payback_detail' paybackDetail.id  %}"><i class="ti-home"></i></a> /
+                            {% translate 'Payback detail' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="container  vh-100">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 bg-light-subtle">
+                <div class="card position-relative edit-icon">
+                    <div class="card-body">
+                        <div class="card-title text-center my-4">
+                            <h4>{% translate 'PAYBACK DETAIL'  %} <a class="text-decoration-none" href="{% url 'customer-detail' paybackDetail.loan.customer.id %}">{{ paybackDetail.customer.name|upper }} ({{ paybackDetail.customer.name_kh }})</a> </h4>
+                        </div>
+                        <div class="row my-3">
+                                {% if paybackDetail.attached_file %}
+                                <div class="col-md-6">
+                                    <img src="/media/{{ paybackDetail.attached_file }}" style="width: 100%;" alt="" class="object-fit-cover">
+                                </div>
+                                {% else %}
+                                {% endif %}
+                                <div class=" {% if paybackDetail.attached_file %} col-md-6 {% else %} col-md-12 {% endif %}">
+                                    <div class="row">
+                                    <div class="col-6 col-sm-6 col-md-6 mt-2">{% translate 'Customer' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.customer.name|upper }} ({{ paybackDetail.customer.name_kh }})</div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Loan ID' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">
+                                        <a class="text-decoration-none btn btn-sm btn-outline-dark" href="{% url 'customer-detail' paybackDetail.loan.customer.id %}">
+                                        {{ paybackDetail.loan.loan_number_id }}
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Interest' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.interest_paid }}{{company.main_currency}}</div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Principle' %}: </div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.principle_paid }}{{company.main_currency}}</div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Date' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.pay_date }}</div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Due date' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.due_date }}</div>
+                                    <div class="col-6 col-sm-6 col-md-6">{% translate 'Amount' %}:</div>
+                                    <div class="col-6 col-sm-6 col-md-6 fw-bold">{{ paybackDetail.balance }}{{company.main_currency}}</div>
+                                        </div>
+                                </div>
+                        </div>
+                    <div class="card-footer text-center my-4">
+                        <h3 >{% translate 'Total Amount' %}: <span class="fw-bold text-danger-emphasis">{{ paybackDetail.balance }}{{company.main_currency}}</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+        function loanTypeDay() {
+            var x = document.getElementById('Day').value;
+            document.getElementById("My").innerHTML=x;
+        }
+        function loanTypeWeek() {
+            var w = document.getElementById('Week').value;
+            document.getElementById("My").innerHTML=w;
+        }
+        function loanTypeMonth() {
+            var m = document.getElementById('Month').value;
+            document.getElementById("My").innerHTML=m;
+        }
+        function loanType3Month() {
+            var wm = document.getElementById('Quarterly').value;
+            document.getElementById("My").innerHTML=wm;
+        }
+        function loanTypeSemester() {
+            var sm = document.getElementById('semester').value;
+            document.getElementById("My").innerHTML=sm;
+        }
+        function loanTypeYear() {
+            var y = document.getElementById('year').value;
+            document.getElementById("My").innerHTML=y;
+        }
+    </script>
+    {% include 'base/footer.html' %}
+{% endblock %}

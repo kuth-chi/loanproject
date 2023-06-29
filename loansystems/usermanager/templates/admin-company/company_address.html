@@ -1,0 +1,153 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Customer Address' %}{% endblock %}
+{% block content %}
+    {% block javascript %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <script>
+                    var m = "{{ message }}";
+                    swal("Perfect !", m, "success" )
+                </script>
+            {% elif message.tags == 'error' %}
+                <script>
+                    var m = "{{ message }}";
+                    swal("Error !", m, "error" )
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+{%  include 'base/navbar.html' %}
+<div class="col-md-12 bg-light p-2 mb-4">
+    <div class="container pt-title ">
+     <p class="fs-7">
+         {% with url_name=request.resolver_match.url_name %}
+             <a href="{% url 'customer' %}" class="text-decoration-none  text-dark">{% translate 'Customer' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'customer' %}" class="text-decoration-none text-dark {% if url_name == 'customer-detail' %} text-success {% endif %}">{% translate 'Customer detail' %}</a> <i class="fa-solid fa-chevron-right"></i>
+
+           {% endwith %}
+     </p>
+     </div>
+</div>
+
+      <!-- Modal Delete -->
+{#<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#      <div class="modal-dialog">#}
+{#        <div class="modal-content">#}
+{#            {% if customerAddressId %}#}
+{#          <div class="modal-header">#}
+{#            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete customer address ' %}{{ customerAddressId.name }}</h1>#}
+{#          </div>#}
+{#            <form action="{% url 'delete_customer_address' customerAddressId.id %}" method="POST">#}
+{#                    {%  csrf_token %}#}
+{#              <div class="modal-body">#}
+{#                <p>{% translate 'Are you sure want to delete' %} "{{ customerAddressId.name }}?</p>#}
+{#              </div>#}
+{#              <div class="modal-footer">#}
+{#                  <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>#}
+{#                <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>#}
+{#              </div>#}
+{#            </form>#}
+{#            {% endif %}#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#<!-- End Modal -->#}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-8 bg-light-subtle rounded-2">
+            <div class="text-center my-4">
+                {% if cmp_address_update %}
+                    <h3>Update Company Address</h3>
+                {% else %}
+                <h3>Create Company address</h3>
+                {% endif %}
+            </div>
+            <div class="row my-4 justify-content-center">
+                <div class="col-8">
+                    <div class="form-group">
+                        <form class="row" action="" method="POST">
+                            {% csrf_token %}
+                                <div class="col-12 col-md-6 mt-2">
+                                    <label for="">Name:</label>
+                                    <input type="text" class="form-control" name="name" {% if cmp_address_update %} value="{{ cmp_address_update.name }}" {% endif %}>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                    <label for="">House number:</label>
+                                    <input type="text" class="form-control" name="house_number" {% if cmp_address_update %} value="{{ cmp_address_update.house_number }}" {% endif %}>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">Country name:</label>
+                                      <select class="form-select" name="country">
+                                      <option> ---------- </option>
+                                          {% for i in countryList %}
+                                              <option  {% if cmp_address_update.country.id == i.id %} selected  {% endif %} value="{{ i.id }}"> {{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                       <label class="form-label">Province name:</label>
+                                      <select class="form-select" name="province">
+                                        <option > ---------- </option>
+                                          {% for i in provinceList %}
+                                              <option  {% if cmp_address_update.province.id == i.id %} selected  {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">District name:</label>
+                                      <select class="form-select" name="district">
+                                        <option > ---------- </option>
+                                          {% for i in districtList %}
+                                              <option {% if cmp_address_update.district.id == i.id %} selected  {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">Commune name:</label>
+                                      <select class="form-select" name="commune">
+                                        <option> ---------- </option>
+                                          {% for i in communeList %}
+                                              <option {% if cmp_address_update.commune.id == i.id %} selected  {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                 </div>
+
+                                <div class="col-12 col-md-12 mt-2">
+                                      <label class="form-label">Village name:</label>
+                                      <select class="form-select" name="village">
+                                      <option> ---------- </option>
+                                          {% for i in villageList %}
+                                              <option  {% if cmp_address_update.village.id == i.id %} selected  {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                 </div>
+                                 <div class="col-12 col-md-12 mt-2">
+                                    <label class="form-label">Location:</label>
+                                    <input class="form-control"  type="text" name="location" {% if cmp_address_update %}
+                                           value="{{ cmp_address_update.location }}"  {% endif %} placeholder="Location ...">
+                                 </div>
+                                <div class="col-md-12 mt-4">
+                                    <label class="form-label">Is Head Office</label>
+                                    <input type="checkbox" name="is_head_office" {% if cmp_address_update %} checked {% endif %}>
+                                </div>
+                            <div class="col-12 d-flex  justify-content-between mt-4">
+                                {% if cmp_address_update %}
+                                    <a class="btn btn-dark" href="{% url 'update_company' cmp_address_update.company.id  %}">{% translate 'Back' %}</a>
+                                 {% else %}
+                                    <a class="btn btn-dark" onclick="history.back()">{% translate 'Back' %}</a>
+                                {% endif %}
+                            <button class="btn btn-success" type="submit">{% translate 'Save' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% endblock %}

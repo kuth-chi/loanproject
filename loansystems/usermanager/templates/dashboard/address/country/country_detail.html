@@ -1,0 +1,106 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Country Detail' %}{% endblock %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <div class="col-md-12 bg-light p-2 mb-4">
+    <div class="container-lg pt-title ">
+     <p class="fs-7">
+         {% with url_name=request.resolver_match.url_name %}
+             <a href="{% url 'address' %}" class="text-decoration-none  text-dark">{% translate 'Address' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'country_list' %}" class="text-decoration-none text-dark {% if url_name == 'country_list' %} text-success {% endif %}">{% translate 'Country list' %}</a>
+              <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'country_list'%}" class="text-decoration-none  {% if url_name == 'country_detail' %} text-success {% endif %}">{% translate 'Country detail' %}</a>
+           {% endwith %}
+     </p>
+     </div>
+</div>
+    <!-- Modal Delete -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete customer' %} {{ countryDetail.name }}</h1>
+
+          </div>
+            <form action="{% url 'delete_country' countryDetail.id %}" method="POST">
+                    {%  csrf_token %}
+              <div class="modal-body">
+                <p>{% translate 'Are you sure want to delete' %}"{{ countryDetail.name }}?</p>
+              </div>
+              <div class="modal-footer">
+                  <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+<!-- End Modal -->
+
+    <div class="container-lg vh-100">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="text-center">
+                    <h4> {{ countryDetail.name|upper }} {% translate 'DETAILS' %}</h4>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-12 col-md-4">
+                        <img src="{% static 'img/logo.jpg' %}" alt="" class="w-100">
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                    <div class="text-end">
+                       <a class="btn btn-outline-success edit" href="{% url 'country_update' countryDetail.id %}"><i class="ti-pencil"></i></a>
+                        <a class="btn btn-outline-danger edit" data-bs-toggle="modal" data-bs-target="#exampleModal" href="{% url 'delete_country' countryDetail.id %}"><i class="ti-trash"></i></a>
+                    </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 font-weight-bold">
+                                <p>{% translate 'Name' %}: <span>{{ countryDetail.name }}</span> <span>({{ countryDetail.name_local }})</span></p>
+                            </div>
+                            <!-- Block local 
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Name local' %}: <span>{{ countryDetail.name_local }}</span></p>
+                            </div>
+                            -->
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Short name' %}: <span>{{ countryDetail.short_name }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Code' %}: <span>{{ countryDetail.code }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Currency' %}: <span>{{ countryDetail.currency }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Primary language' %}: <span>{{ countryDetail.primary_language }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Alt languages' %}: <span>{{ countryDetail.alt_languages }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Border with' %}: <span>{{ countryDetail.border_with }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Landmark' %}: <span>{{ countryDetail.landmark }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Leader name' %}: <span>{{ countryDetail.leader_name }}</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Leader position' %}: <span>{{ countryDetail.leader_position }}</span></p>
+                            </div>
+                             <div class="col-sm-12 col-md-6">
+                                <p>{% translate 'Is before chris' %}: <span><input type="checkbox" {% if countryDetail.is_before_chris == True %} checked {% endif %} readonly disabled></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-dark" onclick="history.back()">Back</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+{% endblock %}

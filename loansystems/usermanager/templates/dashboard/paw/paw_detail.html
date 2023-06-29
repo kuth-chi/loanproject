@@ -1,0 +1,451 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {{ pawDetail.paw_name }} - {% translate 'Paw Detail' %} {% endblock %}
+{% block content %}
+    <div class="d-none-print">
+        {%  include 'base/navbar.html' %}
+    </div>
+{% block javascript %}
+      <script>
+      var ss = {
+        type: 'bar',
+        data: {
+          labels: [ {% for month in this_year_payback %}
+                "{{ month.name }}",
+              {% endfor %}
+          ],
+          datasets: [{
+            label: 'Payment',
+            borderColor: '#36A2EB',
+            backgroundColor: 'rgba(120,255,174,0.35)',
+            data: [{% for pay in this_year_payback %}
+                "{{ pay.payback }}",
+                {% endfor %}
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Full Paid',
+            borderColor: '#ebac36',
+            backgroundColor: 'rgba(255,128,0,0.5)',
+            data: [{% for pay in this_year_payback %}
+                "{{ pay.paybackFullPaid }}",
+                {% endfor %}
+            ],
+            borderWidth: 1
+          },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      }
+     window.onload = function() {
+         var ctx = document.getElementById('myChart').getContext('2d');
+         window.myPie = new Chart(ctx, ss);
+     }
+      </script>
+
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
+    <!-- Button trigger modal -->
+
+<!-- Modal Create PawPay -->
+<div class="modal fade" id="PawPaymentModal" tabindex="-1" aria-labelledby="PawPaymentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="PawPaymentModalLabel">{{ pawDetail.paw_name }} {% translate 'Payment' %}</h1>
+          </div>
+            <div class="modal-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {%  csrf_token %}
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <label for="">{% translate 'Rate' %}</label>
+                            <input type="number" name="pay_value" class="form-control" value="{{data_rate}}">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                         <div class="col-12">
+                            <label for="">{% translate 'Date' %}</label>
+                            <input type="date" name="date_pay" class="form-control" value="{{ today|date:'Y-m-d' }}">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                         <div class="col-12">
+                            <label for="">{% translate 'Attachement' %}</label>
+                            <input type="file" name="attached_file" class="form-control" value="">
+                         </div>
+                    </div>
+                  <div class="modal-footer justify-content-between">
+                      <a class="btn btn-outline-danger" data-bs-dismiss="modal" href="{% url 'paw_detail' pawDetail.id %}">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-success" type="submit" name="Confirm">{% translate 'Save' %}</button>
+                  </div>
+            </form>
+            </div>
+        </div>
+      </div>
+</div>
+<!-- End Modal -->
+
+<!-- Modal Create PawPay -->
+<div class="modal fade" id="refund" tabindex="-1" aria-labelledby="refund" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Refund' %}</h1>
+          </div>
+            <div class="modal-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {%  csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">{% translate 'Rate' %}</label>
+                            <input type="number" name="pay_value" class="form-control" value="{{data_rate}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-12">
+                            <label for="">{% translate 'Date' %}</label>
+                            <input type="date" name="date_pay" class="form-control" value="{{ today|date:'Y-m-d' }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-12">
+                            <label for="">{% translate 'Attachement' %}</label>
+                            <input type="file" name="attached_file" class="form-control" value="">
+                         </div>
+                    </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-warning" data-bs-dismiss="modal" href="{% url 'paw_detail' pawDetail.id %}">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Save' %}</button>
+                  </div>
+            </form>
+            </div>
+        </div>
+      </div>
+</div>
+<!-- End Modal -->
+<!-- Modal Deleted PawPay -->
+<div class="modal bg-light-subtle fade" id="deleted" tabindex="-1" aria-labelledby="deleted" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content ">
+          <div class="modal-header">
+{#            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Deleted' %}</h1>#}
+          </div>
+            <div class="modal-body">
+                <form action="{% url 'delete_paw' pawDetail.id %}" method="POST" enctype="multipart/form-data">
+                    {%  csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Do you want to Deleted {{ pawDetail.paw_name }}? </p>
+                         </div>
+                    </div>
+                  <div class="modal-footer">
+                      <a class="btn btn-outline-dark" data-bs-dismiss="modal" href="{% url 'paw_detail' pawDetail.id %}">{% translate 'Cancel' %}</a>
+                    <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Confirm' %}</button>
+                  </div>
+            </form>
+            </div>
+        </div>
+      </div>
+</div>
+<!-- End Modal -->
+<div class="container-lg">
+{#    ======================= Head ================#}
+    <div class="col-12 p-3 bg-light-subtle shadow my-4">
+        <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+            <a href="{% url 'paw' %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Paw" %}</a>
+            <div class="">
+                <a class="text-decoration-none text-dark" href="{% url 'paw' %}"><i class="ti-home"></i></a> /
+                Paw detail
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-12 mt-3">
+            <div class="row">
+                <h3 class="text-center">{{ pawDetail.paw_name|upper }} - {{ pawOwner.name_kh }} </h3>
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery">
+                      <a href="/media/{{ pawDetail.paw_image }}" data-lightbox="gallery-images">
+                        <img src="/media/{{ pawDetail.paw_image }}" alt="" width="100%" height="480px" class="object-fit-cover rounded-2">
+                      </a>
+                    </div>
+                    <!-- Add more images here -->
+                  </div>
+                 {% block scripts %} 
+                  <script>
+                    $(document).ready(function(){
+                      // Initialize Lightbox2
+                      lightbox.option({
+                        'resizeDuration': 200,
+                        'wrapAround': true
+                      });
+                    });
+                  </script>
+                  {% endblock %}
+                <div class="col-sm-6 col-md-8">
+                    <div class="row mt-3">
+                    <div class="text-end">
+                        <div class="dropdown d-none-print">
+                            <button class="btn btn-sm" data-bs-toggle="dropdown"><i class="ti-menu"></i></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'paw_update' pawDetail.id %}" class="dropdown-item"><i class="ti-pencil text-success"></i> Update</a></li>
+                                <li><a href="" class="dropdown-item btn-danger" data-bs-toggle="modal" data-bs-target="#deleted" ><i class="ti-trash text-danger"></i> Delete</a></li>
+                                <li><a href="{% url 'print_paw' pawDetail.id %}" class="dropdown-item"><i class="ti-printer"></i> Print</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                        <div class="col-sm-12 col-md-12">
+                                <div class="position-relative h-auto">
+                                    <fieldset class="form-group border p-3 border-success rounded-2 ">
+                                    <legend>{% translate 'Information'%}</legend>
+                                      <p>{% translate 'Title' %}: <strong>{{ pawDetail.paw_name }}</strong></p>
+                                      <p>{% translate 'Owner' %}: <strong><a href="{% url 'customer-detail' pawOwner.id %}" title="View {{ pawOwner.name }}" class="text-decoration-none text-danger-emphasis"> {{ pawOwner.name_kh }} ( {{ pawOwner.name }} )</a> </strong></p>
+                                      <p>{% translate 'Status' %}: <strong class="text-danger-emphasis">{{ pawDetail.paw_status}}</strong></p>
+                                        <span>{% translate 'Description'%} :</span><span class="text-wrap" row="4"><strong> {{ pawDetail.description}}</strong></span>
+                                    </fieldset>
+                                </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 mt-2">
+                                    <div class="card card-body bg-info-subtle">
+                                        <div class="card-title"> Paw Borrow</div>
+                                        <h3>{% load humanize %}{{ sumBorrow|intcomma }}{{ company.main_currency }}</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 mt-2">
+                                        <div class="card card-body bg-paid">
+                                            <div class="card-title"> Paw Pay</div>
+                                        <h3>{{ sumpayBackBorrow }} {{ company.main_currency }}</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 mt-2">
+                                    <div class="card card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <p>Status:</p>
+                                            <p>Active </p>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+{#                                <div class="position-relative my-2">#}
+{#                                <fieldset class="form-group border p-3 border-success rounded-2">#}
+{#                                    <legend>{% translate 'Conditions'%}</legend>#}
+{#                                        <p>{% translate 'Payment as'%} :<strong>#}
+{#                                            {% if pawDetail.paw_pay_method == 'day' %} {% translate 'Day' %}#}
+{#                                            {% elif pawDetail.paw_pay_method == 'week' %} {% translate 'Week' %}#}
+{#                                            {% elif pawDetail.paw_pay_method == 'month' %} {% translate 'Month' %}#}
+{#                                            {% else %}{% translate 'Year' %}#}
+{#                                            {% endif %}</strong></p>#}
+{#                                        <p>{% translate 'Pay'%} :<strong>  {% if pawDetail.is_percentage %}#}
+{#                                                                              {{ pawDetail.rate}}%#}
+{#                                                                            {% else %}#}
+{#                                                                              {{ pawDetail.rate}} {{company.main_currency}}#}
+{#                                                                            {% endif %}#}
+{#                                                                            / {% if pawDetail.paw_pay_method == 'day' %}{% translate 'Day' %}#}
+{#                                                                                {% elif pawDetail.paw_pay_method == 'week' %}{% translate 'Week' %}#}
+{#                                                                                {% elif pawDetail.paw_pay_method == 'month' %}{% translate 'Month' %}#}
+{#                                                                                {% else %}{% translate 'year' %}#}
+{#                                                                              {% endif %}#}
+{#                                        </strong></p>#}
+{#                                        <p>{% translate 'Value'%} :<strong>  {{ pawDetail.paw_value}}{{company.main_currency}}</strong></p>#}
+{#                                        <p>{% translate 'Date'%} :<strong>  {{ pawDetail.date_paw}}</strong></p>#}
+{#                                        <p>{% translate 'Expiration'%} :<strong>  {{ pawDetail.date_expired_paw}}</strong></p>#}
+{##}
+{#                                </fieldset>#}
+{#                                </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#    ====================== tap paw ========================#}
+        <div class="row">
+            <div class="col-12 col-md-12 ">
+            <ul class="nav nav-pills mb-3 text-center justify-content-center" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Paw Borrow</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Borrow Pay</button>
+              </li>
+              <li class="nav-item" role="presentation">
+{#                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"></button>#}
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+{#                ================================== Borrow Paw ==================#}
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+
+            <div class="col-12  text-end border-top">
+                <a href="{% url 'create_paw_borrow' pawDetail.id %}" class="btn btn-sm btn-outline-success mt-2"><i class="ti-plus"></i>Add</a>
+            </div>
+                <div class="table-responsive">
+                    <table class="table">
+                       <thead>
+                       <tr>
+                           <th>No</th>
+                           <th>Value</th>
+                           <th>Rate</th>
+                           <th>Period method</th>
+                            {% if pawDetail.paw_value %}
+                                {% else %}
+                               <th>Borrow Pay</th>
+                           {% endif %}
+                           <th>Action</th>
+                       </tr>
+                       </thead>
+                        <tbody>
+                        {% if pawDetail.paw_value %}
+                            <tr>
+                                <td></td>
+                                <td>{{ pawDetail.paw_value }} {{ company.pawDetail }}</td>
+                                <td>{{ pawDetail.rate }} {% if borrow.is_percentage %} % {% else %} {{ company.main_currency }} {% endif %}</td>
+                                <td> {{ pawDetail.paw_pay_method }} {{ borrow.paw_borrow_method }}</td>
+                                <td><a href="{% url 'paw_pay' pawDetail.id %}" class="btn btn-sm btn-outline-dark">Detail</a></td>
+                            </tr>
+                        {% endif %}
+                        {% for borrow in pawDetailData  %}
+                            <tr>
+                                <td></td>
+                                <td>{{ borrow.paw_borrow_value }} {{ company.main_currency }}</td>
+                                <td>{{ borrow.borrow_rate }} {% if borrow.is_percentage %} % {% else %} {{ company.main_currency }} {% endif %}</td>
+                                <td> {{ borrow.total_period }} {{ borrow.paw_borrow_method }}</td>
+                                <td>{{ borrow.pawPay }}</td>
+                                <td><a href="{% url 'paw_borrow_detail' borrow.id %}" class="btn btn-sm btn-outline-dark">Detail</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+{#                ============================ Pay Back Paw ===================#}
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                  <div class="table-responsive">
+                    <table class="table">
+                       <thead>
+                       <tr>
+                           <th>#No</th>
+                           <th>ID PAW</th>
+                           <th>Rate</th>
+                           <th>Period method</th>
+                           <th>Date Pay Back</th>
+                           <th>Action</th>
+                       </tr>
+                       </thead>
+                        <tbody>
+                        {% for borrow in payBackBorrow  %}
+                            <tr>
+                                <td>1</td>
+                                <td>E122XCW</td>
+                                <td>{{ borrow.pay_principle }} {% if borrow.is_percentage %} % {% else %} {{ company.main_currency }} {% endif %}</td>
+                                <td> {{ borrow.total_pay }} {{ borrow.paw_borrow_method }}</td>
+                                <td>{{ borrow.date_payback }}</td>
+                                <td><a href="{% url 'paw_borrow_detail' borrow.id %}" class="btn btn-sm btn-outline-dark">Detail</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+{#                ============================ Refund =========================#}
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">ascasc</div>
+              <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">css</div>
+            </div>
+            </div>
+        </div>
+        <div class="card-header col-sm-12 col-md-12 my-3  d-none-print text-center">
+
+        <div class="card-header col-sm-12 col-md-12 my-3  text-center">
+        {% if pawDetail.is_principle %}
+            {% if schedule %}
+         <table class="table table-responsive">
+             <thead>
+             <tr>
+                 <th>#No</th>
+                 <th>Value</th>
+                 <th>Type Method</th>
+                 {% if pawDetail.is_percentage %} <th>Rate</th> {% else %} {% endif %}
+                 <th>Interest rate</th>
+                 <th>Date Pay</th>
+                 <th>Pay Status</th>
+             </tr>
+             </thead>
+             <tbody>
+             {% for i in  schedule %}
+                <tr>
+                    <td>{{ i.number }}</td>
+                    <td>{{ i.paw_value }} {{ company.main_currency }}</td>
+                    <td>{{ i.paw_pay_method|title }}</td>
+                   {% if i.is_percentage %} <td>{{ i.paw_rate }}  % </td> {% else %}  {% endif %}
+                    <td>{{ i.interest_rate }} {{ company.main_currency }}</td>
+                    <td>{{ i.date }}</td>
+                    <td>{{ i.pay_status }}</td>
+                </tr>
+            {% endfor %}
+             </tbody>
+         </table>
+            {% else %}
+        {% endif %}
+            {% else %}
+{#            {% if payPaw %}#}
+{#            <div class="card card-body mt-3 d-none-print">#}
+{#                <div class="row">#}
+{#                    <div class="col-12">#}
+{#                        <div class="table-responsive">#}
+{#                            <table class="table table-hover">#}
+{#                                <thead class="text-success-emphasis text-uppercase">#}
+{#                                       <th class="nowrap-100">{% translate '#' %}</th>#}
+{#                                       <th class="nowrap-100">{% translate 'Paid' %}</th>#}
+{#                                       <th class="nowrap-100">{% translate 'Paid Date' %} </th>#}
+{#                                       <th class="nowrap-100">{% translate 'Action' %}</th>#}
+{#                                </thead>#}
+{#                                <tbody>#}
+{#                                    {% for pay in payPaw %}#}
+{#                                        <tr>#}
+{#                                            <td class="nowrap-100"><a href="{% url 'paw_pay_detail' pay.id  %}" class="text-decoration-none">{{ forloop.counter }}</a></td>#}
+{#                                            <td class="nowrap-100"><a href="{% url 'paw_pay_detail' pay.id  %}" class="text-decoration-none">{{ pay.pay_value }}</a></td>#}
+{#                                            <td class="nowrap-100"><a href="{% url 'paw_pay_detail' pay.id  %}" class="text-decoration-none">{{ pay.date_pay }}</a></td>#}
+{#                                            <td class="nowrap-100">#}
+{#                                                <a href="{% url 'paw_pay_detail' pay.id  %}" class="btn btn-sm btn-outline-dark">{% translate 'Detail' %}</a>#}
+{#                                            </td>#}
+{#                                        </tr>#}
+{#                                    {% endfor %}#}
+{##}
+{##}
+{#                                </tbody>#}
+{#                            </table>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% else %}#}
+{#        {% endif %}#}
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+
+{%  include 'base/footer.html' %}
+{% endblock %}

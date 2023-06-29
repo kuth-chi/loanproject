@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <p>{% translate 'Are you sure want to delete ' %}"{{ item }}?</p>
+            <form action="{% url 'delete_customer' item.id %}" method="POST">
+                {%  csrf_token %}
+                <a class="btn btn-warning" href="{% url 'customer' %}">{% translate 'Cancel' %}</a>
+                <input class="btn btn-danger" type="submit" name="{% translate 'Confirm' %}">
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

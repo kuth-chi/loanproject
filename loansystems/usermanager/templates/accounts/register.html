@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% block title %} Home page{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-5">
+            <form method="POST" action="">
+            {% csrf_token %}
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4>Register Account</h4>
+                    </div>
+                    <div class="">
+                        <label class="form-label">{{ form.username.label }}</label>
+                        {{ form.username }}
+                        <label class="form-label">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        <label class="form-label">{{ form.password1.label }}</label>
+                        {{ form.password1 }}
+                        <label class="form-label">{{ form.password2.label }}</label>
+                        {{ form.password2 }}
+                         </div>
+                    {{ form.errors }}
+                    <input type="submit" value="Signup">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form_field = document.getElementsByTagName('input')
+
+        for (const field in form_field){
+        form_field[field].className += ' form-control'
+        }
+    </script>
+{% endblock %}

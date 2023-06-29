@@ -1,0 +1,215 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+    #box {
+        display: none;
+    }
+</style>
+    {% include 'base/navbar.html' %}
+    <!--Message from backend -->
+
+
+<div class="container-lg">
+        <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+            {% if customerId%}
+                <a href="{% url 'customer-detail' customerId.id  %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer detail" %}</a>
+            {% endif %}
+            {% if customerDetail %}
+            <a href="{% url 'customer-detail' customerDetail.id  %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer detail" %}</a>
+            {% endif %}
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'customer' %}"><i class="ti-home"></i></a> /
+                    Create Loan
+                </div>
+            </div>
+        </div>
+            <div class="text-center">
+            {% if loan_id %}
+                <h4>{% translate 'Update New Loan' %}</h4>
+                {% else %}
+                <h4>{% translate 'Create New Loan' %}</h4>
+                {% endif %}
+            </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 bg-light-subtle">
+                <div class="mt-2 d-flex justify-content-center  p-2">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row">
+                               <div class="col-md-12 mt-3" >
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label">{% translate 'Loan amount' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                       <div class="input-group mb-3">
+                                           {{ form.loan_amount }}
+{#                                          <input type="number" class="form-control"  name="loan_amount"  placeholder="($)">#}
+                                          <span class="input-group-text" id="basic-addon1">{{company.main_currency}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label for="">{% translate 'Payment method' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                        {{ form.loan_cycle_type }}
+                                    </div>
+                                </div>
+                            </div>                         
+                            
+                            <div class="col-md-12 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label" for="">{% translate 'Loan term' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                        <div class="input-group mb-3">
+{#                                            <input type="number" class="form-control" name="number_of_cycle" required>#}
+                                            {{ form.number_of_cycle }}
+                                            <span class="input-group-text" id="My" ></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label">{% translate 'Interest rate' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                    <div class="input-group mb-3">
+                                    {{ form.interest_rate_per_cycle }}
+{#                                        <input type="number" class="form-control"  name="interest_rate_per_cycle"  placeholder="(%)" >#}
+                                      <span class="input-group-text" id="basic-addon1">(%)</span>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label for="" class="form-label">{% translate 'Rate calculate method ' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                        {{ form.rate_calculate_method }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3" >
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label">{% translate 'Loan date' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+{#                                        {{ form.loan_date }}#}
+                                        <input class="form-control" type="date" name="loan_date" {% if loan_id %} value="{{ loan_id.loan_date|date:'Y-m-d' }}"  {% else %} value="{{ today|date:'Y-m-d' }}" {% endif %} placeholder="YYYY-MM-DD" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label">{% translate 'Pay off' %}</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-9">
+                                        <div class="col-sm-12 col-md-12">
+                                            <input class="form-control" type="number"  name="full_off_from" {% if loan_id %} value="{{ loan_id.full_off_from }}" {% else %} value="0" {% endif %} placeholder="xx day">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <label class="form-label">{% translate 'Set first payment date' %}</label>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-9">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-2 ">
+                                                  <input class="showBox slide_check" type="checkbox" name="is_set_first_payment_date"  {% if loan_id.is_set_first_payment_date %} checked {% endif %}  data-id="sbox">
+                                               <script>
+                                                       $(function() {
+                                                          $(".showBox").on("change", function() {
+                                                            $(`#${this.dataset.id}`).toggle(this.checked);
+                                                          }).change(); // trigger the change event to initialize the state based on the initial value of the checkbox
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <div class="col-sm-12 col-md-10" style="display:none" id="sbox">
+                                                    <input class="form-control" type="date" name="first_payment_date" {% if loan_id %} value="{{ loan_id.first_payment_date|date:'Y-m-d' }}" {% endif %} placeholder="YYYY-MM-DD">
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+{#                        {{ form.as_p }}#}
+                        <div class=" my-5 d-flex justify-content-between">
+                        {% if loan_id %}
+                            <div class="pt-options ">
+                                <a href="{% url 'loan_detail' loan_id.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Back' %} </a>
+                            </div>
+                        {% elif customerDetail %}
+
+                            <div class="pt-options ">
+                                <a href="{% url 'customer-detail' customerDetail.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Back' %} </a>
+                            </div>
+                        {% else %}
+                            <div class="pt-options ">
+                                <a href="{% url 'customer-detail' customerId.id %}"  class="btn btn-outline-dark mx-2"> {% translate 'Back' %} </a>
+                            </div>
+                        {% endif %}
+                            {% if loan_id %}
+
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-success form-control float-sm-end px-5">{% translate 'update' %}</button>
+                            </div>
+                            {% else %}
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-success form-control float-sm-end px-5">{% translate 'Save' %}</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        function loanTypeDay() {
+            var x = document.getElementById('Day').value;
+            document.getElementById("My").innerHTML=x;
+        }
+        function loanTypeWeek() {
+            var w = document.getElementById('Week').value;
+            document.getElementById("My").innerHTML=w;
+        }
+        function loanTypeMonth() {
+            var m = document.getElementById('Month').value;
+            document.getElementById("My").innerHTML=m;
+        }
+        function loanType3Month() {
+            var wm = document.getElementById('Quarterly').value;
+            document.getElementById("My").innerHTML=wm;
+        }
+        function loanTypeSemester() {
+            var sm = document.getElementById('semester').value;
+            document.getElementById("My").innerHTML=sm;
+        }
+        function loanTypeYear() {
+            var y = document.getElementById('year').value;
+            document.getElementById("My").innerHTML=y;
+        }
+    </script>
+    {% include 'base/footer.html' %}
+{% endblock %}

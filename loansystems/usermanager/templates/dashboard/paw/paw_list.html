@@ -1,0 +1,216 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <style>
+    .more-style {
+        width: 70px;
+        background: var(--bs-success);
+        transition: 0.3s;
+    }
+    .more-style:hover {
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    </style>
+    <div class="container-lg position-relative min-vh-100">
+        <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+                <a href="{% url 'paw' %}" class="btn "> <i class="ti-list-ol"></i> {% translate "Paw list" %}</a>
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'paw' %}"><i class="ti-home"></i></a> /
+                    Paw detail
+                </div>
+            </div>
+        </div>
+        <form action="" autocomplete="off" id="search-form" method="post" class="position-relative w-100">
+            {% csrf_token %}
+            <div class="d-flex position-relative">
+                  <input class="form-control border-end-0 border rounded-pill" type="text" name="search" id="search-input"  placeholder="{% translate 'Search paw' %}" >
+                  <button class="position-absolute right-0 btn btn-outline-success bg-success text-white border-start-0 border rounded-pill ms-n3">
+                      <i class="ti-search"></i>
+                  </button>
+            </div>
+            <div class="bg-light not-visible shadow p-2 position-absolute border-top-0  rounded-bottom-2 "  style="z-index: 10; width: 100%" id="result-box"></div>
+        </form>
+        <div class="row">
+
+{#        ======================= dispaly md lg ================#}
+
+
+               <div class="bg-light-subtle">
+                <div class="row">
+                    {% for paw in pawData %}
+                        <div class="col-sm-6 col-md-3 mt-4">
+                        <div class="single_content">
+                        <a class="nav-link text-decoration-nones " href="{% url 'paw_detail' paw.id%}">
+                            <div class="card position-relative" style="max-height: 400px; overflow: hidden;">
+                               <span style="border-radius: 0 0 15px 0"  class="position-absolute p-2 mystyle
+                                    {% if paw.paw_status == 'active' %}
+                                        bg-success  text-white
+                                    {% elif paw.paw_status == 'refunded' %}
+                                        bg-dark  text-white
+                                    {% elif paw.paw_status == 'expired' %}
+                                        bg-danger  text-white
+                                    {% endif %}
+                                    ">{{ paw.paw_status|title }}</span>
+                                <div class="card-body">
+                                    <div class="">
+                                        <img src="/media/{{ paw.paw_image }}" alt="" class="object-fit-cover" width="100%" height="200px">
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="" title="{{ paw.paw_name}}">
+                                                                                {% if paw.paw_name|length >= 25 %}
+                                                                                    {{ paw.paw_name|slice:":25" }}...
+                                                                                {% else%}
+                                                                                    {{ paw.paw_name}}
+                                                                                {% endif %}
+                                                                            </h5>
+                                        <p><i class="fa fa-user-circle me-1"></i> {{ paw.customer.name|title }} ({{ paw.customer.name_kh|title }})</p>
+                                        <h4 class="">{{ paw.paw_value }}{{company.main_currency}}</h4>
+                                        <div class="d-flex justify-content-between">
+                                            <p>{% translate 'Rate' %} {{ paw.rate }} {% if paw.is_percentage %} % {% else %} {{company.main_currency}}{% endif %}</p>
+                                            <p class="rounded-pill text-danger p-1"> {{ paw.date_expired_paw }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+                        </div>
+                        </div>
+                    {% endfor %}
+                <div class="d-flex justify-content-between mt-2 ">
+                            <div class="">
+                                     {% if pawData %}
+                                     Page  {{ pawData.number  }} - row {{ pawData.end_index }}
+                                     {% endif %}
+                                 </div>
+                                 <div class="bottom-field mx-3">
+                                    <div class="d-flex justify-content-end mt-2 ">
+                                      {% if pawData.has_other_pages %}
+                                       <nav aria-label="Page navigation example">
+                                          <ul class="pagination">
+                                          {% if pawData.has_previous %}
+                                            <li class="page-item"><a class="page-link text-dark" href="?page={{ pawData.has_previous }}">{% translate 'Previous' %}</a></li>
+                                            {% else %}
+                                              <li class="page-item disabled"><a class="page-link">{% translate 'Previous' %}</a></li>
+                                            {% endif %}
+                                            {% for i in pawData.paginator.page_range %}
+                                              {% if pawData.number == i %}
+                                                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                                              {% else %}
+                                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                              {% endif %}
+                                            {% endfor %}
+                                          {% if pawData.has_next %}
+                                            <li class="page-item" id="next"><a class="page-link text-dark" href="?page={{ pawData.has_next }}">{% translate 'Next' %}</a></li>
+                                              {% else %}
+                                              <li class="page-item disabled"><a class="page-link">{% translate 'Next' %}</a></li>
+                                          {% endif %}
+                                          </ul>
+                                           {% endif %}
+                                        </nav>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {#        ========================= display sm ===========================#}
+        <div class="d-sm-none d-md-none d-lg-none">
+            {% for loan in loanList %}
+                         <a href="{% url 'loan_detail' loan.id %}" class="d-flex align-content-center text-decoration-none text-dark hover p-2">
+                                   <p><img
+                                        src="/media/{{ loan.customer.profile_img }}"
+                                        alt=""
+                                        style="width: 55px; height: 55px"
+                                        class="rounded-circle"
+                                        /></p>
+                                <p class="d-flex flex-column fw-bold mb-1 fs-7 mx-2">
+                                    <span>{{ loan.customer.name_kh }}</span>
+                                    <span>{{ loan.customer.name }}</span>
+                                    <span class="fw-light ">#{{ loan.loan_number_id }}</span>
+                                </p>
+                                <div class="d-flex flex-column">
+                                    <div class=""><span>{{ loan.number_of_cycle }} {{ loan.loan_cycle_type }}</span></div>
+                                    <progress value="10"> </progress>
+                                    <span>{{ loan.loan_amount }} {{ loan.interest_rate_per_cycle }}<i class="">%</i></span>
+                                </div>
+                               <!-- <a class="btn btn-secondary btn-sm rounded-pill" href="#">Pay</a> -->
+
+                         </a>
+                    {% endfor %}
+        </div>
+    </div>
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+
+{#    ==================== search paw data =====================#}
+    <script>
+            const result_box = document.getElementById('result-box');
+            const search_form = document.getElementById('search-form')
+            const search_input = document.getElementById('search-input');
+
+            const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            search_input.addEventListener('keyup', e=> {
+                console.log(e.target.value)
+                // Now when keyup shw resul box
+                if(result_box.classList.contains('not-visible')) {
+                    result_box.classList.remove('not-visible')
+                }
+                // let get the search result
+                sendSearchData(e.target.value)
+            })
+            const sendSearchData = (dataList) => {
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'searchPaw' %}',
+                    data: {
+                        'csrfmiddlewaretoken': csrf,
+                        'dataList': dataList,
+                    },
+                    success: (res) => {
+                        const data = res.data
+                        if (Array.isArray(data)){
+                            let searchResults = ''
+                            data.forEach(dataList => {
+                                searchResults += `
+                                    <a href="/paw_detail/${dataList.id}"
+                                    class='bg-light-subtle shadow border-bottom-1 d-flex text-dark align-items-center text-decoration-none rounded-pill m-1 p-1'>
+                                     <img src="${dataList.image}" width="30px" height="30px" class="object-fit-cover rounded-circle mx-3 border-1" alt="">
+                                     <p class="mx-2">${dataList.name}</p> <span class="badge text-bg-light mx-2">Status:(${dataList.status})</span>
+                                    </a>`
+                            });
+                            result_box.innerHTML = searchResults;
+                        } else {
+                            if(search_input.value.length > 0){
+                                result_box.innerHTML = `<b class="bg-light w-100 d-flex justify-content-start text-center my-4">${data}</b>`
+                            } else {
+                                result_box.classList.add('not-visible')
+                            }
+                        }
+                    },
+                    error: (err) => {
+                        console.log(err)
+                    }
+                })
+            }
+
+        </script>
+
+
+{% endblock %}

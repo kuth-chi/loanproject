@@ -1,0 +1,170 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    {% include 'base/navbar.html' %}
+    <style>
+    .more-style {
+        width: 70px;
+        background: var(--bs-success);
+        transition: 0.3s;
+    }
+    .more-style:hover {
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    </style>
+    <div class="container-lg position-relative min-vh-100">
+        <div class="row  mt-2 ">
+            <div class="col-12">
+                 <h4 class=""> <i class="ti-list-ol"></i> <span class="mx-2">{% translate 'Collateral List' %}</span></h4>
+             </div>
+
+{#        ======================= dispaly md lg ================#}
+            <div class=" mt-3  position-relative">
+                <div class="row  my-3 justify-content-between pe-2">
+                    <div class=" col-10 position-relative" style="max-width: 450px;">
+                        <form action="" autocomplete="off" id="search-form" method="post" class="position-relative">
+                            {% csrf_token %}
+                            <div class="d-flex position-relative">
+                                  <input class="form-control border-end-0 border rounded-pill" type="text" name="search" id="search-input"  placeholder="{% translate 'Search paw' %}" >
+                                  <button class="position-absolute right-0 btn btn-outline-success bg-success text-white border-start-0 border rounded-pill ms-n3">
+                                      <i class="ti-search"></i>
+                                  </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                    <div class="bg-light not-visible shadow p-2 position-absolute border-top-0 w-100"  style=" z-index: 10; width: 100%" id="result-collateral"></div>
+                <hr>
+            </div>
+               <div class="bg-light-subtle">
+                <div class="row mt-4">
+                    {% for collateral in collateralList %}
+                        <div class="col-sm-6 col-md-3 mt-4">
+                        <a class="nav-link text-decoration-nones " href="{% url 'collateral_detail' collateral.id%}">
+                            <div class="card position-relative" style="max-height: 400px; overflow: hidden">
+                               <span style="border-radius: 0 0 15px 0"  class="position-absolute p-2 mystyle
+                                    {% if collateral.status == 'active' %}
+                                        bg-success  text-white
+                                    {% elif collateral.status == 'refunded' %}
+                                        bg-dark  text-white
+                                    {% elif collateral.status == 'expired' %}
+                                        bg-danger  text-white
+                                    {% elif collateral.status == 'sold' %}
+                                        bg-warning  text-dark
+                                    {% endif %}
+                                    ">{{ collateral.status|title }}</span>
+                                <div class="card-body">
+                                    <div class="">
+                                        <img src="/media/{{ collateral.image }}" alt="" class="object-fit-cover" width="100%" height="200px">
+                                    </div>
+                                    <div class="mt-4">
+                                        <h4 class="text-danger-emphasis">{{ collateral.price }}{{company.main_currency}}</h4>
+                                        <h4 class="">{{ collateral.title }} </h4>
+                                        <p class="text-success-emphasis">{{ collateral.customer.name|title }} ({{ collateral.customer.name_kh|title }})</p>
+                                        <div class="d-flex justify-content-between">
+                                            <p>{% translate 'Expired' %} {{ collateral.expired_date }}</p>
+                                            <p class="rounded-pill text-danger p-1"> {{ collateral.dayExpired }} Day</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                  </div>
+            </div>
+    {#        ========================= display sm ===========================#}
+        <div class="d-sm-none d-md-none d-lg-none">
+            {% for loan in loanList %}
+                         <a href="{% url 'loan_detail' loan.id %}" class="d-flex align-content-center text-decoration-none text-dark hover p-2">
+                                   <p><img
+                                        src="/media/{{ loan.customer.profile_img }}"
+                                        alt=""
+                                        style="width: 55px; height: 55px"
+                                        class="rounded-circle"
+                                        /></p>
+                                <p class="d-flex flex-column fw-bold mb-1 fs-7 mx-2">
+                                    <span>{{ loan.customer.name_kh }}</span>
+                                    <span>{{ loan.customer.name }}</span>
+                                    <span class="fw-light ">#{{ loan.loan_number_id }}</span>
+                                </p>
+                                <div class="d-flex flex-column">
+                                    <div class=""><span>{{ loan.number_of_cycle }} {{ loan.loan_cycle_type }}</span></div>
+                                    <progress value="10"> </progress>
+                                    <span>{{ loan.loan_amount }} {{ loan.interest_rate_per_cycle }}<i class="">%</i></span>
+                                </div>
+                               <!-- <a class="btn btn-secondary btn-sm rounded-pill" href="#">Pay</a> -->
+
+                         </a>
+                    {% endfor %}
+        </div>
+    </div>
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+    {% endfor %}
+    <script>
+            const result_box = document.getElementById('result-collateral');
+            const search_form = document.getElementById('search-form')
+            const search_input = document.getElementById('search-input');
+
+            const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            search_input.addEventListener('keyup', e=> {
+                // Now when keyup shw resul box
+                if(result_box.classList.contains('not-visible')) {
+                    result_box.classList.remove('not-visible')
+                }
+                // let get the search result
+                sendSearchData(e.target.value)
+            })
+            const sendSearchData = (collateralList) => {
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "search_collateral" %}',
+                    data: {
+                        'csrfmiddlewaretoken': csrf,
+                        'collateralList': collateralList,
+                    },
+                    success: (res) => {
+                        const data = res.data
+                        if (Array.isArray(data)){
+                            let searchResults = ''
+                            data.forEach(collateralList => {
+                                searchResults += `
+                                    <a href="/loan_detail/${collateralList.id}"
+                                    class='w-100 bg-light-subtle shadow border-bottom-1 d-flex text-dark align-items-center text-decoration-none rounded-pill m-1 p-2'>
+                                     <p class="mx-2">${collateralList.title} Customer: ( ${collateralList.name_kh} (${collateralList.name})) </p>
+                                    </a>`
+                            });
+                            result_box.innerHTML = searchResults;
+                        } else {
+                            if(search_input.value.length > 0){
+                                result_box.innerHTML = `<b class="bg-light w-100 d-flex justify-content-center p-3 text-center">${data}</b>`
+                            } else {
+                                result_box.classList.add('not-visible')
+                            }
+                        }
+                    },
+                    error: (err) => {
+                        alert('this data has error!(-_-) please try again')
+                        console.log(err)
+                    }
+                })
+            }
+
+    </script>
+{% endblock %}

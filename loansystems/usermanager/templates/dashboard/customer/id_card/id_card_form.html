@@ -1,0 +1,118 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block javascript %}
+  <script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+  var loadFile2 = function(event) {
+    var output = document.getElementById('output2');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+    {% include 'base/navbar.html' %}
+
+
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 my-4">
+                    <div class="text-center my-2">
+                        {% if idcardDetail %}
+                            <h3>{% translate 'Update' %} {{ idcardDetail.card_type }}   {%translate 'Id for' %} {{ customerDetail.name }} ({{ customerDetail.name_kh }})</h3>
+                        {% else %}
+                            <h3>{% translate 'Create Indentify Id for' %} {{ customerDetail.name }}({{ customerDetail.name_kh }})</h3>
+                        {% endif %}
+                        </div>
+                    <form  action=""  method="POST"  runat="server" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row mt-4">
+                           <div class="col-sm-6 col-md-5 col-lg-6 ">
+                               {% if idcardDetail %}
+                                   {% if imageList %}
+                                       {% for image in imageList %}
+                                           <label class="w-100 d-flex flex-column justify-content-center text-center position-relative"
+                                                style="border: 2px dotted #333; border-radius: 10px; height: 200px;">
+                                                <input type="file" accept="image/*" onchange="loadFile{{ image.id }}(event)" name="image_url" class="d-none" alt="">
+                                                <img id="output{{ image.id }}" src="/media/{{ image.image_url}}" class="rounded-2" style="object-fit: contain; width: 100%; height: 100%;"/>
+                                           </label>
+                                           <script>
+                                              var loadFile{{ image.id }} = function(event) {
+                                                var output = document.getElementById('output{{ image.id }}');
+                                                output.src = URL.createObjectURL(event.target.files[0]);
+                                                output.onload = function() {
+                                                  URL.revokeObjectURL(output.src) // free memory
+                                                }
+                                              };
+                                           </script>
+                                       {% endfor %}
+                                   {% else %}
+                                       <label class="w-100 d-flex flex-column justify-content-center text-center position-relative" style="border: 2px dotted #333; border-radius: 10px; height: 200px;">
+                                        <input type="file" accept="image/*" onchange="loadFile(event)" name="image_url" class="d-none" alt="">
+                                        <img id="output" src="/static/img/back.jpg" class="rounded-2" style="object-fit: contain; width: 100%; height: 100%;"/>
+                                       </label>
+                                       <label class="w-100 d-flex flex-column justify-content-center text-center mt-2" style="border: 2px dotted #333; border-radius: 10px; height: 200px;">
+                                        <input type="file"   accept="image/*" onchange="loadFile2(event)" name="image_url" class="d-none" alt="">
+                                        <img id="output2"   src="/static/img/fronts.jpg" class="rounded-2" style="object-fit: contain; width: 100%; height: 100%;"/>
+                                       </label>
+                                   {% endif %}
+                               {% else %}
+                                   <label class="w-100 d-flex flex-column justify-content-center text-center position-relative" style="border: 2px dotted #333; border-radius: 10px; height: 200px;">
+                                        <input type="file" accept="image/*" onchange="loadFile(event)" name="image_url" class="d-none" alt="">
+                                        <img id="output" src="/static/img/back.jpg" class="rounded-2" style="object-fit: contain; width: 100%; height: 100%;"/>
+                                       </label>
+                                       <label class="w-100 d-flex flex-column justify-content-center text-center mt-2" style="border: 2px dotted #333; border-radius: 10px; height: 200px;">
+                                        <input type="file"   accept="image/*" onchange="loadFile2(event)" name="image_url" class="d-none" alt="">
+                                        <img id="output2"   src="/static/img/fronts.jpg" class="rounded-2" style="object-fit: contain; width: 100%; height: 100%;"/>
+                                       </label>
+                               {% endif %}
+                           </div>
+                           <div class="col-sm-6 col-md-6 col-lg-6">
+                               <div class="row">
+                                   <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label">{% translate 'Number' %}</label>
+                                    <input type="number" name="card_number" placeholder="{% translate 'number' %}"
+                                            {% if idcardDetail %} value="{{ idcardDetail.card_number }}" {% endif %}
+                                           class="form-control" required >
+                                   </div>
+                                   <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label">{% translate 'Card type' %}</label>
+                                    <select class="form-select" name="card_type" required >
+                                        <option {% if idcardDetail.card_type == 'Identity' %} selected {% endif %} value="Identity">{% translate 'Identity' %}</option>
+                                        <option {% if idcardDetail.card_type == 'Passport' %} selected {% endif %}  value="Passport">{% translate 'Passport' %}</option>
+                                        <option {% if idcardDetail.card_type == 'License driver' %} selected {% endif %}  value="License driver">{% translate 'Drivers license' %}</option>
+                                        <option>{% translate 'Other' %}</option>
+                                    </select>
+                                   </div>
+                                   <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label" >{% translate 'Expire date' %}</label>
+                                    <input type="date" name="card_deadline" class="form-control" required {% if idcardDetail %} value="{{ idcardDetail.card_deadline|date:'Y-m-d' }}" {% endif %}>
+                                   </div>
+                                   <div class="col-12 w-100 d-flex justify-content-between mt-4">
+                                       {% if idcardDetail %}
+                                       <a href="{% url 'id_card_detail' idcardDetail.id %}" class="btn btn-dark">{% translate 'Back' %}</a>
+                                       {% else %}
+                                       <a href="{% url 'customer-detail' customerDetail.id %}" class="btn btn-dark">{% translate 'Back' %}</a>
+                                       {% endif %}
+                                       <button type="submit" class="btn btn-success">{% translate 'Save' %}</button>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} Manage Customer{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+    {% block javascript %}
+        {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <script>
+                        var m = "{{ message }}";
+                        swal("Perfect !", m, "success" )
+                    </script>
+                {% elif message.tags == 'error' %}
+                    <script>
+                        var m = "{{ message }}";
+                        swal("Failed!", m, "error" )
+                    </script>
+                {% endif %}
+        {% endfor %}
+{% endblock %}
+<div class="container">
+    <div class="row justify-content-center">
+            <div class="col-sm-11 col-md-5 my-4">
+            {% if bankAccountDetail %}
+                <div class="text-center my-4">
+                <h4>Update Bank Account</h4>
+            </div>
+                {% else %}
+                <div class="text-center my-4">
+                <h4>Add Bank Account</h4>
+            </div>
+            {% endif %}
+                <div class="row card card-body justify-content-center">
+                <div class="col-12 col-sm-12 col-md-12 bg-light-subtle rounded-2">
+                    <div class="row my-4">
+                        <div class="col-12 my-4">
+                            <div class="form-group">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <label>Bank Name</label>
+                                    <input type="text" class="form-control" {% if bankAccountDetail %} value="{{ bankAccountDetail.bank_name }}" {% endif %} name="bank_name">
+                                    <label>Account Name</label>
+                                    <input type="text" class="form-control" {% if bankAccountDetail %} value="{{ bankAccountDetail.bank_account_name }}" {% endif %} name="bank_account_name">
+                                    <label>Account Number</label>
+                                    <input type="number" class="form-control" {% if bankAccountDetail %} value="{{ bankAccountDetail.bank_account_number }}" {% endif %} name="bank_account_number">
+                                    <label for="">Currency</label>
+                                    <select name="bank_account_currency" class="form-control">
+                                        <option value="$" {% if bankAccountDetail.bank_account_currency == '$' %}
+                                        selected{% endif %} >$ (USD)</option>
+                                        <option value="៛" {% if bankAccountDetail.bank_account_currency == '៛' %}
+                                        selected {% endif %}>៛ (KHR)</option>
+                                    </select>
+                                    <div class="d-flex justify-content-between mt-4">
+                                        {% if bankAccountDetail %}
+                                        <a class="btn btn-sm btn-outline-dark" href="{% url 'update_company' company_id%}">Back</a>
+                                        {% else %}
+                                        <a class="btn btn-sm btn-outline-dark" href="#">Back</a>
+                                        {% endif %}
+                                        <button type="submit" class="btn btn-sm btn-success">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% endblock %}

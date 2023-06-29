@@ -1,0 +1,149 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Customer Address' %}{% endblock %}
+{% block content %}
+{%  include 'base/navbar.html' %}
+<div class="col-md-12 bg-light p-2 mb-4">
+    <div class="container-lg pt-title ">
+     <p class="fs-7">
+         {% with url_name=request.resolver_match.url_name %}
+             <a href="{% url 'customer' %}" class="text-decoration-none  text-dark">{% translate 'Customer' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             <a href="{% url 'customer' %}" class="text-decoration-none text-dark {% if url_name == 'customer-detail' %} text-success {% endif %}">{% translate 'Customer detail' %}</a> <i class="fa-solid fa-chevron-right"></i>
+             {% if customerAddressId %}
+                 <a href="{% url 'update_customer_address' customerAddressId.id %}" class="text-decoration-none {% if url_name == 'update_customer_address' %} text-success {% endif %}">{% translate ' Update customer address' %}</a>
+                 {% else %}
+                 <a href="{% url 'create_customer_address' customerId.id %}" class="text-decoration-none {% if url_name == 'create_customer_address' %} text-success {% endif %}">{% translate ' Create customer address' %}</a>
+             {% endif %}
+           {% endwith %}
+     </p>
+     </div>
+</div>
+
+      <!-- Modal Delete -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            {% if customerAddressId %}
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate 'Delete customer address ' %}{{ customerAddressId.name }}</h1>
+          </div>
+            <form action="{% url 'delete_customer_address' customerAddressId.id %}" method="POST">
+                    {%  csrf_token %}
+              <div class="modal-body">
+                <p>{% translate 'Are you sure want to delete' %} "{{ customerAddressId.name }}?</p>
+              </div>
+              <div class="modal-footer">
+                  <a class="btn btn-warning" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
+                <button class="btn btn-danger" type="submit" name="Confirm">{% translate 'Delete' %}</button>
+              </div>
+            </form>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+<!-- End Modal -->
+
+<div class="container-lg {% if sidebar.is_sidebar == True %} container-fluid {% endif %}">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-8 bg-light-subtle rounded-2">
+            <div class="text-center my-4">
+                {% if customerAddressId %}
+                    <div class="d-flex justify-content-between">
+                    <h3>Update customer address</h3>
+                     <span class="text-end"><a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="ti-trash"></i></a></span>
+                    </div>
+                {% else %}
+                <h3>Create customer address</h3>
+                {% endif %}
+            <hr>
+            </div>
+            <div class="row my-4">
+                <div class="col-12">
+                    <div class="form-group">
+                        <form class="row" action="" method="POST">
+                            {% csrf_token %}
+                                <div class="col-12 col-md-6 mt-2">
+                                    <label for=""></label>
+                                    <select name="name" class="form-select">
+                                        <option value="Home"  {% if customerAddressId.name == 'Home'%} selected {% endif %} >Home</option>
+                                        <option value="Work" {% if customerAddressId.name == 'Work'%}  selected {% endif %} >Work</option>
+                                    </select>
+                                </div>
+                                 <div class="col-12 col-md-6 mt-2">
+                                          <label class="form-label">House number:</label>
+                                         <input class="form-control" {% if customerAddressId %} value="{{ customerAddressId.house_number }}" {% endif %} type="text" name="house_number"  placeholder="House number xxx-xx">
+                                    </div>
+                                 <div class="col-12 col-md-12 mt-2">
+                                     <label class="form-label">Street name:</label>
+                                     <input class="form-control" {% if customerAddressId %} value="{{ customerAddressId.street }}" {% endif %}  type="text" name="street"  placeholder="Street name">
+                                 </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">Country name:</label>
+                                      <select class="form-select" name="country">
+                                      <option> ---------- </option>
+                                          {% for i in countryList %}
+                                              <option {% if customerAddressId.country_id == i.id %} selected {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                       <label class="form-label">Province name:</label>
+                                      <select class="form-select" name="province">
+                                        <option > ---------- </option>
+                                          {% for i in provinceList %}
+                                              <option {% if customerAddressId.province_id == i.id %} selected {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">District name:</label>
+                                      <select class="form-select" name="district">
+                                        <option > ---------- </option>
+                                          {% for i in districtList %}
+                                              <option {% if customerAddressId.district_id == i.id %} selected {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                      <label class="form-label">Commune name:</label>
+                                      <select class="form-select" name="commune">
+                                        <option> ---------- </option>
+                                          {% for i in communeList %}
+                                              <option {% if customerAddressId.commune_id == i.id %} selected {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                 </div>
+
+                                <div class="col-12 col-md-12 mt-2">
+                                      <label class="form-label">Village name:</label>
+                                      <select class="form-select" name="village">
+                                      <option> ---------- </option>
+                                          {% for i in villageList %}
+                                              <option {% if customerAddressId.village_id == i.id %} selected {% endif %} value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                 </div>
+                                 <div class="col-12 col-md-12 mt-2">
+                                    <label class="form-label">Location:</label>
+                                    <input class="form-control" {% if customerAddressId %} value="{{ customerAddressId.location }}" {% endif %} type="text" name="location"  placeholder="Location ...">
+                                 </div>
+
+                            <div class="col-12 d-flex  justify-content-between mt-4">
+                            <a class="btn btn-dark" onclick="history.back()">{% translate 'Back' %}</a>
+                                {% if customerAddressId %}
+                                     <button class="btn btn-success" type="submit">{% translate 'Update' %}</button>
+                                {% else %}
+                                    <button class="btn btn-success" type="submit">{% translate 'Save'%}</button>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% endblock %}

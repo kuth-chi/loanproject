@@ -1,0 +1,328 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Create Borrow Paw {% endblock %}
+{% block content %}
+<!-- my_form.html -->
+<style>
+    .error {
+        border: 1px solid red;
+    }
+</style>
+    {% block javascript %}
+
+        {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Perfect !", m, "success" )
+            </script>
+        {% elif message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Error !", m, "error" )
+            </script>
+        {% endif %}
+{% endfor %}
+{% endblock %}
+
+    <style>
+    #box {
+        display: none;
+    }
+    </style>
+    {% include 'base/navbar.html' %}
+
+    <div class="container-lg">
+    <div class="col-12 p-3 bg-light-subtle shadow my-4">
+            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
+                {% if pawBorrowUpdate %}
+                <a href="{% url 'paw_borrow_detail' pawBorrowUpdate.id %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Paw borrow detail" %}</a>
+            {% else %}
+                <a href="{% url 'customer-detail' customerId.id %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer Paw" %}</a>
+            {% endif %}
+                <div class="">
+                    <a class="text-decoration-none text-dark" href="{% url 'paw' %}"><i class="ti-home"></i></a> /
+                    {% if pawBorrowUpdate %}
+                    Update borrow
+                    {% else %}
+                    Create borrow
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 my-4">
+                   <form id="form1" class="card card-body" action="" method="POST" enctype="multipart/form-data">
+                     {% if pawBorrowUpdate %}
+                        <div class="text-center">
+                            <h3>{% translate 'Update Borrow Paw' %}</h3>
+                        </div>
+                    {% else %}
+                    <div class="text-center my-2">
+                            <h3>{% translate 'Create Borrow Paw' %}</h3>
+                        </div>
+                    {% endif %}
+                        {% csrf_token %}
+                           <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+                               <div class="row">
+                               <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label">{% translate 'Paw Value' %}</label>
+                                    <input type="number" name="paw_borrow_value"
+                                     {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.paw_borrow_value }}" {% else %} value="0" {% endif %}
+                                     class="form-control" placeholder="price of paw" id="paw_value" required>
+                                   </div>
+{#                                   ===================== script ============#}
+                                   <script>
+                                   $(document).ready(function () {
+                                       $('#paw_value').keyup(function (){
+                                           var inputVal = $(this).val()
+                                           $('#value').text(inputVal)
+                                       })
+                                   })
+                                   {#=============== rate ===========#}
+                                    $(document).ready(function () {
+                                       $('#paw_rate').keyup(function (){
+                                           var inputRate = $(this).val()
+                                           console.log(inputRate)
+                                           $('#rate').text(inputRate)
+                                       })
+                                   })
+                                   {#========================= on change select ==============#}
+                                   $(document).ready(function() {
+                                    $('#my-select-field').on('change keyup', function() {
+                                        var selectVal = $('#my-select-field').val();
+                                        $('#status').text(selectVal)
+                                        // Your code to handle the input and select field values goes here
+                                    });
+                                });
+
+                                </script>
+                                {% if pawBorrowUpdate %}
+                                    <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label">{% translate 'Borrow Status' %}</label>
+                                    <select class="form-select" name="paw_borrow_status" required >
+                                        <option {% if pawBorrowUpdate.paw_borrow_status == 'active'%} selected value="{{ pawBorrowUpdate.paw_borrow_status }}" {% endif %} value="active">{% translate 'active' %}</option>
+                                        <option {% if pawBorrowUpdate.paw_borrow_status == 'refunded'%} selected value="{{ pawBorrowUpdate.paw_borrow_status }}" {% endif %}  value="refunded">{% translate 'refunded' %}</option>
+                                        <option {% if pawBorrowUpdate.paw_borrow_status == 'expired'%} selected value="{{ pawBorrowUpdate.paw_borrow_status }}" {% endif %}  value="expired">{% translate 'expired' %}</option>
+                                    </select>
+                                   </div>
+                                   {% endif %}
+                                   <div class="col-sm-12 col-md-12 mt-2">
+                                    <label class="form-label">{% translate 'Pay cycle' %}</label>
+                                    <select class="form-select" name="paw_borrow_method" required >
+                                        <option {% if pawBorrowUpdate.paw_borrow_method == 'day'%} selected value="{{ pawBorrowUpdate.paw_borrow_method }}" {% endif %} value="day">{% translate 'day' %}</option>
+                                        <option {% if pawBorrowUpdate.paw_borrow_method == 'week'%} selected value="{{ pawBorrowUpdate.paw_borrow_method }}" {% endif %}  value="week">{% translate 'week' %}</option>
+                                        <option {% if pawBorrowUpdate.paw_borrow_method == 'month'%} selected value="{{ pawBorrowUpdate.paw_borrow_method }}" {% endif %}  value="month">{% translate 'month' %}</option>
+                                        <option {% if pawBorrowUpdate.paw_borrow_method == 'year'%} selected value="{{ pawBorrowUpdate.paw_borrow_method }}" {% endif %}  value="year">{% translate 'year' %}</option>
+                                    </select>
+                                   </div>
+{#                               ======================== Percentage =============#}
+                               <div class="row  mt-2">
+                                    <div class="col-sm-12  col-md-6">
+                                        <div class="col-sm-12 col-md-12 form-check">
+                                        <span>
+                                            <input type="checkbox" name="is_percentage" id="is_percentage" class="form-check-input is_percentage"
+                                            data-id="percentage"
+                                            {% if pawBorrowUpdate.is_percentage %} checked {% endif %}>
+                                        </span>
+                                        <label class="form-check-label" for="is_percentage">{% translate 'Percentage' %} (%)</label>
+                                       </div>
+                                        <div class="col-sm-12 col-md-12">
+                                            <label class="form-label">{% translate 'Rate' %}</label>
+                                            <div class="input-group">
+                                                <input class="form-control" type="number" name="borrow_rate"   id="paw_rate" {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.borrow_rate }}" {% else %}   value="0"{% endif %}>
+                                                <span class="input-group-text" style="display:none" id="percentage">%</span>
+                                            </div>
+                                            <div class="col-sm-12 col-md-12 mt-2">
+                                            <label class="form-label">{% translate 'Date' %}</label>
+                                            <input type="date" class="form-control" name="date_borrow"
+                                            {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.date_borrow|date:'Y-m-d'}}" {% else %}  value="{{ today|date:'Y-m-d' }}" {% endif %} >
+                                           <div id="hidden" class="hidden">
+                                                <label class="form-label">{% translate 'Date expired borrow' %}</label>
+                                                <input type="date" class="form-control" name="date_expired_borrow" {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.date_borrow|date:'Y-m-d'}}" {% else %}  {% endif %} >
+                                            </div>
+                                            </div>
+                                       </div>
+                                    </div>
+                                      <style>
+                                        .hidden {
+                                          display: none;
+                                        }
+                                      </style>
+                                    <script>
+                                       $(function() {
+                                          $(".is_percentage").on("change", function() {
+                                            $(`#${this.dataset.id}`).toggle(this.checked);
+                                          }).change(); // trigger the change event to initialize the state based on the initial value of the checkbox
+                                        });
+                                    </script>
+                                    <div class="col-sm-12  col-md-6">
+                                        <div class="form-check">
+                                        <span>
+                                            <input class="form-check-input isPrinciple"  type="checkbox" {% if pawBorrowUpdate.is_principle == True %} checked {% else %} {% endif %}name="is_principle" data-id="sbox">
+                                        </span>
+                                        <label class="form-check-label" for="is_percentage">{% translate 'is Principle' %}</label>
+                                       </div>
+                                        <div class="col-sm-12 col-md-12 mt-2" style="display:none" id="sbox">
+                                            <label class="form-label">{% translate 'Pay Principle' %}</label>
+                                            <input class="form-control" type="number" name="paw_borrow_principle_cycle"  {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.paw_borrow_period_principle }}" {% else %} value="0" {% endif %}>
+
+                                            <label class="form-label">{% translate 'Period ' %}</label>
+                                            <input class="form-control" type="number" name="paw_borrow_period_principle"  {% if pawBorrowUpdate %} value="{{ pawBorrowUpdate.paw_borrow_principle_cycle }}" {% else %} value="0" {% endif %}>
+                                       </div>
+                                    </div>
+                                    <script>
+                                       $(function() {
+                                          $(".isPrinciple").on("change", function() {
+                                            $(`#${this.dataset.id}`).toggle(this.checked);
+
+                                              const checked = this.checked;
+                                              $("#show").toggleClass("hidden", !checked);
+                                               $("#hidden").toggleClass("hidden", checked);
+                                          }).change(); // trigger the change event to initialize the state based on the initial value of the checkbox
+                                        });
+                                    </script>
+                                   </div>
+                                   <div class="col-12 w-100 d-flex justify-content-between mt-4">
+                                       {% if  pawBorrowUpdate %}
+                                        <a href="{% url 'paw_borrow_detail' pawBorrowUpdate.id %}" class="btn btn-outline-dark ">{% translate 'Back' %}</a>
+                                       {% else %}
+                                        <a href="{% url 'paw_detail' paw.id %}" class="btn btn-outline-dark ">{% translate 'Back' %}</a>
+                                       {% endif %}
+                                       <button type="submit" class="btn btn-success">{% translate 'Save' %}</button>
+                                   </div>
+                               </div>
+                           </div>
+                    </form>
+            </div>
+            {% if pawBorrowUpdate %}
+            {% else %}
+            <div class="col-sm-12 col-md-4 my-4">
+            <h4 class="text-center my-3">Preview paw</h4>
+                    <a class="nav-link text-decoration-nones ">
+                            <div class="card position-relative" style="max-height: 400px; overflow: hidden;">
+                               <span style="border-radius: 0 0 15px 0"  class="position-absolute p-2 mystyle
+                                    {% if paw.paw_status == 'active' %}
+                                        bg-success  text-white
+                                    {% elif paw.paw_status == 'refunded' %}
+                                        bg-dark  text-white
+                                    {% elif paw.paw_status == 'expired' %}
+                                        bg-danger  text-white
+                                    {% endif %}
+                                    ">{{ paw.paw_status }}</span>
+                                <div class="card-body">
+                                    <div class="">
+                                        <img src="/media/{{ paw.paw_image }}" alt="" class="object-fit-cover" width="100%" height="200px">
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="" title="{{ paw.paw_name}}">
+                                                                                {% if paw.paw_name|length >= 25 %}
+                                                                                    {{ paw.paw_name|slice:":25" }}...
+                                                                                {% else%}
+                                                                                    {{ paw.paw_name}}
+                                                                                {% endif %}
+                                                                            </h5>
+                                        <p><i class="fa fa-user-circle me-1"></i> {{ paw.customer.name|title }} ({{ paw.customer.name_kh|title }})</p>
+                                        <h4 class="text-danger"><span id="value"></span>{{company.main_currency}}</h4>
+                                        <div class="d-flex justify-content-between">
+                                            <p>{% translate 'Rate' %} <span id="rate"></span> <span style="display:none" id="percentage">%</span></p>
+                                            <p class="rounded-pill text-danger p-1"> <span id="dateExpired"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+            var paw_value = document.getElementById('paw_value')
+            var paw_borrow_method = document.getElementById('paw_borrow_method')
+            var is_percentage = document.getElementById('is_percentage')
+            var paw_rate = document.getElementById('paw_rate')
+            var date_borrow = document.getElementById('date_borrow')
+            var is_principle = document.getElementById('is_principle')
+            var paw_borrow_principle_cycle = document.getElementById('paw_borrow_principle_cycle')
+            var paw_borrow_period_principle = document.getElementById('paw_borrow_period_principle')
+            var valid = true;
+
+            // Perform custom validation logic
+
+            if (paw_value.value.trim() === ''){
+                paw_value.classList.add('error');
+                valid = false;
+            } else {
+                paw_value.classList.remove('error');
+            }
+
+            // Perform custom validation logic
+            if (paw_borrow_method.value.trim() === ''){
+                paw_borrow_method.classList.add('error');
+                valid = false;
+            } else {
+                paw_borrow_method.classList.remove('error');
+            }
+
+            // Perform custom validation logic
+
+            if (is_percentage.value.trim() === ''){
+                is_percentage.classList.add('error');
+                valid = false;
+            } else {
+                is_percentage.classList.remove('error');
+            }
+
+            //
+
+            if (paw_rate.value.trim() === ''){
+                paw_rate.classList.add('error');
+                valid = false;
+            } else {
+                paw_rate.classList.remove('error');
+            }
+
+            //
+
+            if (date_borrow.value.trim() === ''){
+                date_borrow.classList.add('error');
+                valid = false;
+            } else {
+                date_borrow.classList.remove('error');
+            }
+            //
+            if (is_principle.value.trim() === ''){
+                is_principle.classList.add('error');
+                valid = false;
+            } else {
+                is_principle.classList.remove('error');
+            }
+            //
+            if (paw_borrow_principle_cycle.value.trim() === ''){
+                paw_borrow_principle_cycle.classList.add('error');
+                valid = false;
+            } else {
+                paw_borrow_principle_cycle.classList.remove('error');
+            }
+            if (paw_borrow_period_principle.value.trim() === ''){
+                paw_borrow_period_principle.classList.add('error');
+                valid = false;
+            } else {
+                paw_borrow_period_principle.classList.remove('error');
+            }
+
+            if(!valid) {
+                event.preventDefault();
+            }
+
+        })
+    })
+</script>
+{% endblock %}
