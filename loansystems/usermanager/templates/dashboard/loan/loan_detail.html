@@ -6,26 +6,29 @@
 {% block content %}
 {% include 'base/navbar.html' %}
 
-<div class="container-lg min-w-full">
-<div class="col-12 p-3 bg-light-subtle shadow my-4">
-            <div class="d-flex justify-content-between">
-                <a href="{% url 'loan' %}" class="text-decoration-none text-dark d-flex align-items-center">
-                <i class="ti-arrow-left mx-2"></i>
-                <p>{% translate "Loan" %}</p>
-                </a>
-                <div class="">
-                    <a class="text-decoration-none text-dark" href="{% url 'loan' %}"><i class="ti-home"></i></a> /
-                    {% translate 'Loan Detail' %}
-                </div>
-            </div>
-        </div>
-   <hr>
+<div class="container">
+  <div class="container py-6">
+    <div class="col-12 p-2 bg-light-subtle drop-shadow-sm rounded-md bg-gray-200">
+      <div class="d-flex justify-content-between text-success-emphasis">
+          <div class="flex justify-start">
+              <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'loan' %}`;" title="Loan list"></button>
+              <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer' %}`" title="Customer list"></button>
+              <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+          </div>
+          <div class="">
+             <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none text-dark" href="{% url 'customer' %}"></a> 
+              {% trans 'Customers' %}
+          </div>
+      </div>
+    </div>
+</div>
+
     <div class="row mt-2" >
     <div class="col-sm-12 col-md-12 ">
         <div class="text-end">
             {% if paybackFilter %}
                 {% else %}
-            <a class="text-decoration-none text-end" href="{% url 'loan_update' loanList.id %}"><i class="ti-pencil"></i></a>
+            <a class="text-decoration-none text-end right-1" href="{% url 'loan_update' loanList.id %}"><i class="ti-pencil btn btn-outline-success h-11 w-11"></i></a>
             {% endif %}
         </div>
     </div>
@@ -359,7 +362,7 @@
                       </div>
                       <div class="modal-footer  justify-content-between">
                         <a class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate 'Cancel' %}</a>
-                        <button class="btn btn-success" type="submit" id="disableSavePayment" onclick="scroll()">{% translate 'Save' %}</button>
+                        <button class="btn btn-success text-green-700" type="submit" id="disableSavePayment" onclick="scroll()">{% translate 'Save' %}</button>
                       </div>
 
                     </form>
@@ -474,7 +477,7 @@
                       </div>
                       <div class="modal-footer  justify-content-between">
                         <a class="btn btn-outline-dark" data-bs-dismiss="modal" href="#">{% translate 'Cancel' %}</a>
-                        <button class="btn btn-success" type="submit" id="disableFullPaid" name="Save" onclick="scroll()">{% translate 'Save' %}</button>
+                        <button class="btn btn-success text-green-800" type="submit" id="disableFullPaid" name="Save" onclick="scroll()">{% translate 'Save' %}</button>
                       </div>
 
                     </form>

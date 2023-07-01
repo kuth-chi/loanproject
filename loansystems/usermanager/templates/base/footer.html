@@ -1,9 +1,9 @@
 
 {% load i18n %}
-<div class="bg-success d-none-print w-full bottom-0 h-[220px] overflow-hidden">
+<div class="bg-success d-none-print bottom-0 h-fit py-4 container overflow-hidden">
 		
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2">
+			<div class="flex flex-col overflow-hidden ">
+				<div class="justify-center">
 					<ul class="list-unstyled list-inline social text-center">
 						<li class="list-inline-item link-info"><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li class="list-inline-item link-info"><a href="#"><i class="fa fa-telegram"></i></a></li>
@@ -14,8 +14,8 @@
 				</div>
 				
 			</div>	
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center text-success-emphasis">
+			<div class="flex flex-col overflow-hidden">
+				<div class="justify-center text-center text-success-emphasis">
 					<p class="text-slate-200">LMS {% translate '© 2023 All right reserved.' %} {% translate 'v' %}{{ lms_version }} by <a class="ml-2" href="https://www.ez-startup.com" target="_blank"> {% translate 'Ez Startup - Team' %}</a> | <a class="text-bg-success-subtle" href="{% url 'support' %}" title="Support">Support</p>
 				</div>
 			</div>	

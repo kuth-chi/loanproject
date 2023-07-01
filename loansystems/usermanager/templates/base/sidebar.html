@@ -1,5 +1,5 @@
 {% load i18n %}
-<div class="sidebar left-0 close">
+<div class="sidebar left-0 close d-none-print transition-all duration-300">
     <div class="logo-details">
         <i class='ti-menu bx-menu'></i>
       <span class="logo_name">{{ company.name }}</span>
@@ -10,9 +10,7 @@
           <i class='ti-home' ></i>
           <span class="link_name">{% translate 'Dashboard' %}</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="{% url 'dashboard' %}">{% translate 'Dashboard' %}</a></li>
-        </ul>
+        
       </li>
       <li>
         <div class="iocn-link">
@@ -110,7 +108,7 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="{% url 'employee_list' %}">
+          <a href="#">
             <i class='ti-settings' ></i>
             <span class="link_name">{% translate 'Setting' %}</span>
           </a>
@@ -124,19 +122,24 @@
 
       <li>
         <div class="iocn-link">
-          <a href="{% url 'employee_list' %}">
+          <a href="#">
             <i class="ti-world"></i>
             <span class="link_name">{% translate 'Language' %}</span>
           </a>
-          <i class='ti-angle-down arrow' ></i>
+            <i class='ti-angle-down arrow'></i>
         </div>
         <ul class="sub-menu">
-           {% get_current_language as LANGAUGE_CODE %}
-                {% get_available_languages as LANGAUGES %}
-                {% get_language_info_list for available_languages as langs  %}
-                {% for lang in langs  %}
-                <li><a href="/{{ lang.code }}/">{{ lang.name_local }}</a></li>
-          {% endfor %}
+            {% get_current_language as LANGAUGE_CODE %}
+            {% get_available_languages as LANGAUGES %}
+            {% get_language_info_list for available_languages as languages  %}
+            {% for language in languages %}
+              <li>
+                <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}"
+                  class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
+                  lang="{{ language.code }}">{{ language.name_local }}
+                </a>
+              </li>
+            {% endfor %}
         </ul>
       </li>
 
@@ -153,7 +156,7 @@
           <div class="job">Web Desginer</div>
         </div>
               <a href="{% url 'logout' %}">
-              <i class='ti-new-window' ></i>
+              <i class='ti-unlock' ></i>
               </a>
           {% endif %}
     </div>

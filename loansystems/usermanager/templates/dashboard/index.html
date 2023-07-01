@@ -340,23 +340,31 @@
             window.scrollTo(0, topOffset);
         });
     </script>
-
-    <!-- End chart -->
     {% endblock %}
-    <div class="text-lg top-0 p-2 mb-10 md:p-4 md:mb-6 text-green-950 shadow shadow-b-lg container-[100%]">
-        <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
-            <h4>{% translate "Dashboard" %}</h4>
-            <div class="">
-                <a class="text-decoration-none text-dark" href="{% url 'dashboard' %}"><i class="ti-home"></i></a> /
-                Dashboard
-            </div>
+    <!-- End chart -->
+
+    <!-- Header -->
+    <div class="container py-6">
+        <div class="col-12 p-2 bg-light-subtle drop-shadow-sm rounded-md bg-gray-400">
+          <div class="d-flex justify-content-between text-success-emphasis">
+              <div class="flex justify-start">
+                  <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "dashboard" %}`;" title="Home"></button>
+                  <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer' %}`" title="Customer list"></button>
+                  <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+              </div>
+              <div class="">
+                 <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none text-slate-700 hover:text-green-900" href="{% url 'customer' %}"> 
+                  {% trans 'Customers' %}</a>
+              </div>
+          </div>
         </div>
     </div>
-    <div class="container-lg">
+
+    <div class="container-xl">
         <div class="row g-4">
                 {# ==================== Invest Volume =================#}
             <div class="col-sm-6 col-lg-4">
-                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-red-300/[.50] border-red-400 ">
+                <div class="card shadow-sm border-1 rounded-md bg-red-300/[.50] border-red-400 ">
                     <div class="card-body">
                             <div class="row">
                                 <div class="col">
@@ -410,7 +418,7 @@
 
                 {# ========================= Principle ===============#}
             <div class="col-sm-6 col-lg-4">
-                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-green-300/[.50] border-green-400">
+                <div class="card shadow-sm border-1 rounded-md bg-green-300/[.50] border-green-400">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
@@ -459,7 +467,7 @@
 
                 {# ===================   Earned ===================== #}
             <div class="col-sm-6 col-lg-4">
-                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-sky-300/[.50] border-sky-400">
+                <div class="card shadow-sm border-1 rounded-md bg-sky-300/[.50] border-sky-400">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
@@ -507,7 +515,7 @@
 
             <!-- Loanees -->
             <div class="col-sm-6 col-lg-6">
-                <div class="card shadow shadow-sm border-1 rounded rounded-md bg-violet-300/[.50] border-violet-400">
+                <div class="card shadow-sm border-1 rounded-md bg-violet-300/[.50] border-violet-400">
                     <div class="card-body">
                             <a class="row text-decoration-none text-dark" href="{% url 'customer' %}">
                                 <div class="col">
@@ -578,7 +586,7 @@
 
             <!-- Chart Analytics -->
             <div class="col-sm-12 col-md-12 mt-4">
-                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md p-3">
+                <div class="card card-body shadow-sm border-1 rounded-md p-3">
                     <div class="row justify-content-between">
                             <div class="col-6 h5 text-gray-500 font-bold">{% translate 'Analytics' %}
                             </div>
@@ -607,7 +615,7 @@
                 </div>
             <!-- Overdue Card -->
             <div class="col-sm-12 col-lg-4 col-md-6 mt-3">
-                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md">
+                <div class="card card-body shadow-sm border-1 rounded-md">
                      <div class="header h5 text-gray-500 font-medium">{% translate 'Overdue' %}</div>
                         <ul class="list-group list-group-flush " style="height: 320px; overflow-y: scroll;">
                             {% if over_due_date_schedule %}
@@ -658,7 +666,7 @@
                 </div>
             <!-- Payback card -->
             <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
-                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md ">
+                <div class="card card-body shadow-sm border-1 rounded-md ">
                     <div class="header h5 text-gray-500 font-medium">{% translate 'Payback' %}</div>
                         <ul class="list-group list-group-flush " style="height: 320px; overflow-y: scroll;">
                                 {% if paybackList %}
@@ -700,7 +708,7 @@
                 </div>
             <!-- Recent activities -->
             <div class="col-sm-12 col-md-12 col-lg-4 mt-3">
-                <div class="card card-body shadow shadow-sm border-1 rounded rounded-md ">
+                <div class="card card-body shadow-sm border-1 rounded-md ">
                 <div class="header h5 text-gray-500 font-medium">{% translate 'Recent Activities' %}</div>
                 <div class="list-group list-group-flush" style="height: 320px; overflow-y: scroll;">
                 {% if activities %}

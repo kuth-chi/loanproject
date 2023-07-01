@@ -142,18 +142,24 @@ getLoan();
     {% endblock %}
 
     {% include 'base/navbar.html' %}
-    <div class="container-lg position-relative min-vh-100">
+    
+    <div class="container-lg position-relative min-vh-100 shadow-md rounded-lg my-6">
         <div class="row  mt-2 ">
-
-        <div class="col-12 p-3 bg-light-subtle shadow my-4">
-            <div class="d-flex justify-content-between">
-                <h4 class="text-uppercase">{% translate "Loan List" %}</h4>
-                <div class="">
-                    <a class="text-decoration-none text-dark" href="{% url 'loan' %}"><i class="ti-home"></i></a> /
-                    loan list
+            <div class="container py-6">
+              <div class="col-12 p-2 bg-light-subtle drop-shadow-sm rounded-md bg-gray-200">
+                <div class="d-flex justify-content-between text-success-emphasis">
+                  <div class="flex justify-start">
+                      <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "dashboard" %}`;" title="Home"></button>
+                      <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer' %}`" title="Customer list"></button>
+                      <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+                  </div>
+                  <div class="">
+                     <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none text-dark" href="{% url 'customer' %}"></a> 
+                      {% trans 'Customers' %}
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
             <div class="position-relative">
                 <div class="row  my-3 justify-content-between pe-2">
                     <div class=" col-10 position-relative" style="max-width: 450px;">
@@ -172,14 +178,13 @@ getLoan();
                     <div class="bg-light not-visible shadow p-2 position-absolute border-top-0 w-100"  style=" z-index: 10; width: 100%" id="result-loan"></div>
                 <hr>
             </div>
-{#        ======================= Table responsive ================#}
+              {#        ======================= Table responsive ================#}
            
                <div class="bg-light-subtle">
                   <div class="table-responsive">
-                    <table class="table  align-middle mb-0 bg-white table-hover rounded-3" id="loanTable">
-                      
+                    <table class="table-auto border-separate border-spacing-2 border border-slate-500" id="loanTable">
                       <thead>
-                        <tr class="text-uppercase">
+                        <tr>
                           <th scope="col">Customer</th>
                           <th scope="col">Overdue</th>
                           <th scope="col">Status</th>
@@ -191,7 +196,7 @@ getLoan();
                       <tbody id="loanTableBody">
                       {% if countPayback %}
                         {% for loan in countPayback  %}
-                              <tr class="box-scale bg-white" id="chk-th">
+                              <tr class="box-scale bg-slate-50 hover:bg-slate-200 transition duration-200 hover:scale-99 rounded-sm" id="chk-th">
                                   <td style="white-space: nowrap; width: 100%;">
                                     <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
                                         <div class="d-flex align-items-center">
@@ -202,7 +207,7 @@ getLoan();
                                                 class="rounded-circle m-1"
                                                 />
                                             <div class="m-sm-2 m-1">
-                                              <p class="fw-bold mb-1 fs-7">{{ loan.name_kh }} ({{ loan.name }})</p>
+                                              <p class="font-medium mb-1 fs-7 text-slate-700">{{ loan.name_kh }} ({{ loan.name }})</p>
                                               <span class="fs-7 text-secondary">{% load humanize %}{{ loan.loan_amount|intcomma }}{{company.main_currency}}</span>
                                               <span class="fs-7 text-secondary">{{ loan.due_date }}</span>
                                             </div>
@@ -213,16 +218,10 @@ getLoan();
                                       {% if loan.status == 'completed' %}
 
                                     {% else %}
-                                      <a href="{% url 'loan_detail' loan.id %}" class="text-decoration-none text-dark">
+                                      <a href="{% url 'loan_detail' loan.id %}" class="">
                                           {% if loan.count_Overdue_date == 0 %}
                                           {% else %}
-                                              <button type="button" class="btn btn-success position-relative">
-                                                  {% load humanize %}{{ loan.total_over_due|intcomma }}{{company.main_currency}}
-                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                                    {{ loan.count_Overdue_date }}
-                                                      <span class="visually-hidden">{% translate 'unread messages' %}</span>
-                                                    </span>
-                                                  </button>
+                                            <div class="text-red-600 border-red-400 font-medium">{% load humanize %}{{ loan.total_over_due|intcomma }}{{ company.main_currency }}</div>
                                           {% endif %}
                                       </a>
                                     {% endif %}
@@ -302,7 +301,7 @@ getLoan();
                 </nav>
             </div>
             </div>
-    </div>
+      </div>
 {#    ================================================= search loan data ==============================#}
     <script>
             const result_box = document.getElementById('result-loan');

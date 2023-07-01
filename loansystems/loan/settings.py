@@ -95,6 +95,22 @@ MIDDLEWARE = [
     "django_browser_reload.middleware.BrowserReloadMiddleware", # reload browser
 ]
 
+# Cache Data
+# Learn more https://docs.djangoproject.com/en/4.1/ref/settings/#caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
+        "TIMEOUT": 60,
+        "OPTIONS": {"MAX_ENTRIES": 1000},
+    },
+    'customer_cache': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'customer_cache_table',
+
+    },
+}
+
 ROOT_URLCONF = 'loan.urls'
 
 TEMPLATES = [
@@ -154,14 +170,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Cache Data
-# Learn more https://docs.djangoproject.com/en/4.1/ref/settings/#caches
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(BASE_DIR, 'cache'),
-    }
-}
+
 
 
 # Internationalization

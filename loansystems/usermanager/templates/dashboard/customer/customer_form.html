@@ -33,21 +33,27 @@
     }
     </style>
     {% include 'base/navbar.html' %}
-    <div class="container-lg">
-    <div class="col-12 p-3 bg-light-subtle shadow my-4">
-            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
-            {% if updateCustomer %}
-                <a href="{% url 'customer-detail' updateCustomer.id %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer detail" %}</a>
-            {% else %}
-                <a href="{% url 'customer'%}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer" %}</a>
-            {% endif %}
-                <div class="">
-                    <a class="text-decoration-none text-dark" href="{% url 'customer' %}"><i class="ti-home"></i></a> /
-                    {% if updateCustomer %} {% translate 'Update Customer' %} {% else %} {% translate 'Create Customer' %} {% endif %}
-                </div>
-            </div>
+     <!-- Header -->
+    <div class="container py-6">
+        <div class="col-12 p-2 bg-light-subtle drop-shadow-sm rounded-md bg-gray-400">
+          <div class="d-flex justify-content-between text-success-emphasis">
+              <div class="flex justify-start">
+                {% if updateCustomer %}
+                  <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer-detail' updateCustomer.id %}`" title="customer.name"></button>
+                  {% else %}
+                  <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer'%}`" title="Customers"></button>
+                {% endif %}
+                  <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url 'customer' %}`" title="Customer list"></button>
+                  <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+              </div>
+              <div class="">
+                 <a class="wrapper" href="/"> <i class="ti-home"></i></a> / <a class="text-decoration-none hover:text-green-900" href="{% url 'customer' %}"> 
+                  {% trans 'Create Customer' %}</a>
+              </div>
+          </div>
         </div>
     </div>
+
     <div class="container-lg">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-12 my-4">

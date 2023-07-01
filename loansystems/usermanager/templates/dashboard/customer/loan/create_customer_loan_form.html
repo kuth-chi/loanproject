@@ -12,28 +12,33 @@
 
 
 <div class="container-lg">
-        <div class="col-12 p-3 bg-light-subtle shadow my-4">
-            <div class="d-flex justify-content-between text-success-emphasis flex-wrap">
-            {% if customerId%}
-                <a href="{% url 'customer-detail' customerId.id  %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer detail" %}</a>
-            {% endif %}
-            {% if customerDetail %}
-            <a href="{% url 'customer-detail' customerDetail.id  %}" class="btn "> <i class="ti-arrow-left mx-2"></i>{% translate "Customer detail" %}</a>
-            {% endif %}
-                <div class="">
-                    <a class="text-decoration-none text-dark" href="{% url 'customer' %}"><i class="ti-home"></i></a> /
-                    Create Loan
-                </div>
+    <!-- Header -->
+    <div class="col-12 bg-light-subtle drop-shadow-sm my-6 rounded-md bg-gray-200">
+        <div class="d-flex justify-content-between text-success-emphasis">
+            <div class="flex justify-start">
+                <button class="h-4 w-4 rounded-full bg-red-500 hover:bg-red-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "dashboard" %}`;"></button>
+                <button class="h-4 w-4 rounded-full bg-orange-500 hover:bg-orange-600 mr-2 shadow-sm" onclick="window.location.href = `{% url "customer" %}`;"></button>
+                <button class="h-4 w-4 rounded-full bg-slate-500 hover:bg-slate-600 shadow-sm" title="Full screen" onclick="toggleFullScreen()"></button>
+            </div>
+            <div class="">
+               <a class="wrapper" href="/" title="home"> <i class="ti-home"></i></a> / <span>
+               {% if loan_id %}
+               {% translate 'Update New Loan' %}
+               {% else %}
+               {% translate 'Create New Loan' %}
+               {% endif %}
+            </span>
             </div>
         </div>
-            <div class="text-center">
-            {% if loan_id %}
-                <h4>{% translate 'Update New Loan' %}</h4>
-                {% else %}
-                <h4>{% translate 'Create New Loan' %}</h4>
-                {% endif %}
-            </div>
+    </div>
         <div class="row justify-content-center mb-5">
+            <h2 class="text-slate-500 text-center text-lg md:text-2xl">
+                {% if loan_id %}
+                {% translate 'Update New Loan' %}
+                {% else %}
+                {% translate 'Create New Loan' %}
+                {% endif %}
+            </h2>
             <div class="col-md-8 bg-light-subtle">
                 <div class="mt-2 d-flex justify-content-center  p-2">
                     <form method="POST" action="" enctype="multipart/form-data">
@@ -56,29 +61,28 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                        <label for="">{% translate 'Payment method' %}</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-9">
-                                        {{ form.loan_cycle_type }}
-                                    </div>
+                                  <div class="col-sm-12 col-md-3">
+                                    <label for="">{% translate 'Payment method' %}</label>
+                                  </div>
+                                  <div class="col-sm-12 col-md-9">
+                                    {{ form.loan_cycle_type }}
+                                  </div>
                                 </div>
-                            </div>                         
-                            
-                            <div class="col-md-12 mt-3">
+                              </div>
+                              
+                              <div class="col-md-12 mt-3">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                        <label class="form-label" for="">{% translate 'Loan term' %}</label>
+                                  <div class="col-sm-12 col-md-3">
+                                    <label class="form-label" for="">{% translate 'Loan term' %}</label>
+                                  </div>
+                                  <div class="col-sm-12 col-md-9">
+                                    <div class="input-group mb-3">
+                                      {{ form.number_of_cycle }}
+                                      <span class="input-group-text" id="loanTerm"></span>
                                     </div>
-                                    <div class="col-sm-12 col-md-9">
-                                        <div class="input-group mb-3">
-{#                                            <input type="number" class="form-control" name="number_of_cycle" required>#}
-                                            {{ form.number_of_cycle }}
-                                            <span class="input-group-text" id="My" ></span>
-                                        </div>
-                                    </div>
+                                  </div>
                                 </div>
-                            </div>
+                              </div>
                             <div class="col-md-12 mt-3">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-3">
@@ -157,26 +161,26 @@
                         <div class=" my-5 d-flex justify-content-between">
                         {% if loan_id %}
                             <div class="pt-options ">
-                                <a href="{% url 'loan_detail' loan_id.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Back' %} </a>
+                                <a href="{% url 'loan_detail' loan_id.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Cancel' %} </a>
                             </div>
                         {% elif customerDetail %}
 
                             <div class="pt-options ">
-                                <a href="{% url 'customer-detail' customerDetail.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Back' %} </a>
+                                <a href="{% url 'customer-detail' customerDetail.id %}" data-toggle="modal" class="btn btn-dark mx-2"> {% translate 'Cancel' %} </a>
                             </div>
                         {% else %}
                             <div class="pt-options ">
-                                <a href="{% url 'customer-detail' customerId.id %}"  class="btn btn-outline-dark mx-2"> {% translate 'Back' %} </a>
+                                <a href="{% url 'customer-detail' customerId.id %}"  class="btn btn-outline-dark mx-2"> {% translate 'Cancel' %} </a>
                             </div>
                         {% endif %}
                             {% if loan_id %}
 
                             <div class="d-flex">
-                                <button type="submit" class="btn btn-success form-control float-sm-end px-5">{% translate 'update' %}</button>
+                                <button type="submit" class="btn btn-success form-control float-sm-end px-2 text-green-700">{% translate 'update' %}</button>
                             </div>
                             {% else %}
                             <div class="d-flex">
-                                <button type="submit" class="btn btn-success form-control float-sm-end px-5">{% translate 'Save' %}</button>
+                                <button type="submit" class="btn btn-success form-control float-sm-end px-2 text-green-700">{% translate 'Save' %}</button>
                             </div>
                             {% endif %}
                         </div>
@@ -185,31 +189,23 @@
             </div>
         </div>
     </div>
-<script>
-        function loanTypeDay() {
-            var x = document.getElementById('Day').value;
-            document.getElementById("My").innerHTML=x;
-        }
-        function loanTypeWeek() {
-            var w = document.getElementById('Week').value;
-            document.getElementById("My").innerHTML=w;
-        }
-        function loanTypeMonth() {
-            var m = document.getElementById('Month').value;
-            document.getElementById("My").innerHTML=m;
-        }
-        function loanType3Month() {
-            var wm = document.getElementById('Quarterly').value;
-            document.getElementById("My").innerHTML=wm;
-        }
-        function loanTypeSemester() {
-            var sm = document.getElementById('semester').value;
-            document.getElementById("My").innerHTML=sm;
-        }
-        function loanTypeYear() {
-            var y = document.getElementById('year').value;
-            document.getElementById("My").innerHTML=y;
-        }
-    </script>
+    
+    <script>
+        // Get the loan cycle type select element
+        const loanCycleTypeSelect = document.querySelector('#id_loan_cycle_type');
+      
+        // Get the loan term span element
+        const loanTermSpan = document.querySelector('#loanTerm');
+      
+        // Add event listener to the select element
+        loanCycleTypeSelect.addEventListener('change', function() {
+          // Get the selected option value
+          const selectedOption = loanCycleTypeSelect.value;
+      
+          // Update the loan term span with the selected value
+          loanTermSpan.textContent = selectedOption;
+        });
+      </script>
+    
     {% include 'base/footer.html' %}
 {% endblock %}

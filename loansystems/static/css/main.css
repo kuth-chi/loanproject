@@ -23,8 +23,9 @@ src: url('/static/fonts/Battambang-Regular.ttf');
 
 body {
     /*font-family: 'Noto Serif Khmer', 'Poppins', serif;*/
-    font-family: 'Battambang', sans-serif;
+    width: 100vw;
     height: 100vh;
+    font-family: 'Battambang', sans-serif;
     overscroll-behavior: none;
 }
 .kh-moul-light {
@@ -413,3 +414,4 @@ padding: 0!important;
 .print-only {
   display: none!important;
 }
+
